@@ -25,7 +25,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 
 $negeriRole = $row_Recordset['negeri'];
 
-$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, dataSekolah.kodSekolah, dataSekolah.namaSekolah, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
+$Recordset4 = $mysqli->query("SELECT dataJudul.judul, dataSekolah.negeri, dataSekolah.kodSekolah, dataSekolah.namaSekolah, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE rekodPemantauan.kodJudul = '$kodJudul' AND dataSekolah.negeri = '$negeriRole'
@@ -341,7 +341,7 @@ $a = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">SENARAI SEKOLAH BAGI JUDUL <? echo strtoupper($rekodPemantauan['namaJudul']); ?></h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">SENARAI SEKOLAH BAGI JUDUL <? echo strtoupper($rekodPemantauan['judul']); ?></h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">

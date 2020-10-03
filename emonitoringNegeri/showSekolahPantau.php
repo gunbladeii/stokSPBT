@@ -24,7 +24,6 @@ $year = date('Y');
     $RID2 = mysqli_fetch_assoc($refID3);
 ?>
 <?php
-//if (!empty($RID2['id'])){echo $RID2['sekolahPantau'];}else{echo 0;}
-echo $negeri;
+if (!empty($RID2['id'])){echo $RID2['sekolahPantau'];}else{echo 0;}
 ?>
 

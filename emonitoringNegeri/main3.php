@@ -453,9 +453,9 @@ $a = 1;
                                       <div class="input-group mb-3">
                                                <select name="jenisAliran" class="custom-select browser-default">
                                                 <option value="" selected>Jenis sekolah..</option>
-                                                 <?php do {?>
-                                                   <option value="<?php echo $dataAliranSekolah['jenisAliran'];?>"><?php if($dataAliranSekolah['jenisAliran']=='SR'){echo 'SEKOLAH RENDAH';}elseif ($dataAliranSekolah['jenisAliran']=='SM') {echo 'SEKOLAH MENENGAH';}elseif ($dataAliranSekolah['jenisAliran']=='PERALIHAN') {echo 'PERALIHAN';}?></option>
-                                                 <? }while ($dataAliranSekolah = mysqli_fetch_assoc($Recordset5));?>
+                                                <option value="SR">SEKOLAH RENDAH</option>
+                                                <option value="SM">SEKOLAH MENENGAH</option>
+                                                <option value="PERALIHAN">PERALIHAN</option>
                                                </select>
                                     </div>
                                 </td>

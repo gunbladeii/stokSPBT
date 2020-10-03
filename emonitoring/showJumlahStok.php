@@ -19,7 +19,7 @@ $date = date('Y-m-d');
 $time = date('H:i:s');
 $year = date('Y');
 
-    $refID3 = $mysqli->query("SELECT id,SUM(bukuStok) AS bukuStok FROM rekodPemantauan");
+    $refID3 = $mysqli->query("SELECT id,SUM(CASE WHEN bukuStok > 0 THEN bukuStok ELSE 0 END) AS bukuStok FROM rekodPemantauan");
     $RID2 = mysqli_fetch_assoc($refID3);
 ?>
 <?php

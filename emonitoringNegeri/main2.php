@@ -94,7 +94,7 @@ $a = 1;
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="main1.php" class="nav-link">Home</a>
+        <a href="index.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -125,7 +125,7 @@ $a = 1;
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../adminSPBT/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Ahmad Taba
@@ -141,7 +141,7 @@ $a = 1;
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../adminSPBT/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Ali Ahmad
@@ -157,7 +157,7 @@ $a = 1;
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../adminSPBT/dist/img/user6-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="dist/img/user6-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Mohd Abu
@@ -202,7 +202,7 @@ $a = 1;
       </li>
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="main1.php">
+        <a class="nav-link" data-toggle="dropdown" href="../index.php">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -218,7 +218,7 @@ $a = 1;
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="main1.php" class="brand-link">
+    <a href="index.php" class="brand-link">
       <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-dark" style="font-family: 'Fugaz One', cursive;">eSPBT 2.0</span>
@@ -239,7 +239,7 @@ $a = 1;
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="main1.php" class="nav-link active">
+            <a href="index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                  eSPBT 2.0 Dashboard
@@ -278,7 +278,7 @@ $a = 1;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="main1.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
               <li class="breadcrumb-item active">eSPBT 2.0 | Pengesanan Stok</li>
             </ol>
           </div><!-- /.col -->
@@ -556,22 +556,22 @@ $a = 1;
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-		    
+  <script type="text/javascript">
+    $(document).ready(function() {
+        
         $('#showJudulList').load('showJudulList.php');
         $('#showUserList').load('showUserList.php'); 
-			setInterval(function () {
-				$('#showAttChart').load('showAttChart.php')
-				$('#showTotalPenerbit').load('showTotalPenerbit.php')
-				$('#showTotalJudul').load('showTotalJudul.php')
-				$('#showTotalPesanan').load('showTotalPesanan.php')
-				$('#showTotalPembekalan').load('showTotalPembekalan.php')
-			  $('#odometer').load('../distiSPBT/liveOdometer.php')
-				$('#attStat').load('../distiSPBT/attStat.php')
-				$('#parcelStat').load('../distiSPBT/parcelStat.php')
-			}, 5000);
-		});
+      setInterval(function () {
+        $('#showAttChart').load('showAttChart.php')
+        $('#showTotalPenerbit').load('showTotalPenerbit.php')
+        $('#showTotalJudul').load('showTotalJudul.php')
+        $('#showTotalPesanan').load('showTotalPesanan.php')
+        $('#showTotalPembekalan').load('showTotalPembekalan.php')
+        $('#odometer').load('../distiSPBT/liveOdometer.php')
+        $('#attStat').load('../distiSPBT/attStat.php')
+        $('#parcelStat').load('../distiSPBT/parcelStat.php')
+      }, 5000);
+    });
 </script>
 <!-- DataTables -->
 <script src="jquery.dataTables.js"></script>

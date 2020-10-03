@@ -479,7 +479,7 @@ $a = 1;
                                                 <option value="<?php echo ($dataSekolah['jawatan']);?>"><?php echo strtoupper($dataSekolah['jawatan']);?></option>
                                                 <?php do {?>
                                                    <option value="<?php echo ($dataJawatan['namaJawatan']);?>"><?php echo strtoupper($dataJawatan['namaJawatan']);?></option>
-                                                <? }while ($dataJawatan = mysqli_fetch_assoc($Recordset3);)?>
+                                                <? }while ($dataJawatan = mysqli_fetch_assoc($Recordset3));?>
                                                </select>
                                       </div>
                                       

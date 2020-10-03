@@ -29,7 +29,7 @@ $Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, dataSekolah.kodSekolah,
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE rekodPemantauan.kodJudul = '$kodJudul' AND dataSekolah.negeri = '$negeriRole'
-  GROUP BY kodJudul");
+  GROUP BY kodSekolah");
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 

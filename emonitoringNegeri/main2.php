@@ -37,7 +37,7 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 $Recordset3 = $mysqli->query("SELECT * FROM dataJawatan");
 $dataJawatan = mysqli_fetch_assoc($Recordset3);
-$totalRows_Recordset2 = mysqli_num_rows($Recordset3);
+$totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
 if (isset($_POST['submit'])) {
     $mysqli->query ("UPDATE `dataSekolah` SET `namaPenyelaras` = '$namaPenyelaras', `noHP` = '$noHP', `tarikhPemantauan` = '$tarikhPemantauan', `namaPegawai1` = '$namaPegawai1',`namaPegawai2` = '$namaPegawai2', `jawatan1` = '$jawatan1', `jawatan2` = '$jawatan2', `remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");

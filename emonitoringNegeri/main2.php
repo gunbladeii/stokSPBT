@@ -18,11 +18,14 @@ if (isset($_SESSION['user'])) {
 
 $kodSekolah = $_GET['kodSekolah'];
 $kodSekolah2 = $_POST['kodSekolah'];
-$namaSekolah = $_POST['namaSekolah'];
-$bukuLebihan = $_POST['bukuLebihan'];
-$kodJudul = $_POST['kodJudul'];
-$comment = $_POST['comment'];
-
+$namaPenyelaras = $_POST['namaPenyelaras'];
+$noHP = $_POST['noHP'];
+$tarikhPemantauan = $_POST['tarikhPemantauan'];
+$namaPegawai1 = $_POST['namaPegawai1'];
+$jawatan1 = $_POST['jawatan1'];
+$namaPegawai2 = $_POST['namaPegawai2'];
+$jawatan2 = $_POST['jawatan2'];
+$remark = $_POST['remark'];
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
@@ -32,22 +35,13 @@ $Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE kodSekolah LIKE '$
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
-$dataJudul = mysqli_fetch_assoc($Recordset3);
+$Recordset3 = $mysqli->query("SELECT * FROM dataJawatan");
+$dataJawatan = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok FROM rekodPemantauan INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul WHERE kodSekolah = '$kodSekolah'");
-$rekodPemantauan = mysqli_fetch_assoc($Recordset4);
-$totalRows_Recordset4 = mysqli_num_rows($Recordset4);
-
 if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul','$bukuLebihan')");
+    $mysqli->query ("UPDATE `dataSekolah` SET `namaPenyelaras` = '$namaPenyelaras', `noHP` = '$noHP', `tarikhPemantauan` = '$tarikhPemantauan', `namaPegawai1` = '$namaPegawai1',`namaPegawai2` = '$namaPegawai2', `jawatan1` = '$jawatan1', `jawatan2` = '$jawatan2', `remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
     header("location:main3.php?kodSekolah=$kodSekolah2");
-    }
-
-if (isset($_POST['submit2'])) {
-    $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment' WHERE `kodSekolah` = '$kodSekolah2'");
-    header("location:main4.php?kodSekolah=$kodSekolah2");
     }
 
 $a = 1;
@@ -79,7 +73,6 @@ $a = 1;
   <!-- summernote -->
   <link rel="stylesheet" href="../adminSPBT/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="styleSearchJudul.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fugaz+One&family=Titan+One&display=swap" rel="stylesheet">
@@ -128,7 +121,7 @@ $a = 1;
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../adminSPBT/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Ahmad Taba
@@ -144,7 +137,7 @@ $a = 1;
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../adminSPBT/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Ali Ahmad
@@ -160,7 +153,7 @@ $a = 1;
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../adminSPBT/dist/img/user6-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="dist/img/user6-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Mohd Abu
@@ -288,19 +281,17 @@ $a = 1;
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-      <div class="modal-footer">
-          <input class="btn btn-danger" type="button" id="btnPrint" value="PDF">
-       </div>
    
-      <section class="content" id="dvContainer">
+      <section class="content">
         <div id="row">
-          <div class="col-md-12">
+        <div class="col-md-12">
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <img src="logo_kpm.png" style="display: block; margin-left: auto; margin-right: auto;">
-                <h2 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;text-align: center;">BORANG PEMANTAUAN PENGURUSAN MAKLUMAT STOK</h2>
-                <h2 class="card-title" style="font-size:14px;text-align: center;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+                <h2 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG PEMANTAUAN PENGURUSAN MAKLUMAT STOK</h2>
+                <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Sila lengkapkan semua maklumat berikut sebelum membuat pengisian maklumat stok buku teks</h4>
+                <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -312,122 +303,210 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
+                        
                           <div class="table-responsive">
-                            <table class="table table-sm">
+                          <form method="post" action="main2.php" role="form" enctype="multipart/form-data">
+                            <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="5" style="text-align: center; background-color: #0d0d0d;"><h5 style="color: white">Maklumat Sekolah</h5></th>
+                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Sekolah</h4></th>
                                 </tr>
                               </thead>
                               <tbody>
+                              
                               <tr>
-                                <td colspan="5">
-                                 <a>Nama Sekolah: <u><?php echo $dataSekolah['namaSekolah'];?></u></a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td colspan="5">
-                                <a>Kod Sekolah: <u><?php echo $dataSekolah['kodSekolah'];?></u></a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td colspan="5">
-                                <a>Daerah: <u><?php echo $dataSekolah['daerah'];?></u></a>
-                                </td>
-                              </tr>
-                              <tr>
-                              <td colspan="5">
-                              <a>Negeri: <u><?php echo $dataSekolah['negeri'];?></u></a>
-                              </td>
-                              </tr>
-                              <tr>
-                              <td colspan="5">
-                              <a>No. Telefon Pejabat: <u><?php echo $dataSekolah['noTelefon'];?></u></a>
-                              </td>
-                              </tr>
-                              <tr>
-                              <td colspan="5">
-                              <a>Nama Guru Penyelaras SPBT: <u><?php echo strtoupper($dataSekolah['namaPenyelaras']);?></u></a>
-                              </td>
-                              </tr>
-                              <tr>
-                              <td colspan="5">
-                              <a>No. Telefon Bimbit: <u><?php echo $dataSekolah['noHP'];?></u></a>
-                              </td>
-                              </tr>
-                              <tr>
-                              <td colspan="5">
-                              <a>Tarikh Pemantauan: <u><?php echo $dataSekolah['tarikhPemantauan'];?></u></a>
-                              </td>
-                              </tr>
-                              <tr>
-                              <td colspan="5">
-                              <a>Nama Pegawai Pemantau: <u><?php echo strtoupper($dataSekolah['namaPegawai1']);?></u></a>
-                              </td>
-                              </tr>
-                              <tr>
-                              <td colspan="5">
-                              <a>Jawatan: <u><?php echo strtoupper($dataSekolah['jawatan1']);?></u></a>
-                              </td>
-                              </tr>
-
-                              <tr>
-                              <td colspan="5">
-                              Nama Pegawai Pengiring: <u><?php echo strtoupper($dataSekolah['namaPegawai2']);?></u>
-                              </td>
-                              </tr>
-
-                              <tr>
-                              <td colspan="5">
-                              Jawatan: <u><?php echo strtoupper($dataSekolah['jawatan2']);?></u>
-                              </td>
-                              </tr>
-                          
-                              <tr>
-                              <?php if(!empty($rekodPemantauan)) {?>
-                              <th colspan="5" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
-                              </tr>
-                              <tr>
-                                <th>Bil</th>
-                                <th>Kod judul</th>
-                                <th>Judul</th>
-                                <th>Naskhah (elok)</th>
-                                <th>Stok (lebihan)</th>
-                              </tr>
-                              <?php do {?>
-                              <tr>
-                                <td><?php echo $a++;?></td>
-                                <td><?php echo strtoupper($rekodPemantauan['kodJudul']);?></td>
-                                <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
-                                <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
-                                <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
-                              </tr>
-                              <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
-                              <?php }?>
-                               <tr>
-                                <th colspan="5" style="text-align: center; background-color: black"><h5 style="color: white">Ulasan Keseluruhan</h5></th>
-                              </tr>
-                              <tr>
-                                <td colspan="5">
-                                  <div class="form-group">
-                                      Ulasan:
+                                <td>
+                                    <div class="form-group">
+                                      Nama Sekolah:
                                       <div class="input-group mb-3">
-                                      <?php echo "<u>".$dataSekolah['comment']."</u>";?>
+                                      <input type="text" name="namaSekolah" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['namaSekolah'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-group">
+                                      Kod Sekolah:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="kod_Sekolah" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['kodSekolah'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                               </tr>
+                               <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      No. Telefon Pejabat:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="noTelefon" class="form-control"  id="validationDefault01" placeholder="Masukkan No. telefon Pejabat" value="<?php echo $dataSekolah['noTelefon'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Daerah:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="daerah" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['daerah'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
                                       </div>
                                     </div>
                                 </td>
                               </tr>
-                            </tbody>
-                          </table>
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Negeri:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="negeri" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['negeri'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Nama Guru Penyelaras SPBT:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      No. Telefon Bimbit:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+                             
+                                 <tr>
+                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Pegawai Pemantau</h4></th>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Tarikh Pemantauan:
+                                      <div class="input-group mb-3">
+                                      <input type="date" name="tarikhPemantauan" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Nama Pegawai Pemantau:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="namaPegawai_1" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($row_Recordset['nama']);?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Jawatan:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="jawatan_1" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($row_Recordset['jawatan']);?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Pegawai Pengiring</h4></th>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Nama Pegawai Pengiring:
+                                      <div class="input-group mb-3">
+                                      <input style="text-transform: uppercase;" type="text" name="namaPegawai2" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Jawatan:
+                                      <div class="input-group mb-3">
+                                               <select name="jawatan2" class="custom-select browser-default">
+                                                <option value="<?php echo ($dataSekolah['jawatan']);?>"><?php echo strtoupper($dataSekolah['jawatan']);?></option>
+                                                <?php do {?>
+                                                   <option value="<?php echo ($dataJawatan['namaJawatan']);?>"><?php echo strtoupper($dataJawatan['namaJawatan']);?></option>
+                                                <? }while ($dataJawatan = mysqli_fetch_assoc($Recordset3));?>
+                                               </select>
+                                      </div>
+                                      
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              </tbody>
+                             </table>
+                                <input type="hidden" name="remark" value="observe">
                                 <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
-                        </div>
-            
+                                <input type="hidden" name="namaPegawai1" value="<?php echo strtoupper($row_Recordset['nama']);?>">
+                                <input type="hidden" name="jawatan1" value="<?php echo strtoupper($row_Recordset['jawatan']);?>">
+                                <div class="modal-footer">
+                                    <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
+                                </div>
+                            </form>
+                          </div>
+                     
         
                 <!-- /.table-responsive -->
               </div>
               </div>
               </div>
-             
+
+                     
  </section>
 </div>
 <!-- ./wrapper -->
@@ -488,69 +567,7 @@ $a = 1;
         $('#attStat').load('../distiSPBT/attStat.php')
         $('#parcelStat').load('../distiSPBT/parcelStat.php')
       }, 5000);
-
-     
     });
-</script>
-<script type="text/javascript">
-            //jQuery extension method:
-    jQuery.fn.filterByText = function(textbox) {
-      return this.each(function() {
-        var select = this;
-        var options = [];
-        $(select).find('option').each(function() {
-          options.push({
-            value: $(this).val(),
-            text: $(this).text()
-          });
-        });
-        $(select).data('options', options);
-
-        $(textbox).bind('change keyup', function() {
-          var options = $(select).empty().data('options');
-          var search = $.trim($(this).val());
-          var regex = new RegExp(search, "gi");
-
-          $.each(options, function(i) {
-            var option = options[i];
-            if (option.text.match(regex) !== null) {
-              $(select).append(
-                $('<option>').text(option.text).val(option.value)
-              );
-            }
-          });
-        });
-      });
-    };
-
-    // You could use it like this:
-
-    $(function() {
-      $('select').filterByText($('#carianJudul'));
-    });
-</script>
-<script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = document.getElementById("myInput2");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
-}
 </script>
 <!-- DataTables -->
 <script src="jquery.dataTables.js"></script>
@@ -569,31 +586,4 @@ function filterFunction() {
   });
 </script>
 </body>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript">
-  $("#btnPrint").live("click", function () {
-  var divContents = $("#dvContainer").html();
-  var printWindow = window.open('', '', 'height=400,width=700');
-  printWindow.document.write('<html><head><title>Laporan Pemantauan Stok</title>');
-  printWindow.document.write('</head>');
-    printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/plugins/fontawesome-free/css/all.min.css">');
-  printWindow.document.write('<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">');
-  printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">');
-  printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/plugins/icheck-bootstrap/icheck-bootstrap.min.css">');
-  printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/plugins/jqvmap/jqvmap.min.css">');
-  printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/dist/css/adminlte.min.css">');
-  printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">');
-  printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/plugins/daterangepicker/daterangepicker.css">');
-  printWindow.document.write('<link rel="stylesheet" href="../adminSPBT/plugins/summernote/summernote-bs4.css">');
-  printWindow.document.write('<link rel="stylesheet" href="styleSearchJudul.css">');
-  printWindow.document.write('<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">');
-  printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">');
-  printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fugaz+One&family=Titan+One&display=swap" rel="stylesheet">');
-  printWindow.document.write('<body>');
-  printWindow.document.write(divContents);
-  printWindow.document.write('</body></html>');
-  printWindow.document.close();
-  printWindow.print();
-    });
-</script>
 </html>

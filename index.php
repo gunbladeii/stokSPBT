@@ -85,16 +85,16 @@ session_start();
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="../adminSPBT/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="adminSPBT/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../adminSPBT/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="adminSPBT/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box shadow p-3 mb-5 bg-white rounded">
   <div class="login-logo">
-  <a href="../../index.php"><img src="img/myspbt_logo_stok.png" class="elevation-3" style="width:60%;opacity: .8"></a>
+  <a href="../../index.php"><img src="emonitoring/img/myspbt_logo_stok.png" class="elevation-3" style="width:60%;opacity: .8"></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -153,9 +153,9 @@ session_start();
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="adminSPBT/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

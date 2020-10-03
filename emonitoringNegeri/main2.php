@@ -476,7 +476,7 @@ $a = 1;
                                       Jawatan:
                                       <div class="input-group mb-3">
                                                <select name="jawatan2" class="custom-select browser-default">
-                                                <option value="<?php echo ($dataSekolah['jawatan']);?>"><?php echo strtoupper($dataSekolah['jawatan']);?></option>
+                                                <option value="<?php echo $dataSekolah['jawatan'];?>"><?php echo strtoupper($dataSekolah['jawatan']);?></option>
                                                 <?php do {?>
                                                    <option value="<?php echo $dataJawatan['namaJawatan'];?>"><?php echo strtoupper($dataJawatan['namaJawatan']);?></option>
                                                 <? }while ($dataJawatan = mysqli_fetch_assoc($Recordset3));?>

@@ -1,7 +1,9 @@
 <?php require('conn.php'); ?>
 <?php
-if (!isset($_SESSION)) {
-  session_start();
+session_start();
+if ($_SESSION['role'] != 'stokNegeri')
+{
+      header('Location:../index.php');
 }
 
 $colname_Recordset = "-1";

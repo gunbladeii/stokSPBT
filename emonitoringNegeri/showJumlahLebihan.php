@@ -22,7 +22,7 @@ $date = date('Y-m-d');
 $time = date('H:i:s');
 $year = date('Y');
 
-    $refID3 = $mysqli->query("SELECT rekodPemantauan.id,SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan FROM rekodPemantauan INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah WHERE dataSekolah.negeri = '$negeri'");
+    $refID3 = $mysqli->query("SELECT rekodPemantauan.id,SUM(CASE WHEN rekodPemantauan.bukuLebihan > 0 THEN rekodPemantauan.bukuLebihan ELSE 0 END) AS bukuLebihan FROM rekodPemantauan INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah WHERE dataSekolah.negeri = '$negeri'");
     $RID2 = mysqli_fetch_assoc($refID3);
 ?>
 <?php

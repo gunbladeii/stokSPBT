@@ -302,6 +302,7 @@ $a = 1;
                                 <th>No</th>
                                 <th>Kod Sekolah</th>
                                 <th>Nama Sekolah</th>
+                                <th>Daerah</th>
                                 <th>Buku Elok</th>
                                 <th>Stok(Lebihan)</th>
                               </tr>
@@ -312,6 +313,7 @@ $a = 1;
                                 <td><?php echo $a++;?></td>
                                 <td><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan['kodSekolah']);?></span></td>
                                 <td><?php echo $rekodPemantauan['namaSekolah'];?></td>
+                                <td><?php echo $rekodPemantauan['daerah'];?></td>
                                 <td><?php echo strtoupper($rekodPemantauan['bukuLebihan']);?></td>
                                 <td><?php echo strtoupper($rekodPemantauan['bukuStok']);?></td>
                               </tr>

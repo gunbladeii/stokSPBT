@@ -13,13 +13,14 @@ $Recordset = $mysqli->query("SELECT * FROM dataSekolah WHERE username = '$colnam
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
+$negeriRole = $row_Recordset['negeri'];
 
 date_default_timezone_set("asia/kuala_lumpur"); 
 $date = date('Y-m-d'); 
 $time = date('H:i:s');
 $year = date('Y');
 
-    $refID3 = $mysqli->query("SELECT id,SUM(bukuStok) AS bukuStok FROM rekodPemantauan");
+    $refID3 = $mysqli->query("SELECT rekodPemantauan.id,SUM(rekodPemantauan.bukuStok) AS bukuStok FROM rekodPemantauan INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah WHERE dataSekolah.negeri = '$negeriRole'");
     $RID2 = mysqli_fetch_assoc($refID3);
 ?>
 <?php

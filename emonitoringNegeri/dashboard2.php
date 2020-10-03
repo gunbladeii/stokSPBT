@@ -280,7 +280,7 @@ $a = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">SENARAI SEKOLAH BAGI JUDUL <?php echo strtoupper($rekodPemantauan['judul']); ?></h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">SENARAI SEKOLAH DIPANTAU BAGI JUDUL <?php echo strtoupper($rekodPemantauan['judul']); ?></h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">

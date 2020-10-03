@@ -476,10 +476,14 @@ $a = 1;
                                       Jawatan:
                                       <div class="input-group mb-3">
                                                <select name="jawatan2" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan'];?>"><?php echo strtoupper($dataSekolah['jawatan']);?></option>
-                                                <?php do {?>
-                                                   <option value="<?php echo $dataJawatan['namaJawatan'];?>"><?php echo strtoupper($dataJawatan['namaJawatan']);?></option>
-                                                <? }while ($dataJawatan = mysqli_fetch_assoc($Recordset3));?>
+                                                <option value="<?php echo $dataSekolah['jawatan'];?>" selected><?php echo strtoupper($dataSekolah['jawatan']);?></option>
+                                                   <option value="PENGARAH">PENGARAH</option>
+                                                   <option value="TIMBALAN PENGARAH KANAN">TIMBALAN PENGARAH KANAN</option>
+                                                   <option value="TIMBALAN PENGARAH">TIMBALAN PENGARAH</option>
+                                                   <option value="KETUA PENOLONG PENGARAH">KETUA PENOLONG PENGARAH</option>
+                                                   <option value="PENOLONG PENGARAH">PENOLONG PENGARAH</option>
+                                                   <option value="PEGAWAI BAHAGIAN">PEGAWAI BAHAGIAN</option>
+                                                   <option value="PEGAWAI JPN/PPD">PEGAWAI JPN/PPD</option>
                                                </select>
                                       </div>
                                       

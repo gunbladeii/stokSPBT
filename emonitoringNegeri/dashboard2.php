@@ -376,7 +376,7 @@ $a = 1;
                                 <td><?php echo strtoupper($rekodPemantauan['bukuLebihan']);?></td>
                                 <td><?php echo strtoupper($rekodPemantauan['bukuStok']);?></td>
                               </tr>
-                              <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
+                              <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                               </tbody>
                             </table>
                           </div>

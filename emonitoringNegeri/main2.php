@@ -476,7 +476,7 @@ $a = 1;
                                       Jawatan:
                                       <div class="input-group mb-3">
                                                <select name="jawatan2" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan'];?>" selected><?php echo strtoupper($dataSekolah['jawatan']);?></option>
+                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan']);?></option>
                                                    <option value="PENGARAH">PENGARAH</option>
                                                    <option value="TIMBALAN PENGARAH KANAN">TIMBALAN PENGARAH KANAN</option>
                                                    <option value="TIMBALAN PENGARAH">TIMBALAN PENGARAH</option>

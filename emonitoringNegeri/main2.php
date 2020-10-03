@@ -313,7 +313,7 @@ $a = 1;
                                 </tr>
                               </thead>
                               <tbody>
-                              <?php //do {?>
+                              
                               <tr>
                                 <td>
                                     <div class="form-group">
@@ -405,7 +405,7 @@ $a = 1;
                                     </div>
                                 </td>
                               </tr>
-                              <?php //} while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
+                             
                                  <tr>
                                   <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Pegawai Pemantau</h4></th>
                                 </tr>

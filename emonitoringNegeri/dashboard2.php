@@ -28,7 +28,7 @@ $negeriRole = $row_Recordset['negeri'];
 $Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, dataSekolah.kodSekolah, dataSekolah.namaSekolah, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-  WHERE dataSekolah.negeri = '$negeriRole'
+  WHERE rekodPemantauan.kodJudul = '$kodJudul' AND dataSekolah.negeri = '$negeriRole'
   GROUP BY kodJudul");
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);

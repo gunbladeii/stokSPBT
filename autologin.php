@@ -1,19 +1,23 @@
-<?php require('adminSPBT/conn.php'); ?>
+<?php require('conn.php'); ?>
 <?php
       session_start();
       function locationHeader()
       {
           if($_SESSION['role'] == "admin")
             {
-                header('Location:adminSPBT/index.php');
+                header('Location:emonitoring/main1.php');
             }
-            else if($_SESSION['role'] == "publisherSPBT")
+            else if($_SESSION['role'] == "stokNegeri")
             {
-            header('Location:publisherSPBT/indexPublisher.php');
+            header('Location:emonitoringNegeri/main1.php');
             }
             else if($_SESSION['role'] == "distiSPBT")
             {
-            header('Location:distiSPBT/index.php');
+            header('Location:index.php');
+            }
+            else if($res["role"] != "admin" || $res["role"] != "distiSPBT" ||$res["role"] != "publisherSPBT")
+            {
+            header('Location:index.php?message=fail');
             }
             else
             {

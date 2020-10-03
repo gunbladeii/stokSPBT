@@ -1,4 +1,4 @@
-<?php require('adminSPBT/conn.php'); ?>
+<?php require('conn.php'); ?>
 <?php
 
 session_start();
@@ -47,21 +47,21 @@ session_start();
                 $_SESSION['user'] = $res['username'];
                 $_SESSION['role'] = $res["role"];
                 $_SESSION['password'] = $res["password"];
-                header('Location:adminSPBT/index.php');
+                header('Location:emonitoring/main1.php');
             }
-            else if($res["role"] == "publisherSPBT")
+            else if($res["role"] == "stokNegeri")
             {
             $_SESSION['user'] = $res['username'];
             $_SESSION['role'] = $res["role"];
             $_SESSION['password'] = $res["password"];
-            header('Location:publisherSPBT/indexPublisher.php');
+            header('Location:emonitoringNegeri/main1.php');
             }
             else if($res["role"] == "distiSPBT")
             {
             $_SESSION['user'] = $res['username'];
             $_SESSION['role'] = $res["role"];
             $_SESSION['password'] = $res["password"];
-            header('Location:distiSPBT/index.php');
+            header('Location:index.php');
             }
             else if($res["role"] != "admin" || $res["role"] != "distiSPBT" ||$res["role"] != "publisherSPBT")
             {
@@ -85,16 +85,16 @@ session_start();
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="adminSPBT/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../adminSPBT/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="adminSPBT/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../adminSPBT/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box shadow p-3 mb-5 bg-white rounded">
   <div class="login-logo">
-  <a href="index.php"><img src="adminSPBT/dist/img/logo_login.png" class="elevation-3" style="width:55%;opacity: .8"></a>
+  <a href="../../index.php"><img src="img/myspbt_logo_stok.png" class="elevation-3" style="width:60%;opacity: .8"></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

@@ -54,15 +54,14 @@ $Recordset6 = $mysqli->query("SELECT * FROM dataJudul WHERE judul LIKE '%$judul2
 $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
-if (isset($_POST['submit2'])) {
-    $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment' WHERE `kodSekolah` = '$kodSekolah2'");
-    header("location:main4.php?kodSekolah=$kodSekolah2");
-    }
+//    $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment' WHERE `kodSekolah` = '$kodSekolah2'");
+    //header("location:main4.php?kodSekolah=$kodSekolah2");
+    //}
 
-if (isset($_POST['submit3'])) {
-    $mysqli->query ("SELECT * FROM dataJudul WHERE WHERE judul LIKE '%$judul%' AND jenisAliran = '$jenisAliran'");
-    header("location:main3.php?kodSekolah=$kodSekolah2&judul=$judul&jenisAliran=$jenisAliran");
-    }
+//if (isset($_POST['submit3'])) {
+    //$mysqli->query ("SELECT * FROM dataJudul WHERE WHERE judul LIKE '%$judul%' AND jenisAliran = '$jenisAliran'");
+   // header("location:main3.php?kodSekolah=$kodSekolah2&judul=$judul&jenisAliran=$jenisAliran");
+    //}
 
 $a = 1;
 ?>

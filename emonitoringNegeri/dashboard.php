@@ -37,7 +37,7 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(rekodPemantauan.bukuStok) AS bukuStok FROM ((rekodPemantauan 
+$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE dataSekolah.negeri = '$negeriRole'
@@ -434,6 +434,7 @@ $b = 1;
                                 <th>No</th>
                                 <th>Kod Judul</th>
                                 <th>Nama Judul</th>
+                                <th>Buku Elok</th>
                                 <th>Stok (Lebihan)</th>
                               </tr>
                               </thead>
@@ -443,6 +444,7 @@ $b = 1;
                                 <td><?php echo $b++;?></td>
                                 <td><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan['kodJudul']);?></span></td>
                                 <td><?php echo $rekodPemantauan['judul'];?></td>
+                                <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
                                 <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>
                               </tr>
                               <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>

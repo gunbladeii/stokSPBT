@@ -25,7 +25,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 
 $negeriRole = $row_Recordset['negeri'];
 
-$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, dataSekolah.kodSekolah, dataSekolah.namaSekolah, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
+$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.daerah, dataSekolah.negeri,rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE rekodPemantauan.kodJudul = '$kodJudul'
@@ -302,6 +302,8 @@ $a = 1;
                                 <th>No</th>
                                 <th>Kod Sekolah</th>
                                 <th>Nama Sekolah</th>
+                                <th>Daerah</th>
+                                <th>Negeri</th>
                                 <th>Buku Elok</th>
                                 <th>Stok(Lebihan)</th>
                               </tr>
@@ -312,6 +314,8 @@ $a = 1;
                                 <td><?php echo $a++;?></td>
                                 <td><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan['kodSekolah']);?></span></td>
                                 <td><?php echo $rekodPemantauan['namaSekolah'];?></td>
+                                <td><?php echo $rekodPemantauan['daerah'];?></td>
+                                <td><?php echo $rekodPemantauan['negeri'];?></td>
                                 <td><?php echo strtoupper($rekodPemantauan['bukuLebihan']);?></td>
                                 <td><?php echo strtoupper($rekodPemantauan['bukuStok']);?></td>
                               </tr>

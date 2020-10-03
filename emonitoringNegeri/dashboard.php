@@ -27,7 +27,9 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE remark = 'observe'");
+$negeriRole = $row_Recordset['negeri'];
+
+$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE remark = 'observe' AND negeri = '$negeriRole'");
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

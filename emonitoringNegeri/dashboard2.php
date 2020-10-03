@@ -16,11 +16,7 @@ if (isset($_SESSION['user'])) {
   $colname_Recordset = $_SESSION['user'];
 }
 
-$kodSekolah = $_GET['kodSekolah'];
-$kodSekolah2 = $_POST['kodSekolah'];
-$namaSekolah = $_POST['namaSekolah'];
-$bukuLebihan = $_POST['bukuLebihan'];
-$kodJudul = $_POST['kodJudul'];
+$kodJudul = $_GET['kodJudul'];
 
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
@@ -29,15 +25,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 
 $negeriRole = $row_Recordset['negeri'];
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE remark = 'observe' AND negeri = '$negeriRole'");
-$dataSekolah = mysqli_fetch_assoc($Recordset2);
-$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
-
-$Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
-$dataJudul = mysqli_fetch_assoc($Recordset3);
-$totalRows_Recordset3 = mysqli_num_rows($Recordset3);
-
-$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
+$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, dataSekolah.kodSekolah, dataSekolah.namaSekolah, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE dataSekolah.negeri = '$negeriRole'
@@ -45,13 +33,7 @@ $Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, rekodPemantauan.kodJudu
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul','$bukuLebihan')");
-    header("location:main3.php?kodSekolah=$kodSekolah2");
-    }
-
 $a = 1;
-$b = 1;
 ?>
 <!DOCTYPE html>
 <html>
@@ -359,60 +341,7 @@ $b = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai sekolah selesai pemantauan</h3>
-                <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                        <?php if($dataSekolah > 0) {?>
-                          <div class="table-responsive">
-                            <table id="example1" class="table m-0">
-                              <thead>
-                              <tr>
-                                <th>No</th>
-                                <th>Kod Sekolah</th>
-                                <th>Nama Sekolah</th>
-                                <th>Negeri</th>
-                                <th>Tindakan</th>
-                                <th>Status</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <?php do {?>
-                              <tr>
-                                <td><?php echo $a++;?></td>
-                                <td><a href="main4.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><span class="badge badge-info"><?php echo strtoupper($dataSekolah['kodSekolah']);?></span></a></td>
-                                <td><?php echo $dataSekolah['namaSekolah'];?></td>
-                                <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
-                                <td><a href="main3.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><i class="far fa-edit"></i></a></td>
-                                <td><i class="far fa-check-circle"></i></td>
-                              </tr>
-                              <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
-                              </tbody>
-                            </table>
-                          </div>
-                      <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
-        
-                <!-- /.table-responsive -->
-              </div>
-              </div>
-              </div>
-
-              <div id="row">
-        <div class="col-md-12">
-           <!-- TABLE: list of publisherSPBT -->
-            <div class="card">
-              <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai judul yang dipantau</h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">SENARAI SEKOLAH BAGI JUDUL <? echo strtoupper($rekodPemantauan['namaJudul']); ?></h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">
@@ -428,35 +357,36 @@ $b = 1;
               <div class="card-body p-0">
                         <?php if($rekodPemantauan > 0) {?>
                           <div class="table-responsive">
-                            <table id="example3" class="table m-0">
+                            <table id="example1" class="table m-0">
                               <thead>
                               <tr>
                                 <th>No</th>
-                                <th>Kod Judul</th>
-                                <th>Nama Judul</th>
+                                <th>Kod Sekolah</th>
+                                <th>Nama Sekolah</th>
                                 <th>Buku Elok</th>
-                                <th>Stok (Lebihan)</th>
+                                <th>Stok(Lebihan)</th>
                               </tr>
                               </thead>
                               <tbody>
                               <?php do {?>
                               <tr>
-                                <td><?php echo $b++;?></td>
-                                <td><a href="dashboard2.php?kodJudul=<?php echo $rekodPemantauan['kodJudul'];?>"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan['kodJudul']);?></span></a></td>
-                                <td><?php echo $rekodPemantauan['judul'];?></td>
-                                <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
-                                <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>
+                                <td><?php echo $a++;?></td>
+                                <td><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan['kodSekolah']);?></span></td>
+                                <td><?php echo $rekodPemantauan['namaSekolah'];?></td>
+                                <td><?php echo strtoupper($rekodPemantauan['bukuLebihan']);?></td>
+                                <td><?php echo strtoupper($rekodPemantauan['bukuStok']);?></td>
                               </tr>
-                              <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
+                              <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
                               </tbody>
                             </table>
                           </div>
-                      <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
+                      <?php ;}else {echo 'Tiada rekod carian';}?>
         
                 <!-- /.table-responsive -->
               </div>
               </div>
               </div>
+              
           </section>
 
 </div>

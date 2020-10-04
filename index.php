@@ -77,7 +77,7 @@ session_start();
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>eSPBT2.0 | Log in</title>
-  <link rel="icon" href="../mySPBT/img/favicon_myspbt.png" type="image/png">
+  <link rel="icon" href="../img/favicon_myspbt.png" type="image/png">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 

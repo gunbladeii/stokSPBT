@@ -1,7 +1,9 @@
 <?php require('conn.php'); ?>
 <?php
-if (!isset($_SESSION)) {
-  session_start();
+session_start();
+if ($_SESSION['role'] != 'admin')
+{
+      header('Location:../index.php');
 }
 
 ?>

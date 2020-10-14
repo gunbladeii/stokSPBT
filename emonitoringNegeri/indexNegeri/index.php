@@ -71,7 +71,7 @@ $a = 1;
 
 					<span class="login100-form-title p-b-40">
 						Halaman Utama <br>(SPBT Negeri)
-						<p>Selamat datang ke sistem mySPBT. Mohon klik pada pautan sistem berkenaan.</p>
+						<p>Selamat datang <strong><?php echo strtoupper($row_Recordset['nama']);?></strong> ke sistem mySPBT. Mohon klik pada pautan sistem berkenaan.</p>
 					</span>
 
 					<div>

@@ -373,7 +373,7 @@ $a = 1;
                                    <div class="form-group">
                                       Nama Pembekal Berjaya:
                                       <div class="input-group mb-3">
-                                      <input type="text" name="namaPembekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($row_Recordset['nama']);?>" readonly required>
+                                      <input type="text" name="namaPembekal" class="form-control"  id="validationDefault01" value="<?php //echo strtoupper($row_Recordset['nama']);?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -387,7 +387,7 @@ $a = 1;
                                    <div class="form-group">
                                       Nilai Sebut Harga (RM):
                                       <div class="input-group mb-3">
-                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($row_Recordset['nama']);?>" readonly required>
+                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="<?php //echo strtoupper($row_Recordset['nama']);?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>

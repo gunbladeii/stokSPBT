@@ -260,7 +260,7 @@ $a = 1;
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="main1.php">Home</a></li>
-              <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan Stok</li>
+              <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan eP-Negeri</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

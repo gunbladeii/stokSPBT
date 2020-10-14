@@ -273,7 +273,7 @@ $a = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">SISTEM PEMANTAUAN PENGURUSAN MAKLUMAT STOK</h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG MAKLUMAT PENGESANAN EP-NEGERI</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">
@@ -288,29 +288,204 @@ $a = 1;
               <!-- /.card-header -->
               <div class="card-body p-0">
                         
-                          <div class="table-responsive">
-                            <form method="post" action="main1.php">
-                            <table id="example1" class="table table-sm">
+                        <div class="table-responsive">
+                          <form method="post" action="main2.php" role="form" enctype="multipart/form-data">
+                            <table id="example1" class="table m-0">
+                              <thead>
+                                <tr>
+                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Sekolah</h4></th>
+                                </tr>
+                              </thead>
                               <tbody>
+                              
                               <tr>
                                 <td>
-                                     <div class="form-group">
-                                      Carian pantas sekolah:
+                                    <div class="form-group">
+                                      Nama Sekolah:
                                       <div class="input-group mb-3">
-                                      <input type="text" name="namaSekolah" class="form-control"  id="validationDefault01" placeholder="Taip kata kunci nama sekolah.." value="" required>
+                                      <input type="text" name="namaSekolah" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['namaSekolah'];?>" readonly required>
                                       <div class="input-group-append input-group-text">
-                                          <span class="fas fa-school"></span>
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-group">
+                                      Kod Sekolah:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="kod_Sekolah" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['kodSekolah'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                               </tr>
+                               <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      No. Telefon Pejabat:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="noTelefon" class="form-control"  id="validationDefault01" placeholder="Masukkan No. telefon Pejabat" value="<?php echo $dataSekolah['noTelefon'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Daerah:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="daerah" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['daerah'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
                                       </div>
                                       </div>
                                     </div>
                                 </td>
                               </tr>
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Negeri:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="negeri" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['negeri'];?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Nama Guru Penyelaras SPBT:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      No. Telefon Bimbit:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+                             
+                                 <tr>
+                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Pegawai Pemantau</h4></th>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Tarikh Pemantauan:
+                                      <div class="input-group mb-3">
+                                      <input type="date" name="tarikhPemantauan" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Nama Pegawai Pemantau:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="namaPegawai_1" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($row_Recordset['nama']);?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Jawatan:
+                                      <div class="input-group mb-3">
+                                      <input type="text" name="jawatan_1" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($row_Recordset['jawatan']);?>" readonly required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Pegawai Pengiring</h4></th>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Nama Pegawai Pengiring:
+                                      <div class="input-group mb-3">
+                                      <input style="text-transform: uppercase;" type="text" name="namaPegawai2" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Jawatan:
+                                      <div class="input-group mb-3">
+                                               <select name="jawatan2" class="custom-select browser-default">
+                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan2']);?></option>
+                                                   <option value="PENGARAH">PENGARAH</option>
+                                                   <option value="TIMBALAN PENGARAH KANAN">TIMBALAN PENGARAH KANAN</option>
+                                                   <option value="TIMBALAN PENGARAH">TIMBALAN PENGARAH</option>
+                                                   <option value="KETUA PENOLONG PENGARAH">KETUA PENOLONG PENGARAH</option>
+                                                   <option value="PENOLONG PENGARAH">PENOLONG PENGARAH</option>
+                                                   <option value="PEGAWAI BAHAGIAN">PEGAWAI BAHAGIAN</option>
+                                                   <option value="PEGAWAI JPN/PPD">PEGAWAI JPN/PPD</option>
+                                               </select>
+                                      </div>
+                                      
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
                               </tbody>
-                            </table>
+                             </table>
+                                <input type="hidden" name="remark" value="observe">
+                                <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
+                                <input type="hidden" name="namaPegawai1" value="<?php echo strtoupper($row_Recordset['nama']);?>">
+                                <input type="hidden" name="jawatan1" value="<?php echo strtoupper($row_Recordset['jawatan']);?>">
                                 <div class="modal-footer">
-                                    <input type="submit" class="btn btn-primary" name="submit" value="Carian sekolah"/>
+                                    <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
                                 </div>
-                          </form>
+                            </form>
                           </div>
                     
         

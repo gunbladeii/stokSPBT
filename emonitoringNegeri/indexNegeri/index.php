@@ -66,17 +66,17 @@ $a = 1;
 			<div class="wrap-login100 p-t-90 p-b-30">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-40">
-						Login
+						Halaman Utama (SPBT Negeri)
 					</span>
 
 					<div>
 						<a href="../main1.php" class="btn-login-with bg1 m-b-10">
-							<i class="fa fa-facebook-official"></i>
+							<i class="fas fa-network-wired"></i>
 							Sistem Pengurusan Stok SPBT
 						</a>
 
 						<a href="../epnegeri.php" class="btn-login-with bg2">
-							<i class="fa fa-twitter"></i>
+							<i class="fas fa-project-diagram"></i>
 							Sistem Pengurusan Perolehan SPBT
 						</a>
 					</div>

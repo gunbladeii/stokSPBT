@@ -26,7 +26,7 @@ $Recordset2 = $mysqli->query("SELECT a.*, (a.itemCode - a.success) as fail FROM 
 $row_Recordset2 = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-mysqli_select_db($database, $eSPBT2.0);
+mysqli_select_db($database, $mySPBT2.0);
 $query_Recordset3 = $mysqli->query("SELECT name FROM stationName WHERE stationCode = '$station' ");
 $row_Recordset3 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);

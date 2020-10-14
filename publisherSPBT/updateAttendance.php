@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "iberkatm_iberkat";
 $password = "shati5620";
-$dbname = "iberkatm_eSPBT2.0";
+$dbname = "iberkatm_mySPBT2.0";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

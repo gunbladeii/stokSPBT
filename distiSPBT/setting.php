@@ -61,7 +61,7 @@ $totalRows_revenue = mysqli_num_rows($revenue);
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>eSPBT2.0 | Dashboard</title>
+  <title>mySPBT2.0 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -223,7 +223,7 @@ $totalRows_revenue = mysqli_num_rows($revenue);
     <a href="index.php" class="brand-link">
       <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-dark">eSPBT2.0</span>
+      <span class="brand-text font-weight-dark">mySPBT2.0</span>
     </a>
 
     <!-- Sidebar -->
@@ -327,7 +327,7 @@ $totalRows_revenue = mysqli_num_rows($revenue);
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">eSPBT2.0 | Conrol Panel</li>
+              <li class="breadcrumb-item active">mySPBT2.0 | Conrol Panel</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

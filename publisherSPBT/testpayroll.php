@@ -82,15 +82,15 @@ if (isset($_SESSION['MM_Username'])) {
   $colname_Recordset = $_SESSION['MM_Username'];
 }
 
-mysql_select_db($database, $eSPBT2.0);
+mysql_select_db($database, $mySPBT2.0);
 $query_Recordset = sprintf("SELECT * FROM login WHERE username = %s", GetSQLValueString($colname_Recordset, "text"));
-$Recordset = mysql_query($query_Recordset, $eSPBT2.0) or die(mysql_error());
+$Recordset = mysql_query($query_Recordset, $mySPBT2.0) or die(mysql_error());
 $row_Recordset = mysql_fetch_assoc($Recordset);
 $totalRows_Recordset = mysql_num_rows($Recordset);
 
-mysql_select_db($database, $eSPBT2.0);
+mysql_select_db($database, $mySPBT2.0);
 $query_Recordset2 = "SELECT * FROM login";
-$Recordset2 = mysql_query($query_Recordset2, $eSPBT2.0) or die(mysql_error());
+$Recordset2 = mysql_query($query_Recordset2, $mySPBT2.0) or die(mysql_error());
 $row_Recordset2 = mysql_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 ?>
@@ -680,7 +680,7 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> Altus Freight Management eSPBT2.0
+                    <i class="fas fa-globe"></i> Altus Freight Management mySPBT2.0
                     <small class="float-right">Date: <?php echo date ("d/m/Y")?></small>
                   </h4>
                 </div>
@@ -691,7 +691,7 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
                 <div class="col-sm-4 invoice-col">
                   From
                   <address>
-                    <strong>AFM, eSPBT2.0</strong><br>
+                    <strong>AFM, mySPBT2.0</strong><br>
                     Ovul Damansara<br>
                     53200, Kuala Lumpur<br>
                     Phone: (60) 123-5432<br>

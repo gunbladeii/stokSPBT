@@ -28,7 +28,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>eSPBT 2.0 | Dashboard</title>
+  <title>mySPBT 2.0 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -194,7 +194,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
     <a href="index.php" class="brand-link">
       <img src="dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-dark" style="font-family: 'Fugaz One', cursive;">eSPBT 2.0</span>
+      <span class="brand-text font-weight-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0</span>
     </a>
 
     <!-- Sidebar -->
@@ -218,7 +218,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
             <a href="index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                 eSPBT 2.0 Dashboard
+                 mySPBT 2.0 Dashboard
                 <!--<i class="right fas fa-angle-left"></i>-->
               </p>
             </a>
@@ -250,13 +250,13 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">eSPBT 2.0 System Dashboard</h1>
+            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 System Dashboard</h1>
             <p>(*All data shown below as of <?php echo $date;?>)</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">eSPBT 2.0 | Dashboard</li>
+              <li class="breadcrumb-item active">mySPBT 2.0 | Dashboard</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

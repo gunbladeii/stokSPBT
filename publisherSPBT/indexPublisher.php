@@ -61,7 +61,7 @@ $a=1;
     
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>eSPBT2.0 | PUBLISHER PAGE</title>
+  <title>mySPBT2.0 | PUBLISHER PAGE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -231,7 +231,7 @@ $a=1;
     <a href="#" class="brand-link">
       <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-dark">eSPBT2.0</span>
+      <span class="brand-text font-weight-dark">mySPBT2.0</span>
     </a>
 
     <!-- Sidebar -->
@@ -480,7 +480,7 @@ $a=1;
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2019 <a href="https://iberkat.my/eSPBT2.0">eSPBT2.0 </a></strong>
+    <strong>Copyright &copy; 2019 <a href="https://iberkat.my/mySPBT2.0">mySPBT2.0 </a></strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0-beta.1

@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/iberkatm/public_html/eSPBT2.0
+    - export DEPLOYPATH=/home/iberkatm/public_html/mySPBT2.0
     - /bin/cp * $DEPLOYPATH

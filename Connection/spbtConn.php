@@ -6,5 +6,5 @@ $hostname = "localhost";
 $database = "iconvess_projekSPBT";
 $username = "iconvess_iconvess";
 $password = "Sh@ti5620";
-$eSPBT2.0 = mysql_pconnect($hostname, $username, $password) or trigger_error(mysql_error(),E_USER_ERROR); 
+$mySPBT2.0 = mysql_pconnect($hostname, $username, $password) or trigger_error(mysql_error(),E_USER_ERROR); 
 ?>

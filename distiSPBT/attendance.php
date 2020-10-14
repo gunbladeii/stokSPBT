@@ -81,9 +81,9 @@ $colname_Recordset = "-1";
 if (isset($_SESSION['MM_Username'])) {
   $colname_Recordset = $_SESSION['MM_Username'];
 }
-mysql_select_db($database, $eSPBT2.0);
+mysql_select_db($database, $mySPBT2.0);
 $query_Recordset = sprintf("SELECT * FROM login WHERE username = %s", GetSQLValueString($colname_Recordset, "text"));
-$Recordset = mysql_query($query_Recordset, $eSPBT2.0) or die(mysql_error());
+$Recordset = mysql_query($query_Recordset, $mySPBT2.0) or die(mysql_error());
 $row_Recordset = mysql_fetch_assoc($Recordset);
 $totalRows_Recordset = mysql_num_rows($Recordset);
 

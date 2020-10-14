@@ -65,7 +65,7 @@ $a = 1;
 		<div class="container-login200">
 			<div class="wrap-login200 p-t-90 p-b-30">
 				<form class="login200-form validate-form">
-					<span class="login200-form-title p-b-40">
+					<span class="login100-form-title p-b-40">
 						Halaman Utama (SPBT Negeri)
 					</span>
 

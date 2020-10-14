@@ -35,7 +35,7 @@ $a = 1;
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>mySPBT 2.0 | Dashboard eP-Negeri</title>
+  <title>mySPBT 2.0 | Dashboard SH-Negeri</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -260,7 +260,7 @@ $a = 1;
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="main1.php">Home</a></li>
-              <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan eP-Negeri</li>
+              <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan SH-Negeri</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -273,7 +273,7 @@ $a = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG MAKLUMAT PENGESANAN EP-NEGERI</h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG MAKLUMAT PENGESANAN SH-NEGERI</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">

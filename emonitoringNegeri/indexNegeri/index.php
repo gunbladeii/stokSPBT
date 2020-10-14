@@ -62,8 +62,8 @@ $a = 1;
 <body>
 	
 	<div class="limiter">
-		<div class="container-login200">
-			<div class="wrap-login100 p-t-90 p-b-30">
+		<div class="container-login100">
+			<div class="wrap-login200 p-t-90 p-b-30">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-40">
 						<a href="../../logout.php"><img src="../img/myspbt_logo.png" style="max-width: 35%; max-height: 25%"></a>

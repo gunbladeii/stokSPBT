@@ -71,7 +71,7 @@ $a = 1;
 
 					<span class="login100-form-title p-b-40">
 						Halaman Utama <br>(SPBT Negeri)
-						<p><ins>Selamat datang ke sistem mySPBT. Mohon klik pada pautan sistem berkenaan.</ins></p>
+						<p>Selamat datang ke sistem mySPBT. Mohon klik pada pautan sistem berkenaan.</p>
 					</span>
 
 					<div>

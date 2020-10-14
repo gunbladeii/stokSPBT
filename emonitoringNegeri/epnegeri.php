@@ -254,7 +254,7 @@ $a = 1;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 System Dashboard</h1>
+            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 Pengesanan Sebut Harga-Negeri</h1>
             <p>(*All data shown below as of <?php echo $date;?>)</p>
           </div><!-- /.col -->
           <div class="col-sm-6">

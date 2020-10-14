@@ -70,14 +70,14 @@ $a = 1;
 					</span>
 
 					<div>
-						<a href="#" class="btn-login-with bg1 m-b-10">
+						<a href="../main1.php" class="btn-login-with bg1 m-b-10">
 							<i class="fa fa-facebook-official"></i>
-							Capaian ke Sistem Pengurusan Stok SPBT
+							Sistem Pengurusan Stok SPBT
 						</a>
 
-						<a href="#" class="btn-login-with bg2">
+						<a href="../epnegeri.php" class="btn-login-with bg2">
 							<i class="fa fa-twitter"></i>
-							Capaian ke Sistem Pengurusan Perolehan SPBT
+							Sistem Pengurusan Perolehan SPBT
 						</a>
 					</div>
 				</form>

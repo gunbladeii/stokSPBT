@@ -66,7 +66,7 @@ $a = 1;
 			<div class="wrap-login200 p-t-90 p-b-30">
 				<form class="login200-form validate-form">
 					<span class="login100-form-title p-b-40">
-						<a href="../../index.php"><img src="../img/myspbt_logo.png" style="max-width: 35%; max-height: 25%"></a>
+						<a href="../../logout.php"><img src="../img/myspbt_logo.png" style="max-width: 35%; max-height: 25%"></a>
 					</span>
 
 					<span class="login100-form-title p-b-40">

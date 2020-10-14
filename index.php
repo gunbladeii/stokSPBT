@@ -54,7 +54,7 @@ session_start();
             $_SESSION['user'] = $res['username'];
             $_SESSION['role'] = $res["role"];
             $_SESSION['password'] = $res["password"];
-            header('Location:emonitoringNegeri/main1.php');
+            header('Location:emonitoringNegeri/indexNegeri/index.php');
             }
             else if($res["role"] == "distiSPBT")
             {

@@ -9,7 +9,7 @@
             }
             else if($_SESSION['role'] == "stokNegeri")
             {
-            header('Location:emonitoringNegeri/main1.php');
+            header('Location:emonitoringNegeri/indexNegeri/index.php');
             }
             else if($_SESSION['role'] == "distiSPBT")
             {

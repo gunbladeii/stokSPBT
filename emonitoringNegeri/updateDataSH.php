@@ -10,7 +10,7 @@
       $colname_Recordset = $_SESSION['user'];
     }
 
-    $namaPembekal2 = $_GET['namaPembekal'];
+    $id = $_GET['id'];
     $username = $_POST['username'];
     $negeri = $_POST['negeri'];
     $tarikhSHSBegin = $_POST['tarikhSHSBegin'];
@@ -41,7 +41,7 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE namaPembekal = '$namaPembekal2'");
+    $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE id = '$id'");
     $dataSH = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

@@ -113,6 +113,26 @@ $a = 1;
       <!-- /.modal -->
     <!-- End submitDataSH Modal -->
 
+<!-- Begin updateDataSH Modal -->
+      <div class="modal fade" id="updateDataSHModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Kemaskini Rekod Daftar Sebut Harga</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="dash2"></div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- End updateDataSH Modal -->
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -342,7 +362,7 @@ $a = 1;
                           
                           <div class="table-responsive">
                           <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
-                            <table id="example1" class="table m-0">
+                            <table class="table m-0">
                               <thead>
                                 <tr>
                                   <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR REKOD SEBUT HARGA</h4></th>
@@ -351,14 +371,41 @@ $a = 1;
                               <tbody>
                               
                                 <tr>
-                                  <td>
-                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-lg active" role="button" aria-pressed="true">DAFTAR REKOD PENGESANAN-SH</a>
+                                  <td style="text-align: center;">
+                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DAFTAR REKOD PENGESANAN-SH</a>
                                 </td>
                                 </tr>
 
                               </tbody>
                              </table>
                             </form>
+
+                            <?php if(!empty($dataSH)){?>
+                              <table id="example1" class="table m-0">
+                              <thead>
+                                <tr>
+                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              
+                                <tr>
+                                  <th>Bil</th>
+                                  <th>Nama Pembekal</th>
+                                  <th>Tarikh Mula Sebut Harga</th>
+                                </tr>
+
+                                <tr>
+                                  <td><?php echo $a++;?></td>
+                                  <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
+                                  <td><?php echo $dataSH['tarikhSHSBegin'];?></td>
+                                </tr>
+
+                              </tbody>
+                             </table>
+                            <?php }?>
+
+
                           </div>
                               <script>
                                   $(document).ready(function() {
@@ -467,6 +514,27 @@ $a = 1;
                 success: function (data) {
                     console.log(data);
                     modal.find('.dash1').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+
+    $('#updateDataSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'namaPembekal=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "updateDataSH.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash2').html(data);
                 },
                 error: function(err) {
                     console.log(err);

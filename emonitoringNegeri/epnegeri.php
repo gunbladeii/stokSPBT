@@ -103,7 +103,7 @@ $a = 1;
                 <span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-              <div id="dash1"></div>
+              <div class="dash1"></div>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -352,7 +352,7 @@ $a = 1;
                               
                                 <tr>
                                   <td>
-                                   <button class="badge badge-warning" data-toggle="modal" data-target="#submitDataSHModal">KLIK UNTUK DAFTAR REKOD</button>
+                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-lg active" role="button" aria-pressed="true">DAFTAR REKOD PENGESANAN-SH</a>
                                 </td>
                                 </tr>
 
@@ -436,8 +436,6 @@ $a = 1;
   crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-		    
-        $('#dash1').load('submitDataSH.php');
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
 				$('#showAttChart').load('showAttChart.php')
@@ -451,6 +449,32 @@ $a = 1;
 			}, 5000);
 		});
 </script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $('#submitDataSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'username=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "submitDataSH.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash1').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>
+
 <!-- DataTables -->
 <script src="jquery.dataTables.js"></script>
 <script src="dataTables.bootstrap4.js"></script>

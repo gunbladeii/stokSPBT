@@ -464,7 +464,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Naskhah dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahPesan" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['bilNaskhahPesan']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahPesan" class="form-control"  id="bilNaskhahPesan" value="<?php echo strtoupper($dataSH['bilNaskhahPesan']);?>">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -478,7 +478,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Naskhah Telah dibekal:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['bilNaskhahBekal']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahBekal" class="form-control"  id="bilNaskhahBekal" value="<?php echo strtoupper($dataSH['bilNaskhahBekal']);?>">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -492,7 +492,7 @@ $a = 1;
                                    <div class="form-group">
                                       Peratus Pembekalan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="text" name="peratusBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['peratusBekal']);?>">
+                                      <input style="text-transform: uppercase;" type="text" name="peratusBekal" class="form-control"  id="peratusBekal" value="<?php echo strtoupper($dataSH['peratusBekal']);?>">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>

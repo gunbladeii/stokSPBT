@@ -48,12 +48,12 @@ $remark = $_POST['remark'];
 
 if (isset($_POST['submit'])) {
     $mysqli->query ("INSERT INTO `dataSH` (`username`,`tarikhSHSBegin`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`. `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`. `statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$tarikhSHSBegin','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
-    header("location:epnegeri2.php");
+    header("location:epnegeri.php");
     }
 
 if (isset($_POST['update'])) {
     $mysqli->query ("UPDATE `dataSH` SET `$tarikhSHSBegin` = 'tarikhSHSBegin',`$tarikhBukaSH` = 'tarikhBukaSH',`$tarikhTutupSH` = 'tarikhTutupSH',`$tarikhPenilaianSH` = 'tarikhPenilaianSH',`$tarikhSSTSH` = 'tarikhSSTSH',`$namaPembekal` = 'namaPembekal',`$nilaiSH` = 'nilaiSH',`$tarikhCO` = 'tarikhCO',`$bilJudulPesan` = 'bilJudulPesan',`$bilNaskhahPesan` = 'bilNaskhahPesan',`$bilNaskhahBekal` = 'bilNaskhahBekal',`$peratusBekal` = 'peratusBekal',`$statusBekal` = 'statusBekal',`$statusTuntut` = 'statusTuntut',`$statusBayar` = 'statusBayar',`$remark` = 'remark' WHERE `username` = '$username'");
-    header("location:epnegeri2.php");
+    header("location:epnegeri.php");
     }
 
 $a = 1;
@@ -320,7 +320,7 @@ $a = 1;
               <div class="card-body p-0">
                         <?php if (!empty($dataSSH['username'])){?>
                         <div class="table-responsive">
-                          <form method="post" action="epnegeri2.php" role="form" enctype="multipart/form-data">
+                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
                             <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
@@ -568,7 +568,7 @@ $a = 1;
 
                           <?php {?>
                           <div class="table-responsive">
-                          <form method="post" action="epnegeri2.php" role="form" enctype="multipart/form-data">
+                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
                             <table id="example1" class="table m-0">
                               <thead>
                                 <tr>

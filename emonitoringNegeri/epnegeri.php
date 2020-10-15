@@ -352,7 +352,7 @@ $a = 1;
                               
                                 <tr>
                                   <td>
-                                   <button class="badge badge-warning" data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>">KLIK UNTUK DAFTAR REKOD</button>
+                                   <button class="badge badge-warning" data-toggle="modal" data-target="#submitDataSHModal">KLIK UNTUK DAFTAR REKOD</button>
                                 </td>
                                 </tr>
 
@@ -467,32 +467,5 @@ $a = 1;
     });
   });
 </script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script>
-    /*updatePesananJudul*/
-    $('#submitDataSHModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
-          //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'username=' + recipient;//+ '&' + 'kodSekolah=' + recipient2;
-
-            $.ajax({
-                type: "GET",
-                url: "submitDataSH.php",
-                data: dataString,
-                cache: false,
-                success: function (data) {
-                    console.log(data);
-                    modal.find('.dash1').html(data);
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
-    })
- </script>
 </body>
 </html>

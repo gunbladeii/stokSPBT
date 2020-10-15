@@ -396,14 +396,14 @@ $a = 1;
                                   <th>Nilai Sebut Harga (RM)</th>
                                 </tr>
 
+                                <?php do {?>
                                 <tr>
-                                  <?php do {?>
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo number_format($dataSH['nilaiSH']);?></td>
-                                  <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
                                 </tr>
+                                <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 
                               </tbody>
                              </table>

@@ -378,7 +378,7 @@ $a = 1;
                 <span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-              <div class="dash1"></div>
+              <div id="dash1"></div>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -435,7 +435,7 @@ $a = 1;
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    
-        $('#showJudulList').load('showJudulList.php');
+        $('#dash1').load('submitDataSH.php');
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
 				$('#showAttChart').load('showAttChart.php')

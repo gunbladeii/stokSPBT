@@ -399,7 +399,7 @@ $a = 1;
                                 <tr>
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
-                                  <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
+                                  <td><?php echo date_format($dataSH['tarikhSHSBegin'],"d-m-Y");?></td>
                                   <td><?php echo number_format($dataSH['nilaiSH']);?></td>
                                 </tr>
 

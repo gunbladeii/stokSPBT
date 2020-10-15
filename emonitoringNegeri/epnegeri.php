@@ -808,6 +808,27 @@ $a = 1;
                                 </div>
                             </form>
                           </div>
+                              <script>
+                                  $(document).ready(function() {
+                                  //this calculates values automatically 
+                                  sum();
+                                  $("#bilNaskhahBekal").on("keydown keyup", function() {
+                                      sum();
+                                  });
+
+                                  function sum() {
+                                          var num1 = document.getElementById('bilNaskhahBekal').value;
+                                          var num2 = document.getElementById('bilNaskhahPesan').value;
+                                    var result1 = parseInt(num1) / parseInt(num2);
+                                    var result = parseInt(result1) * 100;
+                                          if (!isNaN(result)) 
+                                          {
+                                      document.getElementById('peratusBekal').value = result;
+                                          }
+                                          
+                                      }
+                                  });
+                             </script>
                           <?php }?>
                     
         
@@ -821,27 +842,6 @@ $a = 1;
 </div>
 <!-- ./wrapper -->
 
-<script>
-    $(document).ready(function() {
-    //this calculates values automatically 
-    sum();
-    $("#bilNaskhahBekal").on("keydown keyup", function() {
-        sum();
-    });
-
-    function sum() {
-            var num1 = document.getElementById('bilNaskhahBekal').value;
-            var num2 = document.getElementById('bilNaskhahPesan').value;
-      var result1 = parseInt(num1) / parseInt(num2);
-      var result = parseInt(result1) * 100;
-            if (!isNaN(result)) 
-            {
-        document.getElementById('peratusBekal').value = result;
-            }
-            
-        }
-    });
-   </script>
 
 <!-- jQuery -->
 <script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>

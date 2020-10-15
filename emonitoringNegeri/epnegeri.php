@@ -305,7 +305,7 @@ $a = 1;
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
-                Dashboard (Pengurusan Stok)
+                Dashboard
               </p>
             </a>
           </li>

@@ -331,7 +331,7 @@ $a = 1;
                               
                                 <tr>
                                   <td>
-                                   <button class="badge badge-warning" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>">KLIK UNTUK DAFTAR REKOD</button>
+                                   <button class="badge badge-warning" data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>">KLIK UNTUK DAFTAR REKOD</button>
                                 </td>
                                 </tr>
 

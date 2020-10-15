@@ -813,7 +813,7 @@ $a = 1;
                                   $(document).ready(function() {
                                   //this calculates values automatically 
                                   sum();
-                                  $("#bilNaskhahBekal").on("keydown keyup", function() {
+                                  $("#bilNaskhahBekal,#bilNaskhahPesan").on("keydown keyup", function() {
                                       sum();
                                   });
 

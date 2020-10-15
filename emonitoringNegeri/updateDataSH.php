@@ -33,17 +33,13 @@
     header("location:epnegeri.php");
     }
 
-    $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
-    $row_Recordset = mysqli_fetch_assoc($Recordset);
-    $totalRows_Recordset = mysqli_num_rows($Recordset);
-
     $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE namaPembekal = '$namaPembekal2'");
     $dataSH = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 ?>                   
                         <div class="table-responsive">
-                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
+                          <form method="post" action="updateDataSH.php" role="form" enctype="multipart/form-data">
                             <table id="example1" class="table m-0">
                               <thead>
                                 <tr>

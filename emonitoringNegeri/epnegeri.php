@@ -566,7 +566,7 @@ $a = 1;
                           </div>
                           <?php }?>
 
-                          <?php if($dataSH['username'] == NULL){?>
+                          <?php if(empty($dataSH['username'])){?>
                           <div class="table-responsive">
                           <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
                             <table id="example1" class="table m-0">

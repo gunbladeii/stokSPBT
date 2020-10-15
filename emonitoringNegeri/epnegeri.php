@@ -318,7 +318,7 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                        <?php if (!empty($dataSSH)){?>
+                        <?php if (!empty($dataSH)){?>
                         <div class="table-responsive">
                           <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
                             <table id="example1" class="table m-0">

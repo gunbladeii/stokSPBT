@@ -562,6 +562,27 @@ $a = 1;
                                 <div class="modal-footer">
                                     <input type="submit" class="btn btn-info" name="update" value="Kemaskini rekod"/>
                                 </div>
+                                <script>
+                                  $(document).ready(function() {
+                                  //this calculates values automatically 
+                                  sum();
+                                  $("#bilNaskhahBekal,#bilNaskhahPesan").on("keydown keyup", function() {
+                                      sum();
+                                  });
+
+                                  function sum() {
+                                          var num1 = document.getElementById('bilNaskhahBekal').value;
+                                          var num2 = document.getElementById('bilNaskhahPesan').value;
+                                    var result1 = parseInt(num1) / parseInt(num2);
+                                    var result = (parseFloat(result1) * 100).toFixed(2);
+                                          if (!isNaN(result)) 
+                                          {
+                                      document.getElementById('peratusBekal').value = result;
+                                          }
+                                          
+                                      }
+                                  });
+                             </script>
                             </form>
                           </div>
                           <?php }?>

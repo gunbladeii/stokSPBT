@@ -821,7 +821,7 @@ $a = 1;
                                           var num1 = document.getElementById('bilNaskhahBekal').value;
                                           var num2 = document.getElementById('bilNaskhahPesan').value;
                                     var result1 = parseInt(num1) / parseInt(num2);
-                                    var result = parseInt(result1) * 100;
+                                    var result = parseFloat(result1) * 100;
                                           if (!isNaN(result)) 
                                           {
                                       document.getElementById('peratusBekal').value = result;

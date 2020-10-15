@@ -92,6 +92,27 @@ $a = 1;
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
+
+<!-- Begin submitDataSH Modal -->
+      <div class="modal fade" id="submitDataSHModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Daftar Rekod Pengesanan Sebut Harga</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div id="dash1"></div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- End submitDataSH Modal -->
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -368,25 +389,6 @@ $a = 1;
 
                      
  </section>
- <!-- Begin submitDataSH Modal -->
-      <div class="modal fade" id="submitDataSHModal">
-        <div class="modal-dialog">
-          <div class="modal-content bg-light">
-            <div class="modal-header">
-              <h4 class="modal-title">Daftar Rekod Pengesanan Sebut Harga</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-              <div id="dash1"></div>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-    <!-- End submitDataSH Modal -->
 
 </div>
 <!-- ./wrapper -->

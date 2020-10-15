@@ -368,9 +368,7 @@ $a = 1;
 
                      
  </section>
-</div>
-<!-- ./wrapper -->
-<!-- Begin submitDataSH Modal -->
+ <!-- Begin submitDataSH Modal -->
       <div class="modal fade" id="submitDataSHModal">
         <div class="modal-dialog">
           <div class="modal-content bg-light">
@@ -389,6 +387,9 @@ $a = 1;
       </div>
       <!-- /.modal -->
     <!-- End submitDataSH Modal -->
+
+</div>
+<!-- ./wrapper -->
 
 <!-- jQuery -->
 <script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>

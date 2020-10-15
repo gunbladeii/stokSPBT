@@ -23,15 +23,39 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSSH WHERE username = '$colname_Recordset'");
-$dataSSH = mysqli_fetch_assoc($Recordset2);
+$Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$colname_Recordset'");
+$dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$namaSekolah = $_POST['namaSekolah'];
+$username = $_POST['username'];
+$negeri = $_POST['negeri'];
+$tarikhSHSBegin = $_POST['tarikhSHSBegin'];
+$tarikhBukaSH = $_POST['tarikhBukaSH'];
+$tarikhTutupSH = $_POST['tarikhTutupSH'];
+$tarikhPenilaianSH = $_POST['tarikhPenilaianSH'];
+$tarikhSSTSH = $_POST['tarikhSSTSH'];
+$namaPembekal = $_POST['namaPembekal'];
+$nilaiSH = $_POST['nilaiSH'];
+$tarikhCO = $_POST['tarikhCO'];
+$bilJudulPesan = $_POST['bilJudulPesan'];
+$bilNaskhahPesan = $_POST['bilNaskhahPesan'];
+$bilNaskhahBekal = $_POST['bilNaskhahBekal'];
+$peratusBekal = $_POST['peratusBekal'];
+$statusBekal = $_POST['statusBekal'];
+$statusTuntut = $_POST['statusTuntut'];
+$statusBayar = $_POST['statusBayar'];
+$remark = $_POST['remark'];
+
 if (isset($_POST['submit'])) {
-    $mysqli->query ("SELECT * FROM dataSekolah WHERE namaSekolah LIKE '$namaSekolah'");
-    header("location:searching.php?namaSekolah=$namaSekolah");
+    $mysqli->query ("INSERT INTO `dataSH` (`username`,`tarikhSHSBegin`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`. `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`. `statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$tarikhSHSBegin','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
+    header("location:main3.php?kodSekolah=$kodSekolah2");
     }
+
+if (isset($_POST['update'])) {
+    $mysqli->query ("UPDATE `dataSH` SET `$tarikhSHSBegin` = 'tarikhSHSBegin',`$tarikhBukaSH` = 'tarikhBukaSH',`$tarikhTutupSH` = 'tarikhTutupSH',`$tarikhPenilaianSH` = 'tarikhPenilaianSH',`$tarikhSSTSH` = 'tarikhSSTSH',`$namaPembekal` = 'namaPembekal',`$nilaiSH` = 'nilaiSH',`$tarikhCO` = 'tarikhCO',`$bilJudulPesan` = 'bilJudulPesan',`$bilNaskhahPesan` = 'bilNaskhahPesan',`$bilNaskhahBekal` = 'bilNaskhahBekal',`$peratusBekal` = 'peratusBekal',`$statusBekal` = 'statusBekal',`$statusTuntut` = 'statusTuntut',`$statusBayar` = 'statusBayar',`$remark` = 'remark' WHERE `username` = '$username'");
+    header("location:main4.php?kodSekolah=$kodSekolah2");
+    }
+
 $a = 1;
 ?>
 <!DOCTYPE html>
@@ -309,7 +333,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Sebut Harga Bermula:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhSHSBegin" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhSHSBegin" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['tarikhSHSBegin'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -322,7 +346,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Buka Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhBukaSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhBukaSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['tarikhBukaSH'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -335,7 +359,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Tutup Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhTutupSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhTutupSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['tarikhTutupSH'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -348,7 +372,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Penilaian Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhPenilaianSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhPenilaianSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['tarikhPenilaianSH'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -361,7 +385,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Surat Setuju Terima:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhSSTSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhSSTSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['tarikhSSTSH'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -379,7 +403,7 @@ $a = 1;
                                    <div class="form-group">
                                       Nama Pembekal Berjaya:
                                       <div class="input-group mb-3">
-                                      <input type="text" name="namaPembekal" class="form-control"  id="validationDefault01" value="<?php //echo strtoupper($row_Recordset['nama']);?>" required>
+                                      <input type="text" name="namaPembekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['namaPembekal']);?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -393,7 +417,7 @@ $a = 1;
                                    <div class="form-group">
                                       Nilai Sebut Harga (RM):
                                       <div class="input-group mb-3">
-                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="<?php //echo strtoupper($row_Recordset['nama']);?>" required>
+                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['nilaiSH']);?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -407,7 +431,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh C/O Dikeluarkan:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['tarikhCO'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -425,7 +449,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Judul dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['bilJudulPesan']);?>">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -439,7 +463,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Naskhah dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahPesan" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahPesan" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['bilNaskhahPesan']);?>">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -453,7 +477,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Naskhah Telah dibekal:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['bilNaskhahBekal']);?>">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -467,7 +491,7 @@ $a = 1;
                                    <div class="form-group">
                                       Peratus Pembekalan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="text" name="peratusBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="text" name="peratusBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSH['peratusBekal']);?>">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -482,7 +506,7 @@ $a = 1;
                                       Status Pembekalan:
                                       <div class="input-group mb-3">
                                                <select name="statusBekal" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan2']);?></option>
+                                                <option value="<?php echo $dataSH['statusBekal'];?>" selected><?php echo strtoupper($dataSH['statusBekal']);?></option>
                                                    <option value="SELESAI">SELESAI</option>
                                                    <option value="SEDANG BEKAL">SEDANG BEKAL</option>
                                                    <option value="BELUM BEKAL">BELUM BEKAL</option>
@@ -500,7 +524,7 @@ $a = 1;
                                       Status Tuntutan:
                                       <div class="input-group mb-3">
                                                <select name="statusTuntut" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan2']);?></option>
+                                                <option value="<?php echo $dataSH['statusTuntut'];?>" selected><?php echo strtoupper($dataSH['statusTuntut']);?></option>
                                                    <option value="TELAH TUNTUT">TELAH TUNTUT</option>
                                                    <option value="BELUM TUNTUT">BELUM TUNTUT</option>
                                                    <option value="TUNTUT SEBAHAGIAN">TUNTUT SEBAHAGIAN</option>
@@ -518,7 +542,7 @@ $a = 1;
                                       Status Pembayaran:
                                       <div class="input-group mb-3">
                                                <select name="statusBayar" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan2']);?></option>
+                                                <option value="<?php echo $dataSH['statusBayar'];?>" selected><?php echo strtoupper($dataSH['statusBayar']);?></option>
                                                    <option value="BELUM">BELUM</option>
                                                    <option value="SELESAI">SELESAI</option>
                                                </select>
@@ -532,10 +556,10 @@ $a = 1;
                               </tbody>
                              </table>
                                 <input type="hidden" name="remark" value="observe">
-                                <input type="hidden" name="username" value="<?php echo $row_Recordset['username']; ?>">
-                                <input type="hidden" name="negeri" value="<?php echo $row_Recordset['negeri']; ?>">
+                                <input type="hidden" name="username" value="<?php echo $dataSH['username']; ?>">
+                                <input type="hidden" name="negeri" value="<?php echo $dataSH['negeri']; ?>">
                                 <div class="modal-footer">
-                                    <input type="submit" class="btn btn-primary" name="update" value="Simpan rekod"/>
+                                    <input type="submit" class="btn btn-info" name="update" value="Kemaskini rekod"/>
                                 </div>
                             </form>
                           </div>
@@ -557,7 +581,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Sebut Harga Bermula:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhSHSBegin" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhSHSBegin" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -570,7 +594,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Buka Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhBukaSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhBukaSH" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -583,7 +607,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Tutup Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhTutupSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhTutupSH" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -596,7 +620,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Penilaian Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhPenilaianSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhPenilaianSH" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -609,7 +633,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh Surat Setuju Terima:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhSSTSH" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhSSTSH" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -627,7 +651,7 @@ $a = 1;
                                    <div class="form-group">
                                       Nama Pembekal Berjaya:
                                       <div class="input-group mb-3">
-                                      <input type="text" name="namaPembekal" class="form-control"  id="validationDefault01" value="<?php //echo strtoupper($row_Recordset['nama']);?>" required>
+                                      <input type="text" name="namaPembekal" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -641,7 +665,7 @@ $a = 1;
                                    <div class="form-group">
                                       Nilai Sebut Harga (RM):
                                       <div class="input-group mb-3">
-                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="<?php //echo strtoupper($row_Recordset['nama']);?>" required>
+                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -655,7 +679,7 @@ $a = 1;
                                    <div class="form-group">
                                       Tarikh C/O Dikeluarkan:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['tarikhPemantauan'];?>" required>
+                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -673,7 +697,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Judul dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -687,7 +711,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Naskhah dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahPesan" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahPesan" class="form-control"  id="validationDefault01" value="">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -701,7 +725,7 @@ $a = 1;
                                    <div class="form-group">
                                       Bilangan Naskhah Telah dibekal:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="number" name="bilNaskhahBekal" class="form-control"  id="validationDefault01" value="">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -715,7 +739,7 @@ $a = 1;
                                    <div class="form-group">
                                       Peratus Pembekalan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="text" name="peratusBekal" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPegawai2']);?>">
+                                      <input style="text-transform: uppercase;" type="text" name="peratusBekal" class="form-control"  id="validationDefault01" value="">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -730,7 +754,6 @@ $a = 1;
                                       Status Pembekalan:
                                       <div class="input-group mb-3">
                                                <select name="statusBekal" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan2']);?></option>
                                                    <option value="SELESAI">SELESAI</option>
                                                    <option value="SEDANG BEKAL">SEDANG BEKAL</option>
                                                    <option value="BELUM BEKAL">BELUM BEKAL</option>
@@ -748,7 +771,6 @@ $a = 1;
                                       Status Tuntutan:
                                       <div class="input-group mb-3">
                                                <select name="statusTuntut" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan2']);?></option>
                                                    <option value="TELAH TUNTUT">TELAH TUNTUT</option>
                                                    <option value="BELUM TUNTUT">BELUM TUNTUT</option>
                                                    <option value="TUNTUT SEBAHAGIAN">TUNTUT SEBAHAGIAN</option>
@@ -766,7 +788,6 @@ $a = 1;
                                       Status Pembayaran:
                                       <div class="input-group mb-3">
                                                <select name="statusBayar" class="custom-select browser-default">
-                                                <option value="<?php echo $dataSekolah['jawatan2'];?>" selected><?php echo strtoupper($dataSekolah['jawatan2']);?></option>
                                                    <option value="BELUM">BELUM</option>
                                                    <option value="SELESAI">SELESAI</option>
                                                </select>

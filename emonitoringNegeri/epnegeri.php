@@ -48,12 +48,12 @@ $remark = $_POST['remark'];
 
 if (isset($_POST['submit'])) {
     $mysqli->query ("INSERT INTO `dataSH` (`username`,`tarikhSHSBegin`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`. `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`. `statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$tarikhSHSBegin','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
-    header("location:main3.php?kodSekolah=$kodSekolah2");
+    header("location:epnegeri.php");
     }
 
 if (isset($_POST['update'])) {
     $mysqli->query ("UPDATE `dataSH` SET `$tarikhSHSBegin` = 'tarikhSHSBegin',`$tarikhBukaSH` = 'tarikhBukaSH',`$tarikhTutupSH` = 'tarikhTutupSH',`$tarikhPenilaianSH` = 'tarikhPenilaianSH',`$tarikhSSTSH` = 'tarikhSSTSH',`$namaPembekal` = 'namaPembekal',`$nilaiSH` = 'nilaiSH',`$tarikhCO` = 'tarikhCO',`$bilJudulPesan` = 'bilJudulPesan',`$bilNaskhahPesan` = 'bilNaskhahPesan',`$bilNaskhahBekal` = 'bilNaskhahBekal',`$peratusBekal` = 'peratusBekal',`$statusBekal` = 'statusBekal',`$statusTuntut` = 'statusTuntut',`$statusBayar` = 'statusBayar',`$remark` = 'remark' WHERE `username` = '$username'");
-    header("location:main4.php?kodSekolah=$kodSekolah2");
+    header("location:epnegeri.php");
     }
 
 $a = 1;

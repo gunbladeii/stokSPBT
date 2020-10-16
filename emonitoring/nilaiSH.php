@@ -57,7 +57,6 @@ google.charts.setOnLoadCallback(drawChart);
                        2]);
 
         var options = {
-        height: 300,
         bar: {groupWidth: "85%"},
         legend: { position: "none" },
         };
@@ -69,5 +68,5 @@ google.charts.setOnLoadCallback(drawChart);
 
 <?php if(!empty($dataSH2['negeri'])) { ?>
 <h3 style="font-family: 'Roboto Condensed', sans-serif; text-align: center;">Nilai Perolehan Sebut Harga setiap negeri</h3>
-<div class="img-fluid" id="nilai_div"></div>
+<div id="nilai_div" style="width: 100%;min-height: 450px;"></div>
 <?php ;} else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

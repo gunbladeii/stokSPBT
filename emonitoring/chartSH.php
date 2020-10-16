@@ -39,7 +39,7 @@ google.charts.setOnLoadCallback(drawChart);
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
           <?php do { ?>
-          ['<?php echo $dataSH['negeri'];?>',  '<?php echo $dataSH['sumnilaiSH'];?>', '<?php echo $dataSH['colorBar'];?>'],
+          ['<?php echo $dataSH["negeri"];?>',  '<?php echo $dataSH["sumnilaiSH"];?>', '<?php echo $dataSH["colorBar"];?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2))?>
         ]);
 

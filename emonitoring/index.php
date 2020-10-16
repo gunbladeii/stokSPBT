@@ -314,12 +314,17 @@ $a = 1;
                             <table id="example1" class="table table-sm">
                               <tbody>
                               <tr>
-                                <td style="text-align: center;">
+                                <td>
+                                     <h2>Pilih menu berikut:</h2>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
                                      <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DASHBOARD REKOD PENGESANAN-SH</a>
                                 </td>
                               </tr>
                               <tr>
-                                <td style="text-align: center;">
+                                <td>
                                      <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DASHBOARD PEMANTAUAN STOK</a>
                                 </td>
                               </tr>

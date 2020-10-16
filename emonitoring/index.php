@@ -63,6 +63,27 @@ $a = 1;
   <!-- chart.js plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
+
+<!-- Begin submitDataSH Modal -->
+      <div class="modal fade" id="submitDataSHModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Daftar Rekod Pengesanan Sebut Harga</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="dash1"></div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- End submitDataSH Modal -->
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -254,7 +275,7 @@ $a = 1;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 System Dashboard</h1>
+            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 System</h1>
             <p>(*All data shown below as of <?php echo $date;?>)</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
@@ -273,7 +294,7 @@ $a = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">SISTEM PEMANTAUAN PENGURUSAN MAKLUMAT STOK</h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MySPBT</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">
@@ -294,15 +315,7 @@ $a = 1;
                               <tbody>
                               <tr>
                                 <td>
-                                     <div class="form-group">
-                                      Carian pantas sekolah:
-                                      <div class="input-group mb-3">
-                                      <input type="text" name="namaSekolah" class="form-control"  id="validationDefault01" placeholder="Taip kata kunci nama sekolah.." value="" required>
-                                      <div class="input-group-append input-group-text">
-                                          <span class="fas fa-school"></span>
-                                      </div>
-                                      </div>
-                                    </div>
+                                     <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DASHBOARD REKOD PENGESANAN-SH</a>
                                 </td>
                               </tr>
                               </tbody>
@@ -382,6 +395,53 @@ $a = 1;
 			}, 5000);
 		});
 </script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $('#submitDataSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'username=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "submitDataSH.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash1').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+
+    $('#updateDataSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'id=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "updateDataSH.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash2').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>
+
 <!-- DataTables -->
 <script src="jquery.dataTables.js"></script>
 <script src="dataTables.bootstrap4.js"></script>

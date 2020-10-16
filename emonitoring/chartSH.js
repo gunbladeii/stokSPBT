@@ -4,12 +4,12 @@ google.charts.setOnLoadCallback(drawVisualization);
       function drawVisualization() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-          ['Negeri', 'Nilai(RM)'],
-          ['Sabah',  165],
-          ['Sarawak',  135],
-          ['WP Labuan',  157],
-          ['WP Kuala Lumpur',  139],
-          ['WP Putrajaya',  136]
+          ['Negeri', 'Nilai(RM)', { role: 'style' }],
+          ['Sabah',  165, '#b87333'],
+          ['Sarawak',  135, 'silver'],
+          ['WP Labuan',  157, 'gold'],
+          ['WP Kuala Lumpur',  139, '#65eb34'],
+          ['WP Putrajaya',  136, '#ae34eb']
         ]);
 
         var options = {

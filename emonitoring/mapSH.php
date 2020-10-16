@@ -36,37 +36,39 @@ $a = 1;
 
 
 <script type="text/javascript">
-   google.charts.load("current", {
-        "packages":["map"],
-        // Note: you will need to get a mapsApiKey for your project.
-        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-        "mapsApiKey": "AIzaSyDloX9GMN9TNA1bTknKg8fODZPeBZistSw"
-      });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Lat', 'Long', 'Negeri', 'Nilai(RM)'],
-          <?php do { ?>
-          [<?php echo $dataSH["latitude"];?>, <?php echo $dataSH["longitude"];?>, '<?php echo $dataSH["negeri"];?>', '<?php echo number_format($dataSH["sumnilaiSH"]);?>'],
-          <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
-        ]);
+   google.charts.load('current', {
+       'packages': ['geochart'],
+       // Note: you will need to get a mapsApiKey for your project.
+       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+       'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+     });
+     google.charts.setOnLoadCallback(drawMarkersMap);
 
-        var options = {
-          icons: {
-            default: {
-              normal: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Azure-icon.png',
-              selected: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Right-Azure-icon.png'
-            }
-          }
-        };
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['City',   'Population', 'Area'],
+        ['Kuala Lumpur',      2761477,    1285.31],
+        ['Negeri Sembilan',     1324110,    181.76],
+        ['Kedah',    959574,     117.27],
+        ['Johor',     907563,     130.17],
+        ['Kelantan',   655875,     158.9],
+        ['Malacca',     607906,     243.60],
+        ['Penang',   380181,     140.7],
+        ['Labuan Federal Territory',  371282,     102.41],
+        ['Federal Territory of Kuala Lumpur', 67370,      213.44],
+        ['Perlis',     52192,      43.43],
+        ['Sabah',  38262,      11]
+      ]);
 
-        var map = new google.visualization.Map(document.getElementById('mapSH_div'));
-        map.draw(data, {
-          showTooltip: true,
-          showInfoWindow: false,
-          useMapTypeControl: false
-        });
-      }
+      var options = {
+        region: 'MY',
+        displayMode: 'markers',
+        colorAxis: {colors: ['green', 'blue']}
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('mapSH_div'));
+      chart.draw(data, options);
+    };
 </script>
 
 <?php if(!empty($dataSH2['negeri'])) { ?>

@@ -332,7 +332,7 @@ $a = 1;
                           <div class="table-responsive">
                             <form method="post" action="index.php">
                             <table id="example1" class="table table-sm">
-                              <tbody>S
+                              <tbody>
                               <tr>
                                 <td>
                                      <h3>Pilih menu berikut:</h3>

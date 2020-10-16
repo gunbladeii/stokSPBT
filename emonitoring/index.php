@@ -332,7 +332,7 @@ $a = 1;
                           <div class="table-responsive">
                             <form method="post" action="index.php">
                             <table id="example1" class="table table-sm">
-                              <tbody>
+                              <tbody>S
                               <tr>
                                 <td>
                                      <h3>Pilih menu berikut:</h3>
@@ -345,7 +345,7 @@ $a = 1;
                               </tr>
                               <tr>
                                 <td>
-                                     <a data-toggle="modal" data-target="#sistemStokModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. SISTEM PENGURUSAN STOK</a>
+                                     <a href="main1.php" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. SISTEM PENGURUSAN STOK</a>
                                 </td>
                               </tr>
                               </tbody>

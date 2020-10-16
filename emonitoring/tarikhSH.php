@@ -53,7 +53,7 @@ $a = 1;
 
       var options = {
         title: "Tempoh Sebut Harga Negeri",
-        height: 600,
+        height: 500,
         timeline: {
           groupByRowLabel: true
         }

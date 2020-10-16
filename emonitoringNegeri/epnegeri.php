@@ -27,6 +27,10 @@ $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$colname_Re
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
+$Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username GROUP BY dataSH.negeri WHERE dataSH.username = '$colname_Recordset'");
+$dataSH2 = mysqli_fetch_assoc($Recordset3);
+$totalRows_Recordset3 = mysqli_num_rows($Recordset3);
+
 $username = $_POST['username'];
 $negeri = $_POST['negeri'];
 $tarikhSHSBegin = $_POST['tarikhSHSBegin'];
@@ -407,6 +411,9 @@ $a = 1;
 
                               </tbody>
                              </table>
+                                <div class="modal-footer">
+                                    <a class="btn btn-info btn-sm active" role="button" aria-pressed="true">Jumlah besar: <?php echo strtoupper($dataSH2['sumnilaiSH']);?></a>
+                                </div>
                             <?php }?>
 
 

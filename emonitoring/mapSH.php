@@ -47,7 +47,7 @@ $a = 1;
       function drawMarkersMap() {
       var data = google.visualization.arrayToDataTable([
         ['City',   'Nilai(RM)', 'Jumlan buku'],
-        ['Jitra',      2761477,    1285],
+        ['1010251',      2761477,    1285],
         ['Negeri Sembilan',     1324110,    181],
         ['Kedah',    959574,     117],
         ['Johor',     907563,     130],

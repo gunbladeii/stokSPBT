@@ -69,7 +69,7 @@ $a = 1;
         <div class="modal-dialog">
           <div class="modal-content bg-light">
             <div class="modal-header">
-              <h4 class="modal-title">Daftar Rekod Pengesanan Sebut Harga</h4>
+              <h4 class="modal-title">Sistem Pengurusan Stok</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
             </div>
@@ -89,7 +89,7 @@ $a = 1;
         <div class="modal-dialog">
           <div class="modal-content bg-light">
             <div class="modal-header">
-              <h4 class="modal-title">Daftar Rekod Pengesanan Sebut Harga</h4>
+              <h4 class="modal-title">Sistem Pengesanan Sebut Harga</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
             </div>

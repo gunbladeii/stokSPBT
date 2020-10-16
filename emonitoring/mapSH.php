@@ -60,7 +60,7 @@ $a = 1;
           }
         };
 
-        var map = new google.visualization.Map(document.getElementById('mapSH'));
+        var map = new google.visualization.Map(document.getElementById('mapSH_div'));
         map.draw(data, {
           showTooltip: true,
           showInfoWindow: false
@@ -70,5 +70,5 @@ $a = 1;
 
 <?php if(!empty($dataSH2['negeri'])) { ?>
 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif; text-align: center;">Info Sebut Harga Setiap Negeri</h3>
-<div style="width: 100%;min-height: 500px;" id="mapSH"></div>
+<div style="width: 100%;min-height: 500px;" id="mapSH_div"></div>
 <?php ;} else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

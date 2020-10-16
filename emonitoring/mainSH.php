@@ -62,6 +62,8 @@ $a = 1;
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fugaz+One&family=Titan+One&display=swap" rel="stylesheet">
   <!-- chart.js plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="chartSH.js"></script>
 </head>
 
   <!-- Begin sistemStok Modal -->
@@ -336,6 +338,11 @@ $a = 1;
                               <tr>
                                 <td style="text-align: center;background-color: #eb5234;color: white">
                                      <h4>Dashboard Pengesanan Sebut Harga Negeri (SPBT)</h4>
+                                </td>
+                              </tr>
+                               <tr>
+                                <td>
+                                     <div id="chart_div" style="width: 900px; height: 500px;"></div>
                                 </td>
                               </tr>
                               

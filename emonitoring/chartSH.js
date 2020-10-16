@@ -1,7 +1,7 @@
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawVisualization);
+google.charts.setOnLoadCallback(drawChart);
 
-      function drawVisualization() {
+    function drawChart() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
@@ -23,6 +23,14 @@ google.charts.setOnLoadCallback(drawVisualization);
           ['WP Putrajaya',  13126, '#ae34eb']
         ]);
 
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
         var options = {
         title: "Perolehan Sebut Harga setiap negeri",
         width: 100%,
@@ -31,6 +39,6 @@ google.charts.setOnLoadCallback(drawVisualization);
         legend: { position: "none" },
         };
 
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+        var chart = new google.visualization.ColumnChart(document.getElementById("chart_div"));
+        chart.draw(view, options);
       }

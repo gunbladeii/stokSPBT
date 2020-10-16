@@ -348,7 +348,6 @@ $a = 1;
 
                               <tr>
                                 <td>
-                                     <h3 style="text-align: center;">Temppoh Proses Sebut Harga Negeri</h3>
                                      <div id="tarikhSH" style="text-align: center;"></div>
                                 </td>
                               </tr>

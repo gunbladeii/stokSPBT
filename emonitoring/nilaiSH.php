@@ -57,8 +57,6 @@ google.charts.setOnLoadCallback(drawChart);
                        2]);
 
         var options = {
-        width: 900,
-        height: 300,
         bar: {groupWidth: "85%"},
         legend: { position: "none" },
         };

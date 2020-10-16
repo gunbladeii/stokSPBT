@@ -339,9 +339,16 @@ $a = 1;
                                      <h4>Dashboard Pengesanan Sebut Harga Negeri (SPBT)</h4>
                                 </td>
                               </tr>
+                              
                                <tr>
                                 <td>
-                                     <div id="chartSH" style="text-align: center;"></div>
+                                     <div id="nilaiSH" style="text-align: center;"></div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                     <div id="nilaiSH" style="text-align: center;"></div>
                                 </td>
                               </tr>
                               
@@ -409,7 +416,7 @@ $a = 1;
         
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
-				$('#chartSH').load('chartSH.php')
+				$('#nilaiSH').load('nilaiSH.php')
 			}, 5000);
 		});
 </script>

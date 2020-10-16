@@ -23,7 +23,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,dataSH.tarikhBukaSH FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
+$Recordset2 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar,dataSH.tarikhBukaSH FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -42,9 +42,9 @@ google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-          ['Negeri', 'Tarikh', { role: 'style' }],
+          ['Negeri', 'Tarikh', { role: 'style' } , { role: 'annotation' }],
           <?php do { ?>
-          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH['tarikhBukaSH'];?>, '<?php echo $dataSH["colorBar"];?>'],
+          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH['tarikhBukaSH'];?>, '<?php echo $dataSH["colorBar"];?>' , '<?php echo $dataSH["namaPembekal"];?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 

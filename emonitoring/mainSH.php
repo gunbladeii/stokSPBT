@@ -337,6 +337,9 @@ $a = 1;
                         <div class="col-md-6">
                           <div id="tarikhSH"></div>
                         </div>
+                        <div class="col-md-12">
+                          <div id="mapSH"></div>
+                        </div>
                  </div>
                 <!-- /.table-responsive -->
               </div>
@@ -395,6 +398,7 @@ $a = 1;
 			setInterval(function () {
 				$('#nilaiSH').load('nilaiSH.php')
         $('#tarikhSH').load('tarikhSH.php')
+        $('#mapSH').load('mapSH.php')
 			}, 5000);
 		});
 </script>

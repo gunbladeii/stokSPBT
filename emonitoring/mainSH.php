@@ -339,7 +339,7 @@ $a = 1;
                                      <h4>Dashboard Pengesanan Sebut Harga Negeri (SPBT)</h4>
                                 </td>
                               </tr>
-                              
+
                                <tr>
                                 <td>
                                      <div id="nilaiSH" style="text-align: center;"></div>
@@ -348,7 +348,7 @@ $a = 1;
 
                               <tr>
                                 <td>
-                                     <div id="nilaiSH" style="text-align: center;"></div>
+                                     <div id="tarikhSH" style="text-align: center;"></div>
                                 </td>
                               </tr>
                               
@@ -412,11 +412,10 @@ $a = 1;
   crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-		    
-        
-        $('#showUserList').load('showUserList.php'); 
+
 			setInterval(function () {
 				$('#nilaiSH').load('nilaiSH.php')
+        $('#tarikhSH').load('tarikhSH.php')
 			}, 5000);
 		});
 </script>

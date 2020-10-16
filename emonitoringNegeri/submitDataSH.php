@@ -13,7 +13,6 @@
     $username2 = $_GET['username'];
     $username = $_POST['username'];
     $negeri = $_POST['negeri'];
-    $tarikhSHSBegin = $_POST['tarikhSHSBegin'];
     $tarikhBukaSH = $_POST['tarikhBukaSH'];
     $tarikhTutupSH = $_POST['tarikhTutupSH'];
     $tarikhPenilaianSH = $_POST['tarikhPenilaianSH'];
@@ -33,7 +32,7 @@
 
     
    if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhSHSBegin`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$negeri','$tarikhSHSBegin','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
+    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$negeri','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
     header("location:epnegeri.php");
     }
 
@@ -56,20 +55,7 @@
                                 </tr>
                               </thead>
                               <tbody>
-                              
-                             <tr>
-                                  <td>
-                                   <div class="form-group">
-                                      Tarikh Sebut Harga Bermula:
-                                      <div class="input-group mb-3">
-                                      <input type="date" name="tarikhSHSBegin" class="form-control"  id="validationDefault01" value="" required>
-                                      <div class="input-group-append input-group-text">
-                                          <span class="fas fa-id-card-alt"></span>
-                                      </div>
-                                      </div>
-                                    </div>
-                                </td>
-                              </tr>
+
                                 <tr>
                                   <td>
                                    <div class="form-group">

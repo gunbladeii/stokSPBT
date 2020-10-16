@@ -330,9 +330,7 @@ $a = 1;
                               </tr>
                               </tbody>
                             </table>
-                                <div class="modal-footer">
-                                    <input type="submit" class="btn btn-primary" name="submit" value="Carian sekolah"/>
-                                </div>
+                                
                           </form>
                           </div>
                     

@@ -46,7 +46,9 @@ $a = 1;
       data.addColumn('date', 'Tarikh Tutup');
 
       data.addRows([
-        ['<?php echo $dataSH["negeri"];?>',     new Date(<?php echo $dataSH["year"];?>, <?php echo $dataSH["month"];?>, <?php echo $dataSH["day"];?>), new Date(<?php echo $dataSH["year2"];?>, <?php echo $dataSH["month2"];?>, <?php echo $dataSH["day2"];?>)],\
+        <?php do { ?>
+        ['<?php echo $dataSH["negeri"];?>',     new Date(<?php echo $dataSH["year"];?>, <?php echo $dataSH["month"];?>, <?php echo $dataSH["day"];?>), new Date(<?php echo $dataSH["year2"];?>, <?php echo $dataSH["month2"];?>, <?php echo $dataSH["day2"];?>)],
+        <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
       ]);
 
       var options = {

@@ -23,7 +23,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,MONTHNAME(dataSH.tarikhBukaSH) AS month, DAY(dataSH.tarikhBukaSH) AS day FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
+$Recordset2 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,MONTH(dataSH.tarikhBukaSH) AS month, DAY(dataSH.tarikhBukaSH) AS day FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -44,17 +44,10 @@ google.charts.setOnLoadCallback(drawChart);
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
           <?php do { ?>
-          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH["month"]." ".$dataSH["day"];?>, '<?php echo $dataSH["colorBar"];?>'],
+          ['<?php echo $dataSH["negeri"];?>',  '<?php echo $dataSH["day"]."/".$dataSH["month"];?>', '<?php echo $dataSH["colorBar"];?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-                       { 
-                         sourceColumn: 1,
-                         type: "date",
-                         role: "annotation" },
-                       2]);
 
         var options = {
         title: "Perolehan Sebut Harga setiap negeri",
@@ -65,7 +58,7 @@ google.charts.setOnLoadCallback(drawChart);
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById("tarikh_div"));
-        chart.draw(view, options);
+        chart.draw(data, options);
       }
 </script>
 

@@ -315,17 +315,17 @@ $a = 1;
                               <tbody>
                               <tr>
                                 <td>
-                                     <h2>Pilih menu berikut:</h2>
+                                     <h3>Pilih menu berikut:</h3>
                                 </td>
                               </tr>
                               <tr>
                                 <td>
-                                     <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DASHBOARD REKOD PENGESANAN-SH</a>
+                                     <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">1. DASHBOARD REKOD PENGESANAN-SH</a>
                                 </td>
                               </tr>
                               <tr>
                                 <td>
-                                     <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DASHBOARD PEMANTAUAN STOK</a>
+                                     <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. DASHBOARD PEMANTAUAN STOK</a>
                                 </td>
                               </tr>
                               </tbody>

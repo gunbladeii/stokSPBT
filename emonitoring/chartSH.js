@@ -24,11 +24,11 @@ google.charts.setOnLoadCallback(drawVisualization);
         ]);
 
         var options = {
-          title : 'Perolehan Sebut Harga Setiap Negeri',
-          vAxis: {title: 'Nilai(RM)'},
-          hAxis: {title: 'Negeri'},
-          seriesType: 'bars',
-          series: {16: {type: 'line'}}
+        title: "Perolehan Sebut Harga setiap negeri",
+        width: 100%,
+        height: 100%,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
         };
 
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));

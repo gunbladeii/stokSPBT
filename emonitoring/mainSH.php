@@ -334,20 +334,11 @@ $a = 1;
                             <table id="example1" class="table table-sm">
                               <tbody>
                               <tr>
-                                <td>
-                                     <h3>Pilih menu berikut:</h3>
+                                <td style="text-align: center;background-color: black;color: white">
+                                     <h3>Dashboard Pengesanan Sebut Harga Negeri (SPBT)</h3>
                                 </td>
                               </tr>
-                              <tr>
-                                <td>
-                                     <a href="mainSH.php" class="btn btn-info btn-sm active" role="button" aria-pressed="true">1. SISTEM REKOD PENGESANAN-SH</a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                     <a href="main1.php" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. SISTEM PENGURUSAN STOK</a>
-                                </td>
-                              </tr>
+                              
                               </tbody>
                             </table>
                                 

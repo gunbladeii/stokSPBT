@@ -63,7 +63,8 @@ $a = 1;
         var map = new google.visualization.Map(document.getElementById('mapSH_div'));
         map.draw(data, {
           showTooltip: true,
-          showInfoWindow: false
+          showInfoWindow: false,
+          useMapTypeControl: false
         });
       }
 </script>

@@ -64,11 +64,11 @@ google.charts.setOnLoadCallback(drawChart);
         legend: { position: "none" },
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById("chart_div"));
+        var chart = new google.visualization.ColumnChart(document.getElementById("tarikh_div"));
         chart.draw(view, options);
       }
 </script>
 
 <?php if(!empty($dataSH2['negeri'])) { ?>
-<div id="chart_div" style="width: 100%; height: 100%;"></div>
+<div id="tarikh_div" style="width: 100%; height: 100%;"></div>
 <?php ;} else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

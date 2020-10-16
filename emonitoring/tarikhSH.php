@@ -44,13 +44,13 @@ google.charts.setOnLoadCallback(drawChart);
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
           <?php do { ?>
-          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH["tarikhBukaSH"];?>, '<?php echo $dataSH["colorBar"];?>'],
+          ['<?php echo $dataSH["negeri"];?>',  '<?php echo $dataSH["tarikhBukaSH"];?>', '<?php echo $dataSH["colorBar"];?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 
         var view = new google.visualization.DataView(data);
         view.setColumns([0, 1,
-                       { calc: "stringify",
+                       { 
                          sourceColumn: 1,
                          type: "date",
                          role: "annotation" },

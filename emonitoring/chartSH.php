@@ -44,7 +44,7 @@ google.charts.setOnLoadCallback(drawChart);
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
           <?php do { ?>
-          ['<?php echo $dataSH["negeri"];?>',  <?php echo "RM".$dataSH["sumnilaiSH"];?>, '<?php echo $dataSH["colorBar"];?>'],
+          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH["sumnilaiSH"];?>, '<?php echo $dataSH["colorBar"];?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 
@@ -69,6 +69,6 @@ google.charts.setOnLoadCallback(drawChart);
       }
 </script>
 
-<?php if(!empty($dataSH2)) { ?>
+<?php if(!empty($dataSH2['negeri'])) { ?>
 <div id="chart_div" style="width: 100%; height: 100%;"></div>
-<?php } else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>
+<?php ;} else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

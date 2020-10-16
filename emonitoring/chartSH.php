@@ -64,6 +64,6 @@ google.charts.setOnLoadCallback(drawChart);
       }
 </script>
 
-<?php if(!empty($dataSH)) {?>
+<?php //if(!empty($dataSH)) {?>
 <div id="chart_div" style="width: 100%; height: 100%;"></div>
-<?php } else echo '<span class="badge badge-warning">Tiada rekod ditemui</span>';?>
+<?php //} else echo '<span class="badge badge-warning">Tiada rekod ditemui</span>';?>

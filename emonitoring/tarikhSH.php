@@ -42,12 +42,13 @@ $a = 1;
     function drawChart() {
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Negeri');
+      data.addColumn('string', 'Pembekal');
       data.addColumn('date', 'Tarikh Buka');
       data.addColumn('date', 'Tarikh Tutup');
 
       data.addRows([
         <?php do { ?>
-        ['<?php echo $dataSH["negeri"];?>',     new Date(<?php echo $dataSH["year1"];?>, <?php echo $dataSH["month1"];?>, <?php echo $dataSH["day1"];?>), new Date(<?php echo $dataSH["year2"];?>, <?php echo $dataSH["month2"];?>, <?php echo $dataSH["day2"];?>)],
+        ['<?php echo $dataSH["negeri"];?>', '<?php echo $dataSH["namaPembekal"];?>',    new Date(<?php echo $dataSH["year1"];?>, <?php echo $dataSH["month1"];?>, <?php echo $dataSH["day1"];?>), new Date(<?php echo $dataSH["year2"];?>, <?php echo $dataSH["month2"];?>, <?php echo $dataSH["day2"];?>)],
         <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
       ]);
 

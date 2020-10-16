@@ -329,36 +329,15 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                        
-                          <div class="table-responsive">
-                            <form method="post" action="index.php">
-                            <table id="example1" class="table table-sm">
-                              <tbody>
-                              <tr>
-                                <td style="text-align: center;background-color: #eb5234;color: white">
-                                     <h4>Dashboard Pengesanan Sebut Harga Negeri (SPBT)</h4>
-                                </td>
-                              </tr>
-
-                               <tr>
-                                <td>
-                                     <div id="nilaiSH" style="text-align: center;"></div>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <td>
-                                     <div id="tarikhSH" style="text-align: center;"></div>
-                                </td>
-                              </tr>
-                              
-                              </tbody>
-                            </table>
-                                
-                          </form>
-                          </div>
-                    
-        
+                <div class="row">
+                        <div class="clearfix"></div>
+                        <div class="col-md-6">
+                          <div id="nilaiSH"></div>
+                        </div>
+                        <div class="col-md-6">
+                          <div id="tarikhSH"></div>
+                        </div>
+                 </div>
                 <!-- /.table-responsive -->
               </div>
               </div>

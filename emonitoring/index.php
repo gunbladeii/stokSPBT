@@ -64,8 +64,8 @@ $a = 1;
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
-<!-- Begin submitDataSH Modal -->
-      <div class="modal fade" id="submitDataSHModal">
+  <!-- Begin sistemStok Modal -->
+      <div class="modal fade" id="sistemStokModal">
         <div class="modal-dialog">
           <div class="modal-content bg-light">
             <div class="modal-header">
@@ -82,7 +82,27 @@ $a = 1;
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-    <!-- End submitDataSH Modal -->
+    <!-- End sistemStok Modal -->
+
+    <!-- Begin sistemSH Modal -->
+      <div class="modal fade" id="sistemSHModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Daftar Rekod Pengesanan Sebut Harga</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="dash1"></div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- End sistemSH Modal -->
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -320,12 +340,12 @@ $a = 1;
                               </tr>
                               <tr>
                                 <td>
-                                     <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">1. DASHBOARD REKOD PENGESANAN-SH</a>
+                                     <a data-toggle="modal" data-target="#sistemSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">1. SISTEM REKOD PENGESANAN-SH</a>
                                 </td>
                               </tr>
                               <tr>
                                 <td>
-                                     <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. DASHBOARD PEMANTAUAN STOK</a>
+                                     <a data-toggle="modal" data-target="#sistemStokModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. SISTEM PEMANTAUAN STOK</a>
                                 </td>
                               </tr>
                               </tbody>
@@ -407,7 +427,7 @@ $a = 1;
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-    $('#submitDataSHModal').on('show.bs.modal', function (event) {
+    $('#sistemStokModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var modal = $(this);
@@ -415,7 +435,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "submitDataSH.php",
+                url: "sistemStok.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {
@@ -428,7 +448,7 @@ $a = 1;
             });
     })
 
-    $('#updateDataSHModal').on('show.bs.modal', function (event) {
+    $('#sistemSHModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var modal = $(this);
@@ -436,7 +456,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "updateDataSH.php",
+                url: "sistemSH.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

@@ -406,17 +406,10 @@ $a = 1;
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    
-        $('#chartSH').load('chartSH.php');
+        
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
-				$('#showAttChart').load('showAttChart.php')
-				$('#showTotalPenerbit').load('showTotalPenerbit.php')
-				$('#showTotalJudul').load('showTotalJudul.php')
-				$('#showTotalPesanan').load('showTotalPesanan.php')
-				$('#showTotalPembekalan').load('showTotalPembekalan.php')
-			  $('#odometer').load('../distiSPBT/liveOdometer.php')
-				$('#attStat').load('../distiSPBT/attStat.php')
-				$('#parcelStat').load('../distiSPBT/parcelStat.php')
+				$('#chartSH').load('chartSH.php')
 			}, 5000);
 		});
 </script>

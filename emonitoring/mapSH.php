@@ -23,7 +23,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT login.latitude,login.longitude,dataSH.namaPembekal, dataSH.negeri,login.colorBar, DAY(dataSH.tarikhBukaSH) AS day1, MONTH(dataSH.tarikhBukaSH) AS month1, YEAR(dataSH.tarikhBukaSH) AS year1,DAY(dataSH.tarikhTutupSH) AS day2, MONTH(dataSH.tarikhTutupSH) AS month2, YEAR(dataSH.tarikhTutupSH) AS year2 FROM dataSH INNER JOIN login ON dataSH.username = login.username GROUP BY dataSH.negeri ORDER BY dataSH.negeri ASC");
+$Recordset2 = $mysqli->query("SELECT login.latitude,login.longitude,dataSH.namaPembekal, dataSH.negeri,login.colorBar, SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username GROUP BY dataSH.negeri ORDER BY dataSH.negeri ASC");
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -47,7 +47,7 @@ $a = 1;
         var data = google.visualization.arrayToDataTable([
           ['Lat', 'Long', 'Negeri', 'Nilai(RM)'],
           <?php do { ?>
-          [<?php echo $dataSH["latitude"];?>, <?php echo $dataSH["longitude"];?>, '<?php echo $dataSH["negeri"];?>', '<?php echo number_format($dataSH["nilaiSH"]);?>'],
+          [<?php echo $dataSH["latitude"];?>, <?php echo $dataSH["longitude"];?>, '<?php echo $dataSH["negeri"];?>', '<?php echo number_format($dataSH["sumnilaiSH"]);?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 

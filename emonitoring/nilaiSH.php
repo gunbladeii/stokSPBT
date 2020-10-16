@@ -57,7 +57,7 @@ google.charts.setOnLoadCallback(drawChart);
                        2]);
 
         var options = {
-        title: "Perolehan Sebut Harga setiap negeri",
+        title: "Nilai Perolehan Sebut Harga setiap negeri",
         width: 1600,
         height: 600,
         bar: {groupWidth: "85%"},

@@ -50,7 +50,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 
         var options = {
-        title: "Perolehan Sebut Harga setiap negeri",
+        title: "Tarikh Buka Sebut Harga setiap negeri",
         width: 1600,
         height: 600,
         bar: {groupWidth: "85%"},

@@ -28,7 +28,7 @@ google.charts.setOnLoadCallback(drawVisualization);
           vAxis: {title: 'Nilai(RM)'},
           hAxis: {title: 'Negeri'},
           seriesType: 'bars',
-          series: {5: {type: 'line'}}
+          series: {16: {type: 'line'}}
         };
 
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));

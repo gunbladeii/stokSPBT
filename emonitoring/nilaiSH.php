@@ -67,6 +67,6 @@ google.charts.setOnLoadCallback(drawChart);
 </script>
 
 <?php if(!empty($dataSH2['negeri'])) { ?>
-<h3 style="font-family: 'Roboto Condensed', sans-serif; text-align: center;">Nilai Perolehan Sebut Harga setiap negeri</h3>
+<h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif; text-align: center;">Nilai Perolehan Sebut Harga setiap negeri</h3>
 <div id="nilai_div" style="width: 100%;min-height: 450px;"></div>
 <?php ;} else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

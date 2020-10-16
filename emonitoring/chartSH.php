@@ -27,6 +27,10 @@ $Recordset2 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nil
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
+$Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username GROUP BY dataSH.negeri ORDER BY dataSH.negeri ASC");
+$dataSH2 = mysqli_fetch_assoc($Recordset3);
+$totalRows_Recordset3 = mysqli_num_rows($Recordset3);
+
 $a = 1;
 ?>
 
@@ -40,7 +44,7 @@ google.charts.setOnLoadCallback(drawChart);
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
           <?php do { ?>
-          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH["sumnilaiSH"];?>, '<?php echo $dataSH["colorBar"];?>'],
+          ['<?php echo $dataSH["negeri"];?>',  <?php echo "RM".$dataSH["sumnilaiSH"];?>, '<?php echo $dataSH["colorBar"];?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 
@@ -65,5 +69,6 @@ google.charts.setOnLoadCallback(drawChart);
       }
 </script>
 
-
+<?php if(!empty($dataSH2)) { ?>
 <div id="chart_div" style="width: 100%; height: 100%;"></div>
+<?php } else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

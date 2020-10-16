@@ -35,7 +35,7 @@ google.charts.setOnLoadCallback(drawChart);
         title: "Perolehan Sebut Harga setiap negeri",
         width: 600,
         height: 400,
-        bar: {groupWidth: "95%"},
+        bar: {groupWidth: "100%"},
         legend: { position: "none" },
         };
 

@@ -77,3 +77,5 @@ google.charts.setOnLoadCallback(drawChart);
         chart.draw(view, options);
       }
 </script>
+
+<div id="chart_div" style="width: 100%; height: 100%;"></div>

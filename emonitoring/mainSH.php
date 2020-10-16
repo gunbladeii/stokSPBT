@@ -1,5 +1,4 @@
-<?php require('conn.php'); 
-require('mainSH.php'); ?>
+<?php require('conn.php');?>
 <?php
 session_start();
 if ($_SESSION['role'] != 'admin')
@@ -342,7 +341,7 @@ $a = 1;
                               </tr>
                                <tr>
                                 <td>
-                                     <div id="chart_div" style="width: 100%; height: 100%;"></div>
+                                     <div id="mainSH"></div>
                                 </td>
                               </tr>
                               
@@ -407,7 +406,7 @@ $a = 1;
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    
-        $('#showJudulList').load('showJudulList.php');
+        $('#mainSH').load('mainSH.php');
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
 				$('#showAttChart').load('showAttChart.php')

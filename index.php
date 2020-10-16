@@ -47,7 +47,7 @@ session_start();
                 $_SESSION['user'] = $res['username'];
                 $_SESSION['role'] = $res["role"];
                 $_SESSION['password'] = $res["password"];
-                header('Location:emonitoring/main1.php');
+                header('Location:emonitoring/index.php');
             }
             else if($res["role"] == "stokNegeri")
             {

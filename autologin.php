@@ -5,7 +5,7 @@
       {
           if($_SESSION['role'] == "admin")
             {
-                header('Location:emonitoring/main1.php');
+                header('Location:emonitoring/index.php');
             }
             else if($_SESSION['role'] == "stokNegeri")
             {

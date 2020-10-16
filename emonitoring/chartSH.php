@@ -1,3 +1,37 @@
+<?php require('conn.php'); ?>
+<?php
+session_start();
+if ($_SESSION['role'] != 'admin')
+{
+      header('Location:../index.php');
+}
+
+?>
+<?php
+
+date_default_timezone_set("asia/kuala_lumpur");
+$date = date('d-F-Y');
+$datePHP = date('Y-m-d');
+
+$colname_Recordset = "-1";
+if (isset($_SESSION['user'])) {
+  $colname_Recordset = $_SESSION['user'];
+}
+
+
+$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+$row_Recordset = mysqli_fetch_assoc($Recordset);
+$totalRows_Recordset = mysqli_num_rows($Recordset);
+
+$namaSekolah = $_POST['namaSekolah'];
+if (isset($_POST['submit'])) {
+    $mysqli->query ("SELECT * FROM dataSekolah WHERE namaSekolah LIKE '$namaSekolah'");
+    header("location:searching.php?namaSekolah=$namaSekolah");
+    }
+$a = 1;
+?>
+
+<script type="text/javascript">
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -42,3 +76,4 @@ google.charts.setOnLoadCallback(drawChart);
         var chart = new google.visualization.ColumnChart(document.getElementById("chart_div"));
         chart.draw(view, options);
       }
+</script>

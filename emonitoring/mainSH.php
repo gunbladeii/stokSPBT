@@ -1,4 +1,5 @@
-<?php require('conn.php'); ?>
+<?php require('conn.php'); 
+require('mainSH.php'); ?>
 <?php
 session_start();
 if ($_SESSION['role'] != 'admin')
@@ -63,7 +64,6 @@ $a = 1;
   <!-- chart.js plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="chartSH.js"></script>
 </head>
 
   <!-- Begin sistemStok Modal -->

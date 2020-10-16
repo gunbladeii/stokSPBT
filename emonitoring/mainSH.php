@@ -341,7 +341,7 @@ $a = 1;
                                 </td>
                               </tr>
                                <tr>
-                                <td>
+                                <td style="align-items: center;">
                                      <div id="chart_div" style="width: 900px; height: 500px;"></div>
                                 </td>
                               </tr>

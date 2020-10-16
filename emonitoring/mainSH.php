@@ -341,7 +341,7 @@ $a = 1;
                               </tr>
                                <tr>
                                 <td>
-                                     <div id="mainSH"></div>
+                                     <div id="chartSH"></div>
                                 </td>
                               </tr>
                               
@@ -406,7 +406,7 @@ $a = 1;
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    
-        $('#mainSH').load('mainSH.php');
+        $('#chartSH').load('chartSH.php');
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
 				$('#showAttChart').load('showAttChart.php')

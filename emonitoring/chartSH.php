@@ -69,6 +69,6 @@ google.charts.setOnLoadCallback(drawChart);
       }
 </script>
 
-<?php if(!empty($dataSH2)) { ?>
+<?php if(!empty($dataSH2['negeri'])) { ?>
 <div id="chart_div" style="width: 100%; height: 100%;"></div>
 <?php } else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

@@ -30,6 +30,7 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 $a = 1;
 ?>
 
+
 <script type="text/javascript">
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -40,7 +41,7 @@ google.charts.setOnLoadCallback(drawChart);
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
           <?php do { ?>
           ['<?php echo $dataSH["negeri"];?>',  '<?php echo $dataSH["sumnilaiSH"];?>', '<?php echo $dataSH["colorBar"];?>'],
-          <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2))?>
+          <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 
         var view = new google.visualization.DataView(data);

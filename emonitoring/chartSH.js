@@ -36,7 +36,7 @@ google.charts.setOnLoadCallback(drawChart);
         width: 1800,
         height: 600,
         bar: {groupWidth: "85%"},
-        legend: { position: "none" },
+        legend: { position: "center" },
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById("chart_div"));

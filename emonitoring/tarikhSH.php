@@ -23,7 +23,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,dataSH.tarikhBukaSH FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
+$Recordset2 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,MONTHNAME(dataSH.tarikhBukaSH) AS month, DAY(dataSH.tarikhBukaSH) AS day FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -44,7 +44,7 @@ google.charts.setOnLoadCallback(drawChart);
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
           <?php do { ?>
-          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH["tarikhBukaSH"];?>, '<?php echo $dataSH["colorBar"];?>'],
+          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH["month","day"];?>, '<?php echo $dataSH["colorBar"];?>'],
           <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
         ]);
 

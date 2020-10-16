@@ -342,7 +342,7 @@ $a = 1;
                               </tr>
                                <tr>
                                 <td>
-                                     <div id="chart_div" style="width: 100%; height: 55%;"></div>
+                                     <div id="chart_div" style="width: 100%; height: 70%;"></div>
                                 </td>
                               </tr>
                               

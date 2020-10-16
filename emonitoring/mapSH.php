@@ -47,17 +47,9 @@ $a = 1;
       function drawMarkersMap() {
       var data = google.visualization.arrayToDataTable([
         ['City',   'Nilai(RM)', 'Jumlan buku'],
-        ['1010251',      2761477,    1285],
-        ['Negeri Sembilan',     1324110,    181],
-        ['Kedah',    959574,     117],
-        ['Johor',     907563,     130],
-        ['Kelantan',   655875,     158],
-        ['Malacca',     607906,     243],
-        ['Penang',   380181,     140],
-        ['Labuan Federal Territory',  371282,     102],
-        ['Federal Territory of Kuala Lumpur', 67370,      213],
-        ['Perlis',     52192,      43],
-        ['Sabah',  38262,      11]
+        ['Jitra',      2761477,    1285],
+        ['Labuan',     1324110,    181],
+        ['Seremban',  38262,      11]
       ]);
 
       var options = {

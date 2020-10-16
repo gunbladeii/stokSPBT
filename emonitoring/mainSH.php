@@ -395,10 +395,11 @@ $a = 1;
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-			setInterval(function () {
+			$('#mapSH').load('mapSH.php');
+      setInterval(function () {
 				$('#nilaiSH').load('nilaiSH.php')
         $('#tarikhSH').load('tarikhSH.php')
-        $('#mapSH').load('mapSH.php')
+
 			}, 5000);
 		});
 </script>

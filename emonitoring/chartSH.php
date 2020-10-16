@@ -23,11 +23,10 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$namaSekolah = $_POST['namaSekolah'];
-if (isset($_POST['submit'])) {
-    $mysqli->query ("SELECT * FROM dataSekolah WHERE namaSekolah LIKE '$namaSekolah'");
-    header("location:searching.php?namaSekolah=$namaSekolah");
-    }
+$Recordset2 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username GROUP BY dataSH.negeri ORDER BY dataSH.negeri ASC");
+$dataSH = mysqli_fetch_assoc($Recordset2);
+$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
+
 $a = 1;
 ?>
 
@@ -39,22 +38,9 @@ google.charts.setOnLoadCallback(drawChart);
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           ['Negeri', 'Nilai(RM)', { role: 'style' }],
-          ['Sabah',  21655, '#b87333'],
-          ['Sarawak',  134500, 'silver'],
-          ['WP Labuan',  215000, 'gold'],
-          ['WP Kuala Lumpur',  139000, '#65eb34'],
-          ['Kedah',  14000, '#eb34dc'],
-          ['Perlis',  219000, '#eb3493'],
-          ['Pulau Pinang',  34000, '#8034eb'],
-          ['Melaka',  13901, '#5c34eb'],
-          ['Selangor',  145000, '#5c34eb'],
-          ['Perak',  150000, '#6c6096'],
-          ['Negeri Sembilan',  230000, '#609196'],
-          ['Pahang',  254000, '#609692'],
-          ['Kelantan',  415000, '#609689'],
-          ['Terengganu',  23000, '#609676'],
-          ['Johor',  111000, '#609662'],
-          ['WP Putrajaya',  13126, '#ae34eb']
+          <?php do { ?>
+          ['<?php echo $dataSH['negeri'];?>',  '<?php echo $dataSH['sumnilaiSH'];?>', '<?php echo $dataSH['colorBar'];?>'],
+          <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2))?>
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -78,4 +64,6 @@ google.charts.setOnLoadCallback(drawChart);
       }
 </script>
 
+<?php if(!empty($dataSH)) {?>
 <div id="chart_div" style="width: 100%; height: 100%;"></div>
+<?php } else echo '<span class="badge badge-warning">Tiada rekod ditemui</span>';?>

@@ -23,7 +23,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar,dataSH.tarikhBukaSH FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
+$Recordset2 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar, DAY(dataSH.tarikhBukaSH) AS day1, MONTH(dataSH.tarikhBukaSH) AS month1, YEAR(dataSH.tarikhBukaSH) AS year1,DAY(dataSH.tarikhTutupSH) AS day2, MONTH(dataSH.tarikhTutupSH) AS month2, YEAR(dataSH.tarikhTutupSH) AS year2 FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -36,32 +36,30 @@ $a = 1;
 
 
 <script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {'packages':['timeline']});
+    google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-          ['Negeri', 'Tarikh', { role: 'style' } , { role: 'annotation' }],
-          <?php do { ?>
-          ['<?php echo $dataSH["negeri"];?>',  <?php echo $dataSH['tarikhBukaSH'];?>, '<?php echo $dataSH["colorBar"];?>' , '<?php echo $dataSH["namaPembekal"];?>'],
-          <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
-        ]);
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Negeri');
+      data.addColumn('date', 'Tarikh Buka');
+      data.addColumn('date', 'Tarikh Tutup');
 
+      data.addRows([
+        ['<?php echo $dataSH["negeri"];?>',     new Date(<?php echo $dataSH["year"];?>, <?php echo $dataSH["month"];?>, <?php echo $dataSH["day"];?>), new Date(<?php echo $dataSH["year2"];?>, <?php echo $dataSH["month2"];?>, <?php echo $dataSH["day2"];?>)],\
+      ]);
 
-        var options = {
-        title: "Tarikh Buka Sebut Harga setiap negeri",
-        width: 1600,
-        height: 600,
-        bar: {groupWidth: "85%"},
-        legend: { position: "none" },
-        vAxis: {
-         format: 'd/m/Y',}
-        };
+      var options = {
+        height: 450,
+        timeline: {
+          groupByRowLabel: true
+        }
+      };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById("tarikh_div"));
-        chart.draw(data, options);
-      }
+      var chart = new google.visualization.Timeline(document.getElementById('tarikh_div'));
+
+      chart.draw(data, options);
+    }
 </script>
 
 <?php if(!empty($dataSH2['negeri'])) { ?>

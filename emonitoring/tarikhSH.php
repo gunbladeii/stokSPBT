@@ -55,6 +55,8 @@ google.charts.setOnLoadCallback(drawChart);
         height: 600,
         bar: {groupWidth: "85%"},
         legend: { position: "none" },
+        hAxis: {
+         format: 'd/m/Y',}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById("tarikh_div"));

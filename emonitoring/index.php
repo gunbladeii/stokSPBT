@@ -345,7 +345,7 @@ $a = 1;
                               </tr>
                               <tr>
                                 <td>
-                                     <a data-toggle="modal" data-target="#sistemStokModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. SISTEM PEMANTAUAN STOK</a>
+                                     <a data-toggle="modal" data-target="#sistemStokModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">2. SISTEM PENGURUSAN STOK</a>
                                 </td>
                               </tr>
                               </tbody>

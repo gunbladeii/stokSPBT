@@ -52,7 +52,7 @@ $a = 1;
       ]);
 
       var options = {
-        height: 450,
+        height: 600,
         timeline: {
           groupByRowLabel: true
         }

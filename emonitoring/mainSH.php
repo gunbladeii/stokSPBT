@@ -329,7 +329,7 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <div class="row">
+                <div class="row" style="margin:0 !important;">
                         <div class="clearfix"></div>
                         <div class="col-md-6">
                           <div id="nilaiSH"></div>

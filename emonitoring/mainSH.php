@@ -334,7 +334,7 @@ $a = 1;
                             <table id="example1" class="table table-sm">
                               <tbody>
                               <tr>
-                                <td style="text-align: center;background-color: black;color: white">
+                                <td style="text-align: center;background-color: #eb5234;color: white">
                                      <h4>Dashboard Pengesanan Sebut Harga Negeri (SPBT)</h4>
                                 </td>
                               </tr>

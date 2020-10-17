@@ -29,6 +29,73 @@ if (isset($_POST['submit'])) {
     header("location:searching.php?namaSekolah=$namaSekolah");
     }
 $a = 1;
+
+/*advanced*/
+  if (isset($_POST["downloadExcel"]))
+  {
+  $sql = $mysqli->query("SELECT * FROM dataSH ORDER BY negeri,namaPembekal ASC"); 
+    $date1=date_create($row["tarikhBukaSH"]);
+    $date2=date_create($row["tarikhTutupSH"]);
+    $date3=date_create($row["tarikhPenilaianSH"]);
+    $date4=date_create($row["tarikhSSTSH"]);
+    $date5=date_create($row["tarikhCO"]);         
+
+  if (mysqli_num_rows($sql) > 0)
+    {
+    $output .='
+      <table class="table" border="1">
+        <tr>
+          <th>NO.</th>
+          <th>NEGERI</th>
+          <th>TARIKH BUKA SH</th>
+          <th>TARIKH TUTUP SH</th>
+          <th>TARIKH PENILAIAN SH</th>
+          <th>TARIKH SST-SH</th>
+          <th>NAMA PEMBEKAL</th>
+          <th>NILAI-SH</th>
+          <th>TARIKH C/O</th>
+          <th>BIL JUDUL</th>
+          <th>BIL NASKHAH</th>
+          <th>BIL DIBEKAL</th>
+          <th>(%) BEKAL</th>
+          <th>STATUS BEKAL</th>
+          <th>STATUS TUNTUT</th>
+          <th>STATUS BAYAR</th>
+
+        </tr>   
+      ';
+    while($row = mysqli_fetch_assoc($sql))
+      {
+      $output .='
+        <tr>
+            <td>'.$a++.'</td>
+            <td>'.$row["negeri"].'</td>
+            <td>'.date_format($date1,"d-m-Y").'</td>
+            <td>'.date_format($date2,"d-m-Y").'</td>
+            <td>'.date_format($date3,"d-m-Y").'</td>
+            <td>'.date_format($date4,"d-m-Y").'</td>
+            <td>'.strtoupper($row["namaPembekal"]).'</td>
+            <td>'.$row["nilaiSH"].'</td>
+            <td>'.date_format($date5,"d-m-Y").'</td>
+            <td>'.$row["bilJudulPesan"].'</td>
+            <td>'.$row["bilNaskhahPesan"].'</td>
+            <td>'.$row["bilNaskhahBekal"].'</td>
+            <td>'.$row["peratusBekal"].'</td>
+            <td>'.$row["statusBekal"].'</td>
+            <td>'.$row["statusTuntut"].'</td>
+            <td>'.$row["statusBayar"].'</td>
+      </tr> 
+        ';    
+      }
+    $output .='</table>';
+    header("Content-Type: application/vnd-ms-excel");
+    header("Content-Disposition: attachment; filename=rekod_Pengesanan_Sebut_Harga".$date.".xls");
+    echo $output;
+      
+    }
+  exit;
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -317,6 +384,9 @@ $a = 1;
               <div class="card-header border-transparent">
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MySPBT</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+                <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" name="download" class="download" enctype="multipart/form-data">
+                  <a name="download" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><img alt="Muat turun data disini" class="rounded mx-auto d-block" src="https://img.icons8.com/color/452/microsoft-excel-2019--v1.png"></a>
+                </form>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">

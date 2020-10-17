@@ -13,7 +13,7 @@
             }
             else if($res["role"] == "sar")
             {
-            header('Location:emonitoringNegeri/indexNegeri/index.php');
+            header('Location:emonitoringNegeri/epnegeri2.php');
             }
             else if($_SESSION['role'] == "distiSPBT")
             {

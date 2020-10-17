@@ -54,7 +54,7 @@ session_start();
             $_SESSION['user'] = $res['username'];
             $_SESSION['role'] = $res["role"];
             $_SESSION['password'] = $res["password"];
-            header('Location:emonitoringNegeri/indexNegeri/index.php');
+            header('Location:emonitoringNegeri/epnegeri2.php');
             }
             else if($res["role"] == "sar")
             {

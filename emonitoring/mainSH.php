@@ -385,7 +385,7 @@ $a = 1;
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MySPBT</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
                 <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" name="download" class="download" enctype="multipart/form-data">
-                  <a name="download" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><img alt="Muat turun data disini" class="rounded mx-auto d-block" src="https://img.icons8.com/color/452/microsoft-excel-2019--v1.png"></a>
+                  <button type="submit" name='download' value="Export to excel" class="badge badge-warning" id="buttonExcell"><i class="nav-icon fas fa-upload"></i>Eksport MS Excel </button>
                 </form>
 
                 <div class="card-tools">

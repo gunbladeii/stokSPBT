@@ -519,7 +519,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "submitDataSH.php",
+                url: "submitDataSH2.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {
@@ -540,7 +540,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "updateDataSH.php",
+                url: "updateDataSH2.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

@@ -34,7 +34,7 @@ $downloadExcell = $_SERVER['PHP_SELF'];
 /*advanced*/
   if (isset($_POST["downloadSH"]))
   {
-  $sql = $mysqli->query('SELECT negeri, DATE_FORMAT(tarikhBukaSH, "%d/%m/%Y"), DATE_FORMAT(tarikhTutupSH, "%d/%m/%Y"), DATE_FORMAT(tarikhPenilaianSH,, "%d/%m/%Y") DATE_FORMAT(tarikhSSTSH, "%d/%m/%Y"), namaPembekal, nilaiSH, DATE_FORMAT(tarikhCO, "%d/%m/%Y"), bilJudulPesan, bilNaskhahPesan, bilNaskhahBekal, peratusBekal, statusBekal, statusTuntut, statusBayar FROM dataSH ORDER BY negeri,namaPembekal ASC'); 
+  $sql = $mysqli->query('SELECT negeri, DATE_FORMAT(tarikhBukaSH, "%d/%m/%Y") AS tarikhBukaSH, DATE_FORMAT(tarikhTutupSH, "%d/%m/%Y") AS tarikhTutupSH, DATE_FORMAT(tarikhPenilaianSH, "%d/%m/%Y") AS tarikhPenilaianSH, DATE_FORMAT(tarikhSSTSH, "%d/%m/%Y") AS tarikhSSTSH, namaPembekal, nilaiSH, DATE_FORMAT(tarikhCO, "%d/%m/%Y") AS tarikhCO, bilJudulPesan, bilNaskhahPesan, bilNaskhahBekal, peratusBekal, statusBekal, statusTuntut, statusBayar FROM dataSH ORDER BY negeri,namaPembekal ASC'); 
     
   if (mysqli_num_rows($sql) > 0)
     {

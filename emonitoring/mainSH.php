@@ -385,6 +385,10 @@ $downloadExcell = $_SERVER['PHP_SELF'];
               <div class="card-header border-transparent">
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MySPBT</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+                <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" name="download" class="download" enctype="multipart/form-data">
+                  <button type="submit" name='downloadSH' value="Export to excel" class="badge badge-warning" id="buttonExcell"><i class="nav-icon fas fa-upload"></i> Eksport MS Excel </button>
+                </form>
+
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -398,11 +402,6 @@ $downloadExcell = $_SERVER['PHP_SELF'];
               <div class="card-body p-0">
                 <div class="row" style="margin:0 !important;">
                         <div class="clearfix"></div>
-                        <div id="col-md-12">
-                           <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" name="download" class="download" enctype="multipart/form-data">
-                           <button type="submit" name='downloadSH' value="Export to excel" class="badge badge-warning" id="buttonExcell"><i class="nav-icon fas fa-upload"></i> Eksport MS Excel </button>
-                           </form>
-                        </div>
                         <div class="col-md-6">
                           <div id="nilaiSH"></div>
                         </div>

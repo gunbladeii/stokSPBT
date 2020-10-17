@@ -27,12 +27,15 @@
     $statusBekal = $_POST['statusBekal'];
     $statusTuntut = $_POST['statusTuntut'];
     $statusBayar = $_POST['statusBayar'];
+    $colorBar = $_POST['colorBar'];
+    $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
     $remark = $_POST['remark'];
   
 
     
    if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$negeri','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
+    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`,`colorBar`,`latitude`,`longitude`, `remark`) VALUES ('$username','$negeri','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$colorBar','$latitude','$longitude',$remark')");
     header("location:epnegeri.php");
     }
 
@@ -270,6 +273,9 @@
                                 <input type="hidden" name="remark" value="observe">
                                 <input type="hidden" name="username" value="<?php echo $row_Recordset['username']; ?>">
                                 <input type="hidden" name="negeri" value="<?php echo $row_Recordset['negeri']; ?>">
+                                <input type="hidden" name="colorBar" value="<?php echo $row_Recordset['colorBar']; ?>">
+                                <input type="hidden" name="latitude" value="<?php echo $row_Recordset['latitude']; ?>">
+                                <input type="hidden" name="longitude" value="<?php echo $row_Recordset['longitude']; ?>">
                                 <div class="modal-footer">
                                     <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
                                 </div>

@@ -35,12 +35,7 @@ $downloadExcell = $_SERVER['PHP_SELF'];
   if (isset($_POST["downloadSH"]))
   {
   $sql = $mysqli->query("SELECT * FROM dataSH ORDER BY negeri,namaPembekal ASC"); 
-    $date1=date_create($row["tarikhBukaSH"]);
-    $date2=date_create($row["tarikhTutupSH"]);
-    $date3=date_create($row["tarikhPenilaianSH"]);
-    $date4=date_create($row["tarikhSSTSH"]);
-    $date5=date_create($row["tarikhCO"]);         
-
+    
   if (mysqli_num_rows($sql) > 0)
     {
     $output .='
@@ -71,13 +66,13 @@ $downloadExcell = $_SERVER['PHP_SELF'];
         <tr>
             <td>'.$a++.'</td>
             <td>'.$row["negeri"].'</td>
-            <td>'.date_format($date1,"d-m-Y").'</td>
-            <td>'.date_format($date2,"d-m-Y").'</td>
-            <td>'.date_format($date3,"d-m-Y").'</td>
-            <td>'.date_format($date4,"d-m-Y").'</td>
+            <td>=TEXT('.$row["tarikhBukaSH"].',"dd/mm/yyyy")</td>
+            <td>=TEXT('.$row["tarikhTutupSH"].,"dd/mm/yyyy")'</td>
+            <td>=TEXT('.$row["tarikhPenilaianSH"].',"dd/mm/yyyy")</td>
+            <td>=TEXT('.$row["tarikhSSTSH"].',"dd/mm/yyyy")</td>
             <td>'.strtoupper($row["namaPembekal"]).'</td>
             <td>'.$row["nilaiSH"].'</td>
-            <td>'.date_format($date5,"d-m-Y").'</td>
+            <td>=TEXT('.$row["tarikhCO"].',"dd/mm/yyyy")</td>
             <td>'.$row["bilJudulPesan"].'</td>
             <td>'.$row["bilNaskhahPesan"].'</td>
             <td>'.$row["bilNaskhahBekal"].'</td>

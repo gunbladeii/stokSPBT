@@ -256,7 +256,7 @@ $a = 1;
       </li>
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="epnegeri.php">
+        <a class="nav-link" data-toggle="dropdown" href="epnegeri2.php">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -293,7 +293,7 @@ $a = 1;
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="epnegeri.php" class="nav-link active">
+            <a href="epnegeri2.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                  mySPBT 2.0 Dashboard
@@ -335,7 +335,7 @@ $a = 1;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="epnegeri.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="epnegeri2.php">Home</a></li>
               <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan SH-Negeri</li>
             </ol>
           </div><!-- /.col -->
@@ -365,7 +365,7 @@ $a = 1;
               <div class="card-body p-0">
                           
                           <div class="table-responsive">
-                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
+                          <form method="post" action="epnegeri2.php" role="form" enctype="multipart/form-data">
                             <table class="table m-0">
                               <thead>
                                 <tr>

@@ -49,7 +49,7 @@ session_start();
                 $_SESSION['password'] = $res["password"];
                 header('Location:emonitoring/index.php');
             }
-            else if($res["role"] == "stokNegeri")
+            else if($res["role"] == "stokNegeri" || $res["role"] == "sar")
             {
             $_SESSION['user'] = $res['username'];
             $_SESSION['role'] = $res["role"];

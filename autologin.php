@@ -7,7 +7,7 @@
             {
                 header('Location:emonitoring/index.php');
             }
-            else if($_SESSION['role'] == "stokNegeri")
+            else if($_SESSION['role'] == "stokNegeri" || $res["role"] == "sar")
             {
             header('Location:emonitoringNegeri/indexNegeri/index.php');
             }

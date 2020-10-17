@@ -1,7 +1,7 @@
 <?php require('../conn.php'); ?>
 <?php
 session_start();
-if ($_SESSION['role'] != 'stokNegeri')
+if ($_SESSION['role'] != 'stokNegeri' || $_SESSION['role'] != 'sar')
 {
       header('Location:../../index.php');
 }
@@ -75,10 +75,12 @@ $a = 1;
 					</span>
 
 					<div>
+						<?php if($row_Recordset['role'] == 'stokNegeri'){?>
 						<a href="../main1.php" class="btn-login-with bg1 m-b-10">
 							<i class="fa fa-network-wired"></i>
 							Sistem Pengurusan Stok SPBT
 						</a>
+					    <?php }?>
 
 						<a href="../epnegeri.php" class="btn-login-with bg2">
 							<i class="fa fa-project-diagram"></i>

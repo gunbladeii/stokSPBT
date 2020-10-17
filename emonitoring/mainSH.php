@@ -337,9 +337,6 @@ $a = 1;
                         <div class="col-md-6">
                           <div id="tarikhSH"></div>
                         </div>
-                        <div class="col-md-6">
-                          <div id="mapSH"></div>
-                        </div>
                  </div>
                 <!-- /.table-responsive -->
               </div>

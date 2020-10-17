@@ -67,7 +67,7 @@ $downloadExcell = $_SERVER['PHP_SELF'];
             <td>'.$a++.'</td>
             <td>'.$row["negeri"].'</td>
             <td>=TEXT('.$row["tarikhBukaSH"].',"dd/mm/yyyy")</td>
-            <td>=TEXT('.$row["tarikhTutupSH"].,"dd/mm/yyyy")'</td>
+            <td>=TEXT('.$row["tarikhTutupSH"].',"dd/mm/yyyy")</td>
             <td>=TEXT('.$row["tarikhPenilaianSH"].',"dd/mm/yyyy")</td>
             <td>=TEXT('.$row["tarikhSSTSH"].',"dd/mm/yyyy")</td>
             <td>'.strtoupper($row["namaPembekal"]).'</td>

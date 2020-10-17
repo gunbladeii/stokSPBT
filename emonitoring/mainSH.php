@@ -66,13 +66,13 @@ $downloadExcell = $_SERVER['PHP_SELF'];
         <tr>
             <td>'.$a++.'</td>
             <td>'.$row["negeri"].'</td>
-            <td>=TEXT('.$row["tarikhBukaSH"].',"dd/mm/yyyy")</td>
-            <td>=TEXT('.$row["tarikhTutupSH"].',"dd/mm/yyyy")</td>
-            <td>=TEXT('.$row["tarikhPenilaianSH"].',"dd/mm/yyyy")</td>
-            <td>=TEXT('.$row["tarikhSSTSH"].',"dd/mm/yyyy")</td>
+            <td>=TEXT('.$row["tarikhBukaSH"].',"dd/mm/yy")</td>
+            <td>=TEXT('.$row["tarikhTutupSH"].',"dd/mm/yy")</td>
+            <td>=TEXT('.$row["tarikhPenilaianSH"].',"dd/mm/yy")</td>
+            <td>=TEXT('.$row["tarikhSSTSH"].',"dd/mm/yy")</td>
             <td>'.strtoupper($row["namaPembekal"]).'</td>
             <td>'.$row["nilaiSH"].'</td>
-            <td>=TEXT('.$row["tarikhCO"].',"dd/mm/yyyy")</td>
+            <td>=TEXT('.$row["tarikhCO"].',"dd/mm/yy")</td>
             <td>'.$row["bilJudulPesan"].'</td>
             <td>'.$row["bilNaskhahPesan"].'</td>
             <td>'.$row["bilNaskhahBekal"].'</td>

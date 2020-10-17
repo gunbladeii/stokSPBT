@@ -30,8 +30,9 @@ if (isset($_POST['submit'])) {
     }
 $a = 1;
 
+$downloadExcell = $_SERVER['PHP_SELF'];
 /*advanced*/
-  if (isset($_POST["downloadExcel"]))
+  if (isset($_POST["downloadSH"]))
   {
   $sql = $mysqli->query("SELECT * FROM dataSH ORDER BY negeri,namaPembekal ASC"); 
     $date1=date_create($row["tarikhBukaSH"]);
@@ -385,7 +386,7 @@ $a = 1;
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MySPBT</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
                 <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" name="download" class="download" enctype="multipart/form-data">
-                  <button type="submit" name='download' value="Export to excel" class="badge badge-warning" id="buttonExcell"><i class="nav-icon fas fa-upload"></i>Eksport MS Excel </button>
+                  <button type="submit" name='downloadSH' value="Export to excel" class="badge badge-warning" id="buttonExcell"><i class="nav-icon fas fa-upload"></i>Eksport MS Excel </button>
                 </form>
 
                 <div class="card-tools">

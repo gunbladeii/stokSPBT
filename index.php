@@ -49,7 +49,14 @@ session_start();
                 $_SESSION['password'] = $res["password"];
                 header('Location:emonitoring/index.php');
             }
-            else if($res["role"] == "stokNegeri" || $res["role"] == "sar")
+            else if($res["role"] == "stokNegeri")
+            {
+            $_SESSION['user'] = $res['username'];
+            $_SESSION['role'] = $res["role"];
+            $_SESSION['password'] = $res["password"];
+            header('Location:emonitoringNegeri/indexNegeri/index.php');
+            }
+            else if($res["role"] == "sar")
             {
             $_SESSION['user'] = $res['username'];
             $_SESSION['role'] = $res["role"];

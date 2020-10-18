@@ -84,7 +84,7 @@ $a = 1;
 
 						<a href="../epnegeri.php" class="btn-login-with bg2">
 							<i class="fa fa-project-diagram"></i>
-							Sistem Pengurusan Perolehan SPBT
+							Sistem Pengesanan Sebut Harga SPBT
 						</a>
 					</div>
 				</form>

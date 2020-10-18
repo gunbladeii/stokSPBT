@@ -226,7 +226,7 @@
                                                <select name="statusBekal" class="custom-select browser-default">
                                                    <option value="SELESAI">SELESAI</option>
                                                    <option value="SEDANG BEKAL">SEDANG BEKAL</option>
-                                                   <option value="BELUM BEKAL">BELUM BEKAL</option>
+                                                   <option value="BELUM SELESAI">BELUM SELESAI</option>
                                                </select>
                                       </div>
                                       

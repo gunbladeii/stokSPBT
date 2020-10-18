@@ -223,7 +223,7 @@
                                                 <option value="<?php echo $dataSH['statusBekal'];?>" selected><?php echo strtoupper($dataSH['statusBekal']);?></option>
                                                    <option value="SELESAI">SELESAI</option>
                                                    <option value="SEDANG BEKAL">SEDANG BEKAL</option>
-                                                   <option value="BELUM BEKAL">BELUM BEKAL</option>
+                                                   <option value="BELUM SELESAI">BELUM SELESAI</option>
                                                </select>
                                       </div>
                                       

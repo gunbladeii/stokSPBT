@@ -75,7 +75,7 @@ $a = 1;
 					</span>
 
 					<div>
-						<a href="../epnegeri.php" class="btn-login-with bg2">
+						<a href="../epnegeri.php" class="btn-login-with bg1 m-b-10">
 							<i class="fa fa-project-diagram"></i>
 							Sistem Pengesanan Sebut Harga SPBT
 						</a>

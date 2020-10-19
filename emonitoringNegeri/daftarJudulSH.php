@@ -41,6 +41,7 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <title>Daftar judul penerbit</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -48,6 +49,7 @@
  <body>
   <br />
   <div class="container">
+   <h3 align="center">Daftar judul peenrbit</h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
@@ -58,7 +60,7 @@
       </tr>
      </table>
      <div align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Simpan Data" />
+      <input type="submit" name="submit" class="btn btn-info" value="Insert" />
      </div>
     </div>
    </form>
@@ -66,59 +68,57 @@
  </body>
 </html>
 
-                        <script>
-                        $(document).ready(function(){
-                         
-                         $(document).on('click', '.add', function(){
-                          var html = '';
-                          html += '<tr>';
-                          html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="'<?php echo $dataSH['id'];?>'"><select name="judul[]" class="form-control judul"><option value="">Select Unit</option><?php echo fill_unit_select_box($connect); ?></select></td>';
-                          html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
-                          $('#item_table').append(html);
-                         });
-                         
-                         $(document).on('click', '.remove', function(){
-                          $(this).closest('tr').remove();
-                         });
-                         
-                         $('#insert_form').on('submit', function(event){
-                          event.preventDefault();
-                          var error = '';
-                          
-                          
-                          $('.judul').each(function(){
-                           var count = 1;
-                           if($(this).val() == '')
-                           {
-                            error += "<p>Sila masukkan maklumat judul di lajur "+count+" </p>";
-                            return false;
-                           }
-                           count = count + 1;
-                          });
-                          var form_data = $(this).serialize();
-                          if(error == '')
-                          {
-                           $.ajax({
-                            url:"insertJudulSH.php",
-                            method:"POST",
-                            data:form_data,
-                            success:function(data)
-                            {
-                             if(data == 'ok')
-                             {
-                              $('#item_table').find("tr:gt(0)").remove();
-                              $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
-                             }
-                            }
-                           });
-                          }
-                          else
-                          {
-                           $('#error').html('<div class="alert alert-danger">'+error+'</div>');
-                          }
-                         });
-                         
-                        });
-                        </script>
-
-                     
+<script>
+$(document).ready(function(){
+ 
+ $(document).on('click', '.add', function(){
+  var html = '';
+  html += '<tr>';
+  html += '<td><select name="judul[]" class="form-control judul"><option value="">Pilih Judul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+  $('#item_table').append(html);
+ });
+ 
+ $(document).on('click', '.remove', function(){
+  $(this).closest('tr').remove();
+ });
+ 
+ $('#insert_form').on('submit', function(event){
+  event.preventDefault();
+  var error = '';
+  
+  
+  $('.judul').each(function(){
+   var count = 1;
+   if($(this).val() == '')
+   {
+    error += "<p>Select Unit at row "+count+" </p>";
+    return false;
+   }
+   count = count + 1;
+  });
+  var form_data = $(this).serialize();
+  if(error == '')
+  {
+   $.ajax({
+    url:"insert.php",
+    method:"POST",
+    data:form_data,
+    success:function(data)
+    {
+     if(data == 'ok')
+     {
+      $('#item_table').find("tr:gt(0)").remove();
+      $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
+     }
+    }
+   });
+  }
+  else
+  {
+   $('#error').html('<div class="alert alert-danger">'+error+'</div>');
+  }
+ });
+ 
+});
+</script>

@@ -54,7 +54,7 @@
       </tr>
      </table>
      <div align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Insert" />
+      <input type="submit" name="submit" class="btn btn-info" value="Simpan Data" />
      </div>
     </div>
    </form>

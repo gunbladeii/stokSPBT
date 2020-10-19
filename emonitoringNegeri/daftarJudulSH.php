@@ -1,67 +1,43 @@
-<?php require('conn.php'); ?>
+<?php session_start();?>
 <?php
-session_start();
-if ($_SESSION['role'] != 'stokNegeri')
-{
-      header('Location:../index.php');
-}
+    require('conn.php');
 
-?>
-<?php
+      $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
+      function fill_unit_select_box($connect)
+      { 
+       $output = '';
+       $query = "SELECT * FROM dataSHJudul ORDER BY judul ASC";
+       $statement = $connect->prepare($query);
+       $statement->execute();
+       $result = $statement->fetchAll();
+       foreach($result as $row)
+       {
+        $output .= '<option value="'.$row["judul"].'">'.$row["judul"].'</option>';
+       }
+       return $output;
+      }
+    
+    date_default_timezone_set("asia/kuala_lumpur"); 
+    $date = date('Y-m-d');
 
-date_default_timezone_set("asia/kuala_lumpur");
-$date = date('d-F-Y');
-$datePHP = date('Y-m-d');
-
-$colname_Recordset = "-1";
-if (isset($_SESSION['user'])) {
-  $colname_Recordset = $_SESSION['user'];
-}
-
-
-$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
-$row_Recordset = mysqli_fetch_assoc($Recordset);
-$totalRows_Recordset = mysqli_num_rows($Recordset);
-
-$Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$colname_Recordset'");
-$dataSH = mysqli_fetch_assoc($Recordset2);
-$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
-
-$Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.username = '$colname_Recordset' GROUP BY dataSH.negeri");
-$dataSH2 = mysqli_fetch_assoc($Recordset3);
-$totalRows_Recordset3 = mysqli_num_rows($Recordset3);
-
-$username = $_POST['username'];
-$negeri = $_POST['negeri'];
-$tarikhSHSBegin = $_POST['tarikhSHSBegin'];
-$tarikhBukaSH = $_POST['tarikhBukaSH'];
-$tarikhTutupSH = $_POST['tarikhTutupSH'];
-$tarikhPenilaianSH = $_POST['tarikhPenilaianSH'];
-$tarikhSSTSH = $_POST['tarikhSSTSH'];
-$namaPembekal = $_POST['namaPembekal'];
-$nilaiSH = $_POST['nilaiSH'];
-$tarikhCO = $_POST['tarikhCO'];
-$bilJudulPesan = $_POST['bilJudulPesan'];
-$bilNaskhahPesan = $_POST['bilNaskhahPesan'];
-$bilNaskhahBekal = $_POST['bilNaskhahBekal'];
-$peratusBekal = $_POST['peratusBekal'];
-$statusBekal = $_POST['statusBekal'];
-$statusTuntut = $_POST['statusTuntut'];
-$statusBayar = $_POST['statusBayar'];
-$remark = $_POST['remark'];
-
-if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhSHSBegin`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$negeri','$tarikhSHSBegin','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
-    header("location:epnegeri.php");
+    $colname_Recordset = "-1";
+    if (isset($_SESSION['user'])) {
+      $colname_Recordset = $_SESSION['user'];
     }
 
-if (isset($_POST['update'])) {
-    $mysqli->query ("UPDATE `dataSH` SET `tarikhSHSBegin` = '$tarikhSHSBegin',`tarikhBukaSH` = '$tarikhBukaSH',`tarikhTutupSH` = '$tarikhTutupSH',`tarikhPenilaianSH` = '$tarikhPenilaianSH',`tarikhSSTSH` = '$tarikhSSTSH',`namaPembekal` = '$namaPembekal',`nilaiSH` = '$nilaiSH',`tarikhCO` = '$tarikhCO',`bilJudulPesan` = '$bilJudulPesan',`bilNaskhahPesan` = '$bilNaskhahPesan',`bilNaskhahBekal` = '$bilNaskhahBekal',`peratusBekal` = '$peratusBekal',`statusBekal` = '$statusBekal',`statusTuntut` = '$statusTuntut',`statusBayar` = '$statusBayar',`remark` = '$remark' WHERE `username` = '$username'");
-    header("location:epnegeri.php");
-    }
+    $id = $_GET['id'];
+    
 
-$a = 1;
-?>
+    $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+    $row_Recordset = mysqli_fetch_assoc($Recordset);
+    $totalRows_Recordset = mysqli_num_rows($Recordset);
+
+    $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$username2'");
+    $dataSH = mysqli_fetch_assoc($Recordset2);
+    $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
+
+?>    
+
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -383,88 +359,26 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                          
-                          <div class="table-responsive">
-                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
-                            <table class="table m-0">
-                              <thead>
-                                <tr>
-                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR REKOD SEBUT HARGA</h4></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              
-                                <tr>
-                                  <td style="text-align: center;">
-                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DAFTAR REKOD PENGESANAN-SH</a>
-                                </td>
-                                </tr>
-
-                              </tbody>
-                             </table>
-                            </form>
-
-                            <?php if(!empty($dataSH)){?>
-                              <table id="example1" class="table m-0">
-                              <thead>
-                                <tr>
-                                  <th colspan="5" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              
-                                <tr>
-                                  <th>Bil</th>
-                                  <th>Nama Pembekal</th>
-                                  <th>Tarikh Mula Sebut Harga</th>
-                                  <th>Nilai Sebut Harga (RM)</th>
-                                  <th>Daftar Judul</th>
-                                </tr>
-
-                                <?php do {?>
-                                <tr>
-                                  <td><?php echo $a++;?></td>
-                                  <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
-                                  <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
-                                  <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
-                                  <td><a href="daftarJudulSH.php?id=<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><i class="fas fa-chevron-right"></i></a></td>
-                                </tr>
-                                <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
-
-                              </tbody>
-                             </table>
-                                <div class="modal-footer">
-                                    <a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Jumlah besar: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH']);?></a>
-                                </div>
-                            <?php }?>
-
-
-                          </div>
-                              <script>
-                                  $(document).ready(function() {
-                                  //this calculates values automatically 
-                                  sum();
-                                  $("#bilNaskhahBekal,#bilNaskhahPesan").on("keydown keyup", function() {
-                                      sum();
-                                  });
-
-                                  function sum() {
-                                          var num1 = document.getElementById('bilNaskhahBekal').value;
-                                          var num2 = document.getElementById('bilNaskhahPesan').value;
-                                    var result1 = parseInt(num1) / parseInt(num2);
-                                    var result = (parseFloat(result1) * 100).toFixed(2);
-                                          if (!isNaN(result)) 
-                                          {
-                                      document.getElementById('peratusBekal').value = result;
-                                          }
-                                          
-                                      }
-                                  });
-                             </script>
                          
+                  <div class="container">
+                   <form method="post" id="insert_form">
+                    <div class="table-repsonsive">
+                     <span id="error"></span>
+                     <table class="table table-bordered" id="item_table">
+                      <tr>
+                       <th>Pilih Judul</th>
+                       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
+                      </tr>
+                     </table>
+                     <div align="center">
+                      <input type="submit" name="submit" class="btn btn-info" value="Simpan Data" />
+                     </div>
+                    </div>
+                   </form>
+                  </div>
                 <!-- /.table-responsive -->
-              </div>
-              </div>
+                  </div>
+                </div>
               </div>
 
                      
@@ -530,88 +444,59 @@ $a = 1;
 		});
 </script>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-    $('#submitDataSHModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'username=' + recipient;
-
-            $.ajax({
-                type: "GET",
-                url: "submitDataSH.php",
-                data: dataString,
-                cache: false,
-                success: function (data) {
-                    console.log(data);
-                    modal.find('.dash1').html(data);
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
-    })
-
-    $('#updateDataSHModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'id=' + recipient;
-
-            $.ajax({
-                type: "GET",
-                url: "updateDataSH.php",
-                data: dataString,
-                cache: false,
-                success: function (data) {
-                    console.log(data);
-                    modal.find('.dash2').html(data);
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
-    })
-
-    $('#daftarJudulSHModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'id=' + recipient;
-
-            $.ajax({
-                type: "GET",
-                url: "daftarJudulSHModal.php",
-                data: dataString,
-                cache: false,
-                success: function (data) {
-                    console.log(data);
-                    modal.find('.dash3').html(data);
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
-    })
-</script>
-
-<!-- DataTables -->
-<script src="jquery.dataTables.js"></script>
-<script src="dataTables.bootstrap4.js"></script>
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
+$(document).ready(function(){
+ 
+ $(document).on('click', '.add', function(){
+  var html = '';
+  html += '<tr>';
+  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="'<?php echo $dataSH['id'];?>'"><select name="judul[]" class="form-control judul"><option value="">Select Unit</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+  $('#item_table').append(html);
+ });
+ 
+ $(document).on('click', '.remove', function(){
+  $(this).closest('tr').remove();
+ });
+ 
+ $('#insert_form').on('submit', function(event){
+  event.preventDefault();
+  var error = '';
+  
+  
+  $('.judul').each(function(){
+   var count = 1;
+   if($(this).val() == '')
+   {
+    error += "<p>Sila masukkan maklumat judul di lajur "+count+" </p>";
+    return false;
+   }
+   count = count + 1;
   });
+  var form_data = $(this).serialize();
+  if(error == '')
+  {
+   $.ajax({
+    url:"insertJudulSH.php",
+    method:"POST",
+    data:form_data,
+    success:function(data)
+    {
+     if(data == 'ok')
+     {
+      $('#item_table').find("tr:gt(0)").remove();
+      $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
+     }
+    }
+   });
+  }
+  else
+  {
+   $('#error').html('<div class="alert alert-danger">'+error+'</div>');
+  }
+ });
+ 
+});
 </script>
 </body>
 </html>

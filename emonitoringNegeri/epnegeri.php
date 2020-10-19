@@ -408,7 +408,7 @@ $a = 1;
                               <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="4" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
+                                  <th colspan="5" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
                                 </tr>
                               </thead>
                               <tbody>

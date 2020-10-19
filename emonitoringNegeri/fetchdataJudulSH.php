@@ -1,8 +1,10 @@
+<?php session_start();?>
 <?php
 //fetch.php
 $connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
+$id = $_GET['id'];
 $output = '';
-$query = "SELECT dataSHJudulPenerbit.kodJudul, dataSHJudul.judul FROM dataSHJudulPenerbit INNER JOIN dataSHJudul ON dataSHJudulPenerbit.kodJudul = dataSHJudul.kodJudul ORDER BY dataSHJudulPenerbit.kodJudul ASC";
+$query = "SELECT dataSHJudulPenerbit.id_Penerbit, dataSHJudulPenerbit.kodJudul, dataSHJudul.judul FROM dataSHJudulPenerbit INNER JOIN dataSHJudul ON dataSHJudulPenerbit.kodJudul = dataSHJudul.kodJudul WHERE dataSHJudulPenerbit.id_Penerbit = '$id' ORDER BY dataSHJudulPenerbit.kodJudul ASC";
 $result = mysqli_query($connect, $query);
 $a = 1;
 $output = '

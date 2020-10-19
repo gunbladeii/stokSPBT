@@ -73,7 +73,7 @@ $(document).ready(function(){
  $(document).on('click', '.add', function(){
   var html = '';
   html += '<tr>';
-  html += '<td><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih kodJudul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="<?php echo $dataSH['id']; ?>" /><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih kodJudul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
   html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
   $('#item_table').append(html);
  });

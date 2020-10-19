@@ -4,7 +4,11 @@
 $connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
 $id = $_GET['id'];
 $output = '';
-$query = "SELECT dataSHJudulPenerbit.id_Penerbit, dataSHJudulPenerbit.kodJudul, dataSHJudul.judul FROM dataSHJudulPenerbit INNER JOIN dataSHJudul ON dataSHJudulPenerbit.kodJudul = dataSHJudul.kodJudul  ORDER BY dataSHJudulPenerbit.kodJudul ASC";
+$query = "SELECT dataSHJudulPenerbit.id_Penerbit, dataSH.namaPembekal, dataSH.negeri,dataSHJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
+((dataSHJudulPenerbit 
+	INNER JOIN dataSHJudul ON dataSHJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
+	INNER JOIN dataSH ON dataSHJudulPenerbit.id_Penerbit = dataSHJudul.id)
+	  ORDER BY dataSHJudulPenerbit.kodJudul ASC";
 $result = mysqli_query($connect, $query);
 $a = 1;
 $output = '
@@ -14,7 +18,9 @@ $output = '
  <tr>
   <th width="5%">No</th>
   <th width="30%">Kod Judul</th>
-  <th width="65%">Nama Judul</th>
+  <th width="50%">Nama Judul</th>
+  <th width="25%">Pembekal</th>
+  <th width="20%">Negeri</th>
  </tr>
 ';
 while($row = mysqli_fetch_array($result))
@@ -24,6 +30,8 @@ while($row = mysqli_fetch_array($result))
   <td>'.$a++.'</td>
   <td>'.$row["kodJudul"].'</td>
   <td>'.$row["judul"].'</td>
+  <td>'.$row["namaPembekal"].'</td>
+  <td>'.$row["negeri"].'</td>
  </tr>
  ';
 }

@@ -30,7 +30,7 @@ while($row = mysqli_fetch_array($result))
   <td>'.$a++.'</td>
   <td>'.$row["kodJudul"].'</td>
   <td>'.$row["judul"].'</td>
-  <td>'.$row["namaPembekal"].'</td>
+  <td>'.strtoupper($row["namaPembekal"]).'</td>
   <td>'.$row["negeri"].'</td>
  </tr>
  ';

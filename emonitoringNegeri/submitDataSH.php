@@ -167,7 +167,7 @@
                                    <div class="form-group">
                                       Bilangan Judul dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="">
+                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -181,7 +181,7 @@
                                    <div class="form-group">
                                       Bilangan Naskhah dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" id="bilNaskhahPesan" name="bilNaskhahPesan" class="form-control"  value="" required>
+                                      <input style="text-transform: uppercase;" type="number" id="bilNaskhahPesan" name="bilNaskhahPesan" class="form-control"  value="">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -195,7 +195,7 @@
                                    <div class="form-group">
                                       Bilangan Naskhah Telah dibekal:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" id="bilNaskhahBekal" name="bilNaskhahBekal" class="form-control"  value="" required>
+                                      <input style="text-transform: uppercase;" type="number" id="bilNaskhahBekal" name="bilNaskhahBekal" class="form-control"  value="">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -209,7 +209,7 @@
                                    <div class="form-group">
                                       Peratus Pembekalan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="text" id="peratusBekal" name="peratusBekal" class="form-control" value="" required>
+                                      <input style="text-transform: uppercase;" type="text" id="peratusBekal" name="peratusBekal" class="form-control" value="">
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>

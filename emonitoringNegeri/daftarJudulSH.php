@@ -49,7 +49,7 @@
   <br />
   <div class="container">
     <div class="row">
-        <a href="epnegeri.php"><img src="img/myspbt_logo.png" style="max-width: 25%; max-height: 15%"></a>
+        <a href="epnegeri.php"><img src="img/myspbt_logo.png" class="rounded mx-auto d-block" style="max-width: 25%; max-height: 15%"></a>
     </div>
    <h3 align="center">Daftar Judul Penerbit</h3>
    <form method="post" id="insert_form">

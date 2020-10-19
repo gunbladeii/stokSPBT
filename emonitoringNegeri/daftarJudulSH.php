@@ -5,13 +5,13 @@
       function fill_unit_select_box($connect)
       { 
        $output = '';
-       $query = "SELECT * FROM dataSHJudul ORDER BY judul ASC";
+       $query = "SELECT * FROM dataSHkodJudul ORDER BY kodJudul ASC";
        $statement = $connect->prepare($query);
        $statement->execute();
        $result = $statement->fetchAll();
        foreach($result as $row)
        {
-        $output .= '<option value="'.$row["judul"].'">'.$row["judul"].'</option>';
+        $output .= '<option value="'.$row["kodJudul"].'">'.$row["kodJudul"].'</option>';
        }
        return $output;
       }
@@ -40,7 +40,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>Daftar judul penerbit</title>
+  <title>Daftar Judul penerbit</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -48,7 +48,7 @@
  <body>
   <br />
   <div class="container">
-   <h3 align="center">Daftar judul peenrbit</h3>
+   <h3 align="center">Daftar Judul peenrbit</h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
@@ -73,7 +73,7 @@ $(document).ready(function(){
  $(document).on('click', '.add', function(){
   var html = '';
   html += '<tr>';
-  html += '<td><select name="judul[]" class="form-control judul"><option value="">Pilih Judul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih kodJudul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
   html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
   $('#item_table').append(html);
  });
@@ -87,7 +87,7 @@ $(document).ready(function(){
   var error = '';
   
   
-  $('.judul').each(function(){
+  $('.kodJudul').each(function(){
    var count = 1;
    if($(this).val() == '')
    {

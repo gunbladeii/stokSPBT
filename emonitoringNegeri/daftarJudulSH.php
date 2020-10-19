@@ -11,7 +11,7 @@
        $result = $statement->fetchAll();
        foreach($result as $row)
        {
-        $output .= '<option value="'.$row["kodJudul"].'">'.$row["kodJudul"].'</option>';
+        $output .= '<option value="'.$row["kodJudul"].'">'.$row["judul"].'</option>';
        }
        return $output;
       }

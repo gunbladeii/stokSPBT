@@ -37,25 +37,32 @@
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 ?>    
-
-              
-                      
-                          <div class="container">
-                          <form method="post" id="insert_form">
-                          <div class="table-repsonsive">
-                               <span id="error"></span>
-                               <table class="table table-bordered" id="item_table">
-                                <tr>
-                                 <th>Pilih Judul</th>
-                                 <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
-                                </tr>
-                               </table>
-                               <div align="center">
-                                <input type="submit" name="submit" class="btn btn-info" value="Daftar Judul" />
-                               </div>
-                              </div>
-                         </form>
-                          </div>
+<html>
+ <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+  <br />
+  <div class="container">
+   <form method="post" id="insert_form">
+    <div class="table-repsonsive">
+     <span id="error"></span>
+     <table class="table table-bordered" id="item_table">
+      <tr>
+       <th>Pilih Judul</th>
+       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
+      </tr>
+     </table>
+     <div align="center">
+      <input type="submit" name="submit" class="btn btn-info" value="Insert" />
+     </div>
+    </div>
+   </form>
+  </div>
+ </body>
+</html>
                               <script>
                                   $(document).ready(function() {
                                   //this calculates values automatically 

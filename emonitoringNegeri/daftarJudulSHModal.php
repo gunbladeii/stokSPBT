@@ -2,8 +2,8 @@
 <?php
     require('conn.php');
 
-      $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
-      function fill_unit_select_box($connect)
+      //$connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
+      function fill_unit_select_box($mysqli)
       { 
        $output = '';
        $query = "SELECT * FROM dataSHJudul ORDER BY judul ASC";

@@ -5,7 +5,7 @@
       function fill_unit_select_box($connect)
       { 
        $output = '';
-       $query = "SELECT * FROM dataSHkodJudul ORDER BY kodJudul ASC";
+       $query = "SELECT * FROM dataSHJudul ORDER BY kodJudul ASC";
        $statement = $connect->prepare($query);
        $statement->execute();
        $result = $statement->fetchAll();

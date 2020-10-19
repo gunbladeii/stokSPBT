@@ -48,8 +48,7 @@
  <body>
   <div class="container">
     <div class="row">
-        <a href="epnegeri.php"><img src="img/myspbt_logo.png" class="rounded mx-auto d-block" style="max-width: 25%; max-height: 15%"></a>
-   <h3 align="center">Daftar Judul Penerbit</h3>
+   <h3 align="center"><a href="epnegeri.php" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Daftar Judul Penerbit</a></h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>

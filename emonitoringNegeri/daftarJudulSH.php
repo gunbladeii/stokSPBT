@@ -100,7 +100,7 @@ $(document).ready(function(){
   if(error == '')
   {
    $.ajax({
-    url:"insert.php",
+    url:"insertJudulSH.php",
     method:"POST",
     data:form_data,
     success:function(data)

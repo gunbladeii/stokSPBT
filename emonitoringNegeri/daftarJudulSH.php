@@ -48,9 +48,9 @@
  <body>
   <br />
   <div class="container">
-    <span class="login100-form-title p-b-40">
+    <div class="row">
         <a href="epnegeri.php"><img src="img/myspbt_logo.png" style="max-width: 25%; max-height: 15%"></a>
-    </span>
+    </div>
    <h3 align="center">Daftar Judul Penerbit</h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">

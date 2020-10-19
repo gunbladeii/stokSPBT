@@ -48,7 +48,8 @@
  <body>
   <br />
   <div class="container">
-   <h3 align="center">Daftar Judul peenrbit</h3>
+  <a href="epnegeri.php"><img src="img/myspbt_logo.png" style="max-width: 55%; max-height: 40%"></a>
+   <h3 align="center">Daftar Judul Penerbit</h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
@@ -59,7 +60,7 @@
       </tr>
      </table>
      <div align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Insert" />
+      <input type="submit" name="submit" class="btn btn-info" value="Simpan Rekod" />
      </div>
     </div>
    </form>

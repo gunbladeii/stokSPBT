@@ -6,7 +6,7 @@ if(isset($_POST["kodJudul"]))
  $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
  $id = uniqid();
  for($count = 0; $count < count($_POST["kodJudul"]); $count++) {
-  $query = "INSERT INTO dataSHkodJudulPenerbit 
+  $query = "INSERT INTO dataSHJudulPenerbit 
   (id_Penerbit, kodJudul) 
   VALUES (:id_Penerbit, :kodJudul)
   ";

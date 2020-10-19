@@ -61,6 +61,8 @@
      <div align="center">
       <input type="submit" name="submit" class="btn btn-info" value="Simpan Rekod" />
      </div>
+      <br />
+      <div id="inserted_item_data"></div>
     </div>
    </form>
    </div>
@@ -110,6 +112,7 @@ $(document).ready(function(){
      {
       $('#item_table').find("tr:gt(0)").remove();
       $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
+      fetch_item_data();
      }
     }
    });
@@ -119,6 +122,21 @@ $(document).ready(function(){
    $('#error').html('<div class="alert alert-danger">'+error+'</div>');
   }
  });
- 
+ function fetch_item_data()
+ {
+  $.ajax({
+   url:"fetchdataJudulSHphp",
+   method:"POST",
+   success:function(data)
+   {
+    $('#inserted_item_data').html(data);
+   }
+  })
+ }
+ fetch_item_data();
 });
+
+
+ 
+
 </script>

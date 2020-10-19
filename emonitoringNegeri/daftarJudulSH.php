@@ -125,7 +125,7 @@ $(document).ready(function(){
  function fetch_item_data()
  {
   $.ajax({
-   url:"fetchdataJudulSHphp",
+   url:"fetchdataJudulSH.php",
    method:"POST",
    success:function(data)
    {

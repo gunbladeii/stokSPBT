@@ -7,7 +7,7 @@ $output = '';
 $query = "SELECT dataSHJudulPenerbit.id_Penerbit, dataSH.namaPembekal, dataSH.negeri,dataSHJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
 ((dataSHJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataSHJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
-	INNER JOIN dataSH ON dataSHJudulPenerbit.id_Penerbit = dataSHJudul.id)
+	INNER JOIN dataSH ON dataSHJudulPenerbit.id_Penerbit = dataSH.id)
 	  ORDER BY dataSHJudulPenerbit.kodJudul ASC";
 $result = mysqli_query($connect, $query);
 $a = 1;

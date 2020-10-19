@@ -381,6 +381,61 @@
                 </div>
               </div>
 
+                        <script>
+                        $(document).ready(function(){
+                         
+                         $(document).on('click', '.add', function(){
+                          var html = '';
+                          html += '<tr>';
+                          html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="'<?php echo $dataSH['id'];?>'"><select name="judul[]" class="form-control judul"><option value="">Select Unit</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+                          html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+                          $('#item_table').append(html);
+                         });
+                         
+                         $(document).on('click', '.remove', function(){
+                          $(this).closest('tr').remove();
+                         });
+                         
+                         $('#insert_form').on('submit', function(event){
+                          event.preventDefault();
+                          var error = '';
+                          
+                          
+                          $('.judul').each(function(){
+                           var count = 1;
+                           if($(this).val() == '')
+                           {
+                            error += "<p>Sila masukkan maklumat judul di lajur "+count+" </p>";
+                            return false;
+                           }
+                           count = count + 1;
+                          });
+                          var form_data = $(this).serialize();
+                          if(error == '')
+                          {
+                           $.ajax({
+                            url:"insertJudulSH.php",
+                            method:"POST",
+                            data:form_data,
+                            success:function(data)
+                            {
+                             if(data == 'ok')
+                             {
+                              $('#item_table').find("tr:gt(0)").remove();
+                              $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
+                             }
+                            }
+                           });
+                          }
+                          else
+                          {
+                           $('#error').html('<div class="alert alert-danger">'+error+'</div>');
+                          }
+                         });
+                         
+                        });
+                        </script>
+
                      
  </section>
 
@@ -442,61 +497,6 @@
 				$('#parcelStat').load('../distiSPBT/parcelStat.php')
 			}, 5000);
 		});
-</script>
-
-<script>
-$(document).ready(function(){
- 
- $(document).on('click', '.add', function(){
-  var html = '';
-  html += '<tr>';
-  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="'<?php echo $dataSH['id'];?>'"><select name="judul[]" class="form-control judul"><option value="">Select Unit</option><?php echo fill_unit_select_box($connect); ?></select></td>';
-  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
-  $('#item_table').append(html);
- });
- 
- $(document).on('click', '.remove', function(){
-  $(this).closest('tr').remove();
- });
- 
- $('#insert_form').on('submit', function(event){
-  event.preventDefault();
-  var error = '';
-  
-  
-  $('.judul').each(function(){
-   var count = 1;
-   if($(this).val() == '')
-   {
-    error += "<p>Sila masukkan maklumat judul di lajur "+count+" </p>";
-    return false;
-   }
-   count = count + 1;
-  });
-  var form_data = $(this).serialize();
-  if(error == '')
-  {
-   $.ajax({
-    url:"insertJudulSH.php",
-    method:"POST",
-    data:form_data,
-    success:function(data)
-    {
-     if(data == 'ok')
-     {
-      $('#item_table').find("tr:gt(0)").remove();
-      $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
-     }
-    }
-   });
-  }
-  else
-  {
-   $('#error').html('<div class="alert alert-danger">'+error+'</div>');
-  }
- });
- 
-});
 </script>
 </body>
 </html>

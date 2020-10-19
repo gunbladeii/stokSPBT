@@ -418,7 +418,7 @@ $a = 1;
                                   <th>Nama Pembekal</th>
                                   <th>Tarikh Mula Sebut Harga</th>
                                   <th>Nilai Sebut Harga (RM)</th>
-                                  <!--<th>Daftar Judul</th>-->
+                                  <th>Daftar Judul</th>
                                 </tr>
 
                                 <?php do {?>
@@ -427,7 +427,7 @@ $a = 1;
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
-                                  <!--<td><a href="daftarJudulSH.php?id=<?php //echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><i class="fas fa-chevron-right"></i></a></td>-->
+                                 <td><a href="daftarJudulSH.php?id=<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><i class="fas fa-chevron-right"></i></a></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 

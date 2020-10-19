@@ -137,6 +137,26 @@ $a = 1;
       <!-- /.modal -->
     <!-- End updateDataSH Modal -->
 
+    <!-- Begin updateDataSH Modal -->
+      <div class="modal fade" id="daftarJudulSHModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Rekod Pemantauan Pembekalan Mengikut Judul</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="dash3"></div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- End updateDataSH Modal -->
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -398,6 +418,7 @@ $a = 1;
                                   <th>Nama Pembekal</th>
                                   <th>Tarikh Mula Sebut Harga</th>
                                   <th>Nilai Sebut Harga (RM)</th>
+                                  <th>Daftar Judul</th>
                                 </tr>
 
                                 <?php do {?>
@@ -406,6 +427,7 @@ $a = 1;
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
+                                  <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><i class="fas fa-chevron-right"></i></a></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 
@@ -546,6 +568,27 @@ $a = 1;
                 success: function (data) {
                     console.log(data);
                     modal.find('.dash2').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+
+    $('#daftarJudulSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'id=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "daftarJudulSHModal.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash3').html(data);
                 },
                 error: function(err) {
                     console.log(err);

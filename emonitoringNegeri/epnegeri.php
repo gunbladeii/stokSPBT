@@ -419,7 +419,7 @@ $a = 1;
                                   <th>Tarikh Mula Sebut Harga</th>
                                   <th>Nilai Sebut Harga (RM)</th>
                                   <th>Daftar Judul</th>
-                                  <th align="center"><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></button></th>
+                                  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                                 </tr>
 
                                 <?php do {?>
@@ -429,7 +429,7 @@ $a = 1;
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
                                   <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
-                                  <td align="center"><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
+                                  <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 

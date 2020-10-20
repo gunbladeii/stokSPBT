@@ -48,14 +48,14 @@
  <body>
   <div class="container">
     <div class="row">
-   <h3 align="center"><a href="epnegeri.php" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Daftar Judul Penerbit</a></h3>
+   <h3 align="center"><a href="epnegeri.php" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Paparan Info Daftar Judul Penerbit</a></h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
      <table class="table table-bordered" id="item_table">
       <tr>
        <th>Pilih Judul</th>
-       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
+       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="badge badge-success"><i class="fas fa-plus-square"></i></span></button></th>
       </tr>
      </table>
      <div align="center">
@@ -77,7 +77,7 @@ $(document).ready(function(){
   var html = '';
   html += '<tr>';
   html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="<?php echo $id; ?>" /><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih kodJudul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
-  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="badge badge-danger"><i class="fas fa-minus-square"></i></span></button></td></tr>';
   $('#item_table').append(html);
  });
  

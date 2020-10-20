@@ -49,7 +49,7 @@
  <body>
   <div class="container">
     <div class="row">
-   <h3 align="center"><a href="epnegeri.php" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Paparan Info Daftar Judul Penerbit</a></h3>
+   <h3 align="center" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Arahan: Klik butang " + " untuk simpan judul secara pukal dan klik "Simpan Rekod" setelah selesai </h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
@@ -77,7 +77,7 @@ $(document).ready(function(){
  $(document).on('click', '.add', function(){
   var html = '';
   html += '<tr>';
-  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="<?php echo $id; ?>" /><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih kodJudul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="<?php echo $id; ?>" /><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih Judul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
   html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="badge badge-danger"><i class="fas fa-minus-square"></i></span></button></td></tr>';
   $('#item_table').append(html);
  });
@@ -137,8 +137,5 @@ $(document).ready(function(){
  }
  fetch_item_data();
 });
-
-
- 
 
 </script>

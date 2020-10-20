@@ -1,18 +1,17 @@
 <?php session_start();?>
 <?php
-    require('conn.php');
-
+      require('conn.php');
       $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
       function fill_unit_select_box($connect)
       { 
        $output = '';
-       $query = "SELECT * FROM dataSHJudul ORDER BY judul ASC";
+       $query = "SELECT * FROM dataSHJudul ORDER BY kodJudul ASC";
        $statement = $connect->prepare($query);
        $statement->execute();
        $result = $statement->fetchAll();
        foreach($result as $row)
        {
-        $output .= '<option value="'.$row["judul"].'">'.$row["judul"].'</option>';
+        $output .= '<option value="'.$row["kodJudul"].'">'.$row["judul"].'</option>';
        }
        return $output;
       }
@@ -36,63 +35,36 @@
     $dataSH = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-?>    
-<html>
- <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- </head>
- <body>
-  <br />
-  <div class="container">
+?>        
+<div class="container">
+    <div class="row">
+   <h3 align="center" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Arahan: Klik butang " + " untuk simpan judul secara pukal dan klik "Simpan Rekod" setelah selesai </h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
      <table class="table table-bordered" id="item_table">
       <tr>
        <th>Pilih Judul</th>
-       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
+       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="badge badge-success"><i class="fas fa-plus-square"></i></span></button></th>
       </tr>
      </table>
      <div align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Simpan Data" />
+      <input type="submit" name="submit" class="btn btn-info" value="Simpan Rekod" />
      </div>
+      <br />
+      <div id="inserted_item_data"></div>
     </div>
    </form>
+   </div>
   </div>
- </body>
-</html>
-                              <script>
-                                  $(document).ready(function() {
-                                  //this calculates values automatically 
-                                  sum();
-                                  $("#bilNaskhahBekal,#bilNaskhahPesan").on("keydown keyup", function() {
-                                      sum();
-                                  });
-
-                                  function sum() {
-                                          var num1 = document.getElementById('bilNaskhahBekal').value;
-                                          var num2 = document.getElementById('bilNaskhahPesan').value;
-                                    var result1 = parseInt(num1) / parseInt(num2);
-                                    var result = (parseFloat(result1) * 100).toFixed(2);
-                                          if (!isNaN(result)) 
-                                          {
-                                      document.getElementById('peratusBekal').value = result;
-                                          }
-                                          
-                                      }
-                                  });
-                             </script>
-
-<script>
+  
+ <script>
 $(document).ready(function(){
- 
  $(document).on('click', '.add', function(){
   var html = '';
   html += '<tr>';
-  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="'<?php echo $dataSH['id'];?>'"><select name="judul[]" class="form-control judul"><option value="">Select Unit</option><?php echo fill_unit_select_box($connect); ?></select></td>';
-  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="<?php echo $id; ?>" /><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih Judul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="badge badge-danger"><i class="fas fa-minus-square"></i></span></button></td></tr>';
   $('#item_table').append(html);
  });
  
@@ -105,11 +77,11 @@ $(document).ready(function(){
   var error = '';
   
   
-  $('.judul').each(function(){
+  $('.kodJudul').each(function(){
    var count = 1;
    if($(this).val() == '')
    {
-    error += "<p>Sila masukkan maklumat judul di lajur "+count+" </p>";
+    error += "<p>Select Unit at row "+count+" </p>";
     return false;
    }
    count = count + 1;
@@ -127,6 +99,7 @@ $(document).ready(function(){
      {
       $('#item_table').find("tr:gt(0)").remove();
       $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
+      fetch_item_data();
      }
     }
    });
@@ -136,6 +109,18 @@ $(document).ready(function(){
    $('#error').html('<div class="alert alert-danger">'+error+'</div>');
   }
  });
- 
+ function fetch_item_data()
+ {
+  
+  $.ajax({
+   url:"fetchdataJudulSH.php?id=<?php echo $id; ?>",
+   method:"POST",
+   success:function(data)
+   {
+    $('#inserted_item_data').html(data);
+   }
+  })
+ }
+ fetch_item_data();
 });
 </script>

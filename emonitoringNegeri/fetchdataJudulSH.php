@@ -16,7 +16,7 @@ if (mysqli_num_rows($result) > 0)
 {
 		$output = '
 		<br />
-		<h3 align="center">Judul</h3>
+		<h5 align="center">Judul yang telah didaftarkan</h5>
 		<table class="table table-bordered table-striped">
 		 <tr>
 		  <th width="5%">No</th>

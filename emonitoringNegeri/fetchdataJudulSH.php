@@ -4,7 +4,7 @@
 $connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
 $id = $_GET['id'];
 $output = '';
-$query = "SELECT dataSHJudulPenerbit.timestamp,dataSHJudulPenerbit.id_Penerbit, dataSH.namaPembekal, dataSH.negeri,dataSHJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
+$query = "SELECT dataSHJudulPenerbit.id,dataSHJudulPenerbit.timestamp,dataSHJudulPenerbit.id_Penerbit, dataSH.namaPembekal, dataSH.negeri,dataSHJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
 ((dataSHJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataSHJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
 	INNER JOIN dataSH ON dataSHJudulPenerbit.id_Penerbit = dataSH.id)
@@ -19,6 +19,7 @@ if (mysqli_num_rows($result) > 0)
 		<h5 align="center">Judul yang telah didaftarkan</h5>
 		<table class="table table-bordered table-striped">
 		 <tr>
+		  <th width="5%"><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Delete</button></th>
 		  <th width="5%">No</th>
 		  <th width="30%">Kod Judul</th>
 		  <th width="50%">Nama Judul</th>
@@ -30,6 +31,7 @@ if (mysqli_num_rows($result) > 0)
 		{
 		 $output .= '
 		 <tr>
+		  <input type="checkbox" class="delete_checkbox" value="'.$row["id"].'" />
 		  <td>'.$a++.'</td>
 		  <td>'.$row["kodJudul"].'</td>
 		  <td>'.$row["judul"].'</td>
@@ -46,3 +48,51 @@ else
 		echo '<span class="badge badge-warning">Tiada pendaftaran judul dibuat setakat ini</span>';
 	}
 ?>
+<style>
+.removeRow
+{
+    background-color: #FF0000;
+    color:#FFFFFF;
+}
+</style>
+<script>  
+$(document).ready(function(){ 
+
+    $('.delete_checkbox').click(function(){
+        if($(this).is(':checked'))
+        {
+            $(this).closest('tr').addClass('removeRow');
+        }
+        else
+        {
+            $(this).closest('tr').removeClass('removeRow');
+        }
+    });
+
+    $('#delete_all').click(function(){
+        var checkbox = $('.delete_checkbox:checked');
+        if(checkbox.length > 0)
+        {
+            var checkbox_value = [];
+            $(checkbox).each(function(){
+                checkbox_value.push($(this).val());
+            });
+
+            $.ajax({
+                url:"deleteJudulSH.php",
+                method:"POST",
+                data:{checkbox_value:checkbox_value},
+                success:function()
+                {
+                    $('.removeRow').fadeOut(1500);
+                }
+            });
+        }
+        else
+        {
+            alert("Pilih salah satu rekod untuk dipadam");
+        }
+    });
+
+});  
+</script>

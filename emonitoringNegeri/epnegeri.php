@@ -427,7 +427,7 @@ $a = 1;
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
-                                  <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><i class="fas fa-chevron-right"></i></a></td>
+                                  <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 

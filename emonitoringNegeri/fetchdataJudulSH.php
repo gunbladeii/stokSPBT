@@ -13,7 +13,7 @@ $query = "SELECT dataSHJudulPenerbit.timestamp,dataSHJudulPenerbit.id_Penerbit, 
 $result = mysqli_query($connect, $query);
 $dataSH = mysqli_fetch_assoc($result);
 $a = 1;
-if (!empty($dataSH))
+if (!empty($result))
 {
 		$output = '
 		<br />

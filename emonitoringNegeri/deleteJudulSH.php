@@ -19,7 +19,6 @@ if(isset($_POST["checkbox_value2"]))
  for($count = 0; $count < count($_POST["checkbox_value2"]); $count++)
  {
   $query = "DELETE FROM dataSH WHERE id = '".$_POST['checkbox_value2'][$count]."'";
-  $query = "DELETE FROM dataSHJudulPenerbit WHERE id = '".$_POST['checkbox_value2'][$count]."'";
   $statement = $connect->prepare($query);
   $statement->execute();
  }

@@ -11,13 +11,14 @@ $query = "SELECT dataSHJudulPenerbit.timestamp,dataSHJudulPenerbit.id_Penerbit, 
 	WHERE dataSHJudulPenerbit.id_Penerbit = '$id'
 	  ORDER BY dataSHJudulPenerbit.timestamp DESC";
 $result = mysqli_query($connect, $query);
+$dataSH = mysqli_fetch_assoc($query);
 
 $a = 1;
 if (!empty($result))
 {
 $output = '
 <br />
-<h3 align="center">Senarai judul bagi pembekal'.strtoupper($row["namaPembekal"]).' untuk negeri '.$row["negeri"].'</h3>
+<h3 align="center">Senarai judul bagi pembekal'.strtoupper($dataSH["namaPembekal"]).' untuk negeri '.$dataSH["negeri"].'</h3>
 <table class="table table-bordered table-striped">
  <tr>
   <th width="5%">No</th>

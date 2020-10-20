@@ -14,7 +14,7 @@ $result = mysqli_query($connect, $query);
 $dataSH = mysqli_fetch_assoc($result);
 
 $a = 1;
-if (mysqli_num_rows($result) > 0)
+if (!empty(mysqli_num_rows($result)))
 {
 $output = '
 <br />

@@ -419,7 +419,7 @@ $a = 1;
                                   <th>Tarikh Mula Sebut Harga</th>
                                   <th>Nilai Sebut Harga (RM)</th>
                                   <th>Daftar Judul</th>
-                                  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></button></th>
+                                  <th align="center"><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></button></th>
                                 </tr>
 
                                 <?php do {?>

@@ -11,7 +11,7 @@ $query = "SELECT dataSHJudulPenerbit.timestamp,dataSHJudulPenerbit.id_Penerbit, 
 	WHERE dataSHJudulPenerbit.id_Penerbit = '$id'
 	  ORDER BY dataSHJudulPenerbit.timestamp DESC";
 $result = mysqli_query($connect, $query);
-$dataSH = mysqli_fetch_assoc($connect, $query);
+$dataSH = mysqli_fetch_assoc($result);
 
 $a = 1;
 if (!empty($result))

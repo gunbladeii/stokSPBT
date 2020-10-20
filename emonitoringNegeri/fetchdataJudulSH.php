@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) > 0)
 		$output = '
 		<br />
 		<h5 align="center">Judul yang telah didaftarkan</h5>
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered">
 		 <tr>
 		  <th width="5%"><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Delete</button></th>
 		  <th width="5%">No</th>

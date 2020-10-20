@@ -52,7 +52,9 @@
       <input type="submit" name="submit" class="btn btn-info" value="Daftar Rekod" />
      </div>
       <br />
-      <div id="inserted_item_data"></div>
+        <div class="table-responsive">
+        <div id="inserted_item_data"></div>
+        </div>
     </div>
    </form>
    </div>

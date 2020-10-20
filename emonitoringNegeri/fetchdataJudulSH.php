@@ -11,31 +11,39 @@ $query = "SELECT dataSHJudulPenerbit.timestamp,dataSHJudulPenerbit.id_Penerbit, 
 	WHERE dataSHJudulPenerbit.id_Penerbit = '$id'
 	  ORDER BY dataSHJudulPenerbit.timestamp DESC";
 $result = mysqli_query($connect, $query);
+$dataSH = mysqli_fetch_assoc($result);
 $a = 1;
-$output = '
-<br />
-<h3 align="center">Judul</h3>
-<table class="table table-bordered table-striped">
- <tr>
-  <th width="5%">No</th>
-  <th width="30%">Kod Judul</th>
-  <th width="50%">Nama Judul</th>
-  <th width="25%">Pembekal</th>
-  <th width="20%">Negeri</th>
- </tr>
-';
-while($row = mysqli_fetch_array($result))
+if (!empty($dataSH))
 {
- $output .= '
- <tr>
-  <td>'.$a++.'</td>
-  <td>'.$row["kodJudul"].'</td>
-  <td>'.$row["judul"].'</td>
-  <td>'.strtoupper($row["namaPembekal"]).'</td>
-  <td>'.$row["negeri"].'</td>
- </tr>
- ';
+		$output = '
+		<br />
+		<h3 align="center">Judul</h3>
+		<table class="table table-bordered table-striped">
+		 <tr>
+		  <th width="5%">No</th>
+		  <th width="30%">Kod Judul</th>
+		  <th width="50%">Nama Judul</th>
+		  <th width="25%">Pembekal</th>
+		  <th width="20%">Negeri</th>
+		 </tr>
+		';
+		while($row = mysqli_fetch_array($result))
+		{
+		 $output .= '
+		 <tr>
+		  <td>'.$a++.'</td>
+		  <td>'.$row["kodJudul"].'</td>
+		  <td>'.$row["judul"].'</td>
+		  <td>'.strtoupper($row["namaPembekal"]).'</td>
+		  <td>'.$row["negeri"].'</td>
+		 </tr>
+		 ';
+		}
+		$output .= '</table>';
+		echo $output;
 }
-$output .= '</table>';
-echo $output;
+else
+	{
+		echo '<span class="badge badge-warning">Tiada pendaftaran judul dibuat setakat ini</span>';
+	}
 ?>

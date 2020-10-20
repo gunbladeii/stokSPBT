@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0)
 		  <th width="50%">Nama Judul</th>
 		  <th width="10%">Pembekal</th>
 		  <th width="10%">Negeri</th>
-		  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Padam</button></th>
+		  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></button></th>
 		 </tr>
 		';
 		while($row = mysqli_fetch_array($result))

@@ -36,29 +36,28 @@
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 ?>        
-<div class="container">
-    <div class="row">
+
    <h3 align="center" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Arahan: Klik butang <span class="badge badge-success"><i class="fas fa-plus-square"></i></span> untuk simpan judul secara pukal dan klik "Daftar Rekod" setelah selesai </h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
-     <table class="table table-bordered" id="item_table">
+     <table class="table table-bordered table-sm" id="item_table">
       <tr>
        <th width="80%">Pilih Judul</th>
        <th width="20%"><button type="button" name="add" class="btn btn-success btn-sm add"><span class="badge badge-success"><i class="fas fa-plus-square"></i></span></button></th>
       </tr>
      </table>
+     </div>
      <div align="center">
       <input type="submit" name="submit" class="btn btn-info" value="Daftar Rekod" />
      </div>
+     </form>
       <br />
         <div class="table-responsive">
         <div id="inserted_item_data"></div>
         </div>
-    </div>
-   </form>
-   </div>
-  </div>
+    
+   
 
  <script>
 $(document).ready(function(){

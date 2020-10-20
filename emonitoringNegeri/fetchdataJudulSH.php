@@ -37,7 +37,7 @@ if (mysqli_num_rows($result) > 0)
 		  <td>'.$row["judul"].'</td>
 		  <td>'.strtoupper($row["namaPembekal"]).'</td>
 		  <td>'.$row["negeri"].'</td>
-		  <td><input type="checkbox" class="delete_checkbox" value="'.$row["id"].'" /></td>
+		  <td align="center"><input type="checkbox" class="delete_checkbox" value="'.$row["id"].'" /></td>
 		 </tr>
 		 ';
 		}

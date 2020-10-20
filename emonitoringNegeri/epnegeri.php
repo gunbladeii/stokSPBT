@@ -626,7 +626,7 @@ $(document).ready(function(){
         {
             var checkbox_value2 = [];
             $(checkbox).each(function(){
-                checkbox_value.push($(this).val());
+                checkbox_value2.push($(this).val());
             });
 
             $.ajax({

@@ -26,6 +26,10 @@ $output = '
   <th width="50%">Nama Judul</th>
  </tr>
 ';
+}else
+{
+	echo '<span class="badge badge-warning">Tiada rekod pendaftaran judul setakat ini</span>';
+}
 while($row = mysqli_fetch_array($result))
 {
  $output .= '
@@ -38,8 +42,5 @@ while($row = mysqli_fetch_array($result))
 }
 $output .= '</table>';
 echo $output;
-}else
-{
-	echo '<span class="badge badge-warning">Tiada rekod pendaftaran judul setakat ini</span>';
-}
+
 ?>

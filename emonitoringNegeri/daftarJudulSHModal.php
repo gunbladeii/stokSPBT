@@ -38,7 +38,7 @@
 ?>        
 <div class="container">
     <div class="row">
-   <h3 align="center" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Arahan: Klik butang " + " untuk simpan judul secara pukal dan klik "Simpan Rekod" setelah selesai </h3>
+   <h3 align="center" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Arahan: Klik butang <span class="badge badge-success"><i class="fas fa-plus-square"></i></span> untuk simpan judul secara pukal dan klik "Daftar Rekod" setelah selesai </h3>
    <form method="post" id="insert_form">
     <div class="table-repsonsive">
      <span id="error"></span>
@@ -49,7 +49,7 @@
       </tr>
      </table>
      <div align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Simpan Rekod" />
+      <input type="submit" name="submit" class="btn btn-info" value="Daftar Rekod" />
      </div>
       <br />
       <div id="inserted_item_data"></div>
@@ -57,7 +57,7 @@
    </form>
    </div>
   </div>
-  
+
  <script>
 $(document).ready(function(){
  $(document).on('click', '.add', function(){

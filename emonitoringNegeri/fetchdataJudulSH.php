@@ -14,8 +14,10 @@ $result = mysqli_query($connect, $query);
 $dataSH = mysqli_fetch_assoc($result);
 
 $a = 1;
-if (!empty($dataSH))
+if (empty($dataSH))
 {
+	echo '<span class="badge badge-warning">Tiada rekod pendaftaran judul setakat ini</span>';
+}
 $output = '
 <br />
 <h5 align="center">Senarai judul bagi pembekal <strong>'.strtoupper($dataSH["namaPembekal"]).'</strong> untuk negeri <strong>'.$dataSH["negeri"].'</strong></h5>
@@ -26,10 +28,7 @@ $output = '
   <th width="50%">Nama Judul</th>
  </tr>
 ';
-}else
-{
-	echo '<span class="badge badge-warning">Tiada rekod pendaftaran judul setakat ini</span>';
-}
+
 while($row = mysqli_fetch_array($result))
 {
  $output .= '

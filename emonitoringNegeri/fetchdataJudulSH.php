@@ -16,6 +16,7 @@ if (mysqli_num_rows($result) > 0)
 {
 		$output = '
 		<br />
+		<div class="table-responsive">
 		<h5 align="center">Judul yang telah didaftarkan</h5>
 		<div class="table-responsive">
 		<table class="table table-bordered">
@@ -42,6 +43,7 @@ if (mysqli_num_rows($result) > 0)
 		 ';
 		}
 		$output .= '</table>';
+		$output .= '</div>';
 		$output .= '</div>';
 		echo $output;
 }

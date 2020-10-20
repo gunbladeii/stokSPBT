@@ -124,7 +124,7 @@ $(document).ready(function(){
  });
  function fetch_item_data()
  {
-  var dataString = 'id=' + <?php echo $id; ?>;
+  var dataString = 'id='<?php echo $id; ?>;
   $.ajax({
    url:"fetchdataJudulSH.php",
    data: dataString,

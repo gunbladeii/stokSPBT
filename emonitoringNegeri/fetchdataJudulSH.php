@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0)
 		<div class="table-responsive">
 		<table class="table table-bordered table-sm">
 		 <tr class="bg-warning">
-		  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Delete</button></th>
+		  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"Padam</button></th>
 		  <th width="5%">No</th>
 		  <th width="20%">Kod Judul</th>
 		  <th width="50%">Nama Judul</th>

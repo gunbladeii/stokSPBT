@@ -21,10 +21,10 @@ if (mysqli_num_rows($result) > 0)
 		 <tr>
 		  <th width="5%"><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Delete</button></th>
 		  <th width="5%">No</th>
-		  <th width="30%">Kod Judul</th>
+		  <th width="20%">Kod Judul</th>
 		  <th width="50%">Nama Judul</th>
-		  <th width="25%">Pembekal</th>
-		  <th width="20%">Negeri</th>
+		  <th width="10%">Pembekal</th>
+		  <th width="10%">Negeri</th>
 		 </tr>
 		';
 		while($row = mysqli_fetch_array($result))

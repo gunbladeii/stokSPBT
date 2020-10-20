@@ -419,6 +419,7 @@ $a = 1;
                                   <th>Tarikh Mula Sebut Harga</th>
                                   <th>Nilai Sebut Harga (RM)</th>
                                   <th>Daftar Judul</th>
+                                  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></button></th>
                                 </tr>
 
                                 <?php do {?>
@@ -428,6 +429,7 @@ $a = 1;
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
                                   <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
+                                  <td align="center"><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 
@@ -595,6 +597,55 @@ $a = 1;
                 }
             });
     })
+</script>
+
+<style>
+.removeRow
+{
+    background-color: #FF0000;
+    color:#FFFFFF;
+}
+</style>
+<script>  
+$(document).ready(function(){ 
+
+    $('.delete_checkbox').click(function(){
+        if($(this).is(':checked'))
+        {
+            $(this).closest('tr').addClass('removeRow');
+        }
+        else
+        {
+            $(this).closest('tr').removeClass('removeRow');
+        }
+    });
+
+    $('#delete_all').click(function(){
+        var checkbox = $('.delete_checkbox:checked');
+        if(checkbox.length > 0)
+        {
+            var checkbox_value2 = [];
+            $(checkbox).each(function(){
+                checkbox_value.push($(this).val());
+            });
+
+            $.ajax({
+                url:"deleteJudulSH.php",
+                method:"POST",
+                data:{checkbox_value2:checkbox_value2},
+                success:function()
+                {
+                    $('.removeRow').fadeOut(1500);
+                }
+            });
+        }
+        else
+        {
+            alert("Pilih salah satu rekod untuk dipadam");
+        }
+    });
+
+});  
 </script>
 
 <!-- DataTables -->

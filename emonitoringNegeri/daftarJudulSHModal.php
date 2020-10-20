@@ -44,8 +44,8 @@
      <span id="error"></span>
      <table class="table table-bordered" id="item_table">
       <tr>
-       <th>Pilih Judul</th>
-       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="badge badge-success"><i class="fas fa-plus-square"></i></span></button></th>
+       <th width="80%">Pilih Judul</th>
+       <th width="20%"><button type="button" name="add" class="btn btn-success btn-sm add"><span class="badge badge-success"><i class="fas fa-plus-square"></i></span></button></th>
       </tr>
      </table>
      <div align="center">

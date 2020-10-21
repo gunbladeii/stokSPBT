@@ -99,6 +99,8 @@ $(document).ready(function(){
 
   var kodJudul = 0;
 
+  var judul = 0;
+
   var column_data = [];
 
   $(document).on('change', '.set_column_data', function(){

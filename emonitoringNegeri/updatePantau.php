@@ -31,7 +31,7 @@ if(isset($_POST['hidden_id']))
   );
   $query = "
   UPDATE dataJudulPenerbit 
-  SET namaPembekal = :namapembekal, judul = :judul, bilNaskhahPesan = :bilnaskhahpesan, bilNaskhahBekal = :bilnaskhahbekal, statusBekal = :statusbekal 
+  SET namapembekal = :namapembekal, judul = :judul, bilNaskhahPesan = :bilnaskhahpesan, bilnaskhahbekal = :bilnaskhahbekal, statusbekal = :statusbekal 
   WHERE id = :id
   ";
   $statement = $connect->prepare($query);

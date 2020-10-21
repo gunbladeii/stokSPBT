@@ -44,7 +44,7 @@
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 ?>                   
-                          <div class="table-responsive">
+                         <div class="table-responsive">
                           <form method="post" action="updateDataSH.php" role="form" enctype="multipart/form-data">
                             <table id="example1" class="table m-0">
                               <thead>
@@ -59,7 +59,7 @@
                                    <div class="form-group">
                                       Tarikh Buka Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhBukaSH" class="form-control"  id="validationDefault01" value="" required>
+                                      <input type="date" name="tarikhBukaSH" class="form-control"  id="validationDefault01" value="<?php echo $tarikhBukaSH;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -72,7 +72,7 @@
                                    <div class="form-group">
                                       Tarikh Tutup Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhTutupSH" class="form-control"  id="validationDefault01" value="" required>
+                                      <input type="date" name="tarikhTutupSH" class="form-control"  id="validationDefault01" value="<?php echo $tarikhTutupSH;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -85,7 +85,7 @@
                                    <div class="form-group">
                                       Tarikh Penilaian Sebut Harga:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhPenilaianSH" class="form-control"  id="validationDefault01" value="" required>
+                                      <input type="date" name="tarikhPenilaianSH" class="form-control"  id="validationDefault01" value="<?php echo $tarikhPenilaianSH;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -98,7 +98,7 @@
                                    <div class="form-group">
                                       Tarikh Surat Setuju Terima:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhSSTSH" class="form-control"  id="validationDefault01" value="" required>
+                                      <input type="date" name="tarikhSSTSH" class="form-control"  id="validationDefault01" value="<?php echo $tarikhSSTSH;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -112,7 +112,7 @@
                                    <div class="form-group">
                                       Tarikh C/O Dikeluarkan:
                                       <div class="input-group mb-3">
-                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="" required>
+                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="<?php echo $tarikhCO;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -130,7 +130,7 @@
                                    <div class="form-group">
                                       Nama Pembekal Berjaya:
                                       <div class="input-group mb-3">
-                                      <input type="text" style="text-transform: uppercase" name="namaPembekal" class="form-control"  id="validationDefault01" value="" required>
+                                      <input type="text" style="text-transform: uppercase" name="namaPembekal" class="form-control"  id="validationDefault01" value="<?php echo $namaPembekal;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -144,7 +144,7 @@
                                    <div class="form-group">
                                       Nilai Sebut Harga (RM):
                                       <div class="input-group mb-3">
-                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="" required>
+                                      <input type="number" name="nilaiSH" class="form-control"  id="validationDefault01" value="<?php echo $nilaiSH;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -158,7 +158,7 @@
                                    <div class="form-group">
                                       Bilangan Judul dipesan:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="" required>
+                                      <input style="text-transform: uppercase;" type="number" name="bilJudulPesan" class="form-control"  id="validationDefault01" value="<?php echo $bilJudulPesan;?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -177,6 +177,7 @@
                                       Status Tuntutan:
                                       <div class="input-group mb-3">
                                                <select name="statusTuntut" class="custom-select browser-default">
+                                                   <option value="<?php echo $statusTuntut;?>"><?php echo $statusTuntut;?></option>
                                                    <option value="TELAH TUNTUT">TELAH TUNTUT</option>
                                                    <option value="BELUM TUNTUT">BELUM TUNTUT</option>
                                                    <option value="TUNTUT SEBAHAGIAN">TUNTUT SEBAHAGIAN</option>
@@ -194,6 +195,7 @@
                                       Status Pembayaran:
                                       <div class="input-group mb-3">
                                                <select name="statusBayar" class="custom-select browser-default">
+                                                   <option value="<?php echo $statusBayar;?>"><?php echo $statusBayar;?></option>
                                                    <option value="BELUM">BELUM</option>
                                                    <option value="SELESAI">SELESAI</option>
                                                </select>
@@ -209,7 +211,7 @@
                                    <div class="form-group">
                                       Jumlah Pembayaran:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="jumBayar" class="form-control"  id="validationDefault01" value="" >
+                                      <input style="text-transform: uppercase;" type="number" name="jumBayar" class="form-control"  id="validationDefault01" value="<?php echo $jumBayar;?>" >
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -226,7 +228,7 @@
                                 <input type="hidden" name="latitude" value="<?php echo $row_Recordset['latitude']; ?>">
                                 <input type="hidden" name="longitude" value="<?php echo $row_Recordset['longitude']; ?>">
                                 <div class="modal-footer">
-                                    <input type="submit" class="btn btn-primary" name="update" value="Kemaskini rekod"/>
+                                    <input type="submit" class="btn btn-primary" name="update" value="Simpan rekod"/>
                                 </div>
                             </form>
                           </div>

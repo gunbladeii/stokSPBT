@@ -47,7 +47,7 @@ if (mysqli_num_rows($result) > 0)
 }
 else
 	{
-		echo '<span class="badge badge-warning">Tiada pendaftaran judul dibuat setakat ini</span>';
+		echo '<div align="center"><span class="badge badge-warning">Tiada pendaftaran judul dibuat setakat ini</span></div>';
 	}
 ?>
 <style>

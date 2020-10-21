@@ -157,6 +157,25 @@ $a = 1;
       <!-- /.modal -->
     <!-- End daftarJudulSH Modal -->
 
+  <!-- Begin pantauBekalSH Modal -->
+      <div class="modal fade" id="pantauBekalSHModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Rekod Pemantauan Pembekalan</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="dash3"></div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- End pantauBekalSH Modal -->
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -419,6 +438,7 @@ $a = 1;
                                   <th>Tarikh Mula Sebut Harga</th>
                                   <th>Nilai Sebut Harga (RM)</th>
                                   <th>Muat Naik Judul</th>
+                                  <th>Pantau pembekalan</th>
                                   <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                                 </tr>
 
@@ -429,6 +449,7 @@ $a = 1;
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
                                   <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
+                                  <td><a data-toggle="modal" data-target="#pantauBekalSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fab fa-watchman-monitoring"></i></a></td>
                                   <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
@@ -587,6 +608,28 @@ $a = 1;
             $.ajax({
                 type: "GET",
                 url: "daftarJudulSHModal.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash3').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+
+    $('#pantauBekalSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var recipient2 = button.data('whatever2') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'namaPembekal=' + recipient + '&' + 'negeri=' + recipient2 ;
+
+            $.ajax({
+                type: "GET",
+                url: "pantauBekalSHModal.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

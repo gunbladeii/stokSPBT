@@ -4,9 +4,8 @@
 $connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
 $namaPembekal = $_GET['namaPembekal'];
 $output = '';
-$query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataSH.namaPembekal, dataSH.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
-((dataJudulPenerbit 
-	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
+$query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.namaPembekal, dataSH.negeri,dataJudulPenerbit.kodJudul FROM 
+(dataJudulPenerbit 
 	INNER JOIN dataSH ON dataJudulPenerbit.namaPembekal = dataSH.namaPembekal)
 	WHERE dataJudulPenerbit.namaPembekal = '$namaPembekal'
 	  ORDER BY dataJudulPenerbit.timestamp DESC";

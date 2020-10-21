@@ -306,7 +306,7 @@ $a = 1;
                                 <th width="60%">Nama Judul</th>
                                 <th width="15%">Bil. Pesanan</th>
                                 <th width="15%">Bil. Dibekal</th>
-                                <th width="35%">Status Bekal</th>
+                                <th width="55%">Status Bekal</th>
                             </thead>
                             <tbody></tbody>
                         </table>

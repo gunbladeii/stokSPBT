@@ -302,11 +302,11 @@ $a = 1;
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <th width="5%"></th>
-                                <th width="20%">Pembekal</th>
-                                <th width="30%">Nama Judul</th>
+                                <th width="35%">Pembekal</th>
+                                <th width="60%">Nama Judul</th>
                                 <th width="15%">Bil. Pesanan</th>
-                                <th width="20%">Bil. Dibekal</th>
-                                <th width="10%">Status Bekal</th>
+                                <th width="15%">Bil. Dibekal</th>
+                                <th width="35%">Status Bekal</th>
                             </thead>
                             <tbody></tbody>
                         </table>

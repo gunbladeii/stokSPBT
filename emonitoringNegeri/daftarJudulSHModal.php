@@ -62,11 +62,12 @@
           </div>
         </div>
      </div>
+     <?php }?>
 
     <div class="table-responsive">
         <div id="inserted_item_data"></div>
     </div>
-    <?php }?>
+    
    
 
 <script>

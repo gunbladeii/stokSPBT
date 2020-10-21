@@ -21,21 +21,17 @@
     $nilaiSH = $_POST['nilaiSH'];
     $tarikhCO = $_POST['tarikhCO'];
     $bilJudulPesan = $_POST['bilJudulPesan'];
-    $bilNaskhahPesan = $_POST['bilNaskhahPesan'];
-    $bilNaskhahBekal = $_POST['bilNaskhahBekal'];
-    $peratusBekal = $_POST['peratusBekal'];
-    $statusBekal = $_POST['statusBekal'];
     $statusTuntut = $_POST['statusTuntut'];
     $statusBayar = $_POST['statusBayar'];
     $colorBar = $_POST['colorBar'];
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
-    $remark = $_POST['remark'];
+    $jumBayar = $_POST['jumBayar'];
   
 
     
    if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`,`colorBar`,`latitude`,`longitude`, `remark`) VALUES ('$username','$negeri','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$colorBar','$latitude','$longitude','$remark')");
+    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `statusTuntut`, `statusBayar`,`colorBar`,`latitude`,`longitude`, `jumBayar`) VALUES ('$username','$negeri','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$statusTuntut','$statusBayar','$colorBar','$latitude','$longitude','$jumBayar')");
     header("location:epnegeri.php");
     }
 
@@ -111,6 +107,20 @@
                                     </div>
                                 </td>
                               </tr>
+
+                               <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Tarikh C/O Dikeluarkan:
+                                      <div class="input-group mb-3">
+                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="" required>
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
                               
                                  <tr>
                                   <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">BAHAGIAN B</h4></th>
@@ -144,24 +154,6 @@
                                 </td>
                               </tr>
 
-                               <tr>
-                                  <td>
-                                   <div class="form-group">
-                                      Tarikh C/O Dikeluarkan:
-                                      <div class="input-group mb-3">
-                                      <input type="date" name="tarikhCO" class="form-control"  id="validationDefault01" value="" required>
-                                      <div class="input-group-append input-group-text">
-                                          <span class="fas fa-id-card-alt"></span>
-                                      </div>
-                                      </div>
-                                    </div>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">BAHAGIAN C</h4></th>
-                              </tr>
-
                               <tr>
                                   <td>
                                    <div class="form-group">
@@ -177,62 +169,7 @@
                               </tr>
 
                               <tr>
-                                  <td>
-                                   <div class="form-group">
-                                      Bilangan Naskhah dipesan:
-                                      <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" id="bilNaskhahPesan" name="bilNaskhahPesan" class="form-control"  value="">
-                                      <div class="input-group-append input-group-text">
-                                          <span class="fas fa-id-card-alt"></span>
-                                      </div>
-                                      </div>
-                                    </div>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                  <td>
-                                   <div class="form-group">
-                                      Bilangan Naskhah Telah dibekal:
-                                      <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" id="bilNaskhahBekal" name="bilNaskhahBekal" class="form-control"  value="">
-                                      <div class="input-group-append input-group-text">
-                                          <span class="fas fa-id-card-alt"></span>
-                                      </div>
-                                      </div>
-                                    </div>
-                                </td>
-                              </tr>
-
-                               <tr>
-                                  <td>
-                                   <div class="form-group">
-                                      Peratus Pembekalan:
-                                      <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="text" id="peratusBekal" name="peratusBekal" class="form-control" value="">
-                                      <div class="input-group-append input-group-text">
-                                          <span class="fas fa-id-card-alt"></span>
-                                      </div>
-                                      </div>
-                                    </div>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                  <td>
-                                   <div class="form-group">
-                                      Status Pembekalan:
-                                      <div class="input-group mb-3">
-                                               <select name="statusBekal" class="custom-select browser-default">
-                                                   <option value="SELESAI">SELESAI</option>
-                                                   <option value="SEDANG BEKAL">SEDANG BEKAL</option>
-                                                   <option value="BELUM SELESAI">BELUM SELESAI</option>
-                                               </select>
-                                      </div>
-                                      
-                                      </div>
-                                    </div>
-                                </td>
+                                <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">BAHAGIAN C</h4></th>
                               </tr>
 
                               <tr>
@@ -268,9 +205,22 @@
                                 </td>
                               </tr>
 
+                              <tr>
+                                  <td>
+                                   <div class="form-group">
+                                      Jumlah Pembayaran:
+                                      <div class="input-group mb-3">
+                                      <input style="text-transform: uppercase;" type="number" name="jumBayar" class="form-control"  id="validationDefault01" value="" >
+                                      <div class="input-group-append input-group-text">
+                                          <span class="fas fa-id-card-alt"></span>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </td>
+                              </tr>
+
                               </tbody>
                              </table>
-                                <input type="hidden" name="remark" value="observe">
                                 <input type="hidden" name="username" value="<?php echo $row_Recordset['username']; ?>">
                                 <input type="hidden" name="negeri" value="<?php echo $row_Recordset['negeri']; ?>">
                                 <input type="hidden" name="colorBar" value="<?php echo $row_Recordset['colorBar']; ?>">

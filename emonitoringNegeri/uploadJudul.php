@@ -28,8 +28,8 @@ if($_FILES['file']['name'] != '')
    <th>
     <select name="set_column_data" class="form-control set_column_data" data-column_number="'.$count.'">
      <option value="">Tetapan Tajuk Lajur</option>
-     <option value="namaPembekal">Pembekal</option>
      <option value="negeri">Negeri</option>
+     <option value="namaPembekal">Pembekal</option>
      <option value="kodJudul">kod Judul</option>
     </select>
    </th>

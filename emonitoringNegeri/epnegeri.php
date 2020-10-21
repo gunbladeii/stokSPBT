@@ -142,7 +142,7 @@ $a = 1;
         <div class="modal-dialog">
           <div class="modal-content bg-light">
             <div class="modal-header">
-              <h4 class="modal-title">Rekod Pemantauan Pembekalan Mengikut Judul</h4>
+              <h4 class="modal-title">Muat Naik Judul Mengikut Pembekal</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
             </div>

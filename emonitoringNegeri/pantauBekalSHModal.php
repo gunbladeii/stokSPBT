@@ -1,3 +1,28 @@
+<?php session_start();?>
+<?php
+      require('conn.php');
+        
+    date_default_timezone_set("asia/kuala_lumpur"); 
+    $date = date('Y-m-d');
+
+    $colname_Recordset = "-1";
+    if (isset($_SESSION['user'])) {
+      $colname_Recordset = $_SESSION['user'];
+    }
+
+    $namaPembekal = $_GET['namaPembekal'];
+    $negeri = $_GET['negeri'];
+    
+
+    $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+    $row_Recordset = mysqli_fetch_assoc($Recordset);
+    $totalRows_Recordset = mysqli_num_rows($Recordset);
+
+    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE namaPembekal = '$namaPembekal' AND negeri = '$negeri'");
+    $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
+    $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
+
+?>
 <div class="container">  
    <div class="table-responsive">  
     <form method="post" id="update_form">
@@ -28,7 +53,7 @@ $(document).ready(function(){
     function fetch_data()
     {
         $.ajax({
-            url:"selectPantau.php",
+            url:"selectPantau.php?namaPembekal=<?php echo $namaPembekal;?>&negeri=<?php echo $negeri;?>",
             method:"POST",
             dataType:"json",
             success:function(data)

@@ -17,8 +17,8 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$username2'");
-    $dataSH = mysqli_fetch_assoc($Recordset2);
+    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE namaPembekal = '$namaPembekal'");
+    $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 ?>
@@ -35,6 +35,7 @@
 
       </style>        
 
+  <?php if(empty($dataJudulPenerbit)) {?>
   <div class="container">
        <div id="message"></div>
       <div class="panel panel-default">
@@ -65,7 +66,7 @@
     <div class="table-responsive">
         <div id="inserted_item_data"></div>
     </div>
-    
+    <?php }?>
    
 
 <script>

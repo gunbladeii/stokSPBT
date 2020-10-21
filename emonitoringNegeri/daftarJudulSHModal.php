@@ -1,21 +1,7 @@
 <?php session_start();?>
 <?php
       require('conn.php');
-      $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
-      function fill_unit_select_box($connect)
-      { 
-       $output = '';
-       $query = "SELECT * FROM dataSHJudul ORDER BY kodJudul ASC";
-       $statement = $connect->prepare($query);
-       $statement->execute();
-       $result = $statement->fetchAll();
-       foreach($result as $row)
-       {
-        $output .= '<option value="'.$row["kodJudul"].'">'.$row["judul"].'</option>';
-       }
-       return $output;
-      }
-    
+        
     date_default_timezone_set("asia/kuala_lumpur"); 
     $date = date('Y-m-d');
 
@@ -35,82 +21,172 @@
     $dataSH = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-?>        
+?>
+      <style>
+      .table tbody tr th
+      {
+        min-width: 200px;
+      }
 
-   <h3 align="center" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Arahan: Klik butang <span class="badge badge-success"><i class="fas fa-plus-square"></i></span> untuk simpan judul secara pukal dan klik "Daftar Rekod" setelah selesai </h3>
-   <form method="post" id="insert_form">
-    <div class="table-repsonsive">
-     <span id="error"></span>
-     <table class="table table-bordered table-sm" id="item_table">
-      <tr>
-       <th width="80%">Pilih Judul</th>
-       <th width="20%"><button type="button" name="add" class="btn btn-success btn-sm add"><span class="badge badge-success"><i class="fas fa-plus-square"></i></span></button></th>
-      </tr>
-     </table>
-     </div>
-     <div align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Daftar Rekod" />
-     </div>
-     </form>
-      <br />
-        <div class="table-responsive">
-        <div id="inserted_item_data"></div>
+      .table tbody tr td
+      {
+        min-width: 200px;
+      }
+
+      </style>        
+
+  <div class="container">
+       <div id="message"></div>
+      <div class="panel panel-default">
+          <div class="panel-heading"></div>
+          <div class="panel-body">
+             <div class="row" id="upload_area">
+              <form method="post" id="upload_form" enctype="multipart/form-data">
+                <div align="center" class="col-md-12">
+                  *Pilih fail dalam format .CSV sahaja. Mohon rujuk manual pengguna sistem
+                </div>
+                <div align="center" class="col-md-12">
+                  <input type="file" name="file" id="csv_file" />
+                </div>
+                <br /><br /><br />
+                <div class="col-md-12" align="center">
+                  <input type="submit" name="upload_file" id="upload_file" class="btn btn-primary" value="Muat Naik" />
+                </div>
+              </form>
+              
+            </div>
+            <div class="table-responsive" id="process_area">
+
+            </div>
+          </div>
         </div>
+     </div>
+
+    <div class="table-responsive">
+        <div id="inserted_item_data"></div>
+    </div>
     
    
 
- <script>
+<script>
 $(document).ready(function(){
- $(document).on('click', '.add', function(){
-  var html = '';
-  html += '<tr>';
-  html += '<td><input type="hidden" name="id_Penerbit[]" class="form-control id_Penerbit" value="<?php echo $id; ?>" /><select name="kodJudul[]" class="form-control kodJudul"><option value="">Pilih Judul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
-  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="badge badge-danger"><i class="fas fa-minus-square"></i></span></button></td></tr>';
-  $('#item_table').append(html);
- });
- 
- $(document).on('click', '.remove', function(){
-  $(this).closest('tr').remove();
- });
- 
- $('#insert_form').on('submit', function(event){
-  event.preventDefault();
-  var error = '';
-  
-  
-  $('.kodJudul').each(function(){
-   var count = 1;
-   if($(this).val() == '')
-   {
-    error += "<p>Select Unit at row "+count+" </p>";
-    return false;
-   }
-   count = count + 1;
+
+  $('#upload_form').on('submit', function(event){
+
+    event.preventDefault();
+    $.ajax({
+      url:"uploadJudul.php",
+      method:"POST",
+      data:new FormData(this),
+      dataType:'json',
+      contentType:false,
+      cache:false,
+      processData:false,
+      success:function(data)
+      {
+        if(data.error != '')
+        {
+          $('#message').html('<div class="alert alert-danger">'+data.error+'</div>');
+        }
+        else
+        {
+          $('#process_area').html(data.output);
+          $('#upload_area').css('display', 'none');
+          $('#inserted_item_data').css('display', 'none');
+        }
+      }
+    });
+
   });
-  var form_data = $(this).serialize();
-  if(error == '')
-  {
-   $.ajax({
-    url:"insertJudulSH.php",
-    method:"POST",
-    data:form_data,
-    success:function(data)
+
+  var total_selection = 0;
+
+  var namaPembekal = 0;
+
+  var negeri = 0;
+
+  var kodJudul = 0;
+
+  var column_data = [];
+
+  $(document).on('change', '.set_column_data', function(){
+
+    var column_name = $(this).val();
+
+    var column_number = $(this).data('column_number');
+
+    if(column_name in column_data)
     {
-     if(data == 'ok')
-     {
-      $('#item_table').find("tr:gt(0)").remove();
-      $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
-      fetch_item_data();
-     }
+      alert('Pilihan tersebut telah dibuat di lajur '+column_name+ '');
+
+      $(this).val('');
+
+      return false;
     }
-   });
-  }
-  else
-  {
-   $('#error').html('<div class="alert alert-danger">'+error+'</div>');
-  }
- });
- function fetch_item_data()
+
+    if(column_name != '')
+    {
+      column_data[column_name] = column_number;
+    }
+    else
+    {
+      const entries = Object.entries(column_data);
+
+      for(const [key, value] of entries)
+      {
+        if(value == column_number)
+        {
+          delete column_data[key];
+        }
+      }
+    }
+
+    total_selection = Object.keys(column_data).length;
+
+    if(total_selection == 3)
+    {
+      $('#import').attr('disabled', false);
+
+      namaPembekal = column_data.namaPembekal;
+
+      negeri = column_data.negeri;
+
+      kodJudul = column_data.kodJudul;
+    }
+    else
+    {
+      $('#import').attr('disabled', 'disabled');
+    }
+
+  });
+
+  $(document).on('click', '#import', function(event){
+
+    event.preventDefault();
+
+    $.ajax({
+      url:"importJudul.php",
+      method:"POST",
+      data:{namaPembekal:namaPembekal, negeri:negeri, kodJudul:kodJudul},
+      beforeSend:function(){
+        $('#import').attr('disabled', 'disabled');
+        $('#import').text('Importing...');
+      },
+      success:function(data)
+      {
+        $('#import').attr('disabled', false);
+        $('#import').text('Import');
+        $('#process_area').css('display', 'none');
+        $('#upload_area').css('display', 'none');
+        $('#upload_form')[0].reset();
+        $('#message').html("<div class='alert alert-success'>"+data+"</div>");
+        fetch_item_data();
+      }
+    })
+
+  });
+  
+function fetch_item_data()
  {
   
   $.ajax({

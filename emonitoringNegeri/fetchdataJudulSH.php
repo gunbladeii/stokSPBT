@@ -3,12 +3,13 @@
 //fetch.php
 $connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
 $namaPembekal = $_GET['namaPembekal'];
+$negeri = $_GET['negeri'];
 $output = '';
 $query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataSH.namaPembekal, dataSH.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
 ((dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
 	INNER JOIN dataSH ON dataJudulPenerbit.namaPembekal = dataSH.namaPembekal)
-	WHERE dataJudulPenerbit.namaPembekal = '$namaPembekal'
+	WHERE dataJudulPenerbit.namaPembekal = '$namaPembekal' AND dataJudulPenerbit.negeri = '$negeri'
 	  ORDER BY dataJudulPenerbit.timestamp DESC";
 $result = mysqli_query($connect, $query);
 $a = 1;

@@ -11,13 +11,14 @@
     }
 
     $namaPembekal = $_GET['namaPembekal'];
+    $negeri = $_GET['negeri'];
     
 
     $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE namaPembekal = '$namaPembekal'");
+    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE namaPembekal = '$namaPembekal' AND negeri = '$negeri'");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

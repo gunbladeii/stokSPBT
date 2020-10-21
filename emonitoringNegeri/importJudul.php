@@ -20,7 +20,7 @@ if(isset($_POST["namaPembekal"]))
  if(isset($data))
  {
   $query = "
-  INSERT INTO csv_file 
+  INSERT INTO dataJudulPenerbit 
   (namaPembekal, negeri, kodJudul) 
   VALUES ".implode(",", $data)."
   ";

@@ -46,7 +46,7 @@
                   *Pilih fail dalam format .CSV sahaja. Mohon rujuk manual pengguna sistem
                 </div>
                 <div align="center" class="col-md-12">
-                  <input type="file" name="file" id="csv_file" />
+                  <input type="file" name="file" id="dataJudulPenerbit" />
                 </div>
                 <br /><br /><br />
                 <div class="col-md-12" align="center">

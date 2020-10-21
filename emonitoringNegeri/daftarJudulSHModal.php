@@ -10,7 +10,7 @@
       $colname_Recordset = $_SESSION['user'];
     }
 
-    $id = $_GET['id'];
+    $namaPembekal = $_GET['namaPembekal'];
     
 
     $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
@@ -190,7 +190,7 @@ function fetch_item_data()
  {
   
   $.ajax({
-   url:"fetchdataJudulSH.php?id=<?php echo $id; ?>",
+   url:"fetchdataJudulSH.php?namaPembekal=<?php echo $namaPembekal; ?>",
    method:"POST",
    success:function(data)
    {

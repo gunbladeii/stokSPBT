@@ -144,6 +144,8 @@ $(document).ready(function(){
       negeri = column_data.negeri;
 
       kodJudul = column_data.kodJudul;
+
+      judul = column_data.judul;
     }
     else
     {
@@ -159,7 +161,7 @@ $(document).ready(function(){
     $.ajax({
       url:"importJudul.php",
       method:"POST",
-      data:{namaPembekal:namaPembekal, negeri:negeri, kodJudul:kodJudul},
+      data:{namaPembekal:namaPembekal, negeri:negeri, kodJudul:kodJudul, judul:judul},
       beforeSend:function(){
         $('#import').attr('disabled', 'disabled');
         $('#import').text('Importing...');

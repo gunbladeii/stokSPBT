@@ -14,14 +14,14 @@ if(isset($_POST["namaPembekal"]))
 
  foreach($file_data as $row)
  {
-  $data[] = '("'.$row[$_POST["namaPembekal"]].'", "'.$row[$_POST["negeri"]].'", "'.$row[$_POST["kodJudul"]].'")';
+  $data[] = '("'.$row[$_POST["namaPembekal"]].'", "'.$row[$_POST["negeri"]].'", "'.$row[$_POST["kodJudul"]].'", "'.$row[$_POST["judul"]].'")';
  }
 
  if(isset($data))
  {
   $query = "
   INSERT INTO dataJudulPenerbit 
-  (namaPembekal, negeri, kodJudul) 
+  (namaPembekal, negeri, kodJudul, judul) 
   VALUES ".implode(",", $data)."
   ";
 

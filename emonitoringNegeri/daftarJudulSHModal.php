@@ -182,7 +182,7 @@ function fetch_item_data()
  {
   
   $.ajax({
-   url:"fetchdataJudulSH.php?namaPembekal=<?php echo $namaPembekal; ?>",
+   url:"fetchdataJudulSH.php?namaPembekal=<?php echo $namaPembekal;?>&negeri=<?php echo $negeri;?>",
    method:"POST",
    success:function(data)
    {

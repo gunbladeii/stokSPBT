@@ -30,7 +30,7 @@ if($_FILES['file']['name'] != '')
      <option value="">Tetapan Tajuk Lajur</option>
      <option value="namaPembekal">Pembekal</option>
      <option value="negeri">Negeri</option>
-     <option value="kodJudul">kodJudul</option>
+     <option value="kodJudul">kod Judul</option>
     </select>
    </th>
    ';

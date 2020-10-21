@@ -31,35 +31,6 @@ $Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nil
 $dataSH2 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$username = $_POST['username'];
-$negeri = $_POST['negeri'];
-$tarikhSHSBegin = $_POST['tarikhSHSBegin'];
-$tarikhBukaSH = $_POST['tarikhBukaSH'];
-$tarikhTutupSH = $_POST['tarikhTutupSH'];
-$tarikhPenilaianSH = $_POST['tarikhPenilaianSH'];
-$tarikhSSTSH = $_POST['tarikhSSTSH'];
-$namaPembekal = $_POST['namaPembekal'];
-$nilaiSH = $_POST['nilaiSH'];
-$tarikhCO = $_POST['tarikhCO'];
-$bilJudulPesan = $_POST['bilJudulPesan'];
-$bilNaskhahPesan = $_POST['bilNaskhahPesan'];
-$bilNaskhahBekal = $_POST['bilNaskhahBekal'];
-$peratusBekal = $_POST['peratusBekal'];
-$statusBekal = $_POST['statusBekal'];
-$statusTuntut = $_POST['statusTuntut'];
-$statusBayar = $_POST['statusBayar'];
-$remark = $_POST['remark'];
-
-if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhSHSBegin`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$negeri','$tarikhSHSBegin','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
-    header("location:epnegeri2.php");
-    }
-
-if (isset($_POST['update'])) {
-    $mysqli->query ("UPDATE `dataSH` SET `tarikhSHSBegin` = '$tarikhSHSBegin',`tarikhBukaSH` = '$tarikhBukaSH',`tarikhTutupSH` = '$tarikhTutupSH',`tarikhPenilaianSH` = '$tarikhPenilaianSH',`tarikhSSTSH` = '$tarikhSSTSH',`namaPembekal` = '$namaPembekal',`nilaiSH` = '$nilaiSH',`tarikhCO` = '$tarikhCO',`bilJudulPesan` = '$bilJudulPesan',`bilNaskhahPesan` = '$bilNaskhahPesan',`bilNaskhahBekal` = '$bilNaskhahBekal',`peratusBekal` = '$peratusBekal',`statusBekal` = '$statusBekal',`statusTuntut` = '$statusTuntut',`statusBayar` = '$statusBayar',`remark` = '$remark' WHERE `username` = '$username'");
-    header("location:epnegeri2.php");
-    }
-
 $a = 1;
 ?>
 <!DOCTYPE html>
@@ -137,6 +108,26 @@ $a = 1;
       <!-- /.modal -->
     <!-- End updateDataSH Modal -->
 
+    <!-- Begin daftarJudulSH Modal -->
+      <div class="modal fade" id="daftarJudulSHModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Muat Naik Judul Mengikut Pembekal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="dash3"></div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- End daftarJudulSH Modal -->
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -148,7 +139,7 @@ $a = 1;
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="indexNegeri/index.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -256,7 +247,7 @@ $a = 1;
       </li>
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="epnegeri2.php">
+        <a class="nav-link" data-toggle="dropdown" href="epnegeri.php">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -272,7 +263,7 @@ $a = 1;
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="epnegeri2.php" class="brand-link">
+    <a href="indexNegeri/index.php" class="brand-link">
       <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0</span>
@@ -293,7 +284,7 @@ $a = 1;
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="epnegeri2.php" class="nav-link active">
+            <a href="epnegeri.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                  mySPBT 2.0 Dashboard
@@ -335,7 +326,7 @@ $a = 1;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="epnegeri2.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="epnegeri.php">Home</a></li>
               <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan SH-Negeri</li>
             </ol>
           </div><!-- /.col -->
@@ -365,7 +356,7 @@ $a = 1;
               <div class="card-body p-0">
                           
                           <div class="table-responsive">
-                          <form method="post" action="epnegeri2.php" role="form" enctype="multipart/form-data">
+                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
                             <table class="table m-0">
                               <thead>
                                 <tr>
@@ -388,7 +379,7 @@ $a = 1;
                               <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="4" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
+                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -398,6 +389,9 @@ $a = 1;
                                   <th>Nama Pembekal</th>
                                   <th>Tarikh Mula Sebut Harga</th>
                                   <th>Nilai Sebut Harga (RM)</th>
+                                  <th>Muat Naik Judul</th>
+                                  <th>Pantau pembekalan</th>
+                                  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                                 </tr>
 
                                 <?php do {?>
@@ -406,6 +400,9 @@ $a = 1;
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
                                   <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
+                                  <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
+                                  <td><a href="pantauBekalSHModal.php?namaPembekal=<?php echo $dataSH['namaPembekal'];?>&negeri=<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
+                                  <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 
@@ -492,20 +489,20 @@ $a = 1;
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
+  <script type="text/javascript">
+    $(document).ready(function() {
         $('#showUserList').load('showUserList.php'); 
-			setInterval(function () {
-				$('#showAttChart').load('showAttChart.php')
-				$('#showTotalPenerbit').load('showTotalPenerbit.php')
-				$('#showTotalJudul').load('showTotalJudul.php')
-				$('#showTotalPesanan').load('showTotalPesanan.php')
-				$('#showTotalPembekalan').load('showTotalPembekalan.php')
-			  $('#odometer').load('../distiSPBT/liveOdometer.php')
-				$('#attStat').load('../distiSPBT/attStat.php')
-				$('#parcelStat').load('../distiSPBT/parcelStat.php')
-			}, 5000);
-		});
+      setInterval(function () {
+        $('#showAttChart').load('showAttChart.php')
+        $('#showTotalPenerbit').load('showTotalPenerbit.php')
+        $('#showTotalJudul').load('showTotalJudul.php')
+        $('#showTotalPesanan').load('showTotalPesanan.php')
+        $('#showTotalPembekalan').load('showTotalPembekalan.php')
+        $('#odometer').load('../distiSPBT/liveOdometer.php')
+        $('#attStat').load('../distiSPBT/attStat.php')
+        $('#parcelStat').load('../distiSPBT/parcelStat.php')
+      }, 5000);
+    });
 </script>
 
 <!-- Latest compiled and minified JavaScript -->
@@ -519,7 +516,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "submitDataSH2.php",
+                url: "submitDataSH.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {
@@ -540,7 +537,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "updateDataSH2.php",
+                url: "updateDataSH.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {
@@ -552,6 +549,99 @@ $a = 1;
                 }
             });
     })
+
+    $('#daftarJudulSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var recipient2 = button.data('whatever2') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'namaPembekal=' + recipient + '&' + 'negeri=' + recipient2 ;
+
+            $.ajax({
+                type: "GET",
+                url: "daftarJudulSHModal.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash3').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+
+    $('#pantauBekalSHModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var recipient2 = button.data('whatever2') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'namaPembekal=' + recipient + '&' + 'negeri=' + recipient2 ;
+
+            $.ajax({
+                type: "GET",
+                url: "pantauBekalSHModal.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash3').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>
+
+<style>
+.removeRow
+{
+    background-color: #FF0000;
+    color:#FFFFFF;
+}
+</style>
+<script>  
+$(document).ready(function(){ 
+
+    $('.delete_checkbox').click(function(){
+        if($(this).is(':checked'))
+        {
+            $(this).closest('tr').addClass('removeRow');
+        }
+        else
+        {
+            $(this).closest('tr').removeClass('removeRow');
+        }
+    });
+
+    $('#delete_all').click(function(){
+        var checkbox = $('.delete_checkbox:checked');
+        if(checkbox.length > 0)
+        {
+            var checkbox_value2 = [];
+            $(checkbox).each(function(){
+                checkbox_value2.push($(this).val());
+            });
+
+            $.ajax({
+                url:"deleteJudulSH.php",
+                method:"POST",
+                data:{checkbox_value2:checkbox_value2},
+                success:function()
+                {
+                    $('.removeRow').fadeOut(1500);
+                }
+            });
+        }
+        else
+        {
+            alert("Pilih salah satu rekod untuk dipadam");
+        }
+    });
+
+});  
 </script>
 
 <!-- DataTables -->

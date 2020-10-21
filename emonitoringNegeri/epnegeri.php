@@ -31,35 +31,6 @@ $Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nil
 $dataSH2 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$username = $_POST['username'];
-$negeri = $_POST['negeri'];
-$tarikhSHSBegin = $_POST['tarikhSHSBegin'];
-$tarikhBukaSH = $_POST['tarikhBukaSH'];
-$tarikhTutupSH = $_POST['tarikhTutupSH'];
-$tarikhPenilaianSH = $_POST['tarikhPenilaianSH'];
-$tarikhSSTSH = $_POST['tarikhSSTSH'];
-$namaPembekal = $_POST['namaPembekal'];
-$nilaiSH = $_POST['nilaiSH'];
-$tarikhCO = $_POST['tarikhCO'];
-$bilJudulPesan = $_POST['bilJudulPesan'];
-$bilNaskhahPesan = $_POST['bilNaskhahPesan'];
-$bilNaskhahBekal = $_POST['bilNaskhahBekal'];
-$peratusBekal = $_POST['peratusBekal'];
-$statusBekal = $_POST['statusBekal'];
-$statusTuntut = $_POST['statusTuntut'];
-$statusBayar = $_POST['statusBayar'];
-$remark = $_POST['remark'];
-
-if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `dataSH` (`username`,`negeri`,`tarikhSHSBegin`,`tarikhBukaSH`,`tarikhTutupSH`, `tarikhPenilaianSH`, `tarikhSSTSH`, `namaPembekal`, `nilaiSH`, `tarikhCO`, `bilJudulPesan`, `bilNaskhahPesan`, `bilNaskhahBekal`, `peratusBekal`,`statusBekal`, `statusTuntut`, `statusBayar`, `remark`) VALUES ('$username','$negeri','$tarikhSHSBegin','$tarikhBukaSH','$tarikhTutupSH', '$tarikhPenilaianSH','$tarikhSSTSH','$namaPembekal','$nilaiSH','$tarikhCO','$bilJudulPesan','$bilNaskhahPesan','$bilNaskhahBekal','$peratusBekal','$statusBekal','$statusTuntut','$statusBayar','$remark')");
-    header("location:epnegeri.php");
-    }
-
-if (isset($_POST['update'])) {
-    $mysqli->query ("UPDATE `dataSH` SET `tarikhSHSBegin` = '$tarikhSHSBegin',`tarikhBukaSH` = '$tarikhBukaSH',`tarikhTutupSH` = '$tarikhTutupSH',`tarikhPenilaianSH` = '$tarikhPenilaianSH',`tarikhSSTSH` = '$tarikhSSTSH',`namaPembekal` = '$namaPembekal',`nilaiSH` = '$nilaiSH',`tarikhCO` = '$tarikhCO',`bilJudulPesan` = '$bilJudulPesan',`bilNaskhahPesan` = '$bilNaskhahPesan',`bilNaskhahBekal` = '$bilNaskhahBekal',`peratusBekal` = '$peratusBekal',`statusBekal` = '$statusBekal',`statusTuntut` = '$statusTuntut',`statusBayar` = '$statusBayar',`remark` = '$remark' WHERE `username` = '$username'");
-    header("location:epnegeri.php");
-    }
-
 $a = 1;
 ?>
 <!DOCTYPE html>
@@ -157,25 +128,6 @@ $a = 1;
       <!-- /.modal -->
     <!-- End daftarJudulSH Modal -->
 
-  <!-- Begin pantauBekalSH Modal -->
-      <div class="modal fade" id="pantauBekalSHModal">
-        <div class="modal-dialog">
-          <div class="modal-content bg-light">
-            <div class="modal-header">
-              <h4 class="modal-title">Rekod Pemantauan Pembekalan</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-              <div class="dash3"></div>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-    <!-- End pantauBekalSH Modal -->
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 

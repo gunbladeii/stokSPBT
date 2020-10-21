@@ -22,18 +22,7 @@
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 ?>
-      <style>
-      .table tbody tr th
-      {
-        min-width: 200px;
-      }
-
-      .table tbody tr td
-      {
-        min-width: 200px;
-      }
-
-      </style>        
+    
 
   <?php if(empty($dataJudulPenerbit)) {?>
   <div class="container">

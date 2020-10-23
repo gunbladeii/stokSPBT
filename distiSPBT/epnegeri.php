@@ -109,7 +109,7 @@ $a = 1;
     <!-- End updateDataSH Modal -->
 
     <!-- Begin daftarJudulSH Modal -->
-      <div class="modal fade" id="daftarJudulSHModal">
+      <div class="modal fade" id="kemaskiniJudulSHModal">
         <div class="modal-dialog">
           <div class="modal-content bg-light">
             <div class="modal-header">
@@ -320,11 +320,10 @@ $a = 1;
                                 <tr>
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
-                                  <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
-                                  <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
-                                  <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
-                                  <td><a href="pantauBekalSHModal.php?namaPembekal=<?php echo $dataSH['namaPembekal'];?>&negeri=<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
-                                  <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
+                                  <td><?php echo $dataSH['noTelefon'];?></td>
+                                  <td><?php $dataSH['alamat']?></td>
+                                  <td><?php echo $dataSH['bilJudulPesan'];?></td>
+                                  <td><a data-toggle="modal" data-target="#kemaskiniJudulSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 
@@ -472,7 +471,7 @@ $a = 1;
             });
     })
 
-    $('#daftarJudulSHModal').on('show.bs.modal', function (event) {
+    $('#kemaskiniJudulSHModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
@@ -481,7 +480,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "daftarJudulSHModal.php",
+                url: "kemaskiniJudulSHModal.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

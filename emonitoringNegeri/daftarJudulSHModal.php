@@ -136,7 +136,7 @@ $(document).ready(function(){
 
     total_selection = Object.keys(column_data).length;
 
-    if(total_selection == 4)
+    if(total_selection == 2)
     {
       $('#import').attr('disabled', false);
 

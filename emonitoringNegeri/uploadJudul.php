@@ -43,7 +43,7 @@ if($_FILES['file']['name'] != '')
   {
    $limit++;
 
-   if($limit < 2)
+   if($limit < 6)
    {
     $html .= '<tr>';
 

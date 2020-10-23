@@ -1,99 +1,42 @@
-<?php require_once('../Connection/spbtConn.php'); ?>
+<?php require('conn.php'); 
+include_once 'insert_update_delete.php';?>
 <?php
-if (!isset($_SESSION)) {
-  session_start();
-}
-$MM_authorizedUsers = "publisherSPBT";
-$MM_donotCheckaccess = "false";
-
-// *** Restrict Access To Page: Grant or deny access to this page
-function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) { 
-  // For security, start by assuming the visitor is NOT authorized. 
-  $isValid = False; 
-
-  // When a visitor has logged into this site, the Session variable MM_Username set equal to their username. 
-  // Therefore, we know that a user is NOT logged in if that Session variable is blank. 
-  if (!empty($UserName)) { 
-    // Besides being logged in, you may restrict access to only certain users based on an ID established when they login. 
-    // Parse the strings into arrays. 
-    $arrUsers = Explode(",", $strUsers); 
-    $arrGroups = Explode(",", $strGroups); 
-    if (in_array($UserName, $arrUsers)) { 
-      $isValid = true; 
-    } 
-    // Or, you may restrict access to only certain users based on their username. 
-    if (in_array($UserGroup, $arrGroups)) { 
-      $isValid = true; 
-    } 
-    if (($strUsers == "") && false) { 
-      $isValid = true; 
-    } 
-  } 
-  return $isValid; 
-}
-
-$MM_restrictGoTo = "../loginFailed.php";
-if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers, $_SESSION['MM_Username'], $_SESSION['MM_UserGroup'])))) {   
-  $MM_qsChar = "?";
-  $MM_referrer = $_SERVER['PHP_SELF'];
-  if (strpos($MM_restrictGoTo, "?")) $MM_qsChar = "&";
-  if (isset($_SERVER['QUERY_STRING']) && strlen($_SERVER['QUERY_STRING']) > 0) 
-  $MM_referrer .= "?" . $_SERVER['QUERY_STRING'];
-  $MM_restrictGoTo = $MM_restrictGoTo. $MM_qsChar . "accesscheck=" . urlencode($MM_referrer);
-  header("Location: ". $MM_restrictGoTo); 
-  exit;
+session_start();
+if (isset($_SESSION['role']))
+{
+   if($_SESSION['role'] != 'publisherSPBT')
+    {
+      header('Location:../loginFailed.php');  
+    }
 }
 ?>
-<?php session_start();?>
 <?php
-if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
-
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-  switch ($theType) {
-    case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;    
-    case "long":
-    case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-    case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-    case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
-  }
-  return $theValue;
-}
-}
 
 $colname_Recordset = "-1";
-if (isset($_SESSION['MM_Username'])) {
-  $colname_Recordset = $_SESSION['MM_Username'];
+if (isset($_SESSION['user'])) {
+  $colname_Recordset = $_SESSION['user'];
 }
-mysql_select_db($database, $mySPBT2.0);
-$query_Recordset = sprintf("SELECT * FROM login WHERE username = %s", GetSQLValueString($colname_Recordset, "text"));
-$Recordset = mysql_query($query_Recordset, $mySPBT2.0) or die(mysql_error());
-$row_Recordset = mysql_fetch_assoc($Recordset);
-$totalRows_Recordset = mysql_num_rows($Recordset);
 
+$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+$row_Recordset = mysqli_fetch_assoc($Recordset);
+$totalRows_Recordset = mysqli_num_rows($Recordset);
+
+$joiner = $mysqli->query("SELECT employeeData.noIC, employeeData.nama, employeeData.emel, stationName.name AS stationName, stationName.stationCode FROM employeeData INNER JOIN stationName ON employeeData.stationCode = stationName.stationCode WHERE emel = '$colname_Recordset'");
+$row_joiner = mysqli_fetch_assoc($joiner);
+$totalRows_joiner = mysqli_num_rows($joiner);
+
+$noIC = $row_Recordset['noIC'];
+
+$Recordset2 = $mysqli->query("SELECT *,TIMEDIFF(timeOut, time) AS diff FROM attendance WHERE noIC = '$noIC' ORDER BY date DESC");
+$row_Recordset2 = mysqli_fetch_assoc($Recordset2);
+$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AFMS | publisherSPBT PAGE</title>
+  <title>mySPBT2.0 | publisherSPBT PAGE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -119,7 +62,7 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
   <!-- chart.js plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body onload="getLocation();showPosition2();" class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -130,7 +73,7 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.php" class="nav-link">Home</a>
+        <a href="indexPublisher.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -235,12 +178,12 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
       </li>
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="../index.php">
+        <a class="nav-link" data-toggle="dropdown" href="../indexPublisher.php">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="../index.php" class="dropdown-item dropdown-footer">Logout</a>
+          <a href="../logout.php" class="dropdown-item dropdown-footer">Logout</a>
         </div>
       </li>
      
@@ -251,10 +194,10 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="../adminSPBT/dist/img/altus logo.png" alt="altus Logo" class="brand-image img-circle elevation-3"
+    <a href="indexPublisher.php" class="brand-link">
+      <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-dark">AFMS</span>
+      <span class="brand-text font-weight-dark">mySPBT2.0</span>
     </a>
 
     <!-- Sidebar -->
@@ -275,10 +218,10 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="index.php" class="nav-link active">
+            <a href="indexPublisher.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                 -AFMS publisherSPBT SECTION-
+                 -iBERKAT publisherSPBT SECTION-
                 <!--<i class="right fas fa-angle-left"></i>-->
               </p>
             </a>
@@ -286,30 +229,10 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
             </ul>
           </li>
           <li class="nav-item">
-            <a href="attendance.php" class="nav-link">
+            <a href="indexPublisher.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                e-Attendance
-                <!--<i class="fas fa-angle-left right"></i>
-                <!--<span class="badge badge-info right">6</span>-->
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="payroll.php" class="nav-link">
-              <i class="nav-icon fas fa-file-invoice-dollar"></i>
-              <p>
-                e-Payroll
-                <!--<i class="fas fa-angle-left right"></i>
-                <!--<span class="badge badge-info right">6</span>-->
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pod.php" class="nav-link">
-              <i class="nav-icon fas fa-address-card"></i>
-              <p>
-                e-POD
+                Back to Dashboard Panel
                 <!--<i class="fas fa-angle-left right"></i>
                 <!--<span class="badge badge-info right">6</span>-->
               </p>
@@ -322,6 +245,7 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
     <!-- /.sidebar -->
   </aside>
 
+<!--attendance coding here-->
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -330,10 +254,14 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Selamat Datang <?php echo ucwords(strtolower($row_Recordset['name']));?></h1>
+            <p>Attendance Section <br>
+            (As of <?php echo $date;?>)
+            </p>
+            
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="indexPublisher.php">Home</a></li>
               <li class="breadcrumb-item active">Attendace Section</li>
             </ol>
           </div><!-- /.col -->
@@ -345,27 +273,141 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!--main content put here-->
+          
+        <?php if ($row_Recordset2['date'] == NULL || $row_Recordset2['date'] < $date){?>
+        <form action="insert_update_delete.php" method="post">
+            
+        <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr style="text-align:center">
+                      <th>Punch your attendance today</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="text-align:center">
+                       <td><input type="submit" name="submit" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#modal-info" value='Clock-In'/> 
+                       </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+        <input type="hidden" id="longitude" name="longitude" value="">
+        <input type="hidden" id="latitude" name="latitude" value="">        
+        <input type="hidden" value="<?php echo $time?>" name="time">        
+        <input type="hidden" value="<?php echo $date?>" name="date">
+        <input type="hidden" value="<?php echo $month?>" name="month">
+        <input type="hidden" value="<?php echo $year?>" name="year">
+        <input type="hidden" name="nama" value="<?php echo $row_Recordset['name']?>">
+        <input type="hidden" name="noIC" value="<?php echo $row_Recordset['noIC']?>">
+        <input type="hidden" name="stationCode" value="<?php echo $row_joiner['stationCode']?>">
+        <input type="hidden" name="role" value="<?php echo $row_Recordset['role']?>">
+        <input type="hidden" name="status" value="attend">
+        </form>
+        <?php }?>
+        <!--end for if $row_Recorset['date'] < $date-->
+        
+        <?php if ($row_Recordset2['date'] == $date && $row_Recordset2['timeOut']== NULL){?>
+        <form action="insert_update_delete.php" method="post">
+            
+               <div class="table-responsive">
+                  <?php if ($row_Recordset2['timeOut'] == NULL) {echo '<input type="submit" name="update" class="btn btn-warning btn-block btn-flat" data-toggle="modal" data-target="#modal-success" value= "Clock-Out"/>';}?>
+                </div>
+                <!-- /.table-responsive -->
+        <input type="hidden" value="<?php echo $time?>" name="timeOut">   
+        <input type="hidden" name="nama" value="<?php echo $row_Recordset['name']?>">
+        <input type="hidden" name="noIC" value="<?php echo $row_Recordset['noIC']?>">
+        <input type="hidden" name="stationCode" value="<?php echo $row_joiner['stationCode']?>">
+        <input type="hidden" name="role" value="<?php echo $row_Recordset['role']?>">
+        <input type="hidden" name="status" value="attend">
+        </form>
+        <?php }?>
+        
+        
+        <?php if ($row_Recordset2 > 0){?>
+                <div class="card-body">
+            <div class="table-responsive">
+                  <table id="example1" class="table m-0">
+                    <thead>
+                    <tr style="text-align:center">
+                      <th>No.</th></th>
+                      <th>Date</th>
+                      <th>Clock-In</th>
+                      <th>Clock-Out</th>
+                      <th>Duration</th>
+                      <th>Location</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php $a=1;?>
+                    <?php do { ?>
+                    <tr style="text-align:center">
+                      <td><a href="#"><?php echo $a++;?></a></td>
+                      <td> 
+                          <?php $dateM = new DateTime($row_Recordset2['date']);
+                                echo $dateM->format('d-m-Y');?>
+                      </td>
+                      <td>
+                         <?php $timeM = new DateTime($row_Recordset2['time']);
+                                echo $timeM->format('h:i a');?>
+                      </td>
+                      <td>
+                         <?php if($row_Recordset2['timeOut'] != NULL){$timeM = new DateTime($row_Recordset2['timeOut']);
+                                echo $timeM->format('h:i a');}else{echo 'Still Working';}?>
+                      </td>
+                      <td>
+                      <?php if($row_Recordset2['timeOut'] != NULL){echo ($row_Recordset2['diff']);}else{echo 'Still Working';}?>
+                      </td>
+                      <td>
+                      <?php if (!empty($row_Recordset2['longitude'])){echo '<a data-toggle="modal"
+                          data-target="#locationModal"
+                          data-whatever="'.$row_Recordset2['latitude'].'" data-whatever2="'.$row_Recordset2['longitude'].'"><span class="badge badge-warning">'.round($row_Recordset2['latitude'],5).','.round($row_Recordset2['longitude'],5).'</span></a>';}else{echo '<span class="badge badge-danger">No data</span>';}?>
+                      </td>
+                    </tr>
+                    <?php } while ($row_Recordset2 = mysqli_fetch_assoc($Recordset2)); ?>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+            <?php } ?>
+                <!-- /.table-responsive -->
+        
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2019 <a href="https://iberkat.my/AFM">AFM </a></strong>
+    <strong>Copyright &copy; 2019 <a href="https://iberkat.my/mySPBT2.0">mySPBT2.0 </a></strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0-beta.1
     </div>
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->     
+
+<!-- Begin parcel modal -->
+    <div class="modal fade" id="locationModal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-success">
+            <div class="modal-header">
+              <h4 class="modal-title">publisherSPBT Location</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="dash">
+              
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <!-- End parcel modal -->
 
 <!-- jQuery -->
 <script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>
@@ -410,6 +452,66 @@ $totalRows_Recordset = mysql_num_rows($Recordset);
 <script src="../adminSPBT/plugins/raphael/raphael.min.js"></script>
 <script src="../adminSPBT/plugins/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="../adminSPBT/plugins/jquery-mapael/maps/world_countries.min.js"></script>
+<!-- DataTables -->
+<script src="../adminSPBT/plugins/datatables/jquery.dataTables.js"></script>
+<script src="../adminSPBT/plugins/datatables/dataTables.bootstrap4.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
+
+<script>
+var x = document.getElementById("latitude");
+var y = document.getElementById("longitude");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.value = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.value = position.coords.latitude 
+  y.value = position.coords.longitude;
+}
+</script>
+
+<script>
+    /*parcelModal*/
+    $('#locationModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var recipient2 = button.data('whatever2') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'latitude=' + recipient + '&' + 'longitude=' + recipient2;
+
+            $.ajax({
+                type: "GET",
+                url: "locationpublisherSPBT.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.dash').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>
+
 </body>
 </html>
 

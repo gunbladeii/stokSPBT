@@ -1,8 +1,8 @@
 <?php
-$username = "iconvess_iconvess";
+$username = "adminspbt";
 $password = "Sh@ti5620";
 $hostname = "localhost";
-$db_name = "iconvess_projekSPBT";
+$db_name = "spbt_stok";
 
 //connection to the database
 $mysqli = new mysqli($hostname, $username, $password, $db_name);

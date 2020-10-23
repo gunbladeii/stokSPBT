@@ -294,7 +294,7 @@ $a = 1;
                             <div class="table-responsive">  
                           <form method="post" id="update_form">
                     <div align="center">
-                        <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Multiple Update" />
+                        <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="KEMASKINI" />
                     </div>
                     <br />
                     <div class="table-responsive">

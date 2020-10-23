@@ -319,7 +319,7 @@ $a = 1;
                                   <th>Bil. Judul Pembekalan</th>
                                   <?php }?>
                                   <th>Pengesanan Pembekalan</th>
-                                  <th>Kemaskini Rekod</th>
+                                  <th>Hapus Judul</th>
                                   <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                                 </tr>
 

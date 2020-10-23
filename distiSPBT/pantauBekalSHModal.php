@@ -306,6 +306,7 @@ $a = 1;
                                 <th width="5%">Bil. Pesanan</th>
                                 <th width="5%">Bil. Dibekal</th>
                                 <th width="20%">Status Bekal</th>
+                                <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                             </thead>
                             <tbody></tbody>
                         </table>
@@ -399,6 +400,7 @@ $(document).ready(function(){
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
                     html += '<td>'+data[count].statusbekal+'</td></tr>';
+                    html += '<td>'+data[count].hapus+'</td></tr>';
                 }
                 $('tbody').html(html);
             }
@@ -415,8 +417,9 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('kodpembekal')+'</td>';
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
-             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
+            html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
             html += '<td><select name="statusbekal[]" id="statusbekal_'+$(this).attr('id')+'" class="form-control"><option value="Belum Bekal">Belum Bekal</option><option value="Sedang Bekal">Sedang Bekal</option><option value="Selesai">Selesai</option></select><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
+            html += '<td><input type="text" class="delete_checkbox" value="'+$(this).attr('id')+'" /></td>';
         }
         else
         {
@@ -425,7 +428,8 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
-            html += '<td>'+$(this).data('statusbekal')+'</td>';            
+            html += '<td>'+$(this).data('statusbekal')+'</td>';
+            html += '<td><input type="text" class="delete_checkbox" value="'+$(this).attr('id')+'" /></td>';            
         }
         $(this).closest('tr').html(html);
         $('#statusbekal_'+$(this).attr('id')+'').val($(this).data('statusbekal'));
@@ -445,6 +449,54 @@ $(document).ready(function(){
                     fetch_data();
                 }
             })
+        }
+    });
+
+});  
+</script>
+<style>
+.removeRow
+{
+    background-color: #FF0000;
+    color:#FFFFFF;
+}
+</style>
+<script>  
+$(document).ready(function(){ 
+
+    $('.delete_checkbox').click(function(){
+        if($(this).is(':checked'))
+        {
+            $(this).closest('tr').addClass('removeRow');
+        }
+        else
+        {
+            $(this).closest('tr').removeClass('removeRow');
+        }
+    });
+
+    $('#delete_all').click(function(){
+        var checkbox = $('.delete_checkbox:checked');
+        if(checkbox.length > 0)
+        {
+            var checkbox_value = [];
+            $(checkbox).each(function(){
+                checkbox_value.push($(this).val());
+            });
+
+            $.ajax({
+                url:"deleteJudulSH.php",
+                method:"POST",
+                data:{checkbox_value:checkbox_value},
+                success:function()
+                {
+                    $('.removeRow').fadeOut(1500);
+                }
+            });
+        }
+        else
+        {
+            alert("Pilih salah satu rekod untuk dipadam");
         }
     });
 

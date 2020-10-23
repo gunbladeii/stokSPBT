@@ -282,7 +282,7 @@ $a = 1;
                             <table class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR MAKLUMAT PEMBEKAL</h4></th>
+                                  <th colspan="5" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR MAKLUMAT PEMBEKAL</h4></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -301,7 +301,7 @@ $a = 1;
                               <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">KEMASKINI REKOD PEMBEKAL BERDAFTAR</h4></th>
+                                  <th colspan="5" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">KEMASKINI REKOD PEMBEKAL BERDAFTAR</h4></th>
                                 </tr>
                               </thead>
                               <tbody>

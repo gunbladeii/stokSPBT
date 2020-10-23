@@ -109,7 +109,7 @@ $a = 1;
     <!-- End updateDataSH Modal -->
 
     <!-- Begin daftarJudulSH Modal -->
-      <div class="modal fade" id="kemaskiniJudulSHModal">
+      <div class="modal fade" id="pantauBekalSHModal">
         <div class="modal-dialog">
           <div class="modal-content bg-light">
             <div class="modal-header">
@@ -335,7 +335,7 @@ $a = 1;
                                   <?php if(!empty($dataSH['bilJudulPesan'])){?>
                                   <td><?php echo $dataSH['bilJudulPesan'];?></td>
                                   <?php }?>
-                                  <td><a data-toggle="modal" data-target="#kemaskiniJudulSHModal" data-whatever="<?php echo $dataSH['kodPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
+                                  <td><a data-toggle="modal" data-target="#pantauBekalSHModal" data-whatever="<?php echo $dataSH['kodPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
                                    <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
@@ -484,7 +484,7 @@ $a = 1;
             });
     })
 
-    $('#kemaskiniJudulSHModal').on('show.bs.modal', function (event) {
+    $('#pantauBekalSHModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
@@ -493,7 +493,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "kemaskiniJudulSHModal.php",
+                url: "pantauBekalSHModal.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

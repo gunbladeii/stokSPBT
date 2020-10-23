@@ -17,12 +17,12 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.namaPembekal, dataJudulPenerbit.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul, dataSH.namaPembekal FROM 
+    $Recordset2 = $mysqli->query("SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp, dataJudulPenerbit.kodJudul, dataSHJudul.judul, dataSH.namaPembekal FROM 
     ((dataJudulPenerbit 
     INNER JOIN dataSH ON dataJudulPenerbit.kodPembekal = dataSH.kodPembekal)
     INNER JOIN dataSHJudul ON dataJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
     WHERE dataJudulPenerbit.kodpembekal = '$kodPembekal'
-      ORDER BY dataJudulPenerbit.timestamp DESC'");
+      ORDER BY dataJudulPenerbit.timestamp DESC");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

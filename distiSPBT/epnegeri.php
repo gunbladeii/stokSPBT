@@ -489,7 +489,7 @@ $a = 1;
     $('#kemaskiniJudulSHModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
-          var recipient2 = button.data('whatever2') // Extract info from data-* attributes
+          //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
           var modal = $(this);
           var dataString = 'kodPembekal=' + recipient ;//+ '&' + 'negeri=' + recipient2 ;
 

@@ -25,7 +25,7 @@
       ORDER BY dataJudulPenerbit.timestamp DESC");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
-    
+
 $b = 1;
 ?>
     
@@ -38,7 +38,7 @@ $b = 1;
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
-                                <th width="5%"></th>
+                                <th width="5%">Bil</th>
                                 <th width="35%">Pembekal</th>
                                 <th width="60%">Nama Judul</th>
                                 <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>

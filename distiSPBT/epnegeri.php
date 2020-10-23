@@ -337,7 +337,7 @@ $a = 1;
                                   <td><?php echo $dataSH['bilJudulPesan'];?></td>
                                   <?php }?>
                                    <td><a href="pantauBekalSH.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
-                                   <td><a data-toggle="modal" data-target="#kemaskiniJudulSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
+                                   <td><a data-toggle="modal" data-target="#kemaskiniJudulSHModal" data-whatever="<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
                                    <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
@@ -513,7 +513,7 @@ $a = 1;
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
           var modal = $(this);
-          var dataString = 'namaPembekal=' + recipient + '&' + 'negeri=' + recipient2 ;
+          var dataString = 'kodPembekal=' + recipient ;//+ '&' + 'negeri=' + recipient2 ;
 
             $.ajax({
                 type: "GET",

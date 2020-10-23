@@ -8,7 +8,7 @@ $query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPener
 (((dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodjudul = dataSHJudul.kodJudul)
 	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = dataSH.kodPembekal)
-	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = login.username)
+	INNER JOIN login ON dataJudulPenerbit.kodpembekal = login.username)
 	WHERE dataJudulPenerbit.kodPembekal = '$kodPembekal'
 	  ORDER BY dataJudulPenerbit.timestamp DESC";
 $result = mysqli_query($connect, $query);

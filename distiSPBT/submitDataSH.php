@@ -33,7 +33,7 @@
 
 ?>                   
                          <div class="table-responsive">
-                          <form method="post" action="updateDataSH.php" role="form" enctype="multipart/form-data">
+                          <form method="post" action="submitDataSH.php" role="form" enctype="multipart/form-data">
                             <table id="example1" class="table m-0">
                               <thead>
                                 <tr>

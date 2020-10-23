@@ -43,9 +43,6 @@
                             <?php do {?>
                                 <tr>
                                   <td><?php echo $a++;?></td>
-                                  <td><a data-toggle="modal" data-target="#updatedataJudulPenerbitModal" data-whatever="<?php echo $dataJudulPenerbit['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataJudulPenerbit['namaPembekal']);?></a></td>
-                                 
-                                  <td><?php echo $dataJudulPenerbit['noTelefon'];?></td>
                                   <td><?php echo strtoupper($dataJudulPenerbit['namapembekal']);?></td>
                                   <td><?php echo $dataJudulPenerbit['judul'];?></td>
                                   <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataJudulPenerbit['id'];?>" /></td>

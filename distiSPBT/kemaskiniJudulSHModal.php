@@ -24,13 +24,10 @@
 ?>
     
 
-  <?php if(empty($dataJudulPenerbit)) {?>
+  <?php if(!empty($dataJudulPenerbit)) {?>
   <div class="container">  
                             <div class="table-responsive">  
                           <form method="post" id="update_form">
-                    <div align="center">
-                        <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Multiple Update" />
-                    </div>
                     <br />
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">

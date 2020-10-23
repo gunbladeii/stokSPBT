@@ -342,6 +342,7 @@ $a = 1;
               <div class="card-header border-transparent">
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MAKLUMAT PENGESANAN SH-NEGERI</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+                <h2 class="card-title" style="font-size:14px;">*Gunakan <strong>Kod Pembekal</strong> untuk kegunaan semasa muat naik rekod judul pembekalan penerbit</h2>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">
@@ -362,7 +363,6 @@ $a = 1;
                               <thead>
                                 <tr>
                                   <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
-                                   <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h5 style="color: white">Gunakan Kod Pembekal untuk kegunaan semasa muat naik rekod judul pembekalan penerbit</h5></th>
                                 </tr>
                               </thead>
                               <tbody>

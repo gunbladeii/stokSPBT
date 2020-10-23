@@ -279,6 +279,7 @@ $a = 1;
                           
                           <div class="table-responsive">
                           <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
+                            <?php if(empty($dataSH)){?>
                             <table class="table m-0">
                               <thead>
                                 <tr>
@@ -295,6 +296,7 @@ $a = 1;
 
                               </tbody>
                              </table>
+                             <?php }?>
                             </form>
 
                             <?php if(!empty($dataSH)){?>

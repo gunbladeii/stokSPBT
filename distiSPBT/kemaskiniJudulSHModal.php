@@ -17,7 +17,7 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE kodpembekal = '$kodpembekal'");
+    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE kodpembekal = '$kodPembekal'");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

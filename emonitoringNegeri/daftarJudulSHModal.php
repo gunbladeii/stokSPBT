@@ -10,15 +10,18 @@
       $colname_Recordset = $_SESSION['user'];
     }
 
-    $namaPembekal = $_GET['namaPembekal'];
-    $negeri = $_GET['negeri'];
+    $kodPembekal = $_GET['kodPembekal'];
     
 
     $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE namaPembekal = '$namaPembekal' AND negeri = '$negeri'");
+    $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE kodPembekal = '$kodPembekal'");
+    $dataSH = mysqli_fetch_assoc($Recordset2);
+    $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
+
+    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE kodPembekal = '$kodPembekal' AND negeri = '$negeri'");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -34,7 +37,7 @@
              <div class="row" id="upload_area">
               <form method="post" id="upload_form" enctype="multipart/form-data">
                 <div align="center" class="col-md-12">
-                  *Pilih fail dalam format .CSV sahaja. Mohon rujuk manual pengguna sistem
+                  *Pilih fail dalam format .CSV sahaja. Mohon rujuk manual pengguna sistem. Serta pastikan kod penerbit <strong><?php echo $dataSH['kodPembekal'];?></strong> disertakan dalam maklumat excel .csv
                 </div>
                 <div align="center" class="col-md-12">
                   <input type="file" name="file" id="dataJudulPenerbit" />
@@ -93,7 +96,7 @@ $(document).ready(function(){
 
   var total_selection = 0;
 
-  var namaPembekal = 0;
+  var kodPembekal = 0;
 
   var negeri = 0;
 
@@ -141,7 +144,7 @@ $(document).ready(function(){
     {
       $('#import').attr('disabled', false);
 
-      namaPembekal = column_data.namaPembekal;
+      kodPembekal = column_data.kodPembekal;
 
       negeri = column_data.negeri;
 
@@ -163,7 +166,7 @@ $(document).ready(function(){
     $.ajax({
       url:"importJudul.php",
       method:"POST",
-      data:{namaPembekal:namaPembekal, negeri:negeri, kodJudul:kodJudul, judul:judul},
+      data:{kodPembekal:kodPembekal, negeri:negeri, kodJudul:kodJudul, judul:judul},
       beforeSend:function(){
         $('#import').attr('disabled', 'disabled');
         $('#import').text('Importing...');
@@ -186,7 +189,7 @@ function fetch_item_data()
  {
   
   $.ajax({
-   url:"fetchdataJudulSH.php?namaPembekal=<?php echo $namaPembekal;?>&negeri=<?php echo $negeri;?>",
+   url:"fetchdataJudulSH.php?kodPembekal=<?php echo $kodPembekal;?>",
    method:"POST",
    success:function(data)
    {

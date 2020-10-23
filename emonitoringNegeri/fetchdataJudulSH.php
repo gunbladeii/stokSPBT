@@ -2,13 +2,12 @@
 <?php
 //fetch.php
 $connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
-$namaPembekal = $_GET['namaPembekal'];
-$negeri = $_GET['negeri'];
+$kodPembekal = $_GET['kodPembekal'];
 $output = '';
-$query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.namaPembekal, dataJudulPenerbit.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
+$query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodPembekal, dataJudulPenerbit.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
 (dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
-	WHERE dataJudulPenerbit.namaPembekal = '$namaPembekal' AND dataJudulPenerbit.negeri = '$negeri'
+	WHERE dataJudulPenerbit.kodPembekal = '$kodPembekal' AND dataJudulPenerbit.negeri = '$negeri'
 	  ORDER BY dataJudulPenerbit.timestamp DESC";
 $result = mysqli_query($connect, $query);
 $a = 1;
@@ -21,9 +20,9 @@ if (mysqli_num_rows($result) > 0)
 		<table class="table table-bordered table-sm">
 		 <tr class="bg-warning">
 		  <th width="5%">No</th>
+		  <th width="10%">Kod Pembekal</th>
 		  <th width="20%">Kod Judul</th>
 		  <th width="50%">Nama Judul</th>
-		  <th width="10%">Pembekal</th>
 		  <th width="10%">Negeri</th>
 		  <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></button></th>
 		 </tr>
@@ -33,9 +32,9 @@ if (mysqli_num_rows($result) > 0)
 		 $output .= '
 		 <tr>
 		  <td>'.$a++.'</td>
+		  <td>'.strtoupper($row["kodPembekal"]).'</td>
 		  <td>'.$row["kodJudul"].'</td>
 		  <td>'.$row["judul"].'</td>
-		  <td>'.strtoupper($row["namaPembekal"]).'</td>
 		  <td>'.$row["negeri"].'</td>
 		  <td align="center"><input type="checkbox" class="delete_checkbox" value="'.$row["id"].'" /></td>
 		 </tr>

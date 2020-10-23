@@ -489,7 +489,7 @@ $a = 1;
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
           var modal = $(this);
-          var dataString = 'kodPembekal=' + recipient //+ '&' + 'negeri=' + recipient2 ;
+          var dataString = 'kodPembekal=' + recipient ;//+ '&' + 'negeri=' + recipient2 ;
 
             $.ajax({
                 type: "GET",

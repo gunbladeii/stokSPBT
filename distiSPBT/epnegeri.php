@@ -289,7 +289,7 @@ $a = 1;
                               
                                 <tr>
                                   <td style="text-align: center;">
-                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">PENDAFTARAN</a>
+                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">PENDAFTARAN REKOD SYARIKAT</a>
                                 </td>
                                 </tr>
 

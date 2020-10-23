@@ -17,7 +17,12 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE kodpembekal = '$kodPembekal'");
+    $Recordset2 = $mysqli->query("SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.namaPembekal, dataJudulPenerbit.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
+    ((dataJudulPenerbit 
+    INNER JOIN dataSH ON dataJudulPenerbit.kodPembekal = dataSH.kodPembekal)
+    INNER JOIN dataSHJudul ON dataJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
+    WHERE dataJudulPenerbit.namaPembekal = '$kodPembekal'
+      ORDER BY dataJudulPenerbit.timestamp DESC'");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

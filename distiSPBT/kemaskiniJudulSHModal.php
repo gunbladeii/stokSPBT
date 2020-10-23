@@ -17,7 +17,7 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.namaPembekal, dataJudulPenerbit.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul FROM 
+    $Recordset2 = $mysqli->query("SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.namaPembekal, dataJudulPenerbit.negeri,dataJudulPenerbit.kodJudul, dataSHJudul.judul, dataSH.namaPembekal FROM 
     ((dataJudulPenerbit 
     INNER JOIN dataSH ON dataJudulPenerbit.kodPembekal = dataSH.kodPembekal)
     INNER JOIN dataSHJudul ON dataJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
@@ -45,7 +45,7 @@
                             <?php do {?>
                                 <tr>
                                   <td><?php echo $a++;?></td>
-                                  <td><?php echo strtoupper($dataJudulPenerbit['namapembekal']);?></td>
+                                  <td><?php echo strtoupper($dataJudulPenerbit['namaPembekal']);?></td>
                                   <td><?php echo $dataJudulPenerbit['judul'];?></td>
                                   <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataJudulPenerbit['id'];?>" /></td>
                                 </tr>

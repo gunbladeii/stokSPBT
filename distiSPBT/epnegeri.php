@@ -309,9 +309,15 @@ $a = 1;
                                 <tr>
                                   <th>Bil</th>
                                   <th>Nama Pembekal</th>
+                                  <?php if(!empty($dataSH['noTelefon'])){?>
                                   <th>No. Telefon</th>
+                                  <?php }?>
+                                  <?php if(!empty($dataSH['alamat'])){?>
                                   <th>Alamat</th>
+                                  <?php }?>
+                                  <?php if(!empty($dataSH['bilJudulPesan'])){?>
                                   <th>Bil. Judul Pembekalan</th>
+                                  <?php }?>
                                   <th>Kemaskini Pembekalan</th>
                                   <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                                 </tr>
@@ -320,9 +326,15 @@ $a = 1;
                                 <tr>
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
+                                  <?php if(!empty($dataSH['noTelefon'])){?>
                                   <td><?php echo $dataSH['noTelefon'];?></td>
+                                  <?php }?>
+                                  <?php if(!empty($dataSH['alamat'])){?>
                                   <td><?php $dataSH['alamat']?></td>
+                                  <?php }?>
+                                  <?php if(!empty($dataSH['bilJudulPesan'])){?>
                                   <td><?php echo $dataSH['bilJudulPesan'];?></td>
+                                  <?php }?>
                                   <td><a data-toggle="modal" data-target="#kemaskiniJudulSHModal" data-whatever="<?php echo $dataSH['kodPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>

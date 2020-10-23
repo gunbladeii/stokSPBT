@@ -25,7 +25,8 @@
       ORDER BY dataJudulPenerbit.timestamp DESC");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
-
+    
+$b = 1;
 ?>
     
 

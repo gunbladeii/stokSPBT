@@ -26,33 +26,29 @@
     
 
   <?php if(empty($dataJudulPenerbit)) {?>
-  <div class="container">
-       <div id="message"></div>
-      <div class="panel panel-default">
-          <div class="panel-heading"></div>
-          <div class="panel-body">
-             <div class="row" id="upload_area">
-              <form method="post" id="upload_form" enctype="multipart/form-data">
-                <div align="center" class="col-md-12">
-                  *Pilih fail dalam format .CSV sahaja. Mohon rujuk manual pengguna sistem
-                </div>
-                <div align="center" class="col-md-12">
-                  <input type="file" name="file" id="dataJudulPenerbit" />
-                </div>
-                <br /><br /><br />
-                <div class="col-md-12" align="center">
-                  <input type="submit" name="upload_file" id="upload_file" class="btn btn-primary" value="Muat Naik" />
-                </div>
-              </form>
-              
-            </div>
-            <div class="table-responsive" id="process_area">
-
-            </div>
-          </div>
-        </div>
-     </div>
-     <?php }?>
+  <div class="container">  
+                            <div class="table-responsive">  
+                          <form method="post" id="update_form">
+                    <div align="center">
+                        <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Multiple Update" />
+                    </div>
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <th width="5%"></th>
+                                <th width="35%">Pembekal</th>
+                                <th width="60%">Nama Judul</th>
+                                <th width="15%">Bil. Pesanan</th>
+                                <th width="15%">Bil. Dibekal</th>
+                                <th width="55%">Status Bekal</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </form>
+   </div>  
+  <?php }?>
 
     <div class="table-responsive">
         <div id="inserted_item_data"></div>
@@ -60,140 +56,75 @@
     
    
 
-<script>
-$(document).ready(function(){
+<script>  
+$(document).ready(function(){  
+    
+    function fetch_data()
+    {
+        $.ajax({
+            url:"selectPantau.php?namaPembekal=<?php echo $namaPembekal;?>&negeri=<?php echo $negeri;?>",
+            method:"POST",
+            dataType:"json",
+            success:function(data)
+            {
+                var html = '';
+                for(var count = 0; count < data.length; count++)
+                {
+                    html += '<tr>';
+                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-namapembekal="'+data[count].namapembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" class="check_box"  /></td>';
+                    html += '<td>'+data[count].namapembekal+'</td>';
+                    html += '<td>'+data[count].judul+'</td>';
+                    html += '<td>'+data[count].bilnaskhahpesan+'</td>';
+                    html += '<td>'+data[count].bilnaskhahbekal+'</td>';
+                    html += '<td>'+data[count].statusbekal+'</td></tr>';
+                }
+                $('tbody').html(html);
+            }
+        });
+    }
 
-  $('#upload_form').on('submit', function(event){
+    fetch_data();
 
-    event.preventDefault();
-    $.ajax({
-      url:"uploadJudul.php",
-      method:"POST",
-      data:new FormData(this),
-      dataType:'json',
-      contentType:false,
-      cache:false,
-      processData:false,
-      success:function(data)
-      {
-        if(data.error != '')
+    $(document).on('click', '.check_box', function(){
+        var html = '';
+        if(this.checked)
         {
-          $('#message').html('<div class="alert alert-danger">'+data.error+'</div>');
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-namapembekal="'+$(this).data('namapembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" checked /></td>';
+            html += '<td><input type="text" name="namapembekal[]" class="form-control" value="'+$(this).data("namapembekal")+'" /></td>';
+            html += '<td><input type="text" name="judul[]" class="form-control" value="'+$(this).data("judul")+'" /></td>';
+            html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
+             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
+            html += '<td><select name="statusbekal[]" id="statusbekal_'+$(this).attr('id')+'" class="form-control"><option value="Belum Bekal">Belum Bekal</option><option value="Sedang Bekal">Sedang Bekal</option><option value="Selesai">Selesai</option></select><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
         }
         else
         {
-          $('#process_area').html(data.output);
-          $('#upload_area').css('display', 'none');
-          $('#inserted_item_data').css('display', 'none');
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-namapembekal="'+$(this).data('namapembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" /></td>';
+            html += '<td>'+$(this).data('namapembekal')+'</td>';
+            html += '<td>'+$(this).data('judul')+'</td>';
+            html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
+            html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
+            html += '<td>'+$(this).data('statusbekal')+'</td>';            
         }
-      }
+        $(this).closest('tr').html(html);
+        $('#statusbekal_'+$(this).attr('id')+'').val($(this).data('statusbekal'));
     });
 
-  });
-
-  var total_selection = 0;
-
-  var namaPembekal = 0;
-
-  var negeri = 0;
-
-  var kodJudul = 0;
-
-  var judul = 0;
-
-  var column_data = [];
-
-  $(document).on('change', '.set_column_data', function(){
-
-    var column_name = $(this).val();
-
-    var column_number = $(this).data('column_number');
-
-    if(column_name in column_data)
-    {
-      alert('Pilihan tersebut telah dibuat di lajur '+column_name+ '');
-
-      $(this).val('');
-
-      return false;
-    }
-
-    if(column_name != '')
-    {
-      column_data[column_name] = column_number;
-    }
-    else
-    {
-      const entries = Object.entries(column_data);
-
-      for(const [key, value] of entries)
-      {
-        if(value == column_number)
+    $('#update_form').on('submit', function(event){
+        event.preventDefault();
+        if($('.check_box:checked').length > 0)
         {
-          delete column_data[key];
+            $.ajax({
+                url:"updatePantau.php",
+                method:"POST",
+                data:$(this).serialize(),
+                success:function()
+                {
+                    alert('Data telah dikemaskini');
+                    fetch_data();
+                }
+            })
         }
-      }
-    }
+    });
 
-    total_selection = Object.keys(column_data).length;
-
-    if(total_selection == 4)
-    {
-      $('#import').attr('disabled', false);
-
-      namaPembekal = column_data.namaPembekal;
-
-      negeri = column_data.negeri;
-
-      kodJudul = column_data.kodJudul;
-
-      judul = column_data.judul;
-    }
-    else
-    {
-      $('#import').attr('disabled', 'disabled');
-    }
-
-  });
-
-  $(document).on('click', '#import', function(event){
-
-    event.preventDefault();
-
-    $.ajax({
-      url:"importJudul.php",
-      method:"POST",
-      data:{namaPembekal:namaPembekal, negeri:negeri, kodJudul:kodJudul, judul:judul},
-      beforeSend:function(){
-        $('#import').attr('disabled', 'disabled');
-        $('#import').text('Importing...');
-      },
-      success:function(data)
-      {
-        $('#import').attr('disabled', false);
-        $('#import').text('Import');
-        $('#process_area').css('display', 'none');
-        $('#upload_area').css('display', 'none');
-        $('#upload_form')[0].reset();
-        $('#message').html("<div class='alert alert-success'>"+data+"</div>");
-        fetch_item_data();
-      }
-    })
-
-  });
-  
-function fetch_item_data()
- {
-  
-  $.ajax({
-   url:"fetchdataJudulSH.php?namaPembekal=<?php echo $namaPembekal;?>&negeri=<?php echo $negeri;?>",
-   method:"POST",
-   success:function(data)
-   {
-    $('#inserted_item_data').html(data);
-   }
-  })
- }
- fetch_item_data();
-});
+});  
 </script>

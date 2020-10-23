@@ -61,7 +61,7 @@
                                    <div class="form-group">
                                       No. Telefon:
                                       <div class="input-group mb-3">
-                                      <input type="text" style="text-transform: uppercase" name="noTelefon" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['namaPembekal'];?>" required>
+                                      <input type="text" style="text-transform: uppercase" name="noTelefon" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['noTelefon'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>
@@ -75,7 +75,7 @@
                                    <div class="form-group">
                                       Alamat Pejabat:
                                       <div class="input-group mb-3">
-                                      <input type="text" style="text-transform: uppercase" name="alamat" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['namaPembekal'];?>" required>
+                                      <input type="text" style="text-transform: uppercase" name="alamat" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['alamat'];?>" required>
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>

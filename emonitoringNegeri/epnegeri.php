@@ -390,11 +390,14 @@ $a = 1;
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 
                               </tbody>
-                             </table>
+                              <tfoot>
                                 <tr colspan="7">
                                     <td><a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Nilai Sebut Harga: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH']);?></a>
                                     </td>
-                                </div>
+                                </tr>
+                              </tfoot>
+                             </table>
+
                             <?php }?>
 
 

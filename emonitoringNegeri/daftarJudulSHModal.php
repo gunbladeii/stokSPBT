@@ -37,7 +37,7 @@
              <div class="row" id="upload_area">
               <form method="post" id="upload_form" enctype="multipart/form-data">
                 <div align="center" class="col-md-12">
-                  *Pilih fail dalam format .CSV sahaja. Mohon rujuk manual pengguna sistem. Serta pastikan kod penerbit <strong><?php echo $dataSH['kodPembekal'];?></strong> disertakan dalam maklumat excel .csv
+                  *Pilih fail dalam format .CSV sahaja. Mohon rujuk manual pengguna sistem. Serta pastikan kod penerbit <strong><?php echo $kodPembekal;?></strong> disertakan dalam maklumat excel .csv
                 </div>
                 <div align="center" class="col-md-12">
                   <input type="file" name="file" id="dataJudulPenerbit" />

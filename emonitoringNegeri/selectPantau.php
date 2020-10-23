@@ -12,7 +12,7 @@ $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5
 $kodPembekal = $_GET['kodPembekal'];
 $negeri = $_GET['negeri'];
 
-$query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul FROM 
+$query = "SELECT dataJudulPenerbit.bilnaskhahpesan,dataJudulPenerbit.bilnaskhahbekal,dataJudulPenerbit.statusbekal,dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul FROM 
 ((dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodjudul = dataSHJudul.kodJudul)
 	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = dataSH.kodPembekal)

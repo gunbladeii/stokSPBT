@@ -17,7 +17,7 @@
             }
             else if($_SESSION['role'] == "distiSPBT")
             {
-            header('Location:index.php');
+            header('Location:distiSPBT/epnegeri.php');
             }
             else if($res["role"] != "admin" || $res["role"] != "distiSPBT" ||$res["role"] != "publisherSPBT")
             {

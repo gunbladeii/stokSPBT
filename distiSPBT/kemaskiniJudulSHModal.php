@@ -83,15 +83,15 @@ $(document).ready(function(){
         var checkbox = $('.delete_checkbox:checked');
         if(checkbox.length > 0)
         {
-            var checkbox_value2 = [];
+            var checkbox_value= [];
             $(checkbox).each(function(){
-                checkbox_value2.push($(this).val());
+                checkbox_value.push($(this).val());
             });
 
             $.ajax({
                 url:"deleteJudulSH.php",
                 method:"POST",
-                data:{checkbox_value2:checkbox_value2},
+                data:{checkbox_value:checkbox_value},
                 success:function()
                 {
                     $('.removeRow').fadeOut(1500);

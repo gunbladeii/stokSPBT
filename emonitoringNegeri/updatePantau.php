@@ -13,8 +13,6 @@ $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5
 
 if(isset($_POST['hidden_id']))
 {
-
- $judul = $_POST['judul'];
  $bilnaskhahpesan = $_POST['bilnaskhahpesan'];
  $bilnaskhahbekal = $_POST['bilnaskhahbekal'];
  $statusbekal = $_POST['statusbekal'];
@@ -22,8 +20,6 @@ if(isset($_POST['hidden_id']))
  for($count = 0; $count < count($id); $count++)
  {
   $data = array(
-   
-   ':judul'  => $judul[$count],
    ':bilnaskhahpesan'  => $bilnaskhahpesan[$count],
    ':bilnaskhahbekal' => $bilnaskhahbekal[$count],
    ':statusbekal'   => $statusbekal[$count],
@@ -31,7 +27,7 @@ if(isset($_POST['hidden_id']))
   );
   $query = "
   UPDATE dataJudulPenerbit 
-  SET judul = :judul, bilNaskhahPesan = :bilnaskhahpesan, bilnaskhahbekal = :bilnaskhahbekal, statusbekal = :statusbekal 
+  SET bilNaskhahPesan = :bilnaskhahpesan, bilnaskhahbekal = :bilnaskhahbekal, statusbekal = :statusbekal 
   WHERE id = :id
   ";
   $statement = $connect->prepare($query);

@@ -360,14 +360,14 @@ $a = 1;
                             <table class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR REKOD SEBUT HARGA</h4></th>
+                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR MAKLUMAT PEMBEKAL</h4></th>
                                 </tr>
                               </thead>
                               <tbody>
                               
                                 <tr>
                                   <td style="text-align: center;">
-                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DAFTAR REKOD PENGESANAN-SH</a>
+                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">PENDAFTARAN</a>
                                 </td>
                                 </tr>
 
@@ -379,7 +379,7 @@ $a = 1;
                               <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
+                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">KEMASKINI REKOD PEMBEKAL BERDAFTAR</h4></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -387,10 +387,10 @@ $a = 1;
                                 <tr>
                                   <th>Bil</th>
                                   <th>Nama Pembekal</th>
-                                  <th>Tarikh Mula Sebut Harga</th>
-                                  <th>Nilai Sebut Harga (RM)</th>
-                                  <th>Muat Naik Judul</th>
-                                  <th>Pantau pembekalan</th>
+                                  <th>No. Telefon</th>
+                                  <th>Alamat</th>
+                                  <th>Bil. Judul Pembekalan</th>
+                                  <th>Kemaskini Pembekalan</th>
                                   <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                                 </tr>
 

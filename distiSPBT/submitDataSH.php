@@ -88,7 +88,7 @@
                              </table>
                                 <input type="hidden" name="kodPembekal" value="<?php echo $row_Recordset['username'];?>">
                                 <div class="modal-footer">
-                                    <input type="submit" class="btn btn-primary" name="update" value="Simpan rekod"/>
+                                    <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
                                 </div>
                             </form>
                           </div>

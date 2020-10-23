@@ -356,25 +356,7 @@ $a = 1;
               <div class="card-body p-0">
                           
                           <div class="table-responsive">
-                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
-                            <table class="table m-0">
-                              <thead>
-                                <tr>
-                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR REKOD SEBUT HARGA</h4></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              
-                                <tr>
-                                  <td style="text-align: center;">
-                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DAFTAR REKOD PENGESANAN-SH</a>
-                                </td>
-                                </tr>
-
-                              </tbody>
-                             </table>
-                            </form>
-
+                            
                             <?php if(!empty($dataSH)){?>
                               <table id="example1" class="table m-0">
                               <thead>
@@ -398,7 +380,7 @@ $a = 1;
                                 <tr>
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
-                                  <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
+                                  <td><?php $date=date_create($dataSH['tarikhBukaSH']);echo date_format($date,"d-m-Y");?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
                                   <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
                                   <td><a href="pantauBekalSHModal.php?namaPembekal=<?php echo $dataSH['namaPembekal'];?>&negeri=<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>

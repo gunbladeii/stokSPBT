@@ -10,8 +10,7 @@
       $colname_Recordset = $_SESSION['user'];
     }
 
-    $namaPembekal = $_GET['namaPembekal'];
-    $negeri = $_GET['negeri'];
+    $kodPembekal = $_GET['kodPembekal'];
     
 
     $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
@@ -62,7 +61,7 @@ $(document).ready(function(){
     function fetch_data()
     {
         $.ajax({
-            url:"selectPantau.php?namaPembekal=<?php echo $namaPembekal;?>&negeri=<?php echo $negeri;?>",
+            url:"selectPantau.php?kodPembekal=<?php echo $kodPembekal;?>",
             method:"POST",
             dataType:"json",
             success:function(data)

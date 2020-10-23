@@ -301,7 +301,7 @@ $a = 1;
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <th width="5%"></th>
-                                <th width="35%">Pembekal</th>
+                                <th width="35%">Kod Pembekal</th>
                                 <th width="60%">Nama Judul</th>
                                 <th width="15%">Bil. Pesanan</th>
                                 <th width="15%">Bil. Dibekal</th>
@@ -384,7 +384,7 @@ $(document).ready(function(){
     function fetch_data()
     {
         $.ajax({
-            url:"selectPantau.php?namaPembekal=<?php echo $namaPembekal;?>&negeri=<?php echo $negeri;?>",
+            url:"selectPantau.php?kodPembekal=<?php echo $kodPembekal;?>&negeri=<?php echo $negeri;?>",
             method:"POST",
             dataType:"json",
             success:function(data)
@@ -393,8 +393,8 @@ $(document).ready(function(){
                 for(var count = 0; count < data.length; count++)
                 {
                     html += '<tr>';
-                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-namapembekal="'+data[count].namapembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" class="check_box"  /></td>';
-                    html += '<td>'+data[count].namapembekal+'</td>';
+                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodpembekal="'+data[count].kodpembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" class="check_box"  /></td>';
+                    html += '<td>'+data[count].kodpembekal+'</td>';
                     html += '<td>'+data[count].judul+'</td>';
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
@@ -411,8 +411,8 @@ $(document).ready(function(){
         var html = '';
         if(this.checked)
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-namapembekal="'+$(this).data('namapembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" checked /></td>';
-            html += '<td><input type="text" name="namapembekal[]" class="form-control" value="'+$(this).data("namapembekal")+'" /></td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" checked /></td>';
+            html += '<td><input type="text" name="kodpembekal[]" class="form-control" value="'+$(this).data("kodpembekal")+'" /></td>';
             html += '<td><input type="text" name="judul[]" class="form-control" value="'+$(this).data("judul")+'" /></td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
              html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
@@ -420,8 +420,8 @@ $(document).ready(function(){
         }
         else
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-namapembekal="'+$(this).data('namapembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" /></td>';
-            html += '<td>'+$(this).data('namapembekal')+'</td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" /></td>';
+            html += '<td>'+$(this).data('kodpembekal')+'</td>';
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';

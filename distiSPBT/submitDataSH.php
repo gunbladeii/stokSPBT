@@ -11,6 +11,7 @@
     }
 
     $username2 = $_GET['username'];
+    $username = $_POST['username'];
     $kodPembekal = $_POST['kodPembekal'];
     $namaPembekal = $_POST['namaPembekal'];
     $alamat = $_POST['alamat'];
@@ -19,7 +20,7 @@
 
     
    if (isset($_POST['submit'])) {
-    $mysqli->query ("INSERT INTO `dataSH` (`kodPembekal`, `namaPembekal`, `alamat`,`noTelefon`) VALUES ('$kodPembekal', '$namaPembekal', '$alamat', '$noTelefon')");
+    $mysqli->query ("INSERT INTO `dataSH` (`username`,`kodPembekal`, `namaPembekal`, `alamat`,`noTelefon`) VALUES ('$username', '$kodPembekal', '$namaPembekal', '$alamat', '$noTelefon')");
     header("location:epnegeri.php");
     }
 
@@ -87,6 +88,7 @@
                               </tbody>
                              </table>
                                 <input type="hidden" name="kodPembekal" value="<?php echo $row_Recordset['username'];?>">
+                                <input type="hidden" name="username" value="<?php echo $row_Recordset['id_pegawai'];?>">
                                 <div class="modal-footer">
                                     <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
                                 </div>

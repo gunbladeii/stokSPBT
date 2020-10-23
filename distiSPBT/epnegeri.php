@@ -330,7 +330,7 @@ $a = 1;
                                   <td><?php echo $dataSH['noTelefon'];?></td>
                                   <?php }?>
                                   <?php if(!empty($dataSH['alamat'])){?>
-                                  <td><?php echo $dataSH['alamat']?></td>
+                                  <td><?php echo strtoupper($dataSH['alamat'])$dataSH['alamat']?></td>
                                   <?php }?>
                                   <?php if(!empty($dataSH['bilJudulPesan'])){?>
                                   <td><?php echo $dataSH['bilJudulPesan'];?></td>

@@ -301,11 +301,11 @@ $a = 1;
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <th width="5%"></th>
-                                <th width="35%">Kod Pembekal</th>
-                                <th width="45%">Nama Judul</th>
-                                <th width="15%">Bil. Pesanan</th>
-                                <th width="15%">Bil. Dibekal</th>
-                                <th width="55%">Status Bekal</th>
+                                <th width="5%">Kod Pembekal</th>
+                                <th width="60%">Nama Judul</th>
+                                <th width="5%">Bil. Pesanan</th>
+                                <th width="5%">Bil. Dibekal</th>
+                                <th width="20%">Status Bekal</th>
                             </thead>
                             <tbody></tbody>
                         </table>

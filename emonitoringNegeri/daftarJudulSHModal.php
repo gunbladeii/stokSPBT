@@ -98,11 +98,7 @@ $(document).ready(function(){
 
   var kodPembekal = 0;
 
-  var negeri = 0;
-
   var kodJudul = 0;
-
-  var judul = 0;
 
   var column_data = [];
 
@@ -146,11 +142,7 @@ $(document).ready(function(){
 
       kodPembekal = column_data.kodPembekal;
 
-      negeri = column_data.negeri;
-
       kodJudul = column_data.kodJudul;
-
-      judul = column_data.judul;
     }
     else
     {
@@ -166,7 +158,7 @@ $(document).ready(function(){
     $.ajax({
       url:"importJudul.php",
       method:"POST",
-      data:{kodPembekal:kodPembekal, negeri:negeri, kodJudul:kodJudul, judul:judul},
+      data:{kodPembekal:kodPembekal, kodJudul:kodJudul},
       beforeSend:function(){
         $('#import').attr('disabled', 'disabled');
         $('#import').text('Importing...');

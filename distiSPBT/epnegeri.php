@@ -283,7 +283,7 @@ $a = 1;
                             <table class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="8" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR MAKLUMAT PEMBEKAL</h4></th>
+                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR MAKLUMAT PEMBEKAL</h4></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -303,7 +303,7 @@ $a = 1;
                               <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
-                                  <th colspan="8" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">KEMASKINI REKOD PEMBEKAL BERDAFTAR</h4></th>
+                                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">KEMASKINI REKOD PEMBEKAL BERDAFTAR</h4></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -321,7 +321,6 @@ $a = 1;
                                   <th>Bil. Judul Pembekalan</th>
                                   <?php }?>
                                   <th>Pengesanan Pembekalan</th>
-                                  <th>Hapus Judul</th>
                                   <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs"><i class="fas fa-times-circle"></i></button></th>
                                 </tr>
 
@@ -339,7 +338,6 @@ $a = 1;
                                   <td><?php echo $dataSH['bilJudulPesan'];?></td>
                                   <?php }?>
                                    <td><a href="pantauBekalSH.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
-                                   <td><a data-toggle="modal" data-target="#kemaskiniJudulSHModal" data-whatever="<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-times"></i></a></td>
                                    <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
@@ -347,7 +345,7 @@ $a = 1;
                               </tbody>
                               <tfoot>
                               <tr>
-                                    <td colspan="8" align="right"><a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Nilai Sebut Harga: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH']);?></a></td>
+                                    <td colspan="7" align="right"><a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Nilai Sebut Harga: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH']);?></a></td>
                                 </tr>
                               </tfoot>
                              </table>

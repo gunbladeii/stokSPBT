@@ -21,7 +21,7 @@
     ((dataJudulPenerbit 
     INNER JOIN dataSH ON dataJudulPenerbit.kodPembekal = dataSH.kodPembekal)
     INNER JOIN dataSHJudul ON dataJudulPenerbit.kodJudul = dataSHJudul.kodJudul)
-    WHERE dataJudulPenerbit.namaPembekal = '$kodPembekal'
+    WHERE dataJudulPenerbit.kodpembekal = '$kodPembekal'
       ORDER BY dataJudulPenerbit.timestamp DESC'");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);

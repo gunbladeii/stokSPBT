@@ -4,10 +4,11 @@
 $connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
 $kodPembekal = $_GET['kodPembekal'];
 $output = '';
-$query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul FROM 
-((dataJudulPenerbit 
+$query = "SELECT dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataJudulPenerbit.kodjudul, login.negeri,dataSHJudul.judul FROM 
+(((dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodjudul = dataSHJudul.kodJudul)
 	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = dataSH.kodPembekal)
+	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = login.username)
 	WHERE dataJudulPenerbit.kodPembekal = '$kodPembekal'
 	  ORDER BY dataJudulPenerbit.timestamp DESC";
 $result = mysqli_query($connect, $query);

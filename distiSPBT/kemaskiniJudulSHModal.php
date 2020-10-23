@@ -36,6 +36,7 @@ $b = 1;
                           <form method="post" id="update_form">
                     <br />
                     <div class="table-responsive">
+                        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">*Tandakan <strong>checkbox</strong> berikut untuk menghapus rekod judul yang tidak berkaitan dan klik butang <strong>Hapus</strong></h3>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <th width="5%">Bil</th>

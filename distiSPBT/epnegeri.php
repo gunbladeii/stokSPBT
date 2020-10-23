@@ -469,7 +469,7 @@ $a = 1;
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var modal = $(this);
-          var dataString = 'username=' + recipient;
+          var dataString = 'id=' + recipient;
 
             $.ajax({
                 type: "GET",

@@ -10,7 +10,7 @@
       $colname_Recordset = $_SESSION['user'];
     }
 
-    $username2 = $_GET['username'];
+    $id = $_GET['id'];
     $kodPembekal = $_POST['kodPembekal'];
     $namaPembekal = $_POST['namaPembekal'];
     $alamat = $_POST['alamat'];
@@ -19,7 +19,7 @@
 
     
    if (isset($_POST['update'])) {
-    $mysqli->query ("UPDATE `dataSH` SET `namaPembekal` = '$namaPembekal',`alamat` = '$alamat',`noTelefon` = '$noTelefon'WHERE `kodPembekal` = '$kodPembekal'");
+    $mysqli->query ("UPDATE `dataSH` SET `namaPembekal` = '$namaPembekal',`alamat` = '$alamat',`noTelefon` = '$noTelefon' WHERE `kodPembekal` = '$kodPembekal'");
     header("location:epnegeri.php");
     }
 
@@ -27,7 +27,7 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE kodPembekal = '$username2'");
+    $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE id = '$id'");
     $dataSH = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

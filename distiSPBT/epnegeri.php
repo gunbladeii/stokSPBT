@@ -109,11 +109,11 @@ $a = 1;
     <!-- End updateDataSH Modal -->
 
     <!-- Begin daftarJudulSH Modal -->
-      <div class="modal fade" id="pantauBekalSHModal">
+      <div class="modal fade" id="kemaskiniJudulSHModal">
         <div class="modal-dialog">
           <div class="modal-content bg-light">
             <div class="modal-header">
-              <h4 class="modal-title">Muat Naik Judul Mengikut Pembekal</h4>
+              <h4 class="modal-title">Kemaskini Maklumat Judul</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
             </div>
@@ -318,7 +318,8 @@ $a = 1;
                                   <?php if(!empty($dataSH['bilJudulPesan'])){?>
                                   <th>Bil. Judul Pembekalan</th>
                                   <?php }?>
-                                  <th>Kemaskini Pembekalan</th>
+                                  <th>Pengesanan Pembekalan</th>
+                                  <th>Kemaskini Rekod</th>
                                   <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                                 </tr>
 
@@ -335,7 +336,8 @@ $a = 1;
                                   <?php if(!empty($dataSH['bilJudulPesan'])){?>
                                   <td><?php echo $dataSH['bilJudulPesan'];?></td>
                                   <?php }?>
-                                   <td><a href="pantauBekalSHModal.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
+                                   <td><a href="pantauBekalSH.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
+                                   <td><a href="kemaskiniJudulSHModal.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
                                    <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
@@ -484,7 +486,7 @@ $a = 1;
             });
     })
 
-    $('#pantauBekalSHModal').on('show.bs.modal', function (event) {
+    $('#kemaskiniJudulSHModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
@@ -493,7 +495,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "pantauBekalSHModal.php",
+                url: "kemaskiniJudulSHModal.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {
@@ -506,7 +508,7 @@ $a = 1;
             });
     })
 
-    $('#pantauBekalSHModal').on('show.bs.modal', function (event) {
+    $('#kemaskiniJudulSHModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
@@ -515,7 +517,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "pantauBekalSHModal.php",
+                url: "kemaskiniJudulSHModal.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

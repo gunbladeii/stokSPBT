@@ -17,7 +17,7 @@
     $row_Recordset = mysqli_fetch_assoc($Recordset);
     $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE namaPembekal = '$namaPembekal' AND negeri = '$negeri'");
+    $Recordset2 = $mysqli->query("SELECT * FROM dataJudulPenerbit WHERE kodpembekal = '$kodpembekal'");
     $dataJudulPenerbit = mysqli_fetch_assoc($Recordset2);
     $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -38,10 +38,19 @@
                                 <th width="5%"></th>
                                 <th width="35%">Pembekal</th>
                                 <th width="60%">Nama Judul</th>
-                                <th width="15%">Bil. Pesanan</th>
-                                <th width="15%">Bil. Dibekal</th>
-                                <th width="55%">Status Bekal</th>
+                                <th><button type="button" name="delete_all" id="delete_all" class="btn btn-danger btn-xs">Hapus</button></th>
                             </thead>
+                            <?php do {?>
+                                <tr>
+                                  <td><?php echo $a++;?></td>
+                                  <td><a data-toggle="modal" data-target="#updatedataJudulPenerbitModal" data-whatever="<?php echo $dataJudulPenerbit['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataJudulPenerbit['namaPembekal']);?></a></td>
+                                 
+                                  <td><?php echo $dataJudulPenerbit['noTelefon'];?></td>
+                                  <td><?php echo strtoupper($dataJudulPenerbit['namapembekal']);?></td>
+                                  <td><?php echo $dataJudulPenerbit['judul'];?></td>
+                                  <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataJudulPenerbit['id'];?>" /></td>
+                                </tr>
+                                <?php } while ($dataJudulPenerbit = mysqli_fetch_assoc($Recordset2));?>
                             <tbody></tbody>
                         </table>
                     </div>
@@ -49,79 +58,49 @@
    </div>  
   <?php }?>
 
-    <div class="table-responsive">
-        <div id="inserted_item_data"></div>
-    </div>
-    
-   
-
+<style>
+.removeRow
+{
+    background-color: #FF0000;
+    color:#FFFFFF;
+}
+</style>
 <script>  
-$(document).ready(function(){  
-    
-    function fetch_data()
-    {
-        $.ajax({
-            url:"selectPantau.php?kodPembekal=<?php echo $kodPembekal;?>",
-            method:"POST",
-            dataType:"json",
-            success:function(data)
-            {
-                var html = '';
-                for(var count = 0; count < data.length; count++)
-                {
-                    html += '<tr>';
-                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-namapembekal="'+data[count].namapembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" class="check_box"  /></td>';
-                    html += '<td>'+data[count].namapembekal+'</td>';
-                    html += '<td>'+data[count].judul+'</td>';
-                    html += '<td>'+data[count].bilnaskhahpesan+'</td>';
-                    html += '<td>'+data[count].bilnaskhahbekal+'</td>';
-                    html += '<td>'+data[count].statusbekal+'</td></tr>';
-                }
-                $('tbody').html(html);
-            }
-        });
-    }
+$(document).ready(function(){ 
 
-    fetch_data();
-
-    $(document).on('click', '.check_box', function(){
-        var html = '';
-        if(this.checked)
+    $('.delete_checkbox').click(function(){
+        if($(this).is(':checked'))
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-namapembekal="'+$(this).data('namapembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" checked /></td>';
-            html += '<td><input type="text" name="namapembekal[]" class="form-control" value="'+$(this).data("namapembekal")+'" /></td>';
-            html += '<td><input type="text" name="judul[]" class="form-control" value="'+$(this).data("judul")+'" /></td>';
-            html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
-             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
-            html += '<td><select name="statusbekal[]" id="statusbekal_'+$(this).attr('id')+'" class="form-control"><option value="Belum Bekal">Belum Bekal</option><option value="Sedang Bekal">Sedang Bekal</option><option value="Selesai">Selesai</option></select><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
+            $(this).closest('tr').addClass('removeRow');
         }
         else
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-namapembekal="'+$(this).data('namapembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" /></td>';
-            html += '<td>'+$(this).data('namapembekal')+'</td>';
-            html += '<td>'+$(this).data('judul')+'</td>';
-            html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
-            html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
-            html += '<td>'+$(this).data('statusbekal')+'</td>';            
+            $(this).closest('tr').removeClass('removeRow');
         }
-        $(this).closest('tr').html(html);
-        $('#statusbekal_'+$(this).attr('id')+'').val($(this).data('statusbekal'));
     });
 
-    $('#update_form').on('submit', function(event){
-        event.preventDefault();
-        if($('.check_box:checked').length > 0)
+    $('#delete_all').click(function(){
+        var checkbox = $('.delete_checkbox:checked');
+        if(checkbox.length > 0)
         {
+            var checkbox_value2 = [];
+            $(checkbox).each(function(){
+                checkbox_value2.push($(this).val());
+            });
+
             $.ajax({
-                url:"updatePantau.php",
+                url:"deleteJudulSH.php",
                 method:"POST",
-                data:$(this).serialize(),
+                data:{checkbox_value2:checkbox_value2},
                 success:function()
                 {
-                    alert('Data telah dikemaskini');
-                    fetch_data();
+                    $('.removeRow').fadeOut(1500);
                 }
-            })
+            });
+        }
+        else
+        {
+            alert("Pilih salah satu rekod untuk dipadam");
         }
     });
 

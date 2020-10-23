@@ -28,10 +28,8 @@ if($_FILES['file']['name'] != '')
    <th>
     <select name="set_column_data" class="form-control set_column_data" data-column_number="'.$count.'">
      <option value="">Tetapan Tajuk Lajur</option>
-     <option value="negeri">Negeri</option>
-     <option value="namaPembekal">Pembekal</option>
+     <option value="kodPembekal">Kod Pembekal</option>
      <option value="kodJudul">kod Judul</option>
-     <option value="judul">Judul</option>
     </select>
    </th>
    ';
@@ -45,7 +43,7 @@ if($_FILES['file']['name'] != '')
   {
    $limit++;
 
-   if($limit < 6)
+   if($limit < 2)
    {
     $html .= '<tr>';
 

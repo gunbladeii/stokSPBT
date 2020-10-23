@@ -17,6 +17,7 @@ if (mysqli_num_rows($result) > 0)
 {
 		$output = '
 		<br />
+		<h3 class="card-title" style="font-size:14px;">*Tandakan <strong>checkbox</strong> berikut untuk menghapus rekod judul yang tidak berkaitan dan klik butang <strong>Hapus</strong> setelah selesai</h3>
 		<h5 align="center">Judul yang telah didaftarkan</h5>
 		<div class="table-responsive">
 		<table class="table table-bordered table-sm">

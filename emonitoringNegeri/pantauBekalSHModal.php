@@ -299,7 +299,7 @@ $a = 1;
                     <br />
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
-                            <thead>
+                            <thead align="center">
                                 <th width="5%"></th>
                                 <th width="5%">Kod Pembekal</th>
                                 <th width="60%">Nama Judul</th>

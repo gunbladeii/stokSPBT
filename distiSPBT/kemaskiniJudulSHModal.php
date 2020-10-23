@@ -44,7 +44,7 @@
                             </thead>
                             <?php do {?>
                                 <tr>
-                                  <td><?php echo $a++;?></td>
+                                  <td><?php echo $b++;?></td>
                                   <td><?php echo strtoupper($dataJudulPenerbit['namaPembekal']);?></td>
                                   <td><?php echo $dataJudulPenerbit['judul'];?></td>
                                   <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataJudulPenerbit['id'];?>" /></td>

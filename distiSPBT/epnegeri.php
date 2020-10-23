@@ -32,6 +32,8 @@ $dataSH2 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
 $a = 1;
+$b = 1;
+
 ?>
 <!DOCTYPE html>
 <html>

@@ -356,12 +356,13 @@ $a = 1;
               <div class="card-body p-0">
                           
                           <div class="table-responsive">
-                            
+
                             <?php if(!empty($dataSH)){?>
                               <table id="example1" class="table m-0">
                               <thead>
                                 <tr>
                                   <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">REKOD SEBUT HARGA BERDAFTAR</h4></th>
+                                   <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h5 style="color: white">Gunakan Kod Pembekal untuk kegunaan semasa muat naik rekod judul pembekalan penerbit</h5></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -369,7 +370,7 @@ $a = 1;
                                 <tr>
                                   <th>Bil</th>
                                   <th>Nama Pembekal</th>
-                                  <th>Tarikh Mula Sebut Harga</th>
+                                  <th>Kod Pembekal</th>
                                   <th>Nilai Sebut Harga (RM)</th>
                                   <th>Muat Naik Judul</th>
                                   <th>Pantau pembekalan</th>
@@ -380,7 +381,7 @@ $a = 1;
                                 <tr>
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
-                                  <td><?php $date=date_create($dataSH['tarikhBukaSH']);echo date_format($date,"d-m-Y");?></td>
+                                  <td><?php echo $dataSH['kodPembekal'];?></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
                                   <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
                                   <td><a href="pantauBekalSHModal.php?namaPembekal=<?php echo $dataSH['namaPembekal'];?>&negeri=<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>

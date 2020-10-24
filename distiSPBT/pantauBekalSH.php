@@ -396,7 +396,7 @@ $(document).ready(function(){
                 {
                     html += '<tr align="center">';
                     html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodpembekal="'+data[count].kodpembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" data-peratusbekal="'+data[count].peratusbekal+'" class="check_box"  /></td>';
-                    html += '<td>'+data[count].judul+'</td>';
+                    html += '<td align="left">'+data[count].judul+'</td>';
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
                     html += '<td>'+data[count].peratusbekal+'</td>';

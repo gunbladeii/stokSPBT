@@ -306,7 +306,6 @@ $a = 1;
                                 <th width="60%">Nama Judul</th>
                                 <th width="5%">Bil. Pesanan</th>
                                 <th width="5%">Bil. Dibekal</th>
-                                <th width="20%">Status Bekal</th>
                             </thead>
                             <tbody></tbody>
                         </table>
@@ -399,7 +398,6 @@ $(document).ready(function(){
                     html += '<td>'+data[count].judul+'</td>';
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
-                    html += '<td>'+data[count].statusbekal+'</td></tr>';
                 }
                 $('tbody').html(html);
             }
@@ -417,7 +415,7 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
-            html += '<td><select name="statusbekal[]" id="statusbekal_'+$(this).attr('id')+'" class="form-control"><option value="Selesai">Selesai</option><option value="Belum Selesai">Belum Selesai</option><option value="Belum Mula">Belum Mula</option></select><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
+            
         }
         else
         {
@@ -425,11 +423,9 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('kodpembekal')+'</td>';
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
-            html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
-            html += '<td>'+$(this).data('statusbekal')+'</td>';           
+            html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';     
         }
         $(this).closest('tr').html(html);
-        $('#statusbekal_'+$(this).attr('id')+'').val($(this).data('statusbekal'));
     });
 
     $('#update_form').on('submit', function(event){

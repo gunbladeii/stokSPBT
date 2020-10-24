@@ -395,9 +395,9 @@ $(document).ready(function(){
                 var html = '';
                 for(var count = 0; count < data.length; count++)
                 {
-                    html += '<tr>';
+                    html += '<tr align="center">';
                     html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodpembekal="'+data[count].kodpembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" data-peratusbekal="'+data[count].peratusbekal+'" class="check_box"  /></td>';
-                    html += '<td>'+data[count].judul+'</td>';
+                    html += '<td align="left">'+data[count].judul+'</td>';
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
                     html += '<td>'+data[count].peratusbekal+'</td>';
@@ -415,7 +415,7 @@ $(document).ready(function(){
         if(this.checked)
         {
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" data-peratusbekal="'+$(this).data('peratusbekal')+'" class="check_box" checked /></td>';
-            html += '<td>'+$(this).data('judul')+'</td>';
+            html += '<td align="left">'+$(this).data('judul')+'</td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
             html += '<td><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
@@ -424,7 +424,7 @@ $(document).ready(function(){
         else
         {
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" data-peratusbekal="'+$(this).data('peratusbekal')+'" class="check_box" /></td>';
-            html += '<td>'+$(this).data('judul')+'</td>';
+            html += '<td align="left">'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
             html += '<td>'+$(this).data('peratusbekal')+'</td>';

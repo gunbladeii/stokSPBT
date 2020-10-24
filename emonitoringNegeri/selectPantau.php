@@ -12,7 +12,7 @@ $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5
 $kodPembekal = $_GET['kodPembekal'];
 $negeri = $_GET['negeri'];
 
-$query = "SELECT dataJudulPenerbit.bilnaskhahpesan,dataJudulPenerbit.bilnaskhahbekal,
+$query = "SELECT dataSH.namaPembekal, dataJudulPenerbit.bilnaskhahpesan,dataJudulPenerbit.bilnaskhahbekal,
 CASE WHEN dataJudulPenerbit.bilnaskhahpesan > dataJudulPenerbit.bilnaskhahbekal THEN 'BELUM SELESAI'
 WHEN dataJudulPenerbit.bilnaskhahpesan < dataJudulPenerbit.bilnaskhahbekal THEN 'SEMAK SEMULA'
 WHEN dataJudulPenerbit.bilnaskhahpesan = dataJudulPenerbit.bilnaskhahbekal THEN ''

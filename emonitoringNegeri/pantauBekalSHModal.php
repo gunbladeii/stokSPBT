@@ -11,7 +11,7 @@ if (isset($_SESSION['user'])) {
   $colname_Recordset = $_SESSION['user'];
 }
 
-$kodpembekal = $_GET['kodPembekal'];
+$kodpembekal = $_GET['kodpembekal'];
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);

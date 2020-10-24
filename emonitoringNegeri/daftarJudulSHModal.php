@@ -11,6 +11,21 @@
     }
 
     $kodPembekal = $_GET['kodPembekal'];
+
+    $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
+    function fill_unit_select_box($connect)
+    { 
+     $output = '';
+     $query = "SELECT * FROM dataSHJudul ORDER BY judul ASC";
+     $statement = $connect->prepare($query);
+     $statement->execute();
+     $result = $statement->fetchAll();
+     foreach($result as $row)
+     {
+      $output .= '<option value="'.$row["kodJudul"].'">'.$row["judul"].'</option>';
+     }
+     return $output;
+    }
     
 
     $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
@@ -56,6 +71,27 @@
         </div>
      </div>
      <?php }?>
+
+    <?php if(!empty($dataJudulPenerbit)) {?>
+       <div class="container">
+         <h4 align="center">Tambah judul jika terdapat keciciran semasa muat naik secara pukal</h4>
+         <br />
+         <form method="post" id="insert_form">
+          <div class="table-repsonsive">
+           <span id="error"></span>
+           <table class="table table-bordered" id="item_table">
+            <tr>
+             <th>Pilih Judul</th>
+             <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="badge badge-success"><i class="fas fa-plus"></i></span></button></th>
+            </tr>
+           </table>
+           <div align="center">
+            <input type="submit" name="submit" class="btn btn-info" value="Tambah judul" />
+           </div>
+          </div>
+         </form>
+      </div>
+    <?php }?>
 
     <div class="table-responsive">
         <div id="inserted_item_data"></div>
@@ -176,6 +212,57 @@ $(document).ready(function(){
     })
 
   });
+
+  //tambah judul begin
+  $(document).on('click', '.add', function(){
+  var html = '';
+  html += '<tr>';
+  html += '<td><select name="kodjudul[]" class="form-control judul"><option value="">Pilih judul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="badge badge-danger"><i class="fas fa-minus"></i></span></button></td></tr>';
+  $('#item_table').append(html);
+ });
+ 
+ $(document).on('click', '.remove', function(){
+  $(this).closest('tr').remove();
+ });
+ 
+ $('#insert_form').on('submit', function(event){
+  event.preventDefault();
+  var error = '';
+  
+  
+  $('.kodjudul').each(function(){
+   var count = 1;
+   if($(this).val() == '')
+   {
+    error += "<p>Pilih judul di lajur "+count+".Sila hapus lajur jika tidak berkaitan dan klik <strong>Tambah judul</strong></p>";
+    return false;
+   }
+   count = count + 1;
+  });
+  var form_data = $(this).serialize();
+  if(error == '')
+  {
+   $.ajax({
+    url:"tambahjudul.php",
+    method:"POST",
+    data:form_data,
+    success:function(data)
+    {
+     if(data == 'ok')
+     {
+      $('#item_table').find("tr:gt(0)").remove();
+      $('#error').html('<div class="alert alert-success">Judul telah ditambah dalam senarai</div>');
+     }
+    }
+   });
+  }
+  else
+  {
+   $('#error').html('<div class="alert alert-danger">'+error+'</div>');
+  }
+ });
+  //end tambah judul
   
 function fetch_item_data()
  {

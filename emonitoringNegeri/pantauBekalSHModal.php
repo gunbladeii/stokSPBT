@@ -425,7 +425,7 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
-            html += '<td>'+$(this).data('statusbekal')+'</td>';            
+            html += '<td style="color:red">'+$(this).data('statusbekal')+'</td>';            
         }
         $(this).closest('tr').html(html);
     });

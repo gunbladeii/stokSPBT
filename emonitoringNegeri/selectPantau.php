@@ -17,7 +17,7 @@ CASE WHEN dataJudulPenerbit.bilnaskhahpesan > dataJudulPenerbit.bilnaskhahbekal 
 WHEN dataJudulPenerbit.bilnaskhahpesan < dataJudulPenerbit.bilnaskhahbekal THEN 'SEMAK SEMULA'
 WHEN dataJudulPenerbit.bilnaskhahpesan = dataJudulPenerbit.bilnaskhahbekal THEN ''
 WHEN dataJudulPenerbit.bilnaskhahpesan < 0 AND dataJudulPenerbit.bilnaskhahbekal < 0 THEN ''
-ELSE '' END AS statusBekal,
+ELSE '' END AS statusbekal,
 dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul FROM 
 ((dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodjudul = dataSHJudul.kodJudul)

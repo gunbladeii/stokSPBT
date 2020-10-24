@@ -2,7 +2,7 @@
 
 //import.php
 
-if(isset($_POST["kodPembekal"]))
+if(isset($_POST["kodpembekal"]))
 {
  $connect = new PDO("mysql:host=localhost; dbname=spbt_stok", "adminspbt", "Sh@ti5620");
 
@@ -14,14 +14,14 @@ if(isset($_POST["kodPembekal"]))
 
  foreach($file_data as $row)
  {
-  $data[] = '("'.$row[$_POST["kodPembekal"]].'", "'.$row[$_POST["kodJudul"]].'")';
+  $data[] = '("'.$row[$_POST["kodpembekal"]].'", "'.$row[$_POST["kodjudul"]].'", "'.$row[$_POST["bilnaskhahpesan"]].'")';
  }
 
  if(isset($data))
  {
   $query = "
   INSERT INTO dataJudulPenerbit 
-  (kodPembekal, kodJudul) 
+  (kodpembekal, kodjudul, bilnaskhahpesan) 
   VALUES ".implode(",", $data)."
   ";
 

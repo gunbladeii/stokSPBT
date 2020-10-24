@@ -132,9 +132,11 @@ $(document).ready(function(){
 
   var total_selection = 0;
 
-  var kodPembekal = 0;
+  var kodpembekal = 0;
 
-  var kodJudul = 0;
+  var kodjudul = 0;
+
+  var bilnaskhahpesan = 0;
 
   var column_data = [];
 
@@ -172,13 +174,15 @@ $(document).ready(function(){
 
     total_selection = Object.keys(column_data).length;
 
-    if(total_selection == 2)
+    if(total_selection == 3)
     {
       $('#import').attr('disabled', false);
 
-      kodPembekal = column_data.kodPembekal;
+      kodpembekal = column_data.kodpembekal;
 
-      kodJudul = column_data.kodJudul;
+      kodjudul = column_data.kodjudul;
+
+      bilnaskhahpesan = column_data.bilnaskhahpesan;
     }
     else
     {
@@ -194,7 +198,7 @@ $(document).ready(function(){
     $.ajax({
       url:"importJudul.php",
       method:"POST",
-      data:{kodPembekal:kodPembekal, kodJudul:kodJudul},
+      data:{kodpembekal:kodpembekal, kodjudul:kodjudul, bilnaskhahpesan:bilnaskhahpesan},
       beforeSend:function(){
         $('#import').attr('disabled', 'disabled');
         $('#import').text('Importing...');

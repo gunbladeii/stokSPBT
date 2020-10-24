@@ -11,7 +11,7 @@ if (isset($_SESSION['user'])) {
   $colname_Recordset = $_SESSION['user'];
 }
 
-$kodpembekal = $_GET['kodpembekal'];
+$kodPembekal = $_GET['kodPembekal'];
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
@@ -301,7 +301,7 @@ $a = 1;
                         <table class="table table-bordered table-striped">
                             <thead align="center">
                                 <th width="5%"></th>
-                                <th width="5%">Nama Pembekal</th>
+                                <th width="5%">Kod Pembekal</th>
                                 <th width="60%">Nama Judul</th>
                                 <th width="5%">Bil. Pesanan</th>
                                 <th width="5%">Bil. Dibekal</th>
@@ -384,7 +384,7 @@ $(document).ready(function(){
     function fetch_data()
     {
         $.ajax({
-            url:"selectPantau.php?kodpembekal=<?php echo $kodpembekal;?>&negeri=<?php echo $negeri;?>",
+            url:"selectPantau.php?kodPembekal=<?php echo $kodPembekal;?>&negeri=<?php echo $negeri;?>",
             method:"POST",
             dataType:"json",
             success:function(data)

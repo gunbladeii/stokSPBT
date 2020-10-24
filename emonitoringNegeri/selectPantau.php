@@ -22,7 +22,7 @@ dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, 
 ((dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodjudul = dataSHJudul.kodJudul)
 	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = dataSH.kodPembekal)
-	WHERE dataJudulPenerbit.kodPembekal = 'ns100'
+	WHERE dataJudulPenerbit.kodPembekal = '$kodPembekal'
 	  ORDER BY dataJudulPenerbit.id DESC";
 
 $statement = $connect->prepare($query);

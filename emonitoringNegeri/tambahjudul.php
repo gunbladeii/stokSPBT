@@ -8,14 +8,15 @@ if(isset($_POST["kodjudul"]))
  for($count = 0; $count < count($_POST["kodjudul"]); $count++)
  {  
   $query = "INSERT INTO dataJudulPenerbit 
-  (kodjudul) 
-  VALUES (:kodjudul)
+  (kodpembekal, kodjudul) 
+  VALUES (:kodpembekal, :kodjudul)
   ";
   $statement = $connect->prepare($query);
   $statement->execute(
    array(
    
-    ':kodjudul'  => $_POST["kodjudul"][$count]
+    ':kodjudul'  => $_POST["kodjudul"][$count],
+    ':kodpembekal'  => $_POST["kodpembekal"][$count]
    )
   );
  }

@@ -217,7 +217,7 @@ $(document).ready(function(){
   $(document).on('click', '.add', function(){
   var html = '';
   html += '<tr>';
-  html += '<td><select name="kodjudul[]" class="form-control judul"><option value="">Pilih judul</option><?php echo fill_unit_select_box($connect); ?></select></td>';
+  html += '<td><select name="kodjudul[]" class="form-control judul"><option value="">Pilih judul</option><?php echo fill_unit_select_box($connect); ?></select><input type="hidden" name="kodpembekal[]" value="<?php echo $kodPembekal; ?>"></td>';
   html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="badge badge-danger"><i class="fas fa-minus"></i></span></button></td></tr>';
   $('#item_table').append(html);
  });

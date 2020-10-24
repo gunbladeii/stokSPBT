@@ -416,7 +416,7 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
              html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
-            html += '<td><select name="statusbekal[]" id="statusbekal_'+$(this).attr('id')+'" class="form-control"><option value="Belum Bekal">Belum Bekal</option><option value="Sedang Bekal">Sedang Bekal</option><option value="Selesai">Selesai</option></select><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
+            html += '<td><select name="statusbekal[]" id="statusbekal_'+$(this).attr('id')+'" class="form-control"><option value="Belum Selesai">Belum Selesai</option><option value="Selesai">Selesai</option></select><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
         }
         else
         {
@@ -425,7 +425,7 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
-            html += '<td style="color:red>'+$(this).data('statusbekal')+'</td>';            
+            html += '<td>'+$(this).data('statusbekal')+'</td>';            
         }
         $(this).closest('tr').html(html);
         $('#statusbekal_'+$(this).attr('id')+'').val($(this).data('statusbekal'));

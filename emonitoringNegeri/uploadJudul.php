@@ -28,9 +28,9 @@ if($_FILES['file']['name'] != '')
    <th>
     <select name="set_column_data" class="form-control set_column_data" data-column_number="'.$count.'">
      <option value="">Tetapan Tajuk Lajur</option>
-     <option value="kodPembekal">Kod Pembekal</option>
-     <option value="kodJudul">kod Judul</option>
-     <option value="kodJudul">Bil. Naskhah dipesan</option>
+     <option value="kodpembekal">Kod Pembekal</option>
+     <option value="kodjudul">kod Judul</option>
+     <option value="bilnaskhahpesan">Bil. Naskhah dipesan</option>
     </select>
    </th>
    ';

@@ -21,7 +21,7 @@ $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$colname_Re
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$Recordset3 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.username = '$kodPembekal");
+$Recordset3 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.username = '$kodPembekal'");
 $dataSH2 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 

@@ -336,6 +336,7 @@ $a = 1;
                                   <?php if(!empty($dataSH['bilJudulPesan'])){?>
                                   <td><?php echo $dataSH['bilJudulPesan'];?></td>
                                   <?php }?>
+                                   <td><a href="pantauBekalSH.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 

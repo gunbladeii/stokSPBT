@@ -34,7 +34,11 @@ $downloadExcell = $_SERVER['PHP_SELF'];
 /*advanced*/
   if (isset($_POST["downloadSH"]))
   {
-  $sql = $mysqli->query('SELECT negeri, DATE_FORMAT(tarikhBukaSH, "%d/%m/%Y") AS tarikhBukaSH, DATE_FORMAT(tarikhTutupSH, "%d/%m/%Y") AS tarikhTutupSH, DATE_FORMAT(tarikhPenilaianSH, "%d/%m/%Y") AS tarikhPenilaianSH, DATE_FORMAT(tarikhSSTSH, "%d/%m/%Y") AS tarikhSSTSH, namaPembekal, nilaiSH, DATE_FORMAT(tarikhCO, "%d/%m/%Y") AS tarikhCO, bilJudulPesan, bilNaskhahPesan, bilNaskhahBekal, peratusBekal, statusBekal, statusTuntut, statusBayar FROM dataSH ORDER BY negeri,namaPembekal ASC'); 
+  $sql = $mysqli->query('SELECT login.negeri, DATE_FORMAT(dataSH.tarikhBukaSH, "%d/%m/%Y") AS tarikhBukaSH, DATE_FORMAT(dataSH.tarikhTutupSH, "%d/%m/%Y") AS tarikhTutupSH, DATE_FORMAT(dataSH.tarikhPenilaianSH, "%d/%m/%Y") AS tarikhPenilaianSH, DATE_FORMAT(dataSH.tarikhSSTSH, "%d/%m/%Y") AS tarikhSSTSH, dataSH.namaPembekal, dataSH.nilaiSH, DATE_FORMAT(dataSH.tarikhCO, "%d/%m/%Y") AS tarikhCO, dataSH.bilJudulPesan, dataSH.statusTuntut, dataSH.statusBayar, dataSH.jumBayar 
+    FROM 
+    (dataSH 
+    INNER JOIN login ON dataSH.kodPembekal = login.username) 
+    ORDER BY negeri,namaPembekal ASC'); 
     
   if (mysqli_num_rows($sql) > 0)
     {
@@ -53,10 +57,10 @@ $downloadExcell = $_SERVER['PHP_SELF'];
           <th>BIL JUDUL</th>
           <th>BIL NASKHAH</th>
           <th>BIL DIBEKAL</th>
-          <th>(%) BEKAL</th>
           <th>STATUS BEKAL</th>
           <th>STATUS TUNTUT</th>
           <th>STATUS BAYAR</th>
+          <th>JUMLAH SUDAH BAYAR</th>
 
         </tr>   
       ';
@@ -74,12 +78,9 @@ $downloadExcell = $_SERVER['PHP_SELF'];
             <td>'.$row["nilaiSH"].'</td>
             <td>'.$row["tarikhCO"].'</td>
             <td>'.$row["bilJudulPesan"].'</td>
-            <td>'.$row["bilNaskhahPesan"].'</td>
-            <td>'.$row["bilNaskhahBekal"].'</td>
-            <td>'.$row["peratusBekal"].'</td>
-            <td>'.$row["statusBekal"].'</td>
             <td>'.$row["statusTuntut"].'</td>
             <td>'.$row["statusBayar"].'</td>
+            <td>=DOLLAR('.$row["jumBayar"].')</td>
       </tr> 
         ';    
       }

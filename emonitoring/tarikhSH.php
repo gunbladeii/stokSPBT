@@ -23,11 +23,11 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar, DAY(dataSH.tarikhBukaSH) AS day1, MONTH(dataSH.tarikhBukaSH) AS month1, YEAR(dataSH.tarikhBukaSH) AS year1,DAY(dataSH.tarikhTutupSH) AS day2, MONTH(dataSH.tarikhTutupSH) AS month2, YEAR(dataSH.tarikhTutupSH) AS year2 FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
+$Recordset2 = $mysqli->query("SELECT dataSH.namaPembekal, login.negeri,login.colorBar, DAY(dataSH.tarikhBukaSH) AS day1, MONTH(dataSH.tarikhBukaSH) AS month1, YEAR(dataSH.tarikhBukaSH) AS year1,DAY(dataSH.tarikhTutupSH) AS day2, MONTH(dataSH.tarikhTutupSH) AS month2, YEAR(dataSH.tarikhTutupSH) AS year2 FROM dataSH INNER JOIN login ON dataSH.username = login.username ORDER BY dataSH.tarikhBukaSH ASC");
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username GROUP BY dataSH.negeri ORDER BY dataSH.negeri ASC");
+$Recordset3 = $mysqli->query("SELECT login.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username GROUP BY login.negeri ORDER BY login.negeri ASC");
 $dataSH2 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 

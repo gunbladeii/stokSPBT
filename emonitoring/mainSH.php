@@ -55,9 +55,6 @@ $downloadExcell = $_SERVER['PHP_SELF'];
           <th>NILAI-SH</th>
           <th>TARIKH C/O</th>
           <th>BIL JUDUL</th>
-          <th>BIL NASKHAH</th>
-          <th>BIL DIBEKAL</th>
-          <th>STATUS BEKAL</th>
           <th>STATUS TUNTUT</th>
           <th>STATUS BAYAR</th>
           <th>JUMLAH SUDAH BAYAR</th>

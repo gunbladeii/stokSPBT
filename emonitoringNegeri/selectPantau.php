@@ -18,7 +18,7 @@ WHEN dataJudulPenerbit.bilnaskhahpesan < dataJudulPenerbit.bilnaskhahbekal THEN 
 WHEN dataJudulPenerbit.bilnaskhahpesan = dataJudulPenerbit.bilnaskhahbekal THEN ''
 WHEN dataJudulPenerbit.bilnaskhahpesan < 0 AND dataJudulPenerbit.bilnaskhahbekal < 0 THEN ''
 ELSE '' END AS statusbekal,
-dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul FROM 
+dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul,FORMAT((dataJudulPenerbit.bilnaskhahbekal/dataJudulPenerbit.bilnaskhahpesan)*100,0) AS peratusbekal FROM 
 ((dataJudulPenerbit 
 	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodjudul = dataSHJudul.kodJudul)
 	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = dataSH.kodPembekal)

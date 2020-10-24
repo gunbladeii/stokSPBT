@@ -295,6 +295,8 @@ $a = 1;
                             <div class="table-responsive">  
                           <form method="post" id="update_form">
                     <div align="center">
+                      <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi Pembekal <?php echo strtoupper($dataSH2['namaPembekal']);?></h4>
+                    <div align="center">
                         <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="KEMASKINI" />
                     </div>
                     <br />
@@ -302,7 +304,6 @@ $a = 1;
                         <table class="table table-bordered table-striped">
                             <thead align="center">
                                 <th width="5%"></th>
-                                <th width="5%">Kod Pembekal</th>
                                 <th width="60%">Nama Judul</th>
                                 <th width="5%">Bil. Pesanan</th>
                                 <th width="5%">Bil. Dibekal</th>
@@ -394,7 +395,6 @@ $(document).ready(function(){
                 {
                     html += '<tr>';
                     html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodpembekal="'+data[count].kodpembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" class="check_box"  /></td>';
-                    html += '<td>'+data[count].kodpembekal+'</td>';
                     html += '<td>'+data[count].judul+'</td>';
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
@@ -411,7 +411,6 @@ $(document).ready(function(){
         if(this.checked)
         {
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" data-hapus="'+$(this).data('hapus')+'" class="check_box" checked /></td>';
-            html += '<td>'+$(this).data('kodpembekal')+'</td>';
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
@@ -419,7 +418,6 @@ $(document).ready(function(){
         else
         {
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" data-hapus="'+$(this).data('hapus')+'" class="check_box" /></td>';
-            html += '<td>'+$(this).data('kodpembekal')+'</td>';
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';     

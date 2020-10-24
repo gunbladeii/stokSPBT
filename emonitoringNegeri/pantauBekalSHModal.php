@@ -398,7 +398,7 @@ $(document).ready(function(){
                     html += '<td>'+data[count].judul+'</td>';
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
-                    html += '<td>'+data[count].statusbekal+'</td></tr>';
+                    html += '<td style="color:red">'+data[count].statusbekal+'</td></tr>';
                 }
                 $('tbody').html(html);
             }
@@ -425,7 +425,7 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
-            html += '<td>'+$(this).data('statusbekal')+'</td>';            
+            html += '<td style="color:red>'+$(this).data('statusbekal')+'</td>';            
         }
         $(this).closest('tr').html(html);
         $('#statusbekal_'+$(this).attr('id')+'').val($(this).data('statusbekal'));

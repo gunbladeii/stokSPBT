@@ -21,7 +21,7 @@ $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$colname_Re
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.username = '$colname_Recordset' GROUP BY dataSH.negeri");
+$Recordset3 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.kodPembekal = '$kodPembekal'");
 $dataSH2 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
@@ -294,6 +294,9 @@ $a = 1;
                             <div class="table-responsive">  
                           <form method="post" id="update_form">
                     <div align="center">
+                      <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi pembekal <?php echo strtoupper($dataSH2['namaPembekal']);?></h4>
+                    </div>
+                    <div align="center">
                         <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="KEMASKINI" />
                     </div>
                     <br />
@@ -301,7 +304,6 @@ $a = 1;
                         <table class="table table-bordered table-striped">
                             <thead align="center">
                                 <th width="5%"></th>
-                                <th width="5%">Kod Pembekal</th>
                                 <th width="60%">Nama Judul</th>
                                 <th width="5%">Bil. Pesanan</th>
                                 <th width="5%">Bil. Dibekal</th>
@@ -394,7 +396,6 @@ $(document).ready(function(){
                 {
                     html += '<tr>';
                     html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodpembekal="'+data[count].kodpembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" class="check_box"  /></td>';
-                    html += '<td>'+data[count].kodpembekal+'</td>';
                     html += '<td>'+data[count].judul+'</td>';
                     html += '<td>'+data[count].bilnaskhahpesan+'</td>';
                     html += '<td>'+data[count].bilnaskhahbekal+'</td>';
@@ -412,7 +413,6 @@ $(document).ready(function(){
         if(this.checked)
         {
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" checked /></td>';
-            html += '<td>'+$(this).data('kodpembekal')+'</td>';
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
@@ -421,7 +421,6 @@ $(document).ready(function(){
         else
         {
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" class="check_box" /></td>';
-            html += '<td>'+$(this).data('kodpembekal')+'</td>';
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
             html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';

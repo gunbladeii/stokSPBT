@@ -74,7 +74,7 @@
 
     <?php if(!empty($dataJudulPenerbit)) {?>
        <div class="container">
-         <h4 align="center">Tambah judul jika terdapat keciciran semasa muat naik secara pukal</h4>
+         <p align="center">*Tambah judul jika terdapat keciciran semasa muat naik secara pukal</p>
          <br />
          <form method="post" id="insert_form">
           <div class="table-repsonsive">

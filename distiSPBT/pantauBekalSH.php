@@ -415,7 +415,7 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('judul')+'</td>';
             html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
             html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
-            html += '<td><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
+            html += '<input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" />';
         }
         else
         {

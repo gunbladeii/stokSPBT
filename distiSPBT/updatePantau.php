@@ -19,13 +19,12 @@ if(isset($_POST['hidden_id']))
  for($count = 0; $count < count($id); $count++)
  {
   $data = array(
-   ':bilnaskhahpesan'  => $bilnaskhahpesan[$count],
    ':bilnaskhahbekal' => $bilnaskhahbekal[$count],
    ':id'   => $id[$count]
   );
   $query = "
   UPDATE dataJudulPenerbit 
-  SET bilNaskhahPesan = :bilnaskhahpesan, bilnaskhahbekal = :bilnaskhahbekal
+  SET bilnaskhahbekal = :bilnaskhahbekal
   WHERE id = :id
   ";
   $statement = $connect->prepare($query);

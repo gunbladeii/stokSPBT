@@ -66,13 +66,9 @@ $a = 1;
     <ul class="navbar-nav ml-auto">
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="../../logout.php">
           <i class="far fa-times-circle"></i>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <div class="dropdown-divider"></div>
-          <a href="../../logout.php" class="dropdown-item dropdown-footer">Logout</a>
-        </div>
       </li>
      
     </ul>

@@ -144,7 +144,13 @@ $a = 1;
 		</div>
 	</div>
 </div>	
-	
+<!-- jQuery -->
+<script src="../../adminSPBT/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- Bootstrap 4 -->
+<script src="../../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

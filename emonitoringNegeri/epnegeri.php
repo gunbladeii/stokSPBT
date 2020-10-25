@@ -359,8 +359,10 @@ $a = 1;
                             <div class="row" style="margin:0 !important;">
                                   <div class="clearfix"></div>
                                   <div class="col-md-12">
+                                  <br/>
                                     <div align="center"><span class="badge badge-danger">MOHON MAKLUMKAN PENERBIT UNTUK BUAT PENDAFTARAN MELALUI AKSES PEMBEKAL YANG DIBEKALKAN DALAM <strong>MANUAL PENGGUNA (VERSI JPN/JAIN)</strong></span></div>
-                                  </div>
+                                    </div>
+                                  <br/>
                            </div>
                           <?php }?>
                           <div class="table-responsive">

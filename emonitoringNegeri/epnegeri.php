@@ -342,7 +342,9 @@ $a = 1;
               <div class="card-header border-transparent">
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MAKLUMAT PENGESANAN SH-NEGERI</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+                <?php if(!empty($dataSH)){?>
                 <h2 class="card-title" style="font-size:14px;">*Gunakan <strong>Kod Pembekal</strong> untuk kegunaan semasa muat naik rekod judul pembekalan penerbit</h2>
+                <?php }?>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">

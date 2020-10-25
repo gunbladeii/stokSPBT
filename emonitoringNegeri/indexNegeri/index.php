@@ -57,13 +57,6 @@ $a = 1;
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" href="../../adminSPBT/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" href="../../adminSPBT/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!--===============================================================================================-->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -144,13 +137,7 @@ $a = 1;
 		</div>
 	</div>
 </div>	
-<!-- jQuery -->
-<script src="../../adminSPBT/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 4 -->
-<script src="../../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>	
+	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

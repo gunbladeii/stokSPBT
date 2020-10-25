@@ -58,6 +58,12 @@ $a = 1;
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" href="../../adminSPBT/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" href="../../adminSPBT/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!--===============================================================================================-->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

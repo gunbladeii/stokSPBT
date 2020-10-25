@@ -63,8 +63,8 @@ $a = 1;
 	<!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
     <!-- Right navbar links -->
-    <ul>
-        <a class="nav-link" href="../../logout.php">
+    <ul class="navbar-nav ml-auto">
+        <a href="../../logout.php">
           <i class="fas fa-times"></i>
         </a>
     </ul>

@@ -16,7 +16,6 @@ $query = "SELECT dataSH.namaPembekal AS namapembekal, dataJudulPenerbit.bilnaskh
 CASE WHEN dataJudulPenerbit.bilnaskhahpesan > dataJudulPenerbit.bilnaskhahbekal THEN 'BELUM SELESAI'
 WHEN dataJudulPenerbit.bilnaskhahpesan < dataJudulPenerbit.bilnaskhahbekal THEN 'SEMAK SEMULA'
 WHEN dataJudulPenerbit.bilnaskhahpesan = dataJudulPenerbit.bilnaskhahbekal THEN 'SELESAI'
-WHEN dataJudulPenerbit.bilnaskhahpesan < 0 AND dataJudulPenerbit.bilnaskhahbekal < 0 THEN ''
 ELSE '' END AS statusbekal,
 dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul,FORMAT((dataJudulPenerbit.bilnaskhahbekal/dataJudulPenerbit.bilnaskhahpesan)*100,0) AS peratusbekal FROM 
 ((dataJudulPenerbit 

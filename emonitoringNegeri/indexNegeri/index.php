@@ -66,7 +66,7 @@ $a = 1;
     <ul class="navbar-nav ml-auto">
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="epnegeri.php">
+        <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

@@ -81,7 +81,7 @@ $totalRows_parcel = mysqli_num_rows($query_parcel);
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="indexPublisher.php" class="nav-link">Home</a>
+        <a href="indexPublisher.php" class="nav-link">Halaman utama</a>
       </li>
     </ul>
 
@@ -265,7 +265,7 @@ $totalRows_parcel = mysqli_num_rows($query_parcel);
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="indexPublisher.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="indexPublisher.php">Halaman utama</a></li>
               <li class="breadcrumb-item active">publisherSPBT Section</li>
             </ol>
           </div><!-- /.col -->

@@ -74,7 +74,7 @@ $a = 1;
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="indexNegeri/index.php" class="nav-link">Home</a>
+        <a href="indexNegeri/index.php" class="nav-link">Halaman utama</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -259,7 +259,7 @@ $a = 1;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="main1.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="main1.php">Halaman utama</a></li>
               <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan Stok</li>
             </ol>
           </div><!-- /.col -->

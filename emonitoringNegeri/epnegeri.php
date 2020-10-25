@@ -362,7 +362,7 @@ $a = 1;
                                   <div class="clearfix"></div>
                                   <div class="col-md-12">
                                   <br/>
-                                    <div><span class="btn btn-danger">MOHON MAKLUMKAN PENERBIT UNTUK BUAT PENDAFTARAN MELALUI AKSES PEMBEKAL YANG DIBEKALKAN DALAM <strong>MANUAL PENGGUNA (VERSI JPN/JAIN)</strong></span></div>
+                                    <div><span class="btn btn-danger">MOHON MAKLUMKAN PEMBEKAL UNTUK BUAT PENDAFTARAN MELALUI AKSES PEMBEKAL YANG DIBEKALKAN DALAM <strong>MANUAL PENGGUNA (VERSI JPN/JAIN)</strong></span></div>
                                     </div>
                                   <br/>
                            </div>

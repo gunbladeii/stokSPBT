@@ -244,7 +244,7 @@ $a = 1;
             <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 Pengesanan Sebut Harga-Negeri</h1>
             <span class="badge badge-warning"><?php echo strtoupper($row_Recordset['nama']);?></span>
             <span class="badge badge-info"><?php echo strtoupper($row_Recordset['negeri']);?></span>
-            <p>(*All data shown below as of <?php echo $date;?>)</p>
+            <p>(*Data berikut dikemaskini sehingga <?php echo $date;?>)</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

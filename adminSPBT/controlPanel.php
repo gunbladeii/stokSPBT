@@ -269,7 +269,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">Control Panel</h1>
-            <p>(*All data shown below as of <?php echo $date;?>)</p>
+            <p>(*Data berikut dikemaskini sehingga <?php echo $date;?>)</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

@@ -142,7 +142,7 @@ $a = 1;
         <a href="epnegeri.php" class="nav-link">Halaman utama</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link"></a>
       </li>
     </ul>
 

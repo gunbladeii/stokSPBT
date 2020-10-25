@@ -359,7 +359,7 @@ $a = 1;
                             <div class="row" style="margin:0 !important;">
                                   <div class="clearfix"></div>
                                   <div class="col-md-12">
-                                    <div align="center"><span class="badge badge-warning">Mohon maklumkan penerbit untuk buat pendaftaran melalui akses pembekal yang dibekalkan dalam manual pengguna (versi JPN/JAIN)</span></div>
+                                    <div align="center"><span class="badge badge-danger">MOHON MAKLUMKAN PENERBIT UNTUK BUAT PENDAFTARAN MELALUI AKSES PEMBEKAL YANG DIBEKALKAN DALAM <strong>MANUAL PENGGUNA (VERSI JPN/JAIN)</strong></span></div>
                                   </div>
                            </div>
                           <?php }?>

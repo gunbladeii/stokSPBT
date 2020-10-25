@@ -27,7 +27,7 @@ $Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$colname_Re
 $dataSH = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$Recordset3 = $mysqli->query("SELECT dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.username = '$colname_Recordset' GROUP BY dataSH.negeri");
+$Recordset3 = $mysqli->query("SELECT login.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.username = '$colname_Recordset' GROUP BY dataSH.negeri");
 $dataSH2 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
@@ -247,7 +247,7 @@ $a = 1;
       </li>
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="epnegeri.php">
+        <a class="nav-link" data-toggle="dropdown" href="epnegeri2.php">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -284,7 +284,7 @@ $a = 1;
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="epnegeri.php" class="nav-link active">
+            <a href="epnegeri2.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                  mySPBT 2.0 Dashboard
@@ -326,7 +326,7 @@ $a = 1;
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="epnegeri.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="epnegeri2.php">Home</a></li>
               <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan SH-Negeri</li>
             </ol>
           </div><!-- /.col -->
@@ -342,6 +342,9 @@ $a = 1;
               <div class="card-header border-transparent">
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">MAKLUMAT PENGESANAN SH-NEGERI</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+                <?php if(!empty($dataSH)){?>
+                <h2 class="card-title" style="font-size:14px;">*Gunakan <strong>Kod Pembekal</strong> untuk kegunaan semasa muat naik rekod judul pembekalan penerbit</h2>
+                <?php }?>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">
@@ -354,26 +357,17 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                          
+                          <?php if(empty($dataSH)){?>
+                            <div class="row" style="margin:0 !important;">
+                                  <div class="clearfix"></div>
+                                  <div class="col-md-12">
+                                  <br/>
+                                    <div><span class="btn btn-danger">MOHON MAKLUMKAN PEMBEKAL UNTUK BUAT PENDAFTARAN MELALUI AKSES PEMBEKAL YANG DIBEKALKAN DALAM <strong>MANUAL PENGGUNA (VERSI JPN/JAIN)</strong></span></div>
+                                    </div>
+                                  <br/>
+                           </div>
+                          <?php }?>
                           <div class="table-responsive">
-                          <form method="post" action="epnegeri.php" role="form" enctype="multipart/form-data">
-                            <table class="table m-0">
-                              <thead>
-                                <tr>
-                                  <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">DAFTAR REKOD SEBUT HARGA</h4></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              
-                                <tr>
-                                  <td style="text-align: center;">
-                                   <a data-toggle="modal" data-target="#submitDataSHModal" data-whatever="<?php echo $row_Recordset['username'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true">DAFTAR REKOD PENGESANAN-SH</a>
-                                </td>
-                                </tr>
-
-                              </tbody>
-                             </table>
-                            </form>
 
                             <?php if(!empty($dataSH)){?>
                               <table id="example1" class="table m-0">
@@ -387,7 +381,7 @@ $a = 1;
                                 <tr>
                                   <th>Bil</th>
                                   <th>Nama Pembekal</th>
-                                  <th>Tarikh Mula Sebut Harga</th>
+                                  <th>Kod Pembekal</th>
                                   <th>Nilai Sebut Harga (RM)</th>
                                   <th>Muat Naik Judul</th>
                                   <th>Pantau pembekalan</th>
@@ -398,19 +392,23 @@ $a = 1;
                                 <tr>
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
-                                  <td><?php $date=date_create($dataSH['tarikhSHSBegin']);echo date_format($date,"d-m-Y");?></td>
+                                  <td><a class="btn btn-danger btn-sm active" role="button" aria-pressed="true"><strong><?php echo $dataSH['kodPembekal'];?></strong></a></td>
                                   <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
-                                  <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['namaPembekal'];?>" data-whatever2="<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
-                                  <td><a href="pantauBekalSHModal2.php?namaPembekal=<?php echo $dataSH['namaPembekal'];?>&negeri=<?php echo $dataSH['negeri'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
+                                  <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
+                                  <td><a href="pantauBekalSHModal.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
                                   <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>
                                 </tr>
                                 <?php } while ($dataSH = mysqli_fetch_assoc($Recordset2));?>
 
                               </tbody>
+                              <tfoot>
+                                <tr>
+                                    <td colspan="7" align="right"><a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Nilai Sebut Harga: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH']);?></a>
+                                    </td>
+                                </tr>
+                              </tfoot>
                              </table>
-                                <div class="modal-footer">
-                                    <a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Jumlah besar: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH']);?></a>
-                                </div>
+
                             <?php }?>
 
 
@@ -516,7 +514,7 @@ $a = 1;
 
             $.ajax({
                 type: "GET",
-                url: "submitDataSH2.php",
+                url: "submitDataSH.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {
@@ -555,7 +553,7 @@ $a = 1;
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
           var modal = $(this);
-          var dataString = 'namaPembekal=' + recipient + '&' + 'negeri=' + recipient2 ;
+          var dataString = 'kodPembekal=' + recipient; //+ '&' + 'negeri=' + recipient2 ;
 
             $.ajax({
                 type: "GET",
@@ -577,7 +575,7 @@ $a = 1;
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
           var modal = $(this);
-          var dataString = 'namaPembekal=' + recipient + '&' + 'negeri=' + recipient2 ;
+          var dataString = 'kodPembekal=' + recipient ;//+ '&' + 'negeri=' + recipient2 ;
 
             $.ajax({
                 type: "GET",

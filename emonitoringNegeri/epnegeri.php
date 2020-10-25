@@ -355,7 +355,14 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                          
+                          <?php if(empty($dataSH)){?>
+                            <div class="row" style="margin:0 !important;">
+                                  <div class="clearfix"></div>
+                                  <div class="col-md-12">
+                                    <div align="center"><span class="badge badge-warning">Mohon maklumkan penerbit untuk buat pendaftaran melalui akses pembekal yang dibekalkan dalam manual pengguna (versi JPN/JAIN)</span></div>
+                                  </div>
+                           </div>
+                          <?php }?>
                           <div class="table-responsive">
 
                             <?php if(!empty($dataSH)){?>

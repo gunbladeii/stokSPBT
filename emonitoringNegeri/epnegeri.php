@@ -308,7 +308,7 @@ $a = 1;
                                   <td><?php echo $a++;?></td>
                                   <td><a data-toggle="modal" data-target="#updateDataSHModal" data-whatever="<?php echo $dataSH['id'];?>" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><?php echo strtoupper($dataSH['namaPembekal']);?></a></td>
                                   <td><a class="btn btn-danger btn-sm active" role="button" aria-pressed="true"><strong><?php echo $dataSH['kodPembekal'];?></strong></a></td>
-                                  <td><?php echo 'RM'.number_format($dataSH['nilaiSH']);?></td>
+                                  <td><?php echo 'RM'.number_format($dataSH['nilaiSH'],2);?></td>
                                   <td><a data-toggle="modal" data-target="#daftarJudulSHModal" data-whatever="<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-sign-in-alt"></i></a></td>
                                   <td><a href="pantauBekalSHModal.php?kodPembekal=<?php echo $dataSH['kodPembekal'];?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true"><i class="fas fa-wifi"></i></a></td>
                                   <td><input type="checkbox" class="delete_checkbox" value="<?php echo $dataSH['id'];?>" /></td>

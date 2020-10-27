@@ -184,7 +184,7 @@ $a = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                          
+                      <?php if(!empty($dataSH2)){?>    
                           <div class="container">  
                             <div class="table-responsive">  
                           <form method="post" id="update_form">
@@ -209,6 +209,7 @@ $a = 1;
                         </table>
                     </div>
                 </form>
+               <?php } echo '<a class="btn btn-danger">Sila muat naik judul kepada pembekal terlebih dahulu</a>';?>
    </div>  
   </div>
                          

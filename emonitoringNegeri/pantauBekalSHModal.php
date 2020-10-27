@@ -209,7 +209,7 @@ $a = 1;
                         </table>
                     </div>
                 </form>
-               <?php } echo '<a align="center" class="btn btn-danger">Sila muat naik judul kepada pembekal terlebih dahulu</a>';?>
+               <?php }else{echo '<a align="center" class="btn btn-danger">Sila muat naik judul kepada pembekal terlebih dahulu</a>';}?>
    </div>  
   </div>
                          

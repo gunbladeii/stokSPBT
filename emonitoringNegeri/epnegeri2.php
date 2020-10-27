@@ -319,7 +319,7 @@ $a = 1;
                               </tbody>
                               <tfoot>
                                 <tr>
-                                    <td colspan="7" align="right"><a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Nilai Sebut Harga: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH']);?></a>
+                                    <td colspan="7" align="right"><a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Nilai Sebut Harga: <?php echo 'RM'.number_format($dataSH2['sumnilaiSH'],2);?></a>
                                     </td>
                                 </tr>
                               </tfoot>

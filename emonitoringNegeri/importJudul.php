@@ -31,6 +31,10 @@ if(isset($_POST["kodpembekal"]))
   {
    echo 'Data berjaya disimpan. Sila kembali ke menu utama';
   }
+  else
+  {
+     echo 'Sila semak semula kod pembekal dalam fail .csv';
+  }
  }
 }
 

@@ -63,7 +63,7 @@ google.charts.setOnLoadCallback(drawChart);
 
         var options = {
         chart: {
-            bar: {groupWidth: "85%"},
+            bar: {groupWidth: "75%"},
             legend: { position: "none" },
                }
         };

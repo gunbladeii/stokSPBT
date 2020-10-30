@@ -314,13 +314,14 @@ $downloadExcell = $_SERVER['PHP_SELF'];
                         <div class="col-md-6">
                           <div id="nilaiSH"></div>
                         </div>
+
+                        <div class="clearfix"></div>
                         <div class="col-md-6">
                           <div id="tarikhSH"></div>
                         </div>
-                 </div>
-                  <div class="row" style="margin:0 !important;">
+                 
                         <div class="clearfix"></div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                           <div id="prestasiPembekalan"></div>
                         </div>
                  </div>

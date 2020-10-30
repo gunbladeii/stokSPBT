@@ -318,6 +318,12 @@ $downloadExcell = $_SERVER['PHP_SELF'];
                           <div id="tarikhSH"></div>
                         </div>
                  </div>
+                  <div class="row" style="margin:0 !important;">
+                        <div class="clearfix"></div>
+                        <div class="col-md-12">
+                          <div id="prestasiPembekalan"></div>
+                        </div>
+                 </div>
                 <!-- /.table-responsive -->
               </div>
               </div>
@@ -376,6 +382,7 @@ $downloadExcell = $_SERVER['PHP_SELF'];
       setInterval(function () {
 				$('#nilaiSH').load('nilaiSH.php')
         $('#tarikhSH').load('tarikhSH.php')
+        $('#prestasiPembekalan').load('prestasiPembekalan.php')
 
 			}, 5000);
 		});

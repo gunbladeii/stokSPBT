@@ -379,11 +379,10 @@ $downloadExcell = $_SERVER['PHP_SELF'];
 		$(document).ready(function() {
 
 			$('#mapSH').load('mapSH.php');
+      $('#prestasiPembekalan').load('prestasiPembekalan.php');
       setInterval(function () {
 				$('#nilaiSH').load('nilaiSH.php')
         $('#tarikhSH').load('tarikhSH.php')
-        $('#prestasiPembekalan').load('prestasiPembekalan.php')
-
 			}, 5000);
 		});
 </script>

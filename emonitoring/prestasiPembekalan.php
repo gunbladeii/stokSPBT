@@ -54,16 +54,18 @@ google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-          ['Negeri', 'Bilangan Naskhah Pesan','Bilangan Naskhah Bekal'],
+          ['Negeri', 'Bilangan Naskhah Pesan','Bilangan Naskhah Bekal', 'Peratus Bekal(%)'],
           <?php do { ?>
-          ['<?php echo $dataJudulPenerbit["negeri"];?>',  <?php echo $dataJudulPenerbit["bilnaskhahpesan"];?>, <?php echo $dataJudulPenerbit["bilnaskhahbekal"];?>],
+          ['<?php echo $dataJudulPenerbit["negeri"];?>',  <?php echo $dataJudulPenerbit["bilnaskhahpesan"];?>, <?php echo $dataJudulPenerbit["bilnaskhahbekal"];?>, <?php echo $dataJudulPenerbit["peratusbekal"];?>],
           <?php } while ($dataJudulPenerbit = mysqli_fetch_assoc($Recordset2));?>
         ]);
 
 
         var options = {
-        bar: {groupWidth: "85%"},
-        legend: { position: "none" },
+        chart: {
+            bar: {groupWidth: "85%"},
+            legend: { position: "none" },
+               }
         };
 
         var chart = new google.charts.Bar(document.getElementById('prestasi_div'));

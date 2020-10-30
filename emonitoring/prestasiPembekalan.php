@@ -54,9 +54,9 @@ google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-          ['Negeri', 'Bilangan Naskhah Pesan','Bilangan Naskhah Bekal', 'Peratus Bekal(%)'],
+          ['Negeri', 'Bilangan Naskhah Pesan','Bilangan Naskhah Bekal'],
           <?php do { ?>
-          ['<?php echo $dataJudulPenerbit["negeri"];?>',  <?php echo $dataJudulPenerbit["bilnaskhahpesan"];?>, <?php echo $dataJudulPenerbit["bilnaskhahbekal"];?>, <?php echo $dataJudulPenerbit["peratusbekal"];?>],
+          ['<?php echo $dataJudulPenerbit["negeri"];?>',  <?php echo $dataJudulPenerbit["bilnaskhahpesan"];?>, <?php echo $dataJudulPenerbit["bilnaskhahbekal"];?>],
           <?php } while ($dataJudulPenerbit = mysqli_fetch_assoc($Recordset2));?>
         ]);
 

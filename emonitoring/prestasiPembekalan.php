@@ -48,7 +48,7 @@ $a = 1;
 
 
 <script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {'packages':['bar']});
 google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
@@ -60,21 +60,14 @@ google.charts.setOnLoadCallback(drawChart);
           <?php } while ($dataJudulPenerbit = mysqli_fetch_assoc($Recordset2));?>
         ]);
 
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
 
         var options = {
         bar: {groupWidth: "85%"},
         legend: { position: "none" },
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById("prestasi_div"));
-        chart.draw(view, options);
+        var chart = new google.charts.Bar(document.getElementById('prestasi_div'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
 </script>
 

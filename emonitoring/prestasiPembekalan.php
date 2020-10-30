@@ -73,12 +73,12 @@ google.charts.setOnLoadCallback(drawChart);
         legend: { position: "none" },
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById("nilai_div"));
+        var chart = new google.visualization.ColumnChart(document.getElementById("prestasi_div"));
         chart.draw(view, options);
       }
 </script>
 
 <?php if(!empty($dataJudulPenerbit2['negeri'])) { ?>
 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif; text-align: center;">Prestasi Pembekalan Mengikut Negeri</h3>
-<div id="nilai_div" style="width: 100%;min-height: 450px;"></div>
+<div id="prestasi_div" style="width: 100%;min-height: 450px;"></div>
 <?php ;} else echo '<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Tiada rekod setakat ini</a>';?>

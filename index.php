@@ -107,7 +107,7 @@ session_start();
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg"><div class="alert alert-warning success-block" style="text-align: center;"><strong>SISTEM PENGURUSAN STOK/SEBUT HARGA (NEGERI)</strong></div></p>
 
       <form role="form" method="POST" class="login-form" name="prosesLogin">
         <div class="input-group mb-3">

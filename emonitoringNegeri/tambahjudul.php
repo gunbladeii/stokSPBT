@@ -3,7 +3,7 @@
 
 if(isset($_POST["kodjudul"]))
 {
- $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
+ $connect = new PDO("mysql:host=localhost;dbname=myspbt", "adminspbt", "Sh@ti5620");
  $id = uniqid();
  for($count = 0; $count < count($_POST["kodjudul"]); $count++)
  {  

@@ -12,7 +12,7 @@
 
     $kodPembekal = $_GET['kodPembekal'];
 
-    $connect = new PDO("mysql:host=localhost;dbname=spbt_stok", "adminspbt", "Sh@ti5620");
+    $connect = new PDO("mysql:host=localhost;dbname=myspbt", "adminspbt", "Sh@ti5620");
     function fill_unit_select_box($connect)
     { 
      $output = '';

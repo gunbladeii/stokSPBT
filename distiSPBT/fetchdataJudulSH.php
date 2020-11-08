@@ -1,7 +1,7 @@
 <?php session_start();?>
 <?php
 //fetch.php
-$connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "spbt_stok");
+$connect = mysqli_connect("localhost", "adminspbt", "Sh@ti5620", "myspbt");
 $namaPembekal = $_GET['namaPembekal'];
 $negeri = $_GET['negeri'];
 $output = '';

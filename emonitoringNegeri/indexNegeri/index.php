@@ -93,7 +93,7 @@ $a = 1;
 
 						<?php if($row_Recordset['role'] == 'stokNegeri'){?>
 
-						<a href="../../../pengesahan_negeri" class="btn-login-with bg1 m-b-10">
+						<a href="../../../pembekal/pengesahan_negeri" class="btn-login-with bg1 m-b-10">
 							<i class="fa fa-network-wired"></i>
 							Sistem Pengesanan Pembekalan BCS/BTB Negeri
 						</a>

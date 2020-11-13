@@ -205,7 +205,7 @@ $a = 1;
               <div class="card-body p-0">
                         
                           <div class="table-responsive">
-                            <form method="post" action="indexNegeri/index.php">
+                            <form method="post" action="main1.php">
                             <table id="example1" class="table table-sm">
                               <tbody>
                               <tr>

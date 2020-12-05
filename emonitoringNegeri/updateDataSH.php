@@ -211,7 +211,7 @@
                                    <div class="form-group">
                                       Jumlah Pembayaran:
                                       <div class="input-group mb-3">
-                                      <input style="text-transform: uppercase;" type="number" name="jumBayar" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['jumBayar'];?>" >
+                                      <input style="text-transform: uppercase;" type="text" name="jumBayar" class="form-control"  id="validationDefault01" value="<?php echo $dataSH['jumBayar'];?>" >
                                       <div class="input-group-append input-group-text">
                                           <span class="fas fa-id-card-alt"></span>
                                       </div>

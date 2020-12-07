@@ -217,6 +217,7 @@ $a = 1;
                               <tr>
                                 <th>No</th>
                                 <th>Kod Sekolah</th>
+                                <th>Kategori</th>
                                 <th>Nama Sekolah</th>
                                 <th>Negeri</th>
                               </tr>
@@ -226,6 +227,7 @@ $a = 1;
                               <tr>
                                 <td><?php echo $a++;?></td>
                                 <td><a href="main2.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><span class="badge badge-info"><?php echo strtoupper($dataSekolah['kodSekolah']);?></span></a></td>
+                                <td><?php echo $dataSekolah['kategori'];?></td>
                                 <td><?php echo $dataSekolah['namaSekolah'];?></td>
                                 <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
                               </tr>

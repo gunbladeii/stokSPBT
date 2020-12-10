@@ -206,66 +206,14 @@ $b = 1;
       </div><!-- /.container-fluid -->
     </div>
    
-   <section class="content">
+     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><div id="showSekolahPantau"></div></h3>
-                <p>Sekolah dipantau</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><div id="showbelumPantau"></div></h3>
-                <p>Sekolah belum dipantau</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><div id="showJumlahLebihan"></div></h3>
-                <p>Naskhah (buku elok)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-           <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><div id="showJumlahStok"></div></h3>
-                <p>Stok (lebihan)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSS</h3>
+        <div class="row" id="dashboard">
+        </div>
+        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSD</h3>
+        <div class="row" id="dashboard2">
         </div>
       </section>
 
@@ -425,10 +373,8 @@ $b = 1;
         $('#showJudulList').load('showJudulList.php');
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
-				$('#showSekolahPantau').load('showSekolahPantau.php')
-				$('#showbelumPantau').load('showbelumPantau.php')
-        $('#showJumlahLebihan').load('showJumlahLebihan.php')
-        $('#showJumlahStok').load('showJumlahStok.php')
+				$('#dashboard').load('dashboard_view.php')
+        $('#dashboard2').load('dashboard_view2.php')
 			}, 5000);
 
      

@@ -25,7 +25,13 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 
 $negeriRole = $row_Recordset['negeri'];
 
-$Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.daerah, dataSekolah.negeri,rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
+$Recordset4 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.kodSekolah, dataSekolah.namaSekolah,dataSekolah.daerah, dataSekolah.negeri, rekodPemantauan.kodJudul,dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
+  SUM(
+  CASE 
+  WHEN dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuStok > 0  THEN rekodPemantauan.bukuStok
+  WHEN dataSekolah.kategori = 'BOSD' THEN 0   
+  ELSE 0 END) AS bukuStok 
+  FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE rekodPemantauan.kodJudul = '$kodJudul'
@@ -220,8 +226,9 @@ $a = 1;
                                 <th>Nama Sekolah</th>
                                 <th>Daerah</th>
                                 <th>Negeri</th>
-                                <th>Buku Elok</th>
-                                <th>Stok(Lebihan)</th>
+                                <th>Lokasi</th>
+                                <th>Bil Naskhah (BOSS/BOSD)</th>
+                                <th>Lebihan (BOSS)</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -232,8 +239,9 @@ $a = 1;
                                 <td><?php echo $rekodPemantauan['namaSekolah'];?></td>
                                 <td><?php echo $rekodPemantauan['daerah'];?></td>
                                 <td><?php echo $rekodPemantauan['negeri'];?></td>
-                                <td><?php echo strtoupper($rekodPemantauan['bukuLebihan']);?></td>
-                                <td><?php echo strtoupper($rekodPemantauan['bukuStok']);?></td>
+                                <td><?php echo $rekodPemantauan['kategori'];?></td>
+                                <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
+                                <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan3["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>
                               </tr>
                               <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                               </tbody>

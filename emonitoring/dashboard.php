@@ -218,11 +218,11 @@ $b = 1;
    <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSS</h3>
+        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSS Seluruh Negara</h3>
         <div class="container px-5 py-5"> 
          <div class="row" id="dashboard"></div>
         </div>
-        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSD</h3>
+        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSD Seluruh Negara</h3>
         <div class="row" id="dashboard2">
         </div>
       </section>

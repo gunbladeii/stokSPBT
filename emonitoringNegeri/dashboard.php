@@ -317,7 +317,7 @@ $b = 1;
                                 <th>Nama Judul</th>
                                 <th>Lokasi</th>
                                 <th>Bil Naskhah (BOSS/BOSD)</th>
-                                <th>Stok (BOSS)</th>
+                                <th>Lebihan (BOSS)</th>
                               </tr>
                               </thead>
                               <tbody>

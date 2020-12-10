@@ -207,6 +207,8 @@ $b = 1;
         <!-- Small boxes (Stat box) -->
         <div class="row" id="dashboard">
         </div>
+        <div class="row" id="dashboard2">
+        </div>
       </section>
 
        <section class="content">
@@ -368,6 +370,7 @@ $b = 1;
         $('#showUserList').load('showUserList.php'); 
 			setInterval(function () {
 				$('#dashboard').load('dashboard_view.php')
+        $('#dashboard2').load('dashboard_view2.php')
 			}, 5000);
 
      

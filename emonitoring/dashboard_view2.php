@@ -43,8 +43,8 @@ $year = date('Y');
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID['id'])){echo $RID['BOSSPantau'];}else{echo 0;}?></h3>
-                <p>BOSS dipantau</p>
+                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID['id'])){echo $RID['BOSDPantau'];}else{echo 0;}?></h3>
+                <p>BOSD dipantau</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -58,7 +58,7 @@ $year = date('Y');
             <div class="small-box bg-success">
               <div class="inner">
                 <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID4['id'])){echo $RID4['belumPantau'];}else{echo 0;}?></h3>
-                <p>BOSS belum dipantau</p>
+                <p>BOSD belum dipantau</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

@@ -38,8 +38,17 @@ $year = date('Y');
       FROM dataSekolah 
       WHERE remark NOT LIKE 'observe' AND kategori = 'BOSS'");
     $RID4 = mysqli_fetch_assoc($refID4);
+
+    $refID5 = $mysqli->query("SELECT rekodPemantauan.id,CONCAT('RM', FORMAT(SUM(CASE WHEN (dataJudul.harga * rekodPemantauan.bukuStok) > 0 THEN (dataJudul.harga * rekodPemantauan.bukuStok) ELSE 0 END),2)) AS harga 
+      FROM 
+      ((rekodPemantauan 
+      INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
+      INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
+      WHERE dataSekolah.kategori = 'BOSS'
+      GROUP BY dataSekolah.kategori");
+    $RID5 = mysqli_fetch_assoc($refID5);
 ?>
-<div class="col-lg-3 col-6">
+          <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -53,7 +62,7 @@ $year = date('Y');
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -67,7 +76,7 @@ $year = date('Y');
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+         <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -81,12 +90,26 @@ $year = date('Y');
             </div>
           </div>
           <!-- ./col -->
-           <div class="col-lg-3 col-6">
+           <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID2['id'])){echo $RID2['bukuStok'];}else{echo 0;}?></h3>
                 <p>Stok (lebihan)</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col mx-1">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                 <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['id'])){echo $RID5['harga'];}else{echo 0;} ?></h3>
+                <p>Kos (Lebihan di BOSS)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

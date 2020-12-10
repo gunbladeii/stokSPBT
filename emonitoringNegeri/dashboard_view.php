@@ -22,24 +22,24 @@ $date = date('Y-m-d');
 $time = date('H:i:s');
 $year = date('Y');
 
-    $refID = $mysqli->query("SELECT id,kategori,COUNT(remark) AS BOSSPantau FROM dataSekolah WHERE remark = 'observe' AND kategori ='BOSS' negeri = '$negeri'");
+    $refID = $mysqli->query("SELECT id,kategori,COUNT(remark) AS BOSSPantau FROM dataSekolah WHERE remark = 'observe' AND kategori ='BOSS' AND negeri = '$negeri'");
     $RID = mysqli_fetch_assoc($refID);
 
     $refID2 = $mysqli->query("SELECT rekodPemantauan.id,dataSekolah.kategori,SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN bukuStok ELSE 0 END) AS bukuStok 
       FROM 
       rekodPemantauan INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
-      WHERE dataSekolah.kategori = 'BOSS' dataSekolah.negeri = '$negeri'");
+      WHERE dataSekolah.kategori = 'BOSS' AND dataSekolah.negeri = '$negeri'");
     $RID2 = mysqli_fetch_assoc($refID2);
 
     $refID3 = $mysqli->query("SELECT rekodPemantauan.id,SUM(CASE WHEN rekodPemantauan.bukuLebihan > 0 THEN bukuLebihan ELSE 0 END) AS bukuLebihan 
       FROM 
       rekodPemantauan INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
-      WHERE dataSekolah.kategori = 'BOSS' dataSekolah.negeri = '$negeri'");
+      WHERE dataSekolah.kategori = 'BOSS' AND dataSekolah.negeri = '$negeri'");
     $RID3 = mysqli_fetch_assoc($refID3);
 
     $refID4 = $mysqli->query("SELECT id,COUNT(negeri) AS belumPantau 
       FROM dataSekolah 
-      WHERE remark NOT LIKE 'observe' AND kategori = 'BOSS' negeri = '$negeri'");
+      WHERE remark NOT LIKE 'observe' AND kategori = 'BOSS' AND negeri = '$negeri'");
     $RID4 = mysqli_fetch_assoc($refID4);
 ?>
 <div class="col-lg-3 col-6">

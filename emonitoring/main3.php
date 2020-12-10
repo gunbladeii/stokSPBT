@@ -56,7 +56,7 @@ $Recordset5 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSeko
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSS'");
+  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSD'");
 $rekodPemantauan2 = mysqli_fetch_assoc($Recordset5);
 $totalRows_Recordset5 = mysqli_num_rows($Recordset5);
 

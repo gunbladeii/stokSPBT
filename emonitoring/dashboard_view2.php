@@ -34,10 +34,16 @@ $year = date('Y');
       WHERE dataSekolah.kategori = 'BOSD'");
     $RID3 = mysqli_fetch_assoc($refID3);
 
-    $refID4 = $mysqli->query("SELECT id,FORAMT(COUNT(negeri),0) AS belumPantau 
+    $refID4 = $mysqli->query("SELECT id,FORMAT(COUNT(negeri),0) AS belumPantau 
       FROM dataSekolah 
       WHERE remark NOT LIKE 'observe' AND kategori = 'BOSD'");
     $RID4 = mysqli_fetch_assoc($refID4);
+
+    $refID5 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(CASE WHEN rekodPemantauan.harga > 0 THEN harga ELSE 0 END),2) AS harga 
+      FROM 
+      rekodPemantauan INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
+      WHERE dataSekolah.kategori = 'BOSD'");
+    $RID5 = mysqli_fetch_assoc($refID5);
 ?>
 <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -73,6 +79,20 @@ $year = date('Y');
               <div class="inner">
                 <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['id'])){echo $RID3['bukuLebihan'];}else{echo 0;} ?></h3>
                 <p>Bil. Naskhah di BOSD</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['id'])){echo $RID3['harga'];}else{echo 0;} ?></h3>
+                <p>Kos (Lebihan di BOSD)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

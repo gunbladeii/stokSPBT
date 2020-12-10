@@ -39,9 +39,11 @@ $year = date('Y');
       WHERE remark NOT LIKE 'observe' AND kategori = 'BOSD'");
     $RID4 = mysqli_fetch_assoc($refID4);
 
-    $refID5 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(CASE WHEN rekodPemantauan.harga > 0 THEN harga ELSE 0 END),2) AS harga 
+    $refID5 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(CASE WHEN dataJudul.harga > 0 THEN harga ELSE 0 END),2) AS harga 
       FROM 
-      rekodPemantauan INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
+      ((rekodPemantauan 
+      INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
+      INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
       WHERE dataSekolah.kategori = 'BOSD'");
     $RID5 = mysqli_fetch_assoc($refID5);
 ?>

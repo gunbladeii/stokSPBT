@@ -44,9 +44,21 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok FROM rekodPemantauan INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul WHERE kodSekolah = '$kodSekolah'");
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+  FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSS'");
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
+
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+  FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSD'");
+$rekodPemantauan2 = mysqli_fetch_assoc($Recordset7);
+$totalRows_Recordset7 = mysqli_num_rows($Recordset7);
 
 $Recordset5 = $mysqli->query("SELECT * FROM dataJudul GROUP BY jenisAliran");
 $dataAliranSekolah = mysqli_fetch_assoc($Recordset5);
@@ -153,7 +165,7 @@ $a = 1;
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="indexNegeri/index.php" class="nav-link">mySPBT</a>
+        <a href="main1.php" class="nav-link">Halaman utama</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"></a>
@@ -177,7 +189,7 @@ $a = 1;
 
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="indexNegeri/index.php">
+        <a class="nav-link" data-toggle="dropdown" href="../main1.php">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -193,7 +205,7 @@ $a = 1;
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="indexNegeri/index.php" class="brand-link">
+    <a href="main1.php" class="brand-link">
       <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0</span>
@@ -214,7 +226,7 @@ $a = 1;
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="indexNegeri/index.php" class="nav-link active">
+            <a href="main1.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                  mySPBT 2.0 Dashboard
@@ -458,6 +470,53 @@ $a = 1;
                           </form>
                         </div>
                       <?php ;}?>
+
+                      <?php if($rekodPemantauan2 > 0) {?>
+                        <div class="table-responsive">
+                          <form method="post" action="main4.php" role="form" enctype="multipart/form-data">
+                          <table class="table table-sm">
+                            <thead>
+                              <tr>
+                                <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                              </tr>
+                              <tr>
+                                <th>Bil</th>
+                                <th>Judul</th>
+                                <th>Bil Naskhah (BOSD)</th>
+                                <th>Tindakan</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php do {?>
+                              <tr>
+                                <td><?php echo $a++;?></td>
+                                <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
+                                <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
+                                <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
+                              </tr>
+                               <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
+                               <tr>
+                                <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
+                              </tr>
+                              <tr>
+                                <td colspan="5">
+                                  <div class="form-group">
+                                      Ulasan:
+                                      
+                                      <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
+                                     
+                                    </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                                <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
+                                <div class="modal-footer">
+                                    <input type="submit" class="btn btn-primary" name="submit2" value="Jana Laporan"/>
+                                </div>
+                          </form>
+                        </div>
+                      <?php ;}?>
         
                 <!-- /.table-responsive -->
               </div>
@@ -506,24 +565,24 @@ $a = 1;
 <script src="../adminSPBT/dist/js/demo.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-		    
+  <script type="text/javascript">
+    $(document).ready(function() {
+        
         $('#showJudulList').load('showJudulList.php');
         $('#showUserList').load('showUserList.php'); 
-			setInterval(function () {
-				$('#showAttChart').load('showAttChart.php')
-				$('#showTotalPenerbit').load('showTotalPenerbit.php')
-				$('#showTotalJudul').load('showTotalJudul.php')
-				$('#showTotalPesanan').load('showTotalPesanan.php')
-				$('#showTotalPembekalan').load('showTotalPembekalan.php')
-			  $('#odometer').load('../distiSPBT/liveOdometer.php')
-				$('#attStat').load('../distiSPBT/attStat.php')
-				$('#parcelStat').load('../distiSPBT/parcelStat.php')
-			}, 5000);
+      setInterval(function () {
+        $('#showAttChart').load('showAttChart.php')
+        $('#showTotalPenerbit').load('showTotalPenerbit.php')
+        $('#showTotalJudul').load('showTotalJudul.php')
+        $('#showTotalPesanan').load('showTotalPesanan.php')
+        $('#showTotalPembekalan').load('showTotalPembekalan.php')
+        $('#odometer').load('../distiSPBT/liveOdometer.php')
+        $('#attStat').load('../distiSPBT/attStat.php')
+        $('#parcelStat').load('../distiSPBT/parcelStat.php')
+      }, 5000);
 
      
-		});
+    });
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>

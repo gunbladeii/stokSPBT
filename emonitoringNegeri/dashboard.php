@@ -49,7 +49,6 @@ $Recordset5 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.negeri, re
   SUM(
   CASE 
   WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok
-  WHEN rekodPemantauan.bukuStok = 'BOSD' THEN rekodPemantauan.bukuStok
   WHEN dataSekolah.kategori = 'BOSS' THEN 0  
   ELSE 0 END) AS bukuStok 
   FROM ((rekodPemantauan 

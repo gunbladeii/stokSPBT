@@ -48,8 +48,8 @@ $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 $Recordset5 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.negeri, rekodPemantauan.kodJudul,dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
   SUM(
   CASE 
-  WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok
-  WHEN dataSekolah.kategori = 'BOSS' THEN 0  
+  WHEN dataSekolah.kategori = 'BOSS' THEN rekodPemantauan.bukuStok
+  WHEN dataSekolah.kategori = 'BOSD' THEN 0  
   ELSE 0 END) AS bukuStok 
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)

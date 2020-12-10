@@ -49,7 +49,7 @@ $year = date('Y');
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID2['id'])){echo $RID2['belumPantau'];}else{echo 0;}?></h3>
+                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID4['id'])){echo $RID4['belumPantau'];}else{echo 0;}?></h3>
                 <p>Sekolah belum dipantau</p>
               </div>
               <div class="icon">
@@ -77,7 +77,7 @@ $year = date('Y');
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID4['id'])){echo $RID4['bukuStok'];}else{echo 0;}?></h3>
+                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID2['id'])){echo $RID2['bukuStok'];}else{echo 0;}?></h3>
                 <p>Stok (lebihan)</p>
               </div>
               <div class="icon">

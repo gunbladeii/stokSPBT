@@ -44,7 +44,8 @@ $year = date('Y');
       ((rekodPemantauan 
       INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
       INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
-      WHERE dataSekolah.kategori = 'BOSD'");
+      WHERE dataSekolah.kategori = 'BOSD'
+      GROUP BY dataSekolah.kategori");
     $RID5 = mysqli_fetch_assoc($refID5);
 ?>
 <div class="col-lg-3 col-6">

@@ -52,13 +52,13 @@ $Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSeko
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-$Recordset5 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSD'");
-$rekodPemantauan2 = mysqli_fetch_assoc($Recordset5);
-$totalRows_Recordset5 = mysqli_num_rows($Recordset5);
+$rekodPemantauan2 = mysqli_fetch_assoc($Recordset7);
+$totalRows_Recordset7 = mysqli_num_rows($Recordset7);
 
 $Recordset5 = $mysqli->query("SELECT * FROM dataJudul GROUP BY jenisAliran");
 $dataAliranSekolah = mysqli_fetch_assoc($Recordset5);
@@ -494,7 +494,7 @@ $a = 1;
                                 <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
                                 <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
                               </tr>
-                               <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset5)); ?>
+                               <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
                                <tr>
                                 <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
                               </tr>

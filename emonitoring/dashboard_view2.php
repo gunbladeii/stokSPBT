@@ -48,7 +48,7 @@ $year = date('Y');
       GROUP BY dataSekolah.kategori");
     $RID5 = mysqli_fetch_assoc($refID5);
 ?>
-<div class="col-lg-3 col-6">
+          <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -62,7 +62,7 @@ $year = date('Y');
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -76,7 +76,7 @@ $year = date('Y');
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -90,12 +90,12 @@ $year = date('Y');
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col mx-1">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['id'])){echo $RID5['harga'];}else{echo 0;} ?></h3>
-                <p>Kos (Lebihan di BOSD)</p>
+                <p>Kos (Naskhah di BOSD)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

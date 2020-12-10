@@ -223,7 +223,8 @@ $b = 1;
          <div class="row" id="dashboard"></div>
         </div>
         <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSD Seluruh Negara</h3>
-        <div class="row" id="dashboard2">
+        <div class="container px-5 py-5"> 
+         <div class="row" id="dashboard2"></div>
         </div>
       </section>
 

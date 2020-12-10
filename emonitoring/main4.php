@@ -38,9 +38,21 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok FROM rekodPemantauan INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul WHERE kodSekolah = '$kodSekolah'");
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+  FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSS'");
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
+
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+  FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSD'");
+$rekodPemantauan2 = mysqli_fetch_assoc($Recordset7);
+$totalRows_Recordset7 = mysqli_num_rows($Recordset7);
 
 if (isset($_POST['submit'])) {
     $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul','$bukuLebihan')");
@@ -321,6 +333,25 @@ $a = 1;
                                 <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
                               </tr>
                               <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
+                              <?php }?>
+                              
+                              <?php if(!empty($rekodPemantauan2)) {?>
+                              <th colspan="5" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
+                              </tr>
+                              <tr>
+                                <th>Bil</th>
+                                <th>Kod judul</th>
+                                <th>Judul</th>
+                                <th>Bil Naskhah (BOSD)</th>
+                              </tr>
+                              <?php do {?>
+                              <tr>
+                                <td><?php echo $a++;?></td>
+                                <td><?php echo strtoupper($rekodPemantauan2['kodJudul']);?></td>
+                                <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
+                                <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
+                              </tr>
+                              <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
                               <?php }?>
                                <tr>
                                 <th colspan="5" style="text-align: center; background-color: black"><h5 style="color: white">Ulasan Keseluruhan</h5></th>

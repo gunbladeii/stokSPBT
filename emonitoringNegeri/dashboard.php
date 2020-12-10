@@ -45,7 +45,14 @@ $Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, rekodPemantauan.kodJudu
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-$Recordset5 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.negeri, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
+$Recordset5 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.negeri, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
+  SUM(
+  CASE 
+  WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok
+  WHEN rekodPemantauan.bukuStok = 'BOSD' THEN rekodPemantauan.bukuStok
+  WHEN rekodPemantauan.kategori = 'BOSS' THEN 0  
+  ELSE 0 END) AS bukuStok 
+  FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
   WHERE dataSekolah.negeri = '$negeriRole'

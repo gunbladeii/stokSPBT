@@ -205,8 +205,7 @@ $b = 1;
    <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div id="dashboard"></div>
+        <div class="row" id="dashboard">
         </div>
       </section>
 

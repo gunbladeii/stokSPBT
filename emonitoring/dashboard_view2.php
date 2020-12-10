@@ -72,21 +72,7 @@ $year = date('Y');
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['id'])){echo $RID3['bukuLebihan'];}else{echo 0;} ?></h3>
-                <p>Naskhah (buku elok)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-           <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID2['id'])){echo $RID2['bukuStok'];}else{echo 0;}?></h3>
-                <p>Stok (lebihan)</p>
+                <p>Bil. Naskhah di BOSD</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

@@ -91,7 +91,7 @@ $year = date('Y');
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['id'])){echo $RID3['harga'];}else{echo 0;} ?></h3>
+                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['id'])){echo $RID5['harga'];}else{echo 0;} ?></h3>
                 <p>Kos (Lebihan di BOSD)</p>
               </div>
               <div class="icon">

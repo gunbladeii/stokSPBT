@@ -45,6 +45,14 @@ $Recordset4 = $mysqli->query("SELECT dataSekolah.negeri, rekodPemantauan.kodJudu
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
+$Recordset5 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.negeri, rekodPemantauan.kodJudul, dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN rekodPemantauan.bukuStok ELSE 0 END) AS bukuStok FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+  WHERE dataSekolah.negeri = '$negeriRole'
+  GROUP BY kodJudul,kategori");
+$rekodPemantauan3 = mysqli_fetch_assoc($Recordset5);
+$totalRows_Recordset5 = mysqli_num_rows($Recordset5);
+
 if (isset($_POST['submit'])) {
     $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul','$bukuLebihan')");
     header("location:main3.php?kodSekolah=$kodSekolah2");
@@ -292,7 +300,7 @@ $b = 1;
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                        <?php if($rekodPemantauan > 0) {?>
+                        <?php if($rekodPemantauan3 > 0) {?>
                           <div class="table-responsive">
                             <table id="example3" class="table m-0">
                               <thead>
@@ -300,20 +308,22 @@ $b = 1;
                                 <th>No</th>
                                 <th>Kod Judul</th>
                                 <th>Nama Judul</th>
-                                <th>Buku Elok</th>
-                                <th>Stok (Lebihan)</th>
+                                <th>Lokasi</th>
+                                <th>Bil Naskhah (BOSS/BOSD)</th>
+                                <th>Stok (BOSS)</th>
                               </tr>
                               </thead>
                               <tbody>
                               <?php do {?>
                               <tr>
                                 <td><?php echo $b++;?></td>
-                                <td><a href="dashboard2.php?kodJudul=<?php echo $rekodPemantauan['kodJudul'];?>"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan['kodJudul']);?></span></a></td>
-                                <td><?php echo $rekodPemantauan['judul'];?></td>
-                                <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
-                                <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>
+                                <td><a href="dashboard2.php?kodJudul=<?php echo $rekodPemantauan3['kodJudul'];?>"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan3['kodJudul']);?></span></a></td>
+                                <td><?php echo $rekodPemantauan3['judul'];?></td>
+                                <td><?php echo $rekodPemantauan3['kategori'];?></td>
+                                <td><?php echo $rekodPemantauan3['bukuLebihan'];?></td>
+                                <td><?php if($rekodPemantauan3['bukuStok'] > 0){echo $rekodPemantauan3["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>
                               </tr>
-                              <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
+                              <?php } while ($rekodPemantauan3 = mysqli_fetch_assoc($Recordset5)); ?>
                               </tbody>
                             </table>
                           </div>

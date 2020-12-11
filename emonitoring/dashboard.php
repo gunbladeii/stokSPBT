@@ -29,7 +29,18 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE remark = 'observe'");
+$Recordset2 = $mysqli->query("SELECT dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
+  CASE 
+  WHEN (dataJudul.harga * rekodPemantauan.bukuStok) > 0 AND dataSekolah.kategori = 'BOSS' THEN (dataJudul.harga * rekodPemantauan.bukuStok) 
+  WHEN (dataJudul.harga * rekodPemantauan.bukuLebihan) > 0 AND dataSekolah.kategori = 'BOSD' THEN (dataJudul.harga * rekodPemantauan.bukuLebihan)
+  ELSE 0 
+  END),2)) AS harga
+  FROM 
+  ((rekodPemantauan
+  INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
+  INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
+  WHERE dataSekolah.remark = 'observe'
+  GROUP BY dataSekolah.kodSekolah");
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -284,6 +295,7 @@ $b = 1;
                                 <th>Nama Sekolah</th>
                                 <th>Kategori</th>
                                 <th>Negeri</th>
+                                <th>Kos(RM)</th>
                                 <th>Tindakan</th>
                                 <th>Status</th>
                               </tr>
@@ -296,6 +308,7 @@ $b = 1;
                                 <td><?php echo $dataSekolah['namaSekolah'];?></td>
                                 <td><?php echo $dataSekolah['kategori'];?></td>
                                 <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
+                                <td><?php echo $dataSekolah['harga'];?></td>
                                 <td><a href="main3.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><i class="far fa-edit"></i></a></td>
                                 <td><i class="far fa-check-circle"></i></td>
                               </tr>

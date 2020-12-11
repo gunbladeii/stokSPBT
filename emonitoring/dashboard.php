@@ -66,7 +66,7 @@ if (isset($_POST['delete'])) {
     t1.id < t2.id AND
     t1.kodSekolah = t2.kodSekolah AND
     t1.kodJudul = t2.kodJudul");
-    header("location:main3.php?kodSekolah=$kodSekolah2");
+    header("location:dashboard.php");
     }
 
 $a = 1;

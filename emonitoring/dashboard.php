@@ -308,7 +308,7 @@ $b = 1;
                                 <td><?php echo $dataSekolah['namaSekolah'];?></td>
                                 <td><?php echo $dataSekolah['kategori'];?></td>
                                 <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
-                                <td><?php if($dataSekolah['harga'] == 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['harga'];}?></td>
+                                <td><?php if($dataSekolah['harga'] < 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['harga'];}?></td>
                                 <td><a href="main3.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><i class="far fa-edit"></i></a></td>
                                 <td><i class="far fa-check-circle"></i></td>
                               </tr>

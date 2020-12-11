@@ -59,6 +59,16 @@ if (isset($_POST['submit'])) {
     header("location:main3.php?kodSekolah=$kodSekolah2");
     }
 
+if (isset($_POST['delete'])) {
+    $mysqli->query ("DELETE t1 FROM rekodPemantauan t1
+    INNER  JOIN rekodPemantauan t2
+    WHERE
+    t1.id < t2.id AND
+    t1.kodSekolah = t2.kodSekolah AND
+    t1.kodJudul = t2.kodJudul");
+    header("location:main3.php?kodSekolah=$kodSekolah2");
+    }
+
 $a = 1;
 $b = 1;
 ?>
@@ -229,6 +239,32 @@ $b = 1;
       </section>
 
        <section class="content">
+        <div id="row">
+        <div class="col-md-12">
+           <!-- TABLE: list of publisherSPBT -->
+            <div class="card">
+              <div class="card-header border-transparent">
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <form method="post" action="dashboard.php">
+                  <div class="modal-footer">
+                   <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
+                  </div>
+                </form>    
+              </div>
+              </div>
+              </div>
+
+
         <div id="row">
         <div class="col-md-12">
            <!-- TABLE: list of publisherSPBT -->

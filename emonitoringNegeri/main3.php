@@ -386,6 +386,8 @@ $a = 1;
                                                 <option value="SR">SEKOLAH RENDAH</option>
                                                 <option value="SM">SEKOLAH MENENGAH</option>
                                                 <option value="PERALIHAN">PERALIHAN</option>
+                                                <option value="SJKC">SJKC</option>
+                                                <option value="SJKT">SJKT</option>
                                                </select>
                                     </div>
                                 </td>

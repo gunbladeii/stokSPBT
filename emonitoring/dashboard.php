@@ -244,25 +244,15 @@ $b = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
+                <div class="card-body p-0">
                 <form method="post" action="dashboard.php">
-                  <div class="modal-footer">
                    <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
-                  </div>
                 </form>    
               </div>
               </div>
+              <!-- /.card-header -->              
               </div>
+         </div>
 
 
         <div id="row">

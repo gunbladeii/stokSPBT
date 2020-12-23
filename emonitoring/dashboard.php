@@ -30,7 +30,51 @@ $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 $d = 1;
 $downloadExcell = $_SERVER['PHP_SELF'];
+/*advanced*/
+  if (isset($_POST["advanced"]))
+  {
+  $sql = $mysqli->query("SELECT *, MONTHNAME(date) AS month2 FROM testSalary WHERE year='$year' AND month ='$month' AND employeeStatus NOT LIKE 'dump' GROUP BY noIC,month, year ORDER BY stationCode,nama ASC");          
 
+  if (mysqli_num_rows($sql) > 0)
+    {
+    $output .='
+      <table class="table" border="1">
+        <tr>
+          <th>No.</th>
+          <th>Name</th>
+          <th>IC</th>
+          <th>Poslaju Branch</th>
+          <th>PIC/Rider</th>
+          <th>Advance 15th</th>
+          <th>Month</th>
+          <th>Date download</th>
+          <th>Remarks</th>
+        </tr>   
+      ';
+    while($row = mysqli_fetch_assoc($sql))
+      {
+      $output .='
+        <tr>
+          <td>'.$d++.'</td>
+          <td>'.ucwords(strtolower($row["nama"])).'</td>
+          <td>=TEXT('.str_replace(' ', '', $row["noIC"]).',"0000000")</td>
+          <td>'.$row["stationCode"].'</td>
+          <td>'.ucfirst($row["role"]).'</td>
+          <td>'.$row["advanced"].'</td>
+          <td>'.$row["month2"].'</td>
+          <td>'.$date.'</td>
+          <td>Date of Join: '.$row["dateJoin"].'</td>
+        </tr>     
+        ';    
+      }
+    $output .='</table>';
+    header("Content-Type: application/vnd-ms-excel");
+    header("Content-Disposition: attachment; filename=excell_giro_ach_advance_".$date.".xls");
+    echo $output;
+      
+    }
+  exit;
+  }
 /*advanced*/
 // if (isset($_POST["stok"]))
 //   {
@@ -317,9 +361,9 @@ $b = 1;
                 <form method="post" action="dashboard.php">
                    <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
                 </form> 
-                <!-- <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
+                <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
                    <input type="submit" name='stok' class="btn btn-info" value="Eksport Excel"/>
-                </form> -->    
+                </form>    
               </div>
               </div>
               <!-- /.card-header -->              

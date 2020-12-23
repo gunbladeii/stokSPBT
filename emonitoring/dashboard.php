@@ -34,7 +34,7 @@ $downloadExcell = $_SERVER['PHP_SELF'];
 /*advanced*/
 if (isset($_POST["stok"]))
   {
-  $sql = $mysqli->query("SELECT * FROM dataSekolah");          
+  $sql = $mysqli->query("SELECT kodSekolah,namaSekolah,kategori,daerah,noTelefon,tarikhPemantauan,bukuLebihan,bukuStok FROM eksportExcel");          
 
   if (mysqli_num_rows($sql) > 0)
     {

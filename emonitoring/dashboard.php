@@ -32,56 +32,60 @@ $d = 1;
 $downloadExcell = $_SERVER['PHP_SELF'];
 
 /*advanced*/
-if (isset($_POST["stok"]))
-  {
-  $sql = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan,dataSekolah.daerah,dataSekolah.noTelefon,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.kategori,dataSekolah.negeri, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan
-  
-  FROM ((rekodPemantauan 
-  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
-  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-  GROUP BY kodSekolah,kategori
-  ORDER BY kategori,namaSekolah ASC");          
+// if (isset($_POST["stok"]))
+//   {
+//   $sql = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan,dataSekolah.daerah,dataSekolah.noTelefon,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.kategori,dataSekolah.negeri, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
+//   SUM(
+//   CASE 
+//   WHEN dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuStok > 0  THEN rekodPemantauan.bukuStok
+//   WHEN dataSekolah.kategori = 'BOSD' THEN 0   
+//   ELSE 0 END) AS bukuStok 
+//   FROM ((rekodPemantauan 
+//   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+//   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+//   GROUP BY kodSekolah,kategori
+//   ORDER BY kategori,namaSekolah ASC");          
 
-  if (mysqli_num_rows($sql) > 0)
-    {
-    $output .='
-      <table class="table" border="1">
-        <tr>
-          <th>No.</th>
-          <th>Kod Sekolah</th>
-          <th>Sekolah</th>
-          <th>Kategori</th>
-          <th>Daerah</th>
-          <th>No. Telefon</th>
-          <th>Tarikh Lawatan</th>
-          <th>Bil Naskhah (BOSS/BOSD)</th>
-          <th>Lebihan (BOSS)</th>
-        </tr>   
-      ';
-    while($row = mysqli_fetch_assoc($sql))
-      {
-      $output .='
-        <tr>
-          <td>'.$d++.'</td>
-          <td>'.$row["kodSekolah"]).'</td>
-          <td>'.$row["namaSekolah"]).'</td>
-          <td>'.$row["kategori"].'</td>
-          <td>'.$row["daerah"].'</td>
-          <td>'.$row["noTelefon"].'</td>
-          <td>'.$row["tarikhPemantauan"].'</td>
-          <td>'.$row["bukuLebihan"].'</td>
-          <td>'.$row["bukuStok"].'</td>
-        </tr>     
-        ';    
-      }
-    $output .='</table>';
-    header("Content-Type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=pemantauanStok".$date.".xls");
-    echo $output;
+//   if (mysqli_num_rows($sql) > 0)
+//     {
+//     $output .='
+//       <table class="table" border="1">
+//         <tr>
+//           <th>No.</th>
+//           <th>Kod Sekolah</th>
+//           <th>Sekolah</th>
+//           <th>Kategori</th>
+//           <th>Daerah</th>
+//           <th>No. Telefon</th>
+//           <th>Tarikh Lawatan</th>
+//           <th>Bil Naskhah (BOSS/BOSD)</th>
+//           <th>Lebihan (BOSS)</th>
+//         </tr>   
+//       ';
+//     while($row = mysqli_fetch_assoc($sql))
+//       {
+//       $output .='
+//         <tr>
+//           <td>'.$d++.'</td>
+//           <td>'.$row["kodSekolah"]).'</td>
+//           <td>'.$row["namaSekolah"]).'</td>
+//           <td>'.$row["kategori"].'</td>
+//           <td>'.$row["daerah"].'</td>
+//           <td>'.$row["noTelefon"].'</td>
+//           <td>'.$row["tarikhPemantauan"].'</td>
+//           <td>'.$row["bukuLebihan"].'</td>
+//           <td>'.$row["bukuStok"].'</td>
+//         </tr>     
+//         ';    
+//       }
+//     $output .='</table>';
+//     header("Content-Type: application/vnd-ms-excel");
+//     header("Content-Disposition: attachment; filename=pemantauanStok".$date.".xls");
+//     echo $output;
       
-    }
-  exit;
-  }  
+//     }
+//   exit;
+//   }  
 
 $Recordset2 = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan, dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
   CASE 

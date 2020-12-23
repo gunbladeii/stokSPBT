@@ -263,15 +263,11 @@ $b = 1;
                 <div class="card-body p-0">
                 <form method="post" action="dashboard.php">
                    <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
-                </form>    
-              </div>
-
-              <div class="card-body p-0">
+                </form> 
                 <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
                    <input type="submit" name='stok' class="btn btn-info" value="Eksport Excel"/>
                 </form>    
               </div>
-
               </div>
               <!-- /.card-header -->              
               </div>

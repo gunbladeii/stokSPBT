@@ -28,6 +28,64 @@ $kodJudul = $_POST['kodJudul'];
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
+$d = 1;
+$downloadExcell = $_SERVER['PHP_SELF'];
+
+/*advanced*/
+  if (isset($_POST["stok"]))
+  {
+  $sql = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan,dataSekolah.daerah,dataSekolah.noTelefon,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.kategori,dataSekolah.negeri, rekodPemantauan.kodJudul,dataJudul.judul, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
+  SUM(
+  CASE 
+  WHEN dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuStok > 0  THEN rekodPemantauan.bukuStok
+  WHEN dataSekolah.kategori = 'BOSD' THEN 0   
+  ELSE 0 END) AS bukuStok 
+  FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+  GROUP BY kodJudul,kategori
+  ORDER BY kategori,namaSekolah ASC");          
+
+  if (mysqli_num_rows($sql) > 0)
+    {
+    $output .='
+      <table class="table" border="1">
+        <tr>
+          <th>No.</th>
+          <th>Kod Sekolah</th>
+          <th>Sekolah</th>
+          <th>Kategori</th>
+          <th>Daerah</th>
+          <th>No. Telefon</th>
+          <th>Tarikh Lawatan</th>
+          <th>Bil Naskhah (BOSS/BOSD)</th>
+          <th>Lebihan (BOSS)</th>
+        </tr>   
+      ';
+    while($row = mysqli_fetch_assoc($sql))
+      {
+      $output .='
+        <tr>
+          <td>'.$d++.'</td>
+          <td>'.$row["kodSekolah"]).'</td>
+          <td>'.$row["namaSekolah"]).'</td>
+          <td>'.$row["kategori"].'</td>
+          <td>'.ucfirst($row["daerah"]).'</td>
+          <td>'.$row["noTelefon"].'</td>
+          <td>'.$row["tarikhPemantauan"].'</td>
+          <td>'.$row["bukuLebihan"].'</td>
+          <td>'.$row["bukuStok"].'</td>
+        </tr>     
+        ';    
+      }
+    $output .='</table>';
+    header("Content-Type: application/vnd-ms-excel");
+    header("Content-Disposition: attachment; filename=pemantauanStok".$date.".xls");
+    echo $output;
+      
+    }
+  exit;
+  }
 
 $Recordset2 = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan, dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
   CASE 
@@ -260,6 +318,13 @@ $b = 1;
                    <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
                 </form>    
               </div>
+
+              <div class="card-body p-0">
+                <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
+                   <input type="submit" name='stok' class="btn btn-primary" value="Eksport Excel"/>
+                </form>    
+              </div>
+
               </div>
               <!-- /.card-header -->              
               </div>

@@ -34,7 +34,7 @@ $downloadExcell = $_SERVER['PHP_SELF'];
 /*advanced*/
 if (isset($_POST["stok"]))
   {
-  $sql = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan,dataSekolah.daerah,dataSekolah.noTelefon,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.kategori,dataSekolah.negeri, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
+  $sql = $mysqli->query("SELECT dataSekolah.tarikhPemantauan,dataSekolah.daerah,dataSekolah.noTelefon,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.kategori,dataSekolah.negeri, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
   SUM(
   CASE 
   WHEN dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuStok > 0  THEN rekodPemantauan.bukuStok

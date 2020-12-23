@@ -29,7 +29,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
+$Recordset2 = $mysqli->query("SELECT dataSekolah.tarikhPemantauan,dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
   CASE 
   WHEN (dataJudul.harga * rekodPemantauan.bukuStok) > 0 AND dataSekolah.kategori = 'BOSS' THEN (dataJudul.harga * rekodPemantauan.bukuStok) 
   WHEN (dataJudul.harga * rekodPemantauan.bukuLebihan) > 0 AND dataSekolah.kategori = 'BOSD' THEN (dataJudul.harga * rekodPemantauan.bukuLebihan)
@@ -297,7 +297,7 @@ $b = 1;
                                 <th>Negeri</th>
                                 <th>Kos(RM)</th>
                                 <th>Tindakan</th>
-                                <th>Status</th>
+                                <th>Tarikh Pantau</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -310,7 +310,7 @@ $b = 1;
                                 <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
                                 <td><?php if($dataSekolah['harga'] < 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['harga'];}?></td>
                                 <td><a href="main3.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><i class="far fa-edit"></i></a></td>
-                                <td><i class="far fa-check-circle"></i></td>
+                                <td><?php echo $dataSekolah['tarikhPemantauan'];?></td>
                               </tr>
                               <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
                               </tbody>

@@ -30,10 +30,21 @@ $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 $d = 1;
 $downloadExcell = $_SERVER['PHP_SELF'];
+
 /*advanced*/
-  if (isset($_POST["advanced"]))
+if (isset($_POST["stok"]))
   {
-  $sql = $mysqli->query("SELECT *, MONTHNAME(date) AS month2 FROM testSalary WHERE year='$year' AND month ='$month' AND employeeStatus NOT LIKE 'dump' GROUP BY noIC,month, year ORDER BY stationCode,nama ASC");          
+  $sql = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan,dataSekolah.daerah,dataSekolah.noTelefon,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.kategori,dataSekolah.negeri, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
+  SUM(
+  CASE 
+  WHEN dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuStok > 0  THEN rekodPemantauan.bukuStok
+  WHEN dataSekolah.kategori = 'BOSD' THEN 0   
+  ELSE 0 END) AS bukuStok 
+  FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+  GROUP BY dataSekolah.kodSekolah,dataSekolah.kategori
+  ORDER BY dataSekolah.kategori,dataSekolah.namaSekolah ASC");          
 
   if (mysqli_num_rows($sql) > 0)
     {
@@ -41,14 +52,14 @@ $downloadExcell = $_SERVER['PHP_SELF'];
       <table class="table" border="1">
         <tr>
           <th>No.</th>
-          <th>Name</th>
-          <th>IC</th>
-          <th>Poslaju Branch</th>
-          <th>PIC/Rider</th>
-          <th>Advance 15th</th>
-          <th>Month</th>
-          <th>Date download</th>
-          <th>Remarks</th>
+          <th>Kod Sekolah</th>
+          <th>Sekolah</th>
+          <th>Kategori</th>
+          <th>Daerah</th>
+          <th>No. Telefon</th>
+          <th>Tarikh Lawatan</th>
+          <th>Bil Naskhah (BOSS/BOSD)</th>
+          <th>Lebihan (BOSS)</th>
         </tr>   
       ';
     while($row = mysqli_fetch_assoc($sql))
@@ -56,80 +67,25 @@ $downloadExcell = $_SERVER['PHP_SELF'];
       $output .='
         <tr>
           <td>'.$d++.'</td>
-          <td>'.ucwords(strtolower($row["nama"])).'</td>
-          <td>=TEXT('.str_replace(' ', '', $row["noIC"]).',"0000000")</td>
-          <td>'.$row["stationCode"].'</td>
-          <td>'.ucfirst($row["role"]).'</td>
-          <td>'.$row["advanced"].'</td>
-          <td>'.$row["month2"].'</td>
-          <td>'.$date.'</td>
-          <td>Date of Join: '.$row["dateJoin"].'</td>
+          <td>'.$row["kodSekolah"]).'</td>
+          <td>'.$row["namaSekolah"]).'</td>
+          <td>'.$row["kategori"].'</td>
+          <td>'.$row["daerah"].'</td>
+          <td>'.$row["noTelefon"].'</td>
+          <td>'.$row["tarikhPemantauan"].'</td>
+          <td>'.$row["bukuLebihan"].'</td>
+          <td>'.$row["bukuStok"].'</td>
         </tr>     
         ';    
       }
     $output .='</table>';
     header("Content-Type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=excell_giro_ach_advance_".$date.".xls");
+    header("Content-Disposition: attachment; filename=pemantauanStok".$date.".xls");
     echo $output;
       
     }
   exit;
-  }
-/*advanced*/
-// if (isset($_POST["stok"]))
-//   {
-//   $sql = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan,dataSekolah.daerah,dataSekolah.noTelefon,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.kategori,dataSekolah.negeri, SUM(rekodPemantauan.bukuLebihan) AS bukuLebihan, 
-//   SUM(
-//   CASE 
-//   WHEN dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuStok > 0  THEN rekodPemantauan.bukuStok
-//   WHEN dataSekolah.kategori = 'BOSD' THEN 0   
-//   ELSE 0 END) AS bukuStok 
-//   FROM ((rekodPemantauan 
-//   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
-//   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-//   GROUP BY kodSekolah,kategori
-//   ORDER BY kategori,namaSekolah ASC");          
-
-//   if (mysqli_num_rows($sql) > 0)
-//     {
-//     $output .='
-//       <table class="table" border="1">
-//         <tr>
-//           <th>No.</th>
-//           <th>Kod Sekolah</th>
-//           <th>Sekolah</th>
-//           <th>Kategori</th>
-//           <th>Daerah</th>
-//           <th>No. Telefon</th>
-//           <th>Tarikh Lawatan</th>
-//           <th>Bil Naskhah (BOSS/BOSD)</th>
-//           <th>Lebihan (BOSS)</th>
-//         </tr>   
-//       ';
-//     while($row = mysqli_fetch_assoc($sql))
-//       {
-//       $output .='
-//         <tr>
-//           <td>'.$d++.'</td>
-//           <td>'.$row["kodSekolah"]).'</td>
-//           <td>'.$row["namaSekolah"]).'</td>
-//           <td>'.$row["kategori"].'</td>
-//           <td>'.$row["daerah"].'</td>
-//           <td>'.$row["noTelefon"].'</td>
-//           <td>'.$row["tarikhPemantauan"].'</td>
-//           <td>'.$row["bukuLebihan"].'</td>
-//           <td>'.$row["bukuStok"].'</td>
-//         </tr>     
-//         ';    
-//       }
-//     $output .='</table>';
-//     header("Content-Type: application/vnd-ms-excel");
-//     header("Content-Disposition: attachment; filename=pemantauanStok".$date.".xls");
-//     echo $output;
-      
-//     }
-//   exit;
-//   }  
+  }  
 
 $Recordset2 = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan, dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
   CASE 

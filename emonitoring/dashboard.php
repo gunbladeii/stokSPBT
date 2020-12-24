@@ -307,7 +307,7 @@ $b = 1;
                     <button class="btn btn-outline-success me-2" type="button">Bersih Data</button>
                   </form>
                   <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-                    <button class="btn btn-outline-info me-2" type="button">Export Excel</button>
+                    <button class="btn btn-outline-info me-2" type="submit" name="stok">Export Excel</button>
                   </form>
                   </div>
                 </nav>

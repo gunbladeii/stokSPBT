@@ -72,7 +72,7 @@ if (isset($_POST["stok"]))
       }
     $output .='</table>';
     header("Content-Type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=excell_giro_ach_advance_".$date.".xls");
+    header("Content-Disposition: attachment; filename=dataStokMySPBT_".$date.".xls");
     echo $output;
       
     }

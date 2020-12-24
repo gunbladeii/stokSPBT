@@ -302,12 +302,14 @@ $b = 1;
        <section class="content">
        
                 <nav class="navbar navbar-light bg-light">
-                  <form class="container-fluid justify-content-start" method="post" action="dashboard.php">
+                  <div class="container-fluid justify-content-start">
+                  <form method="post" action="dashboard.php">
                     <button class="btn btn-outline-success me-2" type="button">Bersih Data</button>
                   </form>
-                  <form class="container-fluid justify-content-start" action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
+                  <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
                     <button class="btn btn-outline-info me-2" type="button">Export Excel</button>
                   </form>
+                  </div>
                 </nav>
            
 

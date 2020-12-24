@@ -304,7 +304,7 @@ $b = 1;
                 <nav class="navbar navbar-light bg-light">
                   <div class="container-fluid justify-content-start">
                   <form method="post" action="dashboard.php">
-                    <button class="btn btn-outline-success me-2" type="button">Bersih Data</button>
+                    <button class="btn btn-outline-success me-2" type="submit" name="delete">Bersih Data</button>
                   </form>
                   <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
                     <button class="btn btn-outline-info me-2" type="submit" name="stok">Export Excel</button>

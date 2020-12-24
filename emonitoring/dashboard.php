@@ -301,28 +301,16 @@ $b = 1;
 
        <section class="content">
         <div id="row">
-        <div class="col-md-12">
-           <!-- TABLE: list of publisherSPBT -->
-            <div class="card">
-              <div class="card-header border-transparent">
-                
-                <div class="container px-5 py-5">
-                    <div class="col mx-1"> 
-                    <form method="post" action="dashboard.php">
-                       <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
-                    </form>
-                    </div>
-
-                    <div class="col mx-1"> 
-                    <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-                       <input type="submit" name='stok' class="btn btn-info" value="Eksport Excel"/>
-                    </form>
-                    </div> 
-                
-              </div>
-              </div>
-              <!-- /.card-header -->              
-              </div>
+            <div class="col-md-12">
+                <nav class="navbar navbar-light bg-light">
+                  <form class="container-fluid justify-content-start" method="post" action="dashboard.php">
+                    <button class="btn btn-outline-success me-2" type="button">Bersih Data</button>
+                  </form>
+                  <form class="container-fluid justify-content-start" action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
+                    <button class="btn btn-outline-info me-2" type="button">Export Excel</button>
+                  </form>
+                </nav>
+            </div>
          </div>
 
 

@@ -300,8 +300,7 @@ $b = 1;
       </section>
 
        <section class="content">
-        <div id="row">
-            <div class="col-md-12">
+       
                 <nav class="navbar navbar-light bg-light">
                   <form class="container-fluid justify-content-start" method="post" action="dashboard.php">
                     <button class="btn btn-outline-success me-2" type="button">Bersih Data</button>
@@ -310,8 +309,7 @@ $b = 1;
                     <button class="btn btn-outline-info me-2" type="button">Export Excel</button>
                   </form>
                 </nav>
-            </div>
-         </div>
+           
 
 
         <div id="row">

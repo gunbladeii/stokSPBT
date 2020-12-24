@@ -306,12 +306,19 @@ $b = 1;
             <div class="card">
               <div class="card-header border-transparent">
                 <div class="card-body p-0">
-                <form method="post" action="dashboard.php">
-                   <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
-                </form> 
-                <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-                   <input type="submit" name='stok' class="btn btn-info" value="Eksport Excel"/>
-                </form>    
+                <div class="container px-5 py-5">
+                    <div class="col mx-1"> 
+                    <form method="post" action="dashboard.php">
+                       <input type="submit" class="btn btn-primary" name="delete" value="Bersih data"/>
+                    </form>
+                    </div>
+                    
+                    <div class="col mx-1"> 
+                    <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
+                       <input type="submit" name='stok' class="btn btn-info" value="Eksport Excel"/>
+                    </form>
+                    </div> 
+                </div>   
               </div>
               </div>
               <!-- /.card-header -->              

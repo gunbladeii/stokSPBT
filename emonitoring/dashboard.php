@@ -34,7 +34,7 @@ $downloadExcell = $_SERVER['PHP_SELF'];
 /*advanced*/
 if (isset($_POST["advanced"]))
   {
-  $sql = $mysqli->query("SELECT *, MONTHNAME(date) AS month2 FROM testSalary WHERE year='$year' AND month ='$month' AND employeeStatus NOT LIKE 'dump' GROUP BY noIC,month, year ORDER BY stationCode,nama ASC");          
+  $sql = $mysqli->query("SELECT * FROM eksportExcel");          
 
   if (mysqli_num_rows($sql) > 0)
     {

@@ -32,7 +32,7 @@ $d = 1;
 $downloadExcell = $_SERVER['PHP_SELF'];
 
 /*advanced*/
-if (isset($_POST["advanced"]))
+if (isset($_POST["stok"]))
   {
   $sql = $mysqli->query("SELECT * FROM eksportExcel");          
 

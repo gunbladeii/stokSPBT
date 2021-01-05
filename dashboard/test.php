@@ -174,7 +174,7 @@ $b = 1;
     <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
 
     <!-- azia CSS -->
-    <link rel="stylesheet" href="../css/azia.css">
+    <link rel="stylesheet" href="css/azia.css">
 
   </head>
   <body>

@@ -170,7 +170,7 @@ $b = 1;
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.php" class="nav-link">Halaman utama</a>
+        <a href="../index.php" class="nav-link">Halaman utama</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"></a>
@@ -194,12 +194,12 @@ $b = 1;
 
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="index.php">
+        <a class="nav-link" data-toggle="dropdown" href="../index.php">
           <i class="far fa-times-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="index.php" class="dropdown-item dropdown-footer">Logout</a>
+          <a href="../index.php" class="dropdown-item dropdown-footer">Logout</a>
         </div>
       </li>
      

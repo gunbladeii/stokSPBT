@@ -165,7 +165,7 @@ $b = 1;
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
     <meta name="author" content="BootstrapDash">
 
-    <title>Azia Responsive Bootstrap 4 Dashboard Template</title>
+    <title>mySPBT 2.0 | Dashboard</title>
 
     <!-- vendor css -->
     <link href="lib/fontawesome-free/css/all.min.css" rel="stylesheet">

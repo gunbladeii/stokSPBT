@@ -204,183 +204,180 @@ $b = 1;
 
      <section class="content">
 
-                <!-- <nav class="navbar navbar-light bg-light">
-                  <div class="container-fluid justify-content-start">
-                  <form method="post" action="dashboard.php">
-                    <button class="btn btn-outline-success me-2" type="submit" name="delete">Bersih Data</button>
-                  </form>
-                  <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-                    <button class="btn btn-outline-info me-2" type="submit" name="stok">Export Excel</button>
-                  </form>
-                  </div>
-                </nav> -->
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid justify-content-start">
+          <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
+            <button class="btn btn-outline-info me-2" type="submit" name="stok">Export Excel</button>
+          </form>
+        </div>
+      </nav>
 
 
 
-                <div id="row">
-                  <div class="col-md-12">
-                   <!-- TABLE: list of publisherSPBT -->
-                   <div class="card">
-                    <div class="card-header border-transparent">
-                      <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai sekolah selesai pemantauan</h3>
-                      <h2 class="card-title" style="font-size:14px;">(Kemaskini sehingga <?php echo $date.' '.$time;?>)</h2>
+      <div id="row">
+        <div class="col-md-12">
+         <!-- TABLE: list of publisherSPBT -->
+         <div class="card">
+          <div class="card-header border-transparent">
+            <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai sekolah selesai pemantauan</h3>
+            <h2 class="card-title" style="font-size:14px;">(Kemaskini sehingga <?php echo $date.' '.$time;?>)</h2>
 
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-widget="collapse">
-                          <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-widget="remove">
-                          <i class="fas fa-times"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body p-0">
-                      <?php if($dataSekolah > 0) {?>
-                        <div class="table-responsive">
-                          <table id="example1" class="table m-0">
-                            <thead>
-                              <tr>
-                                <th>No</th>
-                                <th>Kod Sekolah</th>
-                                <th>Nama Sekolah</th>
-                                <th>Kategori</th>
-                                <th>Negeri</th>
-                                <th>Tarikh Pantau</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <?php do {?>
-                                <tr>
-                                  <td><?php echo $a++;?></td>
-                                  <td><a href="#"><span class="badge badge-info"><?php echo strtoupper($dataSekolah['kodSekolah']);?></span></a></td>
-                                  <td><?php echo $dataSekolah['namaSekolah'];?></td>
-                                  <td><?php echo $dataSekolah['kategori'];?></td>
-                                  <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
-                                  <td><?php echo $dataSekolah['tarikhPemantauan'];?></td>
-                                </tr>
-                              <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
-                            </tbody>
-                          </table>
-                        </div>
-                        <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body p-0">
+            <?php if($dataSekolah > 0) {?>
+              <div class="table-responsive">
+                <table id="example1" class="table m-0">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Kod Sekolah</th>
+                      <th>Nama Sekolah</th>
+                      <th>Kategori</th>
+                      <th>Negeri</th>
+                      <th>Tarikh Pantau</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php do {?>
+                      <tr>
+                        <td><?php echo $a++;?></td>
+                        <td><a href="#"><span class="badge badge-info"><?php echo strtoupper($dataSekolah['kodSekolah']);?></span></a></td>
+                        <td><?php echo $dataSekolah['namaSekolah'];?></td>
+                        <td><?php echo $dataSekolah['kategori'];?></td>
+                        <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
+                        <td><?php echo $dataSekolah['tarikhPemantauan'];?></td>
+                      </tr>
+                    <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
+                  </tbody>
+                </table>
+              </div>
+              <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
 
-                        <!-- /.table-responsive -->
-                      </div>
-                    </div>
-                  </div>
+              <!-- /.table-responsive -->
+            </div>
+          </div>
+        </div>
 
-                  <div id="row">
-                    <div class="col-md-12">
-                     <!-- TABLE: list of publisherSPBT -->
-                     <div class="card">
-                      <div class="card-header border-transparent">
-                        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai judul yang dipantau</h3>
-                        <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+        <div id="row">
+          <div class="col-md-12">
+           <!-- TABLE: list of publisherSPBT -->
+           <div class="card">
+            <div class="card-header border-transparent">
+              <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai judul yang dipantau</h3>
+              <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                          </button>
-                          <button type="button" class="btn btn-tool" data-widget="remove">
-                            <i class="fas fa-times"></i>
-                          </button>
-                        </div>
-                      </div>
-                      <!-- /.card-header -->
-                      <div class="card-body p-0">
-                        <?php if($rekodPemantauan3 > 0) {?>
-                          <div class="table-responsive">
-                            <table id="example3" class="table m-0">
-                              <thead>
-                                <tr>
-                                  <th>No</th>
-                                  <th>Kod Judul</th>
-                                  <th>Nama Judul</th>
-                                  <th>Lokasi</th>
-                                  <th>Bil Naskhah (BOSS/BOSD)</th>
-                                  <th>Lebihan (BOSS)</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <?php do {?>
-                                  <tr>
-                                    <td><?php echo $b++;?></td>
-                                    <td><a href="#"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan3['kodJudul']);?></span></a></td>
-                                    <td><?php echo $rekodPemantauan3['judul'];?></td>
-                                    <td><?php echo $rekodPemantauan3['kategori'];?></td>
-                                    <td><?php echo $rekodPemantauan3['bukuLebihan'];?></td>
-                                    <td><?php if($rekodPemantauan3['bukuStok'] > 0){echo $rekodPemantauan3["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>
-                                  </tr>
-                                <?php } while ($rekodPemantauan3 = mysqli_fetch_assoc($Recordset5)); ?>
-                              </tbody>
-                            </table>
-                          </div>
-                          <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <?php if($rekodPemantauan3 > 0) {?>
+                <div class="table-responsive">
+                  <table id="example3" class="table m-0">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Kod Judul</th>
+                        <th>Nama Judul</th>
+                        <th>Lokasi</th>
+                        <th>Bil Naskhah (BOSS/BOSD)</th>
+                        <th>Lebihan (BOSS)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php do {?>
+                        <tr>
+                          <td><?php echo $b++;?></td>
+                          <td><a href="#"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan3['kodJudul']);?></span></a></td>
+                          <td><?php echo $rekodPemantauan3['judul'];?></td>
+                          <td><?php echo $rekodPemantauan3['kategori'];?></td>
+                          <td><?php echo $rekodPemantauan3['bukuLebihan'];?></td>
+                          <td><?php if($rekodPemantauan3['bukuStok'] > 0){echo $rekodPemantauan3["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>
+                        </tr>
+                      <?php } while ($rekodPemantauan3 = mysqli_fetch_assoc($Recordset5)); ?>
+                    </tbody>
+                  </table>
+                </div>
+                <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
 
-                          <!-- /.table-responsive -->
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-
-
-
-                  <!-- jQuery -->
-                  <script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>
-                  <!-- jQuery UI 1.11.4 -->
-                  <script src="../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
-                  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-                  <script>
-                    $.widget.bridge('uibutton', $.ui.button)
-                  </script>
-                  <!-- Bootstrap 4 -->
-                  <script src="../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                  <!-- ChartJS -->
-                  <script src="../adminSPBT/plugins/chart.js/Chart.min.js"></script>
-                  <!-- Sparkline -->
-                  <script src="../adminSPBT/plugins/sparklines/sparkline.js"></script>
-                  <!-- JQVMap -->
-                  <script src="../adminSPBT/plugins/jqvmap/jquery.vmap.min.js"></script>
-                  <script src="../adminSPBT/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
-                  <!-- jQuery Knob Chart -->
-                  <script src="../adminSPBT/plugins/jquery-knob/jquery.knob.min.js"></script>
-                  <!-- daterangepicker -->
-                  <script src="../adminSPBT/plugins/moment/moment.min.js"></script>
-                  <script src="../adminSPBT/plugins/daterangepicker/daterangepicker.js"></script>
-                  <!-- Tempusdominus Bootstrap 4 -->
-                  <script src="../adminSPBT/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-                  <!-- Summernote -->
-                  <script src="../adminSPBT/plugins/summernote/summernote-bs4.min.js"></script>
-                  <!-- overlayScrollbars -->
-                  <script src="../adminSPBT/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-                  <!-- FastClick -->
-                  <script src="../adminSPBT/plugins/fastclick/fastclick.js"></script>
-                  <!-- AdminLTE App -->
-                  <script src="../adminSPBT/dist/js/adminlte.js"></script>
-                  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-                  <script src="../adminSPBT/dist/js/pages/dashboard.js"></script>
-                  <!-- AdminLTE for demo purposes -->
-                  <script src="../adminSPBT/dist/js/demo.js"></script>
-
-                  <script
-                  src="https://code.jquery.com/jquery-3.4.1.min.js"
-                  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-                  crossorigin="anonymous"></script>
-                  <script type="text/javascript">
-                    $(document).ready(function() {
-
-                      $('#showJudulList').load('showJudulList.php');
-                      $('#showUserList').load('showUserList.php'); 
-                      setInterval(function () {
-                        $('#dashboard').load('dashboard_view.php')
-                        $('#dashboard2').load('dashboard_view2.php')
-                      }, 5000);
+                <!-- /.table-responsive -->
+              </div>
+            </div>
+          </div>
+        </section>
 
 
-                    });
-                  </script>
-                  <script type="text/javascript">
+
+        <!-- jQuery -->
+        <script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+          $.widget.bridge('uibutton', $.ui.button)
+        </script>
+        <!-- Bootstrap 4 -->
+        <script src="../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="../adminSPBT/plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="../adminSPBT/plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="../adminSPBT/plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="../adminSPBT/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="../adminSPBT/plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="../adminSPBT/plugins/moment/moment.min.js"></script>
+        <script src="../adminSPBT/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="../adminSPBT/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="../adminSPBT/plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="../adminSPBT/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- FastClick -->
+        <script src="../adminSPBT/plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../adminSPBT/dist/js/adminlte.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="../adminSPBT/dist/js/pages/dashboard.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../adminSPBT/dist/js/demo.js"></script>
+
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script type="text/javascript">
+          $(document).ready(function() {
+
+            $('#showJudulList').load('showJudulList.php');
+            $('#showUserList').load('showUserList.php'); 
+            setInterval(function () {
+              $('#dashboard').load('dashboard_view.php')
+              $('#dashboard2').load('dashboard_view2.php')
+            }, 5000);
+
+
+          });
+        </script>
+        <script type="text/javascript">
             //jQuery extension method:
             jQuery.fn.filterByText = function(textbox) {
               return this.each(function() {

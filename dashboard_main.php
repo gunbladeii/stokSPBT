@@ -482,8 +482,8 @@ function filterFunction() {
 }
 </script>
 <!-- DataTables -->
-<script src="jquery.dataTables.js"></script>
-<script src="dataTables.bootstrap4.js"></script>
+<script src="emonitoring/jquery.dataTables.js"></script>
+<script src="emonitoring/dataTables.bootstrap4.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable();

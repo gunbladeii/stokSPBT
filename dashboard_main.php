@@ -159,7 +159,7 @@ $b = 1;
   <!-- chart.js plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body>
 
 
   <!-- Navbar -->

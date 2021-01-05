@@ -241,7 +241,7 @@ $b = 1;
 
        <section class="content">
        
-                <nav class="navbar navbar-light bg-light">
+                <!-- <nav class="navbar navbar-light bg-light">
                   <div class="container-fluid justify-content-start">
                   <form method="post" action="dashboard.php">
                     <button class="btn btn-outline-success me-2" type="submit" name="delete">Bersih Data</button>
@@ -250,7 +250,7 @@ $b = 1;
                     <button class="btn btn-outline-info me-2" type="submit" name="stok">Export Excel</button>
                   </form>
                   </div>
-                </nav>
+                </nav> -->
            
 
 
@@ -260,7 +260,7 @@ $b = 1;
             <div class="card">
               <div class="card-header border-transparent">
                 <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai sekolah selesai pemantauan</h3>
-                <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
+                <h2 class="card-title" style="font-size:14px;">(Kemaskini sehingga <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">
@@ -280,7 +280,6 @@ $b = 1;
                               <tr>
                                 <th>No</th>
                                 <th>Kod Sekolah</th>
-                                <th>Tindakan</th>
                                 <th>Nama Sekolah</th>
                                 <th>Kategori</th>
                                 <th>Negeri</th>
@@ -291,8 +290,7 @@ $b = 1;
                               <?php do {?>
                               <tr>
                                 <td><?php echo $a++;?></td>
-                                <td><a href="main4.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><span class="badge badge-info"><?php echo strtoupper($dataSekolah['kodSekolah']);?></span></a></td>
-                                <td><a href="main3.php?kodSekolah=<?php echo $dataSekolah['kodSekolah'];?>"><i class="far fa-edit"></i></a></td>
+                                <td><a href="#"><span class="badge badge-info"><?php echo strtoupper($dataSekolah['kodSekolah']);?></span></a></td>
                                 <td><?php echo $dataSekolah['namaSekolah'];?></td>
                                 <td><?php echo $dataSekolah['kategori'];?></td>
                                 <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
@@ -345,7 +343,7 @@ $b = 1;
                               <?php do {?>
                               <tr>
                                 <td><?php echo $b++;?></td>
-                                <td><a href="dashboard2.php?kodJudul=<?php echo $rekodPemantauan3['kodJudul'];?>"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan3['kodJudul']);?></span></a></td>
+                                <td><a href="#"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan3['kodJudul']);?></span></a></td>
                                 <td><?php echo $rekodPemantauan3['judul'];?></td>
                                 <td><?php echo $rekodPemantauan3['kategori'];?></td>
                                 <td><?php echo $rekodPemantauan3['bukuLebihan'];?></td>

@@ -160,7 +160,7 @@ $b = 1;
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
@@ -365,8 +365,7 @@ $b = 1;
               </div>
           </section>
 
-</div>
-<!-- ./wrapper -->
+
 
 <!-- jQuery -->
 <script src="adminSPBT/plugins/jquery/jquery.min.js"></script>

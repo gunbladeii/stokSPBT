@@ -540,8 +540,6 @@ $b = 1;
         $('#dashboard').load('dashboard_view.php')
         $('#dashboard2').load('dashboard_view2.php')
       }, 5000);
-
-
     });
   </script>
   <script>

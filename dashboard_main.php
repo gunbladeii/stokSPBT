@@ -284,7 +284,6 @@ $b = 1;
                                 <th>Nama Sekolah</th>
                                 <th>Kategori</th>
                                 <th>Negeri</th>
-                                <th>Kos(RM)</th>
                                 <th>Tarikh Pantau</th>
                               </tr>
                               </thead>
@@ -297,7 +296,6 @@ $b = 1;
                                 <td><?php echo $dataSekolah['namaSekolah'];?></td>
                                 <td><?php echo $dataSekolah['kategori'];?></td>
                                 <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
-                                <td><?php if($dataSekolah['harga'] < 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['harga'];}?></td>
                                 <td><?php echo $dataSekolah['tarikhPemantauan'];?></td>
                               </tr>
                               <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>

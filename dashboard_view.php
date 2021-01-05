@@ -101,17 +101,4 @@ $year = date('Y');
             </div>
           </div>
           <!-- ./col -->
-          <div class="col mx-1">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                 <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['id'])){echo $RID5['harga'];}else{echo 0;} ?></h3>
-                <p>Kos (Lebihan di BOSS)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+          

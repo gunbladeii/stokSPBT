@@ -66,7 +66,7 @@ if (isset($_POST["stok"]))
     header("Content-Type: application/vnd-ms-excel");
     header("Content-Disposition: attachment; filename=dataStokMySPBT_".$date.".xls");
     echo $output;
-    
+
   }
   exit;
 }
@@ -128,7 +128,7 @@ $b = 1;
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>mySPBT 2.0 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
@@ -163,46 +163,12 @@ $b = 1;
 
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
+  <nav class="navbar navbar-light bg-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="../../index.php" class="nav-link">Halaman utama</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link"></a>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-
-      <!-- Exit -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="../../index.php">
-          <i class="far fa-times-circle"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <div class="dropdown-divider"></div>
-          <a href="../../index.php" class="dropdown-item dropdown-footer">Logout</a>
-        </div>
-      </li>
-      
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -219,7 +185,7 @@ $b = 1;
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    
+
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
@@ -234,7 +200,7 @@ $b = 1;
      </section>
 
      <section class="content">
-       
+
                 <!-- <nav class="navbar navbar-light bg-light">
                   <div class="container-fluid justify-content-start">
                   <form method="post" action="dashboard.php">
@@ -245,7 +211,7 @@ $b = 1;
                   </form>
                   </div>
                 </nav> -->
-                
+
 
 
                 <div id="row">
@@ -295,7 +261,7 @@ $b = 1;
                           </table>
                         </div>
                         <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
-                        
+
                         <!-- /.table-responsive -->
                       </div>
                     </div>
@@ -348,7 +314,7 @@ $b = 1;
                             </table>
                           </div>
                           <?php ;}else {echo 'Tiada rekod sekolah dipantau setakat ini';}?>
-                          
+
                           <!-- /.table-responsive -->
                         </div>
                       </div>
@@ -400,7 +366,7 @@ $b = 1;
                   crossorigin="anonymous"></script>
                   <script type="text/javascript">
                     $(document).ready(function() {
-                      
+
                       $('#showJudulList').load('showJudulList.php');
                       $('#showUserList').load('showUserList.php'); 
                       setInterval(function () {
@@ -408,7 +374,7 @@ $b = 1;
                         $('#dashboard2').load('dashboard_view2.php')
                       }, 5000);
 
-                      
+
                     });
                   </script>
                   <script type="text/javascript">

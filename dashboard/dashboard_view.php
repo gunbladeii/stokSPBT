@@ -1,4 +1,4 @@
-<?php require('conn.php'); ?>
+<?php require('../conn.php'); ?>
 <?php
 
 $colname_Recordset = "-1";

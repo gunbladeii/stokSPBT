@@ -1,4 +1,4 @@
-<?php require('conn.php'); ?>
+<?php require('../conn.php'); ?>
 <?php
 
 date_default_timezone_set("asia/kuala_lumpur");

@@ -526,10 +526,7 @@ $b = 1;
   <script src="js/chart.flot.sampledata.js"></script>
   <script src="js/dashboard.sampledata.js"></script>
   <script src="js/jquery.cookie.js" type="text/javascript"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  
   <script type="text/javascript">
     $(document).ready(function() {
 

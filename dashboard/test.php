@@ -197,7 +197,7 @@ $b = 1;
                 <div class="card-header">
                   <div>
                     <h6 class="card-title">Status Pemantauan BOSS Seluruh Negara</h6>
-                    <p class="card-text">Audience to which the users belonged while on the current date range.</p>
+                    <p class="card-text">(Kemaskini sehingga <?php echo $date.' '.$time;?>)</p>
                   </div>
                 </div><!-- card-header -->
                 <div class="card-body">

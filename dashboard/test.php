@@ -172,7 +172,7 @@ $b = 1;
     <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="lib/typicons.font/typicons.css" rel="stylesheet">
     <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../adminSPBT/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- azia CSS -->
     <link rel="stylesheet" href="css/azia.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

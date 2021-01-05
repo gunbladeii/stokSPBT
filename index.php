@@ -102,7 +102,7 @@ if(isset($_POST["submit"]))
 <body class="hold-transition login-page">
 
   <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid justify-content-start">
+    <div class="container-fluid justify-content-start" style="text-align: center">
       <a class="btn btn-outline-info me-2" href="dashboard/dashboard_main.php" name="stok">Paparan <em>Dashboard</em></a>
     </div>
   </nav>

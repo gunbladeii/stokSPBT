@@ -35,7 +35,7 @@ $year = date('Y');
     $a=1;
 ?>
 
-                        <form method="post" action="delJudul.php" role="form" enctype="multipart/form-data">
+                        <form method="post" action="delJudul.php" enctype="multipart/form-data">
                             <div> Anda pasti untuk hapus rekod?</div>
                             <input type="hidden" name="id" value="<?php echo $id;?>">
                             <input type="hidden" name="kodSekolah" value="<?php echo $kodSekolah;?>">

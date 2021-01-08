@@ -12,6 +12,7 @@ if (isset($_SESSION['user'])) {
 $id = $_GET['id'];
 $kodSekolah = $_GET['kodSekolah'];
 $bukuLebihan = $_POST['bukuLebihan'];
+$kodSekolah2 = $_POST['kodSekolah'];
 $id2 = $_POST['id'];
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
@@ -77,6 +78,7 @@ $a=1;
 </div>
 
 <input type="hidden" name="id" value="<?php echo $id;?>"/>
+<input type="hidden" name="kodSekolah" value="<?php echo $kodSekolah;?>">
 <div class="modal-footer">
  <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
 </div>

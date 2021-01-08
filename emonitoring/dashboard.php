@@ -94,18 +94,9 @@ $Recordset2 = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$belumPantau = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan, dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
-  CASE 
-  WHEN (dataJudul.harga * rekodPemantauan.bukuStok) > 0 AND dataSekolah.kategori = 'BOSS' THEN (dataJudul.harga * rekodPemantauan.bukuStok) 
-  WHEN (dataJudul.harga * rekodPemantauan.bukuLebihan) > 0 AND dataSekolah.kategori = 'BOSD' THEN (dataJudul.harga * rekodPemantauan.bukuLebihan)
-  ELSE 0 
-  END),2)) AS harga
-  FROM 
-  ((rekodPemantauan
-  INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
-  INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
-  WHERE dataSekolah.remark = 'not observed'
-  GROUP BY dataSekolah.kodSekolah");
+$belumPantau = $mysqli->query("SELECT dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori
+  FROM dataSekolah
+  WHERE dataSekolah.remark = 'not observed'");
 $dataSekolah2 = mysqli_fetch_assoc($belumPantau);
 $totalRows_belumPantau = mysqli_num_rows($belumPantau);
 
@@ -391,7 +382,7 @@ $b = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai sekolah selesai pemantauan</h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai sekolah belum selesai pemantauan</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">
@@ -407,7 +398,7 @@ $b = 1;
               <div class="card-body p-0">
                         <?php if($dataSekolah2 > 0) {?>
                           <div class="table-responsive">
-                            <table id="example1" class="table m-0">
+                            <table id="example4" class="table m-0">
                               <thead>
                               <tr>
                                 <th>No</th>
@@ -616,6 +607,7 @@ function filterFunction() {
   $(function () {
     $("#example1").DataTable();
     $("#example3").DataTable();
+    $("#example4").DataTable();
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,

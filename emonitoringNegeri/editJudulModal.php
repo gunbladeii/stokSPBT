@@ -30,7 +30,11 @@ if (isset($_POST['submit'])) {
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan FROM rekodPemantauan INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul WHERE rekodPemantauan.id = '$id'");
+$Recordset4 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.namaSekolah,rekodPemantauan.id, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan 
+  FROM ((rekodPemantauan 
+  INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
+  INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah) 
+  WHERE rekodPemantauan.id = '$id'");
 $ReID = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset4);
 $a=1;
@@ -38,6 +42,12 @@ $a=1;
 
 <form method="post" action="editJudulModal.php" role="form" enctype="multipart/form-data">
  <div class="form-group"> 
+  Nama Sekolah: <?php echo ($ReID['namaSekolah']);?>
+</div>
+<div class="form-group"> 
+  Jenis Bilik Operasi: <?php echo ($ReID['kategori']);?>
+</div>
+<div class="form-group"> 
   Kod Judul: <?php echo ($ReID['kodJudul']);?>
 </div>
 

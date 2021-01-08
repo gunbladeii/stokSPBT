@@ -38,7 +38,7 @@ $a=1;
 
 <form method="post" action="editJudulModal.php" role="form" enctype="multipart/form-data">
  <div class="form-group"> 
-  Kod Judul: <?php echo strtoupper($kodJudul);?>
+  Kod Judul: <?php echo ($ReID['kodJudul']);?>
 </div>
 
 <div class="form-group"> 

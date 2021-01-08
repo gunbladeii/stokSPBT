@@ -377,57 +377,7 @@ $b = 1;
               </div>
               </div>
 
-              <div id="row">
-        <div class="col-md-12">
-           <!-- TABLE: list of publisherSPBT -->
-            <div class="card">
-              <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Senarai sekolah belum selesai pemantauan</h3>
-                <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                        <?php if($dataSekolah2 > 0) {?>
-                          <div class="table-responsive">
-                            <table id="example4" class="table m-0">
-                              <thead>
-                              <tr>
-                                <th>No</th>
-                                <th>Kod Sekolah</th>
-                                <th>Nama Sekolah</th>
-                                <th>Kategori</th>
-                                <th>Negeri</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <?php do {?>
-                              <tr>
-                                <td><?php echo $a++;?></td>
-                                <td><a href="main2.php?kodSekolah=<?php echo $dataSekolah2['kodSekolah'];?>"><span class="badge badge-info"><?php echo strtoupper($dataSekolah2['kodSekolah']);?></span></a></td>
-                                <td><a href="main3.php?kodSekolah=<?php echo $dataSekolah2['kodSekolah'];?>"><i class="far fa-edit"></i></a></td>
-                                <td><?php echo $dataSekolah2['namaSekolah'];?></td>
-                                <td><?php echo $dataSekolah2['kategori'];?></td>
-                                <td><?php echo strtoupper($dataSekolah2['negeri']);?></td>
-                              </tr>
-                              <?php } while ($dataSekolah2 = mysqli_fetch_assoc($belumPantau)); ?>
-                              </tbody>
-                            </table>
-                          </div>
-                      <?php ;}else {echo 'Tiada rekod setakat ini';}?>
-        
-                <!-- /.table-responsive -->
-              </div>
-              </div>
-              </div>
+              
 
               <div id="row">
         <div class="col-md-12">

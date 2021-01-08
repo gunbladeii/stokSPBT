@@ -1,36 +1,42 @@
-<?php session_start();?>
+<?php require('conn.php'); ?>
 <?php
-require('conn.php');
-$kodJudul = $_GET['kodJudul'];
+if (!isset($_SESSION)) {
+  session_start();
+}
+
+$colname_Recordset = "-1";
+if (isset($_SESSION['user'])) {
+  $colname_Recordset = $_SESSION['user'];
+}
+
+$id = $_GET['id'];
 $kodSekolah = $_GET['kodSekolah'];
-date_default_timezone_set("asia/kuala_lumpur"); 
-$date = date('Y-m-d');
-
-
-$kodSekolah2 = $_POST['kodSekolah'];
-$namaSekolah = $_POST['namaSekolah'];
 $bukuLebihan = $_POST['bukuLebihan'];
-$bukuStok = $_POST['bukuStok'];
-$kodJudul2 = $_POST['kodJudul'];
+$id2 = $_POST['id'];
 
+$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+$row_Recordset = mysqli_fetch_assoc($Recordset);
+$totalRows_Recordset = mysqli_num_rows($Recordset);
+
+
+date_default_timezone_set("asia/kuala_lumpur"); 
+$date = date('Y-m-d'); 
+$time = date('H:i:s');
+$year = date('Y');
 
 
 if (isset($_POST['submit'])) {
-  $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`,`bukuStok`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul2','$bukuLebihan','$bukuStok')");
+  $mysqli->query ("UPDATE `rekodPemantauan` SET bukuLebihan = '$bukuLebihan' WHERE `id` = '$id2'");
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 
-$id2 = $mysqli->query("SELECT * FROM `dataJudul` WHERE kodJudul =  '$kodJudul'");
-$ReID = mysqli_fetch_assoc($id2);
-
-$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE kodSekolah LIKE '$kodSekolah'");
-$dataSekolah = mysqli_fetch_assoc($Recordset2);
-$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
-
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan FROM rekodPemantauan INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul WHERE id = '$id'");
+$ReID = mysqli_fetch_assoc($Recordset4);
+$totalRows_Recordset3 = mysqli_num_rows($Recordset4);
+$a=1;
 ?>
 
-
-<form method="post" action="judulModal.php" role="form" enctype="multipart/form-data">
+<form method="post" action="editJudulModal.php" role="form" enctype="multipart/form-data">
  <div class="form-group"> 
   Kod Judul: <?php echo strtoupper($kodJudul);?>
 </div>
@@ -42,7 +48,7 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 <div class="form-group"> 
   Jumlah Naskhah (buku elok):
   <div class="input-group mb-3">
-    <input type="text" name="bukuLebihan" class="form-control"  id="bukuLebihan" value="" required>
+    <input type="text" name="bukuLebihan" class="form-control"  id="bukuLebihan" value="<?php echo $ReID['bukuLebihan'];?>" required>
     <input type="hidden" id="bukuWajib" value="3">
     <div class="input-group-append input-group-text">
       <span class="fas fa-book"></span>
@@ -60,10 +66,7 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 </div>
 </div>
 
-<input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>"/>
-<input type="hidden" name="namaSekolah" value="<?php echo $dataSekolah['namaSekolah'];?>"/>
-<input type="hidden" name="kodJudul" value="<?php echo $ReID['kodJudul'];?>"/>
-<input type="hidden" name="namaSekolah" value="<?php echo $dataSekolah['namaSekolah'];?>"/>
+<input type="hidden" name="id" value="<?php echo $id;?>"/>
 <div class="modal-footer">
  <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
 </div>
@@ -86,7 +89,7 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
       {
         document.getElementById('bukuStok').value = result;
       }
-      
+
     }
   });
 </script>

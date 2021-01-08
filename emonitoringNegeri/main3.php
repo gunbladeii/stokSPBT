@@ -517,7 +517,7 @@ $a = 1;
                         <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
                         <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
                         <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
-                        <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan['id'];?>" data-whatever6="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
+                        <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan2['id'];?>" data-whatever6="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
                       </tr>
                     <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
                     <tr>

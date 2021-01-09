@@ -64,93 +64,93 @@ $a = 1;
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <!-- Begin salary modal -->
-  <div class="modal fade" id="editKodJudul">
-    <div class="modal-dialog">
-      <div class="modal-content bg-light">
-        <div class="modal-header">
-          <h4 class="modal-title">Pengesahan</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <div class="dash"></div>
-          </div>
+<div class="modal fade" id="editKodJudul">
+  <div class="modal-dialog">
+    <div class="modal-content bg-light">
+      <div class="modal-header">
+        <h4 class="modal-title">Pengesahan</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
         </div>
-        <!-- /.modal-content -->
+        <div class="modal-body">
+          <div class="dash"></div>
+        </div>
       </div>
-      <!-- /.modal-dialog -->
+      <!-- /.modal-content -->
     </div>
-    <!-- /.modal -->
-    <!-- End salary modal -->
-<body class="hold-transition sidebar-mini layout-fixed">
-  <div class="wrapper">
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- End salary modal -->
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
 
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="index.php" class="nav-link">Halaman utama</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link"></a>
-        </li>
-      </ul>
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="index.php" class="nav-link">Halaman utama</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link"></a>
+          </li>
+        </ul>
 
-      <!-- SEARCH FORM -->
-      <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
 
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
 
-        <!-- Exit -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="../index.php">
-            <i class="far fa-times-circle"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <div class="dropdown-divider"></div>
-            <a href="../logout.php" class="dropdown-item dropdown-footer">Logout</a>
+          <!-- Exit -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="../index.php">
+              <i class="far fa-times-circle"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <div class="dropdown-divider"></div>
+              <a href="../logout.php" class="dropdown-item dropdown-footer">Logout</a>
+            </div>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-light-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index.php" class="brand-link">
+          <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+          <span class="brand-text font-weight-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="info">
+              <a href="#" class="d-block"><?php echo strtoupper($row_Recordset['nama']);?></a>
+            </div>
           </div>
-        </li>
 
-      </ul>
-    </nav>
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-light-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="index.php" class="brand-link">
-        <img src="../adminSPBT/dist/img/logo_kpm.png" alt="altus Logo" class="brand-image img-circle elevation-3"
-        style="opacity: .8">
-        <span class="brand-text font-weight-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0</span>
-      </a>
-
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="info">
-            <a href="#" class="d-block"><?php echo strtoupper($row_Recordset['nama']);?></a>
-          </div>
-        </div>
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
            <li class="nav-item has-treeview menu-open">
@@ -291,6 +291,8 @@ $a = 1;
 <script src="../adminSPBT/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../adminSPBT/dist/js/demo.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 
 <script
 src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -317,44 +319,44 @@ crossorigin="anonymous"></script>
 <script src="jquery.dataTables.js"></script>
 <script src="dataTables.bootstrap4.js"></script>
 <script>
-    $(document).ready(function() {
+  $(document).ready(function() {
     //this calculates values automatically 
     auto();
     $("#kodSekolahAsal").on("keydown keyup", function() {
-        auto();
+      auto();
     });
 
     function auto() {
-            
+      
       var result = document.getElementById('kodSekolahAsal').value;
-            if (!isNaN(result)) 
-            {
+      if (!isNaN(result)) 
+      {
         document.getElementById('kodSekolahAsal2').value = result;
 
-            }
-            
-        }
-    });
+      }
+      
+    }
+  });
 
-    $(document).ready(function() {
+  $(document).ready(function() {
     //this calculates values automatically 
     auto2();
     $("#kodSekolahBaru").on("keydown keyup", function() {
-        auto2();
+      auto2();
     });
 
     function auto2() {
-            
+      
       var result = document.getElementById('kodSekolahBaru').value;
-            if (!isNaN(result)) 
-            {
+      if (!isNaN(result)) 
+      {
         document.getElementById('kodSekolahBaru2').value = result;
 
-            }
-            
-        }
-    });
-   </script>
+      }
+      
+    }
+  });
+</script>
 <script>
   $(function () {
     $("#example1").DataTable();
@@ -368,9 +370,9 @@ crossorigin="anonymous"></script>
     });
   });
 </script>
- <script>
-        /*updatePesananJudul*/
-        $('#editKodJudul').on('show.bs.modal', function (event) {
+<script>
+  /*updatePesananJudul*/
+  $('#editKodJudul').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes
@@ -393,5 +395,5 @@ crossorigin="anonymous"></script>
           });
         })
       </script>
-</body>
-</html>
+    </body>
+    </html>

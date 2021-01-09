@@ -327,14 +327,14 @@ crossorigin="anonymous"></script>
     });
 
     function auto() {
-      
-      var result = document.getElementById('kodSekolahAsal').value;
+
+      var result = document.getElementById('kodSekolahAsal').text;
       if (!isNaN(result)) 
       {
-        document.getElementById('kodSekolahAsal2').value = result;
+        document.getElementById('kodSekolahAsal2').text = result;
 
       }
-      
+
     }
   });
 
@@ -346,14 +346,14 @@ crossorigin="anonymous"></script>
     });
 
     function auto2() {
-      
-      var result = document.getElementById('kodSekolahBaru').value;
+
+      var result = document.getElementById('kodSekolahBaru').text;
       if (!isNaN(result)) 
       {
-        document.getElementById('kodSekolahBaru2').value = result;
+        document.getElementById('kodSekolahBaru2').text = result;
 
       }
-      
+
     }
   });
 </script>

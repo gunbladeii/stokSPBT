@@ -68,7 +68,7 @@ $a = 1;
     <div class="modal-dialog">
       <div class="modal-content bg-light">
         <div class="modal-header">
-          <h4 class="modal-title">Kemaskini Rekod (Bilangan Stok)</h4>
+          <h4 class="modal-title">Pengesahan</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
           </div>
@@ -234,7 +234,7 @@ $a = 1;
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <a class="btn btn-success" data-toggle="modal" data-target="#editKodJudul" data-whatever5="<?php echo $rekodPemantauan['id'];?>" data-whatever6="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a>
+                <a class="btn btn-success" data-toggle="modal" data-target="#editKodJudul" data-whatever="<?php echo $_POST['kodSekolahAsal'];?>" data-whatever2="<?php echo $_POST['kodSekolahBaru'];?>"class="nav-link">Kemaskini</a>
               </div>
             </form>
           </div>

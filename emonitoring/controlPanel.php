@@ -226,15 +226,17 @@ $a = 1;
                 <div class="form-group">
                   <label for="exampleInputEmail1">Kesalahan data</label>
                   <input type="text" name="kodSekolahAsal" class="form-control" placeholder="Masukkan kod BOSS/BOSD Asal" required>
+                  <input type="hidden"  name="kodSekolahAsal2" id="kodSekolahAsal2">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Data diperbaharui</label>
                   <input type="text" name="kodSekolahBaru" class="form-control" placeholder="Masukkan kod BOSS/BOSD Baharu" required>
+                  <input type="hidden"  name="kodSekolahBaru2" id="kodSekolahBaru2">
                 </div>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <a class="btn btn-success" data-toggle="modal" data-target="#editKodJudul" data-whatever="<?php echo $_POST['kodSekolahAsal'];?>" data-whatever2="<?php echo $_POST['kodSekolahBaru'];?>"class="nav-link">Kemaskini</a>
+                <a class="btn btn-success" data-toggle="modal" data-target="#editKodJudul" data-whatever="<?php echo $_POST['kodSekolahAsal2'];?>" data-whatever2="<?php echo $_POST['kodSekolahBaru2'];?>"class="nav-link">Kemaskini</a>
               </div>
             </form>
           </div>
@@ -314,6 +316,45 @@ crossorigin="anonymous"></script>
 <!-- DataTables -->
 <script src="jquery.dataTables.js"></script>
 <script src="dataTables.bootstrap4.js"></script>
+<script>
+    $(document).ready(function() {
+    //this calculates values automatically 
+    auto();
+    $("#kodSekolahAsal").on("keydown keyup", function() {
+        auto();
+    });
+
+    function auto() {
+            
+      var result = document.getElementById('kodSekolahAsal').value;
+            if (!isNaN(result)) 
+            {
+        document.getElementById('kodSekolahAsal2').value = result;
+
+            }
+            
+        }
+    });
+
+    $(document).ready(function() {
+    //this calculates values automatically 
+    auto2();
+    $("#kodSekolahBaru").on("keydown keyup", function() {
+        auto2();
+    });
+
+    function auto2() {
+            
+      var result = document.getElementById('kodSekolahBaru').value;
+            if (!isNaN(result)) 
+            {
+        document.getElementById('kodSekolahBaru2').value = result;
+
+            }
+            
+        }
+    });
+   </script>
 <script>
   $(function () {
     $("#example1").DataTable();

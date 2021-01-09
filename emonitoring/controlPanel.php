@@ -196,7 +196,7 @@ $a = 1;
         <!-- left column -->
         <div class="col-md-12">
           <!-- jquery validation -->
-          <div class="card card-primary">
+          <div class="card card-success">
             <div class="card-header">
               <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">PUTUS/SANDANG REKOD STOK BOSS/BOSD</h3>
             </div>
@@ -243,7 +243,7 @@ $a = 1;
         <!-- left column -->
         <div class="col-md-12">
           <!-- jquery validation -->
-          <div class="card card-primary">
+          <div class="card card-info">
             <div class="card-header">
               <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">UBAHSUAI REKOD STOK BOSS/BOSD</h3>
             </div>

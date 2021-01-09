@@ -63,6 +63,25 @@ $a = 1;
   <!-- chart.js plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
+<!-- Begin salary modal -->
+  <div class="modal fade" id="editKodJudul">
+    <div class="modal-dialog">
+      <div class="modal-content bg-light">
+        <div class="modal-header">
+          <h4 class="modal-title">Kemaskini Rekod (Bilangan Stok)</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="dash"></div>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- End salary modal -->
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
@@ -215,7 +234,7 @@ $a = 1;
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" class="btn btn-success">Kemaskini Rekod</button>
+                <a class="btn btn-success" data-toggle="modal" data-target="#editKodJudul" data-whatever5="<?php echo $rekodPemantauan['id'];?>" data-whatever6="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a>
               </div>
             </form>
           </div>
@@ -308,5 +327,30 @@ crossorigin="anonymous"></script>
     });
   });
 </script>
+ <script>
+        /*updatePesananJudul*/
+        $('#editKodJudul').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var recipient2 = button.data('whatever2') // Extract info from data-* attributes
+          //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'kodSekolahAsal=' + recipient + '&' + 'kodSekolahBaru=' + recipient2;
+
+          $.ajax({
+            type: "GET",
+            url: "editKodJudul.php",
+            data: dataString,
+            cache: false,
+            success: function (data) {
+              console.log(data);
+              modal.find('.dash').html(data);
+            },
+            error: function(err) {
+              console.log(err);
+            }
+          });
+        })
+      </script>
 </body>
 </html>

@@ -155,6 +155,14 @@ $a = 1;
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="controlPanel.php" class="nav-link">
+              <i class="nav-icon fas fa-tools"></i>
+              <p>
+                Control Panel
+              </p>
+            </a>
+          </li>
           
         </ul>
       </nav>

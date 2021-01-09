@@ -26,7 +26,7 @@ $year = date('Y');
 
     if (isset($_POST['submit'])) {
     $mysqli->query ("UPDATE rekodPemantauan SET `kodSekolah` = '$kodSekolahBaru2' WHERE `kodSekolah` = '$kodSekolahAsal2'");
-    header("location:main3.php?kodSekolah=$kodSekolah2");
+    header("location:controlPanel.php");
     }
     
 ?>

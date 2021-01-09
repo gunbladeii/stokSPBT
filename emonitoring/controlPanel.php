@@ -225,13 +225,13 @@ $a = 1;
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Kesalahan data</label>
-                  <input type="text" name="kodSekolahAsal" class="form-control" placeholder="Masukkan kod BOSS/BOSD Asal" required>
-                  <input type="hidden"  name="kodSekolahAsal2" id="kodSekolahAsal2">
+                  <input type="text" name="kodSekolahAsal" id="kodSekolahAsal" class="form-control" placeholder="Masukkan kod BOSS/BOSD Asal" required>
+                  <input type="hidden"  name="kodSekolahAsal2" id="kodSekolahAsal2" value="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Data diperbaharui</label>
-                  <input type="text" name="kodSekolahBaru" class="form-control" placeholder="Masukkan kod BOSS/BOSD Baharu" required>
-                  <input type="hidden"  name="kodSekolahBaru2" id="kodSekolahBaru2">
+                  <input type="text" name="kodSekolahBaru" id="kodSekolahBaru" class="form-control" placeholder="Masukkan kod BOSS/BOSD Baharu" required>
+                  <input type="hidden"  name="kodSekolahBaru2" id="kodSekolahBaru2" value="">
                 </div>
               </div>
               <!-- /.card-body -->

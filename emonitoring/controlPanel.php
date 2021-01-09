@@ -191,212 +191,175 @@ $a = 1;
   </div>
 
   <section class="content">
-
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid justify-content-start">
-        <form method="post" action="dashboard.php">
-          <button class="btn btn-outline-success me-2" type="submit" name="delete">Bersih Data</button>
-        </form>
-        <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-          <button class="btn btn-outline-info me-2" type="submit" name="stok">Export Excel</button>
-        </form>
-      </div>
-    </nav>
-
-
-
-    <div id="row">
-      <div class="col-md-12">
-       <!-- TABLE: list of publisherSPBT -->
-       <div class="card">
-        <div class="card-header border-transparent">
-          <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">PUTUS/SANDANG MAKLUMAT JUDUL STOK</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-widget="collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-widget="remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body p-0">
-          <div class="table-responsive">
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- jquery validation -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form id="quickForm" novalidate="novalidate">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group mb-0">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                    <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
-              <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="inputState">State</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="inputZip">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label" for="gridCheck">
-                    Check me out
-                  </label>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
           </div>
+          <!-- /.card -->
         </div>
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+
+        </div>
+        <!--/.col (right) -->
       </div>
-    </section>
- <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- jquery validation -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form id="quickForm" novalidate="novalidate">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group mb-0">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                    <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
+                  </div>
+                </div>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form id="quickForm" novalidate="novalidate">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                      <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </div>
-            <!-- /.card -->
-            </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
-
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
           </div>
-          <!--/.col (right) -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
- </div>
-  <!-- ./wrapper -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
 
-  <!-- jQuery -->
-  <script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>
-  <!-- jQuery UI 1.11.4 -->
-  <script src="../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-  <script>
-    $.widget.bridge('uibutton', $.ui.button)
-  </script>
-  <!-- Bootstrap 4 -->
-  <script src="../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- ChartJS -->
-  <script src="../adminSPBT/plugins/chart.js/Chart.min.js"></script>
-  <!-- Sparkline -->
-  <script src="../adminSPBT/plugins/sparklines/sparkline.js"></script>
-  <!-- JQVMap -->
-  <script src="../adminSPBT/plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="../adminSPBT/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="../adminSPBT/plugins/jquery-knob/jquery.knob.min.js"></script>
-  <!-- daterangepicker -->
-  <script src="../adminSPBT/plugins/moment/moment.min.js"></script>
-  <script src="../adminSPBT/plugins/daterangepicker/daterangepicker.js"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <script src="../adminSPBT/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-  <!-- Summernote -->
-  <script src="../adminSPBT/plugins/summernote/summernote-bs4.min.js"></script>
-  <!-- overlayScrollbars -->
-  <script src="../adminSPBT/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-  <!-- FastClick -->
-  <script src="../adminSPBT/plugins/fastclick/fastclick.js"></script>
-  <!-- AdminLTE App -->
-  <script src="../adminSPBT/dist/js/adminlte.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="../adminSPBT/dist/js/pages/dashboard.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../adminSPBT/dist/js/demo.js"></script>
+        </div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+</div>
+<!-- ./wrapper -->
 
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
+<!-- jQuery -->
+<script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="../adminSPBT/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="../adminSPBT/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="../adminSPBT/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="../adminSPBT/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="../adminSPBT/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="../adminSPBT/plugins/moment/moment.min.js"></script>
+<script src="../adminSPBT/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../adminSPBT/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="../adminSPBT/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../adminSPBT/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- FastClick -->
+<script src="../adminSPBT/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../adminSPBT/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="../adminSPBT/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../adminSPBT/dist/js/demo.js"></script>
 
-      $('#showJudulList').load('showJudulList.php');
-      $('#showUserList').load('showUserList.php'); 
-      setInterval(function () {
-        $('#showAttChart').load('showAttChart.php')
-        $('#showTotalPenerbit').load('showTotalPenerbit.php')
-        $('#showTotalJudul').load('showTotalJudul.php')
-        $('#showTotalPesanan').load('showTotalPesanan.php')
-        $('#showTotalPembekalan').load('showTotalPembekalan.php')
-        $('#odometer').load('../distiSPBT/liveOdometer.php')
-        $('#attStat').load('../distiSPBT/attStat.php')
-        $('#parcelStat').load('../distiSPBT/parcelStat.php')
-      }, 5000);
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('#showJudulList').load('showJudulList.php');
+    $('#showUserList').load('showUserList.php'); 
+    setInterval(function () {
+      $('#showAttChart').load('showAttChart.php')
+      $('#showTotalPenerbit').load('showTotalPenerbit.php')
+      $('#showTotalJudul').load('showTotalJudul.php')
+      $('#showTotalPesanan').load('showTotalPesanan.php')
+      $('#showTotalPembekalan').load('showTotalPembekalan.php')
+      $('#odometer').load('../distiSPBT/liveOdometer.php')
+      $('#attStat').load('../distiSPBT/attStat.php')
+      $('#parcelStat').load('../distiSPBT/parcelStat.php')
+    }, 5000);
+  });
+</script>
+<!-- DataTables -->
+<script src="jquery.dataTables.js"></script>
+<script src="dataTables.bootstrap4.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
     });
-  </script>
-  <!-- DataTables -->
-  <script src="jquery.dataTables.js"></script>
-  <script src="dataTables.bootstrap4.js"></script>
-  <script>
-    $(function () {
-      $("#example1").DataTable();
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-      });
-    });
-  </script>
+  });
+</script>
 </body>
 </html>

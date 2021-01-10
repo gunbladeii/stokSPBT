@@ -438,23 +438,63 @@ $a = 1;
                     </tr>
                   <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                   <tr>
-                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
-                  </tr>
-                  <tr>
-                    <td colspan="7">
-                      <div class="form-group">
-                        Ulasan:
+                      <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-group">
+                          Nama Guru Penyelaras SPBT:
+                          <div class="input-group mb-3">
+                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-group">
+                          No. Telefon Bimbit:
+                          <div class="input-group mb-3">
+                            <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-group">
+                          Enrolmen keseluruhan murid:
+                          <div class="input-group mb-3">
+                            <input type="number" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
+                            <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">
+                        <div class="form-group">
+                          Ulasan:
 
-                        <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
+                          <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
 
-                      </div>
-                    </td>
-                  </tr>
+                        </div>
+                      </td>
+                    </tr>
                 </tbody>
               </table>
               <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
               <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" name="submit2" value="Jana Laporan"/>
+                <input type="submit" class="btn btn-primary" name="submit2" value="Simpan rekod"/>
               </div>
             </form>
           </div>
@@ -489,48 +529,48 @@ $a = 1;
                       </tr>
                     <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
                     <tr>
-                      <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
+                      <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
                     </tr>
                     <tr>
-                  <td>
-                    <div class="form-group">
-                      Nama Guru Penyelaras SPBT:
-                      <div class="input-group mb-3">
-                        <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
+                      <td>
+                        <div class="form-group">
+                          Nama Guru Penyelaras SPBT:
+                          <div class="input-group mb-3">
+                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="form-group">
-                      No. Telefon Bimbit:
-                      <div class="input-group mb-3">
-                        <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-group">
+                          No. Telefon Bimbit:
+                          <div class="input-group mb-3">
+                            <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                 <tr>
-                  <td>
-                    <div class="form-group">
-                      Enrolmen keseluruhan murid:
-                      <div class="input-group mb-3">
-                        <input type="number" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
-                        <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-group">
+                          Enrolmen keseluruhan murid:
+                          <div class="input-group mb-3">
+                            <input type="number" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
+                            <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
+                      </td>
+                    </tr>
                     <tr>
                       <td colspan="5">
                         <div class="form-group">

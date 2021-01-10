@@ -38,7 +38,7 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok,rekodPemantauan.bukuRosak, dataSekolah.kategori
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -46,7 +46,7 @@ $Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSeko
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok,rekodPemantauan.bukuRosak, dataSekolah.kategori
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -288,12 +288,13 @@ $a = 1;
 
               <tr>
                 <?php if(!empty($rekodPemantauan)) {?>
-                  <th colspan="5" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
+                  <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
                 </tr>
                 <tr>
                   <th>Bil</th>
                   <th>Kod judul</th>
                   <th>Judul</th>
+                  <th>Naskhah (rosak)</th>
                   <th>Naskhah (elok)</th>
                   <th>Stok (lebihan)</th>
                 </tr>
@@ -302,6 +303,7 @@ $a = 1;
                     <td><?php echo $a++;?></td>
                     <td><?php echo strtoupper($rekodPemantauan['kodJudul']);?></td>
                     <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
+                    <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
                     <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
                     <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
                   </tr>
@@ -309,28 +311,30 @@ $a = 1;
               <?php }?>
 
               <?php if(!empty($rekodPemantauan2)) {?>
-                <th colspan="5" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
+                <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
               </tr>
               <tr>
                 <th>Bil</th>
                 <th>Kod judul</th>
                 <th>Judul</th>
-                <th>Bil Naskhah (BOSD)</th>
+                <th>Bil Naskhah (Rosak)</th>
+                <th>Bil Naskhah (Elok)</th>
               </tr>
               <?php do {?>
                 <tr>
                   <td><?php echo $a++;?></td>
                   <td><?php echo strtoupper($rekodPemantauan2['kodJudul']);?></td>
                   <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
+                  <td><?php echo $rekodPemantauan2['bukuRosak'];?></td>
                   <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
                 </tr>
               <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
             <?php }?>
             <tr>
-              <th colspan="5" style="text-align: center; background-color: black"><h5 style="color: white">Ulasan Keseluruhan</h5></th>
+              <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Ulasan Keseluruhan</h5></th>
             </tr>
             <tr>
-              <td colspan="5">
+              <td colspan="6">
                 <div class="form-group">
                   Ulasan:
                   <div class="input-group mb-3">

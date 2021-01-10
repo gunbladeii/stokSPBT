@@ -19,7 +19,10 @@ if (isset($_SESSION['user'])) {
 }
 
 
-$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah 
+	FROM login
+	INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
+	WHERE login.username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
@@ -83,6 +86,7 @@ $a = 1;
 						<span class="login100-form-title p-b-40">
 							Halaman Utama <br>(SPBT Negeri)
 							<p>Selamat datang <strong><?php echo strtoupper($row_Recordset['nama']);?></strong> ke sistem mySPBT. Mohon klik pada pautan sistem berkenaan.</p>
+							<p style="text-transform: uppercase;"><strong><?php echo strtoupper($row_Recordset['namaSekolah']);?></strong></p>
 						</span>
 
 						<div>

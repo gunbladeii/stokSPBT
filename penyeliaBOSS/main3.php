@@ -372,7 +372,7 @@ $a = 1;
                     2. Pilih Jenis Sekolah:
                     <div class="input-group mb-3">
                      <select name="jenisAliran" class="custom-select browser-default">
-                      <option value="" selected>Jenis sekolah..</option>
+                      <option value="" selected>Pilih jenis sekolah..</option>
                       <option value="SR">SEKOLAH RENDAH</option>
                       <option value="SM">SEKOLAH MENENGAH</option>
                       <option value="PERALIHAN">PERALIHAN</option>

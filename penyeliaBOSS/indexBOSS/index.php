@@ -94,7 +94,7 @@ $a = 1;
 						</span>
 
 						<div>
-							<a href="../epnegeri.php" class="btn-login-with bg2 m-b-10">
+							<a href="../main1.php" class="btn-login-with bg2 m-b-10">
 								<i class="fa fa-project-diagram"></i>
 								Rekod Stok Bilik Operasi Buku Teks Sekolah
 							</a>

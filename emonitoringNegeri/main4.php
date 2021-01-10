@@ -26,12 +26,13 @@ $kodJudul = $_POST['kodJudul'];
 $comment = $_POST['comment'];
 
 
-$Recordset = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d/%m/%Y') AS tarikhP,login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
-  FROM login
-  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
-  WHERE kodSekolah LIKE '$kodSekolah'");
-$dataSekolah = mysqli_fetch_assoc($Recordset);
+$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+$row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
+
+$Recordset2 = $mysqli->query("SELECT *,DATE_FORMAT(tarikhPemantauan, '%d/%m/%Y') AS tarikhP FROM dataSekolah WHERE kodSekolah LIKE '$kodSekolah'");
+$dataSekolah = mysqli_fetch_assoc($Recordset2);
+$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);

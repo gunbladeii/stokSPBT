@@ -410,87 +410,88 @@ $a = 1;
         <?php ;} else {echo '<div class="container"><div class="input-group mb-3"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila klik carian judul</a></div></div>';}?>
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">
-            <form method="post" action="main4.php" role="form" enctype="multipart/form-data">
-              <table class="table table-sm">
-                <thead>
+
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                </tr>
+                <tr>
+                  <th>Bil</th>
+                  <th>Judul</th>
+                  <th>Naskhah (rosak)</th>
+                  <th>Naskhah (elok)</th>
+                  <th>Stok (lebihan)</th>
+                  <th>Hapus</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php do {?>
                   <tr>
-                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                    <td><?php echo $a++;?></td>
+                    <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
+                    <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
+                    <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
+                    <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
+                    <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan['id'];?>" data-whatever2="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
+                    <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan['id'];?>" data-whatever6="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
+                  </tr>
+                <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
+                <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
+                  <tr>
+                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
                   </tr>
                   <tr>
-                    <th>Bil</th>
-                    <th>Judul</th>
-                    <th>Naskhah (rosak)</th>
-                    <th>Naskhah (elok)</th>
-                    <th>Stok (lebihan)</th>
-                    <th>Hapus</th>
-                    <th>Edit</th>
+                    <td colspan="8">
+                      <div class="form-group">
+                        Nama Guru Penyelaras SPBT:
+                        <div class="input-group mb-3">
+                          <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['nama']);?>" style="text-transform: uppercase;" required>
+                          <div class="input-group-append input-group-text">
+                            <span class="fas fa-id-card-alt"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  <?php do {?>
-                    <tr>
-                      <td><?php echo $a++;?></td>
-                      <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
-                      <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
-                      <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
-                      <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
-                      <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan['id'];?>" data-whatever2="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
-                      <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan['id'];?>" data-whatever6="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
-                    </tr>
-                  <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                   <tr>
-                      <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
-                    </tr>
-                    <tr>
-                      <td colspan="8">
-                        <div class="form-group">
-                          Nama Guru Penyelaras SPBT:
-                          <div class="input-group mb-3">
-                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['nama']);?>" style="text-transform: uppercase;" required>
-                            <div class="input-group-append input-group-text">
-                              <span class="fas fa-id-card-alt"></span>
-                            </div>
+                    <td colspan="8">
+                      <div class="form-group">
+                        No. Telefon Bimbit:
+                        <div class="input-group mb-3">
+                          <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                          <div class="input-group-append input-group-text">
+                            <span class="fas fa-id-card-alt"></span>
                           </div>
                         </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="8">
-                        <div class="form-group">
-                          No. Telefon Bimbit:
-                          <div class="input-group mb-3">
-                            <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
-                            <div class="input-group-append input-group-text">
-                              <span class="fas fa-id-card-alt"></span>
-                            </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="8">
+                      <div class="form-group">
+                        Enrolmen keseluruhan murid:
+                        <div class="input-group mb-3">
+                          <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
+                          <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
+                          <div class="input-group-append input-group-text">
+                            <span class="fas fa-id-card-alt"></span>
                           </div>
                         </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="8">
-                        <div class="form-group">
-                          Enrolmen keseluruhan murid:
-                          <div class="input-group mb-3">
-                            <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
-                            <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
-                            <div class="input-group-append input-group-text">
-                              <span class="fas fa-id-card-alt"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="8">
-                        <div class="form-group">
-                          Cadangan/Ulasan:
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="8">
+                      <div class="form-group">
+                        Cadangan/Ulasan:
 
-                          <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
+                        <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
 
-                        </div>
-                      </td>
-                    </tr>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
@@ -503,7 +504,6 @@ $a = 1;
 
           <?php if($rekodPemantauan2 > 0) {?>
             <div class="table-responsive">
-              <form method="post" action="main4.php">
                 <table class="table table-sm">
                   <thead>
                     <tr>
@@ -529,6 +529,7 @@ $a = 1;
                         <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan2['id'];?>" data-whatever6="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
                       </tr>
                     <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
+                    <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
                     <tr>
                       <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
                     </tr>

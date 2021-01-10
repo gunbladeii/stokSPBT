@@ -438,7 +438,7 @@ $a = 1;
                     </tr>
                   <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                   <tr>
-                      <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
+                      <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
                     </tr>
                     <tr>
                       <td>
@@ -481,7 +481,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="5">
+                      <td colspan="8">
                         <div class="form-group">
                           Ulasan:
 

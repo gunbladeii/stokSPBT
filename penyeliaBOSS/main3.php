@@ -259,9 +259,9 @@ $a = 1;
          </li>
          <li class="nav-item">
           <a href="dashboard.php" class="nav-link">
-            <i class="nav-icon fas fa-cogs"></i>
+            <i class="nav-icon fas fa-tools"></i>
             <p>
-              Dashboard
+              Semakan semula
             </p>
           </a>
         </li>

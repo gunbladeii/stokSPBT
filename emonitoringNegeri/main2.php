@@ -28,6 +28,7 @@ $jawatan1 = $_POST['jawatan1'];
 $namaPegawai2 = $_POST['namaPegawai2'];
 $jawatan2 = $_POST['jawatan2'];
 $remark = $_POST['remark'];
+$enrolmen = $_POST['enrolmen'];
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
@@ -42,7 +43,7 @@ $dataJawatan = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
 if (isset($_POST['submit'])) {
- $mysqli->query ("UPDATE `dataSekolah` SET `namaPenyelaras` = '$namaPenyelaras', `noHP` = '$noHP', `tarikhPemantauan` = '$tarikhPemantauan', `namaPegawai1` = '$namaPegawai1',`namaPegawai2` = '$namaPegawai2', `jawatan1` = '$jawatan1', `jawatan2` = '$jawatan2', `remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
+ $mysqli->query ("UPDATE `dataSekolah` SET `namaPenyelaras` = '$namaPenyelaras', `noHP` = '$noHP', `tarikhPemantauan` = '$tarikhPemantauan', `namaPegawai1` = '$namaPegawai1',`namaPegawai2` = '$namaPegawai2', `jawatan1` = '$jawatan1', `jawatan2` = '$jawatan2', `remark` = '$remark', `enrolmen` = '$enrolmen' WHERE `kodSekolah` = '$kodSekolah2'");
  header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 
@@ -51,7 +52,7 @@ $a = 1;
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>mySPBT 2.0 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
@@ -245,8 +246,8 @@ $a = 1;
              </p>
            </a>
            <ul class="nav nav-treeview">
-             
-             
+
+
            </ul>
          </li>
          <li class="nav-item">
@@ -305,7 +306,7 @@ $a = 1;
         </div>
         <!-- /.card-header -->
         <div class="card-body p-0">
-          
+
           <div class="table-responsive">
             <form method="post" action="main2.php" role="form" enctype="multipart/form-data">
               <table id="example1" class="table m-0">
@@ -315,7 +316,7 @@ $a = 1;
                   </tr>
                 </thead>
                 <tbody>
-                  
+
                   <tr>
                     <td>
                       <div class="form-group">
@@ -400,6 +401,20 @@ $a = 1;
               No. Telefon Bimbit:
               <div class="input-group mb-3">
                 <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                <div class="input-group-append input-group-text">
+                  <span class="fas fa-id-card-alt"></span>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="form-group">
+              Enrolmen keseluruhan murid:
+              <div class="input-group mb-3">
+                <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
                 <div class="input-group-append input-group-text">
                   <span class="fas fa-id-card-alt"></span>
                 </div>
@@ -560,7 +575,7 @@ integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-    
+
     $('#showJudulList').load('showJudulList.php');
     $('#showUserList').load('showUserList.php'); 
     setInterval(function () {

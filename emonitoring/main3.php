@@ -445,7 +445,7 @@ $a = 1;
         <?php ;} else {echo '<div class="container"><div class="input-group mb-3"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila klik carian judul</a></div></div>';}?>
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">
-            <form method="post" action="main4.php" role="form" enctype="multipart/form-data">
+            <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
               <table class="table table-sm">
                 <thead>
                   <tr>
@@ -496,7 +496,7 @@ $a = 1;
 
           <?php if($rekodPemantauan2 > 0) {?>
             <div class="table-responsive">
-              <form method="post" action="main4.php" role="form" enctype="multipart/form-data">
+              <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
                 <table class="table table-sm">
                   <thead>
                     <tr>

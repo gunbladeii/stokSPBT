@@ -10,13 +10,14 @@ $date = date('Y-m-d');
 $kodSekolah2 = $_POST['kodSekolah'];
 $namaSekolah = $_POST['namaSekolah'];
 $bukuLebihan = $_POST['bukuLebihan'];
+$bukuRosak = $_POST['bukuRosak'];
 $bukuStok = $_POST['bukuStok'];
 $kodJudul2 = $_POST['kodJudul'];
 
 
 
 if (isset($_POST['submit'])) {
-  $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`,`bukuStok`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul2','$bukuLebihan','$bukuStok')");
+  $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`,`bukuStok`,`bukuRosak`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul2','$bukuLebihan','$bukuStok',`$bukuRosak`)");
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 
@@ -40,6 +41,17 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 </div>
 
 <div class="form-group"> 
+  Jumlah Naskhah (buku rosak):
+  <div class="input-group mb-3">
+    <input type="text" name="bukuRosak" class="form-control"  id="bukuRosak" value="" required>
+    <input type="hidden" id="bukuRosak" value="3">
+    <div class="input-group-append input-group-text">
+      <span class="fas fa-book"></span>
+    </div>
+  </div>
+</div>
+
+<div class="form-group"> 
   Jumlah Naskhah (buku elok):
   <div class="input-group mb-3">
     <input type="text" name="bukuLebihan" class="form-control"  id="bukuLebihan" value="" required>
@@ -59,6 +71,8 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
   </div>
 </div>
 </div>
+
+
 
 <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>"/>
 <input type="hidden" name="namaSekolah" value="<?php echo $dataSekolah['namaSekolah'];?>"/>

@@ -32,13 +32,12 @@ $jenisAliran = $_POST['jenisAliran'];
 $jenisAliran2 = $_GET['jenisAliran'];
 
 
-$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
-$row_Recordset = mysqli_fetch_assoc($Recordset);
+$Recordset = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d/%m/%Y') AS tarikhP,login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
+  FROM login
+  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
+  WHERE login.username = '$colname_Recordset'");
+$dataSekolah = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
-
-$Recordset2 = $mysqli->query("SELECT *,DATE_FORMAT(tarikhPemantauan, '%d/%m/%Y') AS tarikhP FROM dataSekolah WHERE kodSekolah LIKE '$kodSekolah'");
-$dataSekolah = mysqli_fetch_assoc($Recordset2);
-$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
@@ -363,6 +362,11 @@ $a = 1;
                     Tarikh Pemantauan: <u><?php echo $dataSekolah['tarikhP'];?></u>
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    Enrolmen: <u><?php echo $dataSekolah['enrolmen'];?></u>
+                  </td>
+                </tr>
 
                 <tr>
                   <td>
@@ -449,11 +453,12 @@ $a = 1;
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
                   </tr>
                   <tr>
                     <th>Bil</th>
                     <th>Judul</th>
+                    <th>Naskhah (rosak)</th>
                     <th>Naskhah (elok)</th>
                     <th>Stok (lebihan)</th>
                     <th>Hapus</th>
@@ -465,6 +470,7 @@ $a = 1;
                     <tr>
                       <td><?php echo $a++;?></td>
                       <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
+                      <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
                       <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
                       <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
                       <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan['id'];?>" data-whatever2="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
@@ -472,10 +478,10 @@ $a = 1;
                     </tr>
                   <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                   <tr>
-                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
+                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
                   </tr>
                   <tr>
-                    <td colspan="6">
+                    <td colspan="7">
                       <div class="form-group">
                         Ulasan:
 
@@ -505,7 +511,8 @@ $a = 1;
                     <tr>
                       <th>Bil</th>
                       <th>Judul</th>
-                      <th>Bil Naskhah (BOSD)</th>
+                      <th>Bil Naskhah (Rosak)</th>
+                      <th>Bil Naskhah (Elok)</th>
                       <th>Hapus</th>
                       <th>Edit</th>
                     </tr>
@@ -515,6 +522,7 @@ $a = 1;
                       <tr>
                         <td><?php echo $a++;?></td>
                         <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
+                        <td><?php echo $rekodPemantauan2['bukuRosak'];?></td>
                         <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
                         <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
                         <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan2['id'];?>" data-whatever6="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>

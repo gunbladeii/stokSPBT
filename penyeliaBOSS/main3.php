@@ -27,6 +27,7 @@ $kodJudul = $_POST['kodJudul'];
 $comment = $_POST['comment'];
 $noTelefon = $_POST['noTelefon'];
 $namaPenyelaras = $_POST['namaPenyelaras'];
+$remark = $_POST['remark'];
 
 $judul = $_POST['judul'];
 $judul2 = $_GET['judul'];
@@ -71,7 +72,7 @@ $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
 if (isset($_POST['submit2'])) {
-  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `noTelefon` = '$noTelefon', `namaPenyelaras` = '$namaPenyelaras' WHERE `kodSekolah` = '$kodSekolah2'");
+  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `noTelefon` = '$noTelefon', `namaPenyelaras` = '$namaPenyelaras',`remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
   header("location:main4.php?kodSekolah=$kodSekolah2");
 }
 
@@ -518,6 +519,7 @@ $a = 1;
                       Enrolmen keseluruhan murid:
                       <div class="input-group mb-3">
                         <input type="number" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
+                        <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
                         <div class="input-group-append input-group-text">
                           <span class="fas fa-id-card-alt"></span>
                         </div>
@@ -539,7 +541,7 @@ $a = 1;
                 </table>
                 <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
                 <div class="modal-footer">
-                  <input type="submit" class="btn btn-primary" name="submit2" value="Jana Laporan"/>
+                  <input type="submit" class="btn btn-primary" name="submit2" value="Simpan Rekod"/>
                 </div>
               </form>
             </div>

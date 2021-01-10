@@ -537,7 +537,7 @@ $a = 1;
                         <div class="form-group">
                           Nama Guru Penyelaras SPBT:
                           <div class="input-group mb-3">
-                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
+                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['nama']);?>" style="text-transform: uppercase;" required>
                             <div class="input-group-append input-group-text">
                               <span class="fas fa-id-card-alt"></span>
                             </div>
@@ -563,7 +563,7 @@ $a = 1;
                         <div class="form-group">
                           Enrolmen keseluruhan murid:
                           <div class="input-group mb-3">
-                            <input type="number" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
+                            <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
                             <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
                             <div class="input-group-append input-group-text">
                               <span class="fas fa-id-card-alt"></span>

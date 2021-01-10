@@ -188,7 +188,7 @@ $a = 1;
            </ul>
          </li>
          <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="main3.php?kodSekolah=<?php echo strtoupper($dataSekolah['kodSekolah']);?>" class="nav-link">
             <i class="nav-icon fas fa-cogs"></i>
             <p>
               Semakan semula

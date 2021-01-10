@@ -246,42 +246,42 @@ $a = 1;
             <table class="table table-sm">
               <thead>
                 <tr>
-                  <th colspan="5" style="text-align: center; background-color: #0d0d0d;"><h5 style="color: white">Maklumat Sekolah</h5></th>
+                  <th colspan="6" style="text-align: center; background-color: #0d0d0d;"><h5 style="color: white">Maklumat Sekolah</h5></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td colspan="5">
+                  <td colspan="6">
                    <a>Nama Sekolah: <u><?php echo $dataSekolah['namaSekolah'];?></u></a>
                  </td>
                </tr>
                <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <a>Kod Sekolah: <u><?php echo $dataSekolah['kodSekolah'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <a>Daerah: <u><?php echo $dataSekolah['daerah'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <a>Negeri: <u><?php echo $dataSekolah['negeri'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <a>No. Telefon Pejabat: <u><?php echo $dataSekolah['noTelefon'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <a>Nama Guru Penyelaras SPBT: <u><?php echo strtoupper($dataSekolah['namaPenyelaras']);?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <a>No. Telefon Bimbit: <u><?php echo $dataSekolah['noHP'];?></u></a>
                 </td>
               </tr>

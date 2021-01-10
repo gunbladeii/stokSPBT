@@ -350,32 +350,6 @@ $a = 1;
                     No. Telefon Pejabat: <u><?php echo $dataSekolah['noTelefon'];?></u>
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <div class="form-group">
-                      Nama Guru Penyelaras SPBT:
-                      <div class="input-group mb-3">
-                        <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="form-group">
-                      No. Telefon Bimbit:
-                      <div class="input-group mb-3">
-                        <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
 
                 <tr>
                   <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">Kemaskini Maklumat Stok</h4></th>
@@ -512,6 +486,45 @@ $a = 1;
                     <tr>
                       <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
                     </tr>
+                    <tr>
+                  <td>
+                    <div class="form-group">
+                      Nama Guru Penyelaras SPBT:
+                      <div class="input-group mb-3">
+                        <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
+                        <div class="input-group-append input-group-text">
+                          <span class="fas fa-id-card-alt"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      No. Telefon Bimbit:
+                      <div class="input-group mb-3">
+                        <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                        <div class="input-group-append input-group-text">
+                          <span class="fas fa-id-card-alt"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                 <tr>
+                  <td>
+                    <div class="form-group">
+                      Enrolmen keseluruhan murid:
+                      <div class="input-group mb-3">
+                        <input type="number" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
+                        <div class="input-group-append input-group-text">
+                          <span class="fas fa-id-card-alt"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
                     <tr>
                       <td colspan="5">
                         <div class="form-group">

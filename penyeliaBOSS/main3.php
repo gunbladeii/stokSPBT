@@ -483,7 +483,7 @@ $a = 1;
                     <tr>
                       <td colspan="8">
                         <div class="form-group">
-                          Ulasan:
+                          Cadangan/Ulasan:
 
                           <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
 
@@ -532,7 +532,7 @@ $a = 1;
                       <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
                     </tr>
                     <tr>
-                      <td>
+                      <td colspan="6">
                         <div class="form-group">
                           Nama Guru Penyelaras SPBT:
                           <div class="input-group mb-3">
@@ -545,7 +545,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td>
+                      <td colspan="6">
                         <div class="form-group">
                           No. Telefon Bimbit:
                           <div class="input-group mb-3">
@@ -558,7 +558,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td>
+                      <td colspan="6">
                         <div class="form-group">
                           Enrolmen keseluruhan murid:
                           <div class="input-group mb-3">
@@ -574,7 +574,7 @@ $a = 1;
                     <tr>
                       <td colspan="6">
                         <div class="form-group">
-                          Ulasan:
+                          Cadangan/Ulasan:
 
                           <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
 

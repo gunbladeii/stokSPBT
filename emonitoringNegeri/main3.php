@@ -36,7 +36,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE kodSekolah LIKE '$kodSekolah'");
+$Recordset2 = $mysqli->query("SELECT *,DATE_FORMAT(tarikhPemantauan, '%d/%m/%Y') AS tarikhP FROM dataSekolah WHERE kodSekolah LIKE '$kodSekolah'");
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -360,7 +360,7 @@ $a = 1;
                 </tr>
                 <tr>
                   <td>
-                    Tarikh Pemantauan: <u><?php echo $dataSekolah['tarikhPemantauan'];?></u>
+                    Tarikh Pemantauan: <u><?php echo $dataSekolah['tarikhP'];?></u>
                   </td>
                 </tr>
 

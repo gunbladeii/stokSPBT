@@ -44,7 +44,7 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -52,7 +52,7 @@ $Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSeko
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -366,6 +366,12 @@ $a = 1;
 
                 <tr>
                   <td>
+                    Enrolmen: <u><?php echo $dataSekolah['enrolmen'];?></u>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
                     Nama Pegawai Pemantau: <u><?php echo strtoupper($dataSekolah['namaPegawai1']);?></u>
                   </td>
                 </tr>
@@ -449,11 +455,12 @@ $a = 1;
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
                   </tr>
                   <tr>
                     <th>Bil</th>
                     <th>Judul</th>
+                    <th>Naskhah (rosak)</th>
                     <th>Naskhah (elok)</th>
                     <th>Stok (lebihan)</th>
                     <th>Hapus</th>
@@ -465,6 +472,7 @@ $a = 1;
                     <tr>
                       <td><?php echo $a++;?></td>
                       <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
+                      <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
                       <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
                       <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
                       <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan['id'];?>" data-whatever2="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
@@ -472,10 +480,10 @@ $a = 1;
                     </tr>
                   <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                   <tr>
-                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
+                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
                   </tr>
                   <tr>
-                    <td colspan="6">
+                    <td colspan="7">
                       <div class="form-group">
                         Ulasan:
 
@@ -500,12 +508,13 @@ $a = 1;
                 <table class="table table-sm">
                   <thead>
                     <tr>
-                      <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
                     </tr>
                     <tr>
                       <th>Bil</th>
                       <th>Judul</th>
-                      <th>Bil Naskhah (BOSD)</th>
+                      <th>Bil Naskhah (Rosak)</th>
+                      <th>Bil Naskhah (Elok)</th>
                       <th>Hapus</th>
                       <th>Edit</th>
                     </tr>
@@ -515,16 +524,17 @@ $a = 1;
                       <tr>
                         <td><?php echo $a++;?></td>
                         <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
+                        <td><?php echo $rekodPemantauan2['bukuRosak'];?></td>
                         <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
                         <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
                         <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan2['id'];?>" data-whatever6="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
                       </tr>
                     <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
                     <tr>
-                      <th colspan="5" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
+                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
                     </tr>
                     <tr>
-                      <td colspan="5">
+                      <td colspan="6">
                         <div class="form-group">
                           Ulasan:
 

@@ -11,6 +11,7 @@ if (isset($_SESSION['user'])) {
 
 $id = $_GET['id'];
 $kodSekolah = $_GET['kodSekolah'];
+$bukuRosak = $_POST['bukuRosak'];
 $bukuLebihan = $_POST['bukuLebihan'];
 $bukuStok = $_POST['bukuStok'];
 $kodSekolah2 = $_POST['kodSekolah'];
@@ -28,7 +29,7 @@ $year = date('Y');
 
 
 if (isset($_POST['submit'])) {
-  $mysqli->query ("UPDATE `rekodPemantauan` SET bukuStok = '$bukuStok',bukuLebihan = '$bukuLebihan' WHERE `id` = '$id2'");
+  $mysqli->query ("UPDATE `rekodPemantauan` SET bukuStok = '$bukuStok',bukuLebihan = '$bukuLebihan', bukuRosak = '$bukuRosak' WHERE `id` = '$id2'");
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 
@@ -55,6 +56,17 @@ $a=1;
 
 <div class="form-group"> 
  Judul: <?php echo strtoupper($ReID['judul']);?>
+</div>
+
+<div class="form-group"> 
+  Jumlah Naskhah (buku rosak):
+  <div class="input-group mb-3">
+    <input type="text" name="bukuRosak" class="form-control"  id="bukuRosak" value="<?php echo $ReID['bukuRosak'];?>" required>
+    <input type="hidden" id="bukuRosak" value="3">
+    <div class="input-group-append input-group-text">
+      <span class="fas fa-book"></span>
+    </div>
+  </div>
 </div>
 
 <div class="form-group"> 

@@ -25,6 +25,8 @@ $bukuLebihan = $_POST['bukuLebihan'];
 $bukuStok = $_POST['bukuStok'];
 $kodJudul = $_POST['kodJudul'];
 $comment = $_POST['comment'];
+$noTelefon = $_POST['noTelefon'];
+$namaPenyelaras = $_POST['namaPenyelaras'];
 
 $judul = $_POST['judul'];
 $judul2 = $_GET['judul'];
@@ -69,7 +71,7 @@ $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
 if (isset($_POST['submit2'])) {
-  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment' WHERE `kodSekolah` = '$kodSekolah2'");
+  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `noTelefon` = '$noTelefon', `namaPenyelaras` = '$namaPenyelaras' WHERE `kodSekolah` = '$kodSekolah2'");
   header("location:main4.php?kodSekolah=$kodSekolah2");
 }
 
@@ -350,12 +352,28 @@ $a = 1;
                 </tr>
                 <tr>
                   <td>
-                    Nama Guru Penyelaras SPBT: <u><?php echo strtoupper($dataSekolah['namaPenyelaras']);?></u>
+                    <div class="form-group">
+                      Nama Guru Penyelaras SPBT:
+                      <div class="input-group mb-3">
+                        <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['namaPenyelaras']);?>" style="text-transform: uppercase;" required>
+                        <div class="input-group-append input-group-text">
+                          <span class="fas fa-id-card-alt"></span>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    No. Telefon Bimbit: <u><?php echo $dataSekolah['noHP'];?></u>
+                    <div class="form-group">
+                      No. Telefon Bimbit:
+                      <div class="input-group mb-3">
+                        <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                        <div class="input-group-append input-group-text">
+                          <span class="fas fa-id-card-alt"></span>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
 

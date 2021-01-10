@@ -15,11 +15,11 @@
             {
             header('Location:emonitoringNegeri/epnegeri2.php');
             }
-            else if($_SESSION['role'] == "boss")
+            else if($_SESSION['role'] == "bos")
             {
             header('Location:penyeliaBOSS/indexBOSS/index.php');
             }
-            else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "boss")
+            else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "bos")
             {
             header('Location:index.php?message=fail');
             }

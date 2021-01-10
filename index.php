@@ -63,14 +63,14 @@ if(isset($_POST["submit"]))
     $_SESSION['password'] = $res["password"];
     header('Location:emonitoringNegeri/epnegeri2.php');
   }
-  else if($res["role"] == "boss")
+  else if($res["role"] == "bos")
   {
     $_SESSION['user'] = $res['username'];
     $_SESSION['role'] = $res["role"];
     $_SESSION['password'] = $res["password"];
     header('Location:penyeliaBOSS/indexBOSS/index.php');
   }
-  else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "boss")
+  else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "bos")
   {
     header('Location:index.php?message=fail');
   }

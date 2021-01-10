@@ -29,6 +29,7 @@ $noHP = $_POST['noHP'];
 $namaPenyelaras = $_POST['namaPenyelaras'];
 $enrolmen = $_POST['enrolmen'];
 $remark = $_POST['remark'];
+$tarikhPemantauan = $_POST['tarikhPemantauan'];
 
 $judul = $_POST['judul'];
 $judul2 = $_GET['judul'];
@@ -73,7 +74,7 @@ $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
 if (isset($_POST['submit2'])) {
-  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `noHP` = '$noHP', `namaPenyelaras` = '$namaPenyelaras',`enrolmen` = '$enrolmen',`remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
+  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `tarikhPemantauan` = '$tarikhPemantauan', `noHP` = '$noHP', `namaPenyelaras` = '$namaPenyelaras',`enrolmen` = '$enrolmen',`remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
   header("location:main4.php?kodSekolah=$kodSekolah2");
 }
 
@@ -475,6 +476,7 @@ $a = 1;
                         <div class="input-group mb-3">
                           <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
                           <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
+                          <input type="hidden" name="tarikhPemantauan" class="form-control"  id="validationDefault01" value="<?php echo $datePHP;?>" >
                           <div class="input-group-append input-group-text">
                             <span class="fas fa-id-card-alt"></span>
                           </div>
@@ -566,6 +568,7 @@ $a = 1;
                           <div class="input-group mb-3">
                             <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
                             <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
+                            <input type="hidden" name="tarikhPemantauan" class="form-control"  id="validationDefault01" value="<?php echo $datePHP;?>" >
                             <div class="input-group-append input-group-text">
                               <span class="fas fa-id-card-alt"></span>
                             </div>

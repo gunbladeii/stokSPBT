@@ -30,9 +30,12 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE kodSekolah LIKE '$kodSekolah'");
-$dataSekolah = mysqli_fetch_assoc($Recordset2);
-$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
+$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP
+  FROM login
+  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
+  WHERE login.username = '$colname_Recordset'");
+$dataSekolah = mysqli_fetch_assoc($Recordset);
+$totalRows_Recordset = mysqli_num_rows($Recordset);
 
 $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
@@ -277,7 +280,7 @@ $a = 1;
               </tr>
               <tr>
                 <td colspan="6">
-                  <a>Nama Guru Penyelaras SPBT: <u><?php echo strtoupper($dataSekolah['namaPenyelaras']);?></u></a>
+                  <a>Nama Guru Penyelaras SPBT: <u><?php echo strtoupper($dataSekolah['nama']);?></u></a>
                 </td>
               </tr>
               <tr>

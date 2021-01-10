@@ -86,11 +86,13 @@ $a = 1;
 						<span class="login100-form-title p-b-40">
 							Halaman Utama <br>(SPBT Negeri)
 							<p>Selamat datang <strong><?php echo strtoupper($row_Recordset['nama']);?></strong> ke sistem mySPBT. Mohon klik pada pautan sistem berkenaan.</p>
-							<ul>
-								<li style="text-transform: uppercase;"><strong><?php echo strtoupper($row_Recordset['namaSekolah']);?></strong></li>
-								<li style="text-transform: uppercase;"><strong><?php echo strtoupper($row_Recordset['daerah']);?></strong></li>
-								<li style="text-transform: uppercase;"><strong><?php echo strtoupper($row_Recordset['negeri']);?></strong></li>
-							</ul>
+							<div class="alert alert-light success-block">
+								<ul>
+									<li style="text-transform: uppercase;"><strong><?php echo strtoupper($row_Recordset['namaSekolah']);?></strong></li>
+									<li style="text-transform: uppercase;"><strong><?php echo strtoupper($row_Recordset['daerah']);?></strong></li>
+									<li style="text-transform: uppercase;"><strong><?php echo strtoupper($row_Recordset['negeri']);?></strong></li>
+								</ul>
+							</div>
 						</span>
 
 						<div>

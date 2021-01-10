@@ -12,6 +12,7 @@ if (isset($_SESSION['user'])) {
 $id = $_GET['id'];
 $kodSekolah = $_GET['kodSekolah'];
 $bukuLebihan = $_POST['bukuLebihan'];
+$bukuStok = $_POST['bukuStok'];
 $kodSekolah2 = $_POST['kodSekolah'];
 $id2 = $_POST['id'];
 
@@ -27,7 +28,7 @@ $year = date('Y');
 
 
 if (isset($_POST['submit'])) {
-  $mysqli->query ("UPDATE `rekodPemantauan` SET bukuLebihan = '$bukuLebihan' WHERE `id` = '$id2'");
+  $mysqli->query ("UPDATE `rekodPemantauan` SET bukuStok = '$bukuStok',bukuLebihan = '$bukuLebihan' WHERE `id` = '$id2'");
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 

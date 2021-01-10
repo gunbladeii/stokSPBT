@@ -30,7 +30,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP
+$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP, dataSekolah.enrolmen
   FROM login
   INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
   WHERE login.username = '$colname_Recordset'");
@@ -288,6 +288,11 @@ $a = 1;
                   <a>No. Telefon Bimbit: <u><?php echo $dataSekolah['noHP'];?></u></a>
                 </td>
               </tr>
+              <tr>
+                <td colspan="6">
+                  <a>Enrolmen: <u><?php echo $dataSekolah['enrolmen'];?></u></a>
+                </td>
+              </tr>
 
               <tr>
                 <?php if(!empty($rekodPemantauan)) {?>
@@ -334,12 +339,11 @@ $a = 1;
               <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
             <?php }?>
             <tr>
-              <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Ulasan Keseluruhan</h5></th>
+              <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Cadangan/Ulasan</h5></th>
             </tr>
             <tr>
               <td colspan="6">
                 <div class="form-group">
-                  Ulasan:
                   <div class="input-group mb-3">
                     <?php echo "<u>".$dataSekolah['comment']."</u>";?>
                   </div>

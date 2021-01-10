@@ -27,6 +27,7 @@ $kodJudul = $_POST['kodJudul'];
 $comment = $_POST['comment'];
 $noHP = $_POST['noHP'];
 $namaPenyelaras = $_POST['namaPenyelaras'];
+$enrolmen = $_POST['enrolmen'];
 $remark = $_POST['remark'];
 
 $judul = $_POST['judul'];
@@ -72,7 +73,7 @@ $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
 if (isset($_POST['submit2'])) {
-  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `noHP` = '$noHP', `namaPenyelaras` = '$namaPenyelaras',`remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
+  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `noHP` = '$noHP', `namaPenyelaras` = '$namaPenyelaras',`enrolmen` = '$enrolmen',`remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
   header("location:main4.php?kodSekolah=$kodSekolah2");
 }
 

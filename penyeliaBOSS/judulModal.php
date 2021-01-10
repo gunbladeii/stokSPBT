@@ -44,7 +44,6 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
   Jumlah Naskhah (buku rosak):
   <div class="input-group mb-3">
     <input type="text" name="bukuRosak" class="form-control"  id="bukuRosak" value="" required>
-    <input type="hidden" id="bukuRosak" value="3">
     <div class="input-group-append input-group-text">
       <span class="fas fa-book"></span>
     </div>
@@ -77,7 +76,6 @@ $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>"/>
 <input type="hidden" name="namaSekolah" value="<?php echo $dataSekolah['namaSekolah'];?>"/>
 <input type="hidden" name="kodJudul" value="<?php echo $ReID['kodJudul'];?>"/>
-<input type="hidden" name="namaSekolah" value="<?php echo $dataSekolah['namaSekolah'];?>"/>
 <div class="modal-footer">
  <input type="submit" class="btn btn-primary" name="submit" value="Simpan rekod"/>
 </div>

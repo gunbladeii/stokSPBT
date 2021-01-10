@@ -368,7 +368,7 @@ $a = 1;
                   <td>
                    <div class="form-group">
                     1. Taip Judul: 
-                    <input type="text" name="judul" placeholder="Taip kata kunci judul untuk carian pantas.." class="form-control" >
+                    <input type="text" name="judul" placeholder="Taip kata kunci sahaja..Contoh:'melayu' untuk Bahasa Melayu" class="form-control" >
                     2. Pilih Jenis Sekolah:
                     <div class="input-group mb-3">
                      <select name="jenisAliran" class="custom-select browser-default">

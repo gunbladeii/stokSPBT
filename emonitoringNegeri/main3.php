@@ -35,7 +35,7 @@ $jenisAliran2 = $_GET['jenisAliran'];
 $Recordset = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d/%m/%Y') AS tarikhP,login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
   FROM login
   INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
-  WHERE login.username = '$colname_Recordset'");
+  WHERE kodSekolah LIKE '$kodSekolah'");
 $dataSekolah = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 

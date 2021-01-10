@@ -30,7 +30,7 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP, dataSekolah.enrolmen
+$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP, dataSekolah.enrolmen,dataSekolah.comment
   FROM login
   INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
   WHERE login.username = '$colname_Recordset'");

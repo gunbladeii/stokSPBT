@@ -18,7 +18,7 @@ if (isset($_SESSION['user'])) {
   $colname_Recordset = $_SESSION['user'];
 }
 
-
+$kodSekolah = $_GET['kodSekolah'];
 $kodSekolah2 = $_POST['kodSekolah'];
 $namaSekolah = $_POST['namaSekolah'];
 $bukuLebihan = $_POST['bukuLebihan'];

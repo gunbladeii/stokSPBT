@@ -441,7 +441,7 @@ $a = 1;
                       <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
                     </tr>
                     <tr>
-                      <td>
+                      <td colspan="8">
                         <div class="form-group">
                           Nama Guru Penyelaras SPBT:
                           <div class="input-group mb-3">
@@ -454,7 +454,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td>
+                      <td colspan="8">
                         <div class="form-group">
                           No. Telefon Bimbit:
                           <div class="input-group mb-3">
@@ -467,7 +467,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td>
+                      <td colspan="8">
                         <div class="form-group">
                           Enrolmen keseluruhan murid:
                           <div class="input-group mb-3">

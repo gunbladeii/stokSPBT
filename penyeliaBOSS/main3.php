@@ -32,7 +32,7 @@ $jenisAliran = $_POST['jenisAliran'];
 $jenisAliran2 = $_GET['jenisAliran'];
 
 
-$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri
+$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP
   FROM login
   INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
   WHERE login.username = '$colname_Recordset'");
@@ -298,7 +298,7 @@ $a = 1;
        <!-- TABLE: list of publisherSPBT -->
        <div class="card">
         <div class="card-header border-transparent">
-          <h2 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG PEMANTAUAN PENGURUSAN MAKLUMAT STOK</h2>
+          <h2 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG PENGURUSAN MAKLUMAT STOK</h2>
           <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Sila lengkapkan semua maklumat berikut sebelum membuat pengisian maklumat stok buku teks</h4>
           <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
@@ -356,35 +356,6 @@ $a = 1;
                 <tr>
                   <td>
                     No. Telefon Bimbit: <u><?php echo $dataSekolah['noHP'];?></u>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Tarikh Pemantauan: <u><?php echo $dataSekolah['tarikhPemantauan'];?></u>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    Nama Pegawai Pemantau: <u><?php echo strtoupper($dataSekolah['namaPegawai1']);?></u>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    Jawatan: <u><?php echo strtoupper($dataSekolah['jawatan1']);?></u>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    Nama Pegawai Pengiring: <u><?php echo strtoupper($dataSekolah['namaPegawai2']);?></u>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    Jawatan: <u><?php echo strtoupper($dataSekolah['jawatan2']);?></u>
                   </td>
                 </tr>
 

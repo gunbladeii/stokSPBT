@@ -1,7 +1,7 @@
 <?php require('conn.php'); ?>
 <?php
 session_start();
-if ($_SESSION['role'] != 'stokNegeri')
+if ($_SESSION['role'] != 'bos')
 {
       header('Location:../index.php');
 }

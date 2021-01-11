@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 
-$Recordset4 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.namaSekolah,rekodPemantauan.id, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan,rekodPemantauan.bukuRosak 
+$Recordset4 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.namaSekolah,rekodPemantauan.id, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan,rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid 
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah) 

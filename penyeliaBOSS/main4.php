@@ -302,7 +302,7 @@ $a = 1;
                   <th>Bil</th>
                   <th>Kod judul</th>
                   <th>Judul</th>
-                  <th>Naskhah (rosak)</th>
+                  <th>Naskhah (rosak-BOSS)</th>
                   <th>Naskhah (rosak-murid)</th>
                   <th>Naskhah (elok)</th>
                   <th>Stok (lebihan)</th>

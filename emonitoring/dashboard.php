@@ -311,6 +311,10 @@ $b = 1;
         <div class="container px-5 py-5"> 
          <div class="row" id="dashboard2"></div>
         </div>
+        <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Buku Teks Rosak BOSS/BOSD</h3>
+        <div class="container px-5 py-5"> 
+         <div class="row" id="dashboard3"></div>
+        </div>
       </section>
 
        <section class="content">
@@ -493,6 +497,7 @@ $b = 1;
 			setInterval(function () {
 				$('#dashboard').load('dashboard_view.php')
         $('#dashboard2').load('dashboard_view2.php')
+        $('#dashboard3').load('dashboard_view3.php')
 			}, 5000);
 
      

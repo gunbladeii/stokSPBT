@@ -139,7 +139,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
   <div class="small-box bg-primary">
     <div class="inner">
       <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID6['totalBukuRosak'])){echo $RID6['totalBukuRosak'];}else{echo 0;} ?></h3>
-      <p>Jumlah buku rosak</p>
+      <p>Jumlah besar buku rosak</p>
     </div>
     <div class="icon">
       <i class="ion ion-stats-bars"></i>

@@ -38,7 +38,7 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -46,7 +46,7 @@ $Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSeko
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -246,87 +246,88 @@ $a = 1;
             <table class="table table-sm">
               <thead>
                 <tr>
-                  <th colspan="6" style="text-align: center; background-color: #0d0d0d;"><h5 style="color: white">Maklumat Sekolah</h5></th>
+                  <th colspan="7" style="text-align: center; background-color: #0d0d0d;"><h5 style="color: white">Maklumat Sekolah</h5></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td colspan="6">
+                  <td colspan="7">
                    <a>Nama Sekolah: <u><?php echo $dataSekolah['namaSekolah'];?></u></a>
                  </td>
                </tr>
                <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Kod Sekolah: <u><?php echo $dataSekolah['kodSekolah'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Daerah: <u><?php echo $dataSekolah['daerah'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Negeri: <u><?php echo $dataSekolah['negeri'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>No. Telefon Pejabat: <u><?php echo $dataSekolah['noTelefon'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Nama Guru Penyelaras SPBT: <u><?php echo strtoupper($dataSekolah['namaPenyelaras']);?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>No. Telefon Bimbit: <u><?php echo $dataSekolah['noHP'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Tarikh Pemantauan: <u><?php echo $dataSekolah['tarikhP'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Enrolmen: <u><?php echo $dataSekolah['enrolmen'];?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Nama Pegawai Pemantau: <u><?php echo strtoupper($dataSekolah['namaPegawai1']);?></u></a>
                 </td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   <a>Jawatan: <u><?php echo strtoupper($dataSekolah['jawatan1']);?></u></a>
                 </td>
               </tr>
 
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   Nama Pegawai Pengiring: <u><?php echo strtoupper($dataSekolah['namaPegawai2']);?></u>
                 </td>
               </tr>
 
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   Jawatan: <u><?php echo strtoupper($dataSekolah['jawatan2']);?></u>
                 </td>
               </tr>
 
               <tr>
                 <?php if(!empty($rekodPemantauan)) {?>
-                  <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
+                  <th colspan="7" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
                 </tr>
                 <tr>
                   <th>Bil</th>
                   <th>Kod judul</th>
                   <th>Judul</th>
                   <th>Naskhah (rosak)</th>
+                  <th>Naskhah (rosak-murid)</th>
                   <th>Naskhah (elok)</th>
                   <th>Stok (lebihan)</th>
                 </tr>
@@ -336,6 +337,7 @@ $a = 1;
                     <td><?php echo strtoupper($rekodPemantauan['kodJudul']);?></td>
                     <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
                     <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
+                    <td><?php echo $rekodPemantauan['bukuRosakMurid'];?></td>
                     <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
                     <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
                   </tr>
@@ -343,7 +345,7 @@ $a = 1;
               <?php }?>
 
               <?php if(!empty($rekodPemantauan2)) {?>
-                <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
+                <th colspan="7" style="text-align: center; background-color: black"><h5 style="color: white">Maklumat Pengurusan Stok Buku Teks</h5></th>
               </tr>
               <tr>
                 <th>Bil</th>
@@ -363,10 +365,10 @@ $a = 1;
               <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
             <?php }?>
             <tr>
-              <th colspan="6" style="text-align: center; background-color: black"><h5 style="color: white">Ulasan Keseluruhan</h5></th>
+              <th colspan="7" style="text-align: center; background-color: black"><h5 style="color: white">Ulasan Keseluruhan</h5></th>
             </tr>
             <tr>
-              <td colspan="6">
+              <td colspan="7">
                 <div class="form-group">
                   Ulasan:
                   <div class="input-group mb-3">

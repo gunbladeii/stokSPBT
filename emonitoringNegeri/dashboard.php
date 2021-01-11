@@ -70,7 +70,7 @@ $b = 1;
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>mySPBT 2.0 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
@@ -181,8 +181,8 @@ $b = 1;
              </p>
            </a>
            <ul class="nav nav-treeview">
-             
-             
+
+
            </ul>
          </li>
          <li class="nav-item">
@@ -228,6 +228,9 @@ $b = 1;
       </div>
       <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSD</h3>
       <div class="row" id="dashboard2">
+      </div>
+      <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Buku Rosak BOSS/BOSD</h3>
+      <div class="row" id="dashboard3">
       </div>
     </section>
 
@@ -387,12 +390,13 @@ $b = 1;
       crossorigin="anonymous"></script>
       <script type="text/javascript">
         $(document).ready(function() {
-          
+
           $('#showJudulList').load('showJudulList.php');
           $('#showUserList').load('showUserList.php'); 
           setInterval(function () {
             $('#dashboard').load('dashboard_view.php')
             $('#dashboard2').load('dashboard_view2.php')
+            $('#dashboard3').load('dashboard_view3.php')
           }, 5000);
 
           

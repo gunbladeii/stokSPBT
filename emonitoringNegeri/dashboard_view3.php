@@ -3,7 +3,7 @@
 session_start();
 if ($_SESSION['role'] != 'stokNegeri')
 {
-      header('Location:../index.php');
+  header('Location:../index.php');
 }
 
 $colname_Recordset = "-1";
@@ -22,121 +22,129 @@ $date = date('Y-m-d');
 $time = date('H:i:s');
 $year = date('Y');
 
-    $refID = $mysqli->query("SELECT id,kategori,FORMAT(COUNT(remark),0) AS BOSDPantau FROM dataSekolah WHERE remark = 'observe' AND kategori ='BOSD' AND negeri = '$negeri'");
-    $RID = mysqli_fetch_assoc($refID);
+$refID = $mysqli->query("SELECT FORMAT(COUNT(dataSekolah.remark),0) AS totalObserve 
+FROM dataSekolah INNER JOIN rekodPemantauan 
+ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
+WHERE dataSekolah.remark = 'observe' AND rekodPemantauan.bukuRosak > 0 AND dataSekolah.negeri = '$negeri'");
+$RID = mysqli_fetch_assoc($refID);
 
-    $refID2 = $mysqli->query("SELECT rekodPemantauan.id,dataSekolah.kategori,FORMAT(SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN bukuStok ELSE 0 END),0) AS bukuStok 
-      FROM 
-      rekodPemantauan INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
-      WHERE dataSekolah.kategori = 'BOSD' AND dataSekolah.negeri = '$negeri'");
-    $RID2 = mysqli_fetch_assoc($refID2);
+$refID4 = $mysqli->query("SELECT FORMAT(COUNT(dataSekolah.remark),0) AS totalkeyin 
+FROM dataSekolah INNER JOIN rekodPemantauan 
+ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
+WHERE dataSekolah.remark = 'observe' AND rekodPemantauan.bukuRosak > 0 AND dataSekolah.negeri = '$negeri'");
+$RID4 = mysqli_fetch_assoc($refID4);
 
-    $refID3 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(CASE WHEN rekodPemantauan.bukuLebihan > 0 THEN bukuLebihan ELSE 0 END),0) AS bukuLebihan 
-      FROM 
-      rekodPemantauan INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah
-      WHERE dataSekolah.kategori = 'BOSD' AND dataSekolah.negeri = '$negeri'");
-    $RID3 = mysqli_fetch_assoc($refID3);
+$refID3 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(rekodPemantauan.bukuRosak),0) AS totalBukuRosak, CONCAT('RM', FORMAT(SUM(dataJudul.harga),0)) AS hargaBOSS
+  FROM ((rekodPemantauan 
+  INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
+  INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
+  WHERE dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuRosak > 0 AND dataSekolah.negeri = '$negeri'");
+$RID3 = mysqli_fetch_assoc($refID3);
 
-    $refID4 = $mysqli->query("SELECT id,FORMAT(COUNT(negeri),0) AS belumPantau 
-      FROM dataSekolah 
-      WHERE remark NOT LIKE 'observe' AND kategori = 'BOSD' AND negeri = '$negeri'");
-    $RID4 = mysqli_fetch_assoc($refID4);
+$refID4 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(rekodPemantauan.bukuRosak),0) AS totalBukuRosak, CONCAT('RM', FORMAT(SUM(dataJudul.harga),0)) AS hargaBOSD
+  FROM ((rekodPemantauan 
+  INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
+  INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
+  WHERE dataSekolah.kategori = 'BOSD' AND rekodPemantauan.bukuRosak > 0 AND dataSekolah.negeri = '$negeri'");
+$RID4 = mysqli_fetch_assoc($refID4);
+
+$refID5 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(rekodPemantauan.bukuRosak),0) AS totalBukuRosak, CONCAT('RM', FORMAT(SUM(dataJudul.harga),0)) AS hargaRosak
+  FROM ((rekodPemantauan 
+  INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
+  INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
+  WHERE dataSekolah.kategori = 'BOSS' AND rekodPemantauan.bukuRosakMurid > 0 AND dataSekolah.negeri = '$negeri'");
+$RID5 = mysqli_fetch_assoc($refID5);
+
+$refID6 = $mysqli->query("SELECT rekodPemantauan.id,FORMAT(SUM(rekodPemantauan.bukuRosak),0) AS totalBukuRosak, CONCAT('RM', FORMAT(SUM(dataJudul.harga),0)) AS hargaTotalRosak
+  FROM ((rekodPemantauan 
+  INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
+  INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
+  WHERE dataSekolah.remark = 'observe' AND rekodPemantauan.bukuRosak > 0 AND dataSekolah.negeri = '$negeri'");
+$RID6 = mysqli_fetch_assoc($refID6);
+
+
 ?>
-<div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID['id'])){echo $RID['BOSDPantau'];}else{echo 0;}?></h3>
-                <p>Bilangan Sekolah terlibat banjir</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID4['id'])){echo $RID4['belumPantau'];}else{echo 0;}?></h3>
-                <p>Bil. Sekolah kunci masuk sistem</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['id'])){echo $RID3['bukuLebihan'];}else{echo 0;} ?></h3>
-                <p>Bil. Buku Rosak(BOSS)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['id'])){echo $RID3['bukuLebihan'];}else{echo 0;} ?></h3>
-                <p>Bil. Buku Rosak(BOSD)</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['id'])){echo $RID3['bukuLebihan'];}else{echo 0;} ?></h3>
-                <p>Bil. Buku Rosak di tangan murid</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['id'])){echo $RID3['bukuLebihan'];}else{echo 0;} ?></h3>
-                <p>Jumlah buku rosak</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['id'])){echo $RID3['bukuLebihan'];}else{echo 0;} ?></h3>
-                <p>Jumlah kos</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+<div class="col mx-1">
+  <!-- small box -->
+  <div class="small-box bg-info">
+    <div class="inner">
+      <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID['totalObserve'])){echo $RID['totalObserve'];}else{echo 0;}?></h3>
+      <p>Bilangan Sekolah terlibat banjir</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-stats-bars"></i>
+    </div>
+    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<!-- ./col -->
+<div class="col mx-1">
+  <!-- small box -->
+  <div class="small-box bg-success">
+    <div class="inner">
+      <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID4['totalkeyin'])){echo $RID4['totalkeyin'];}else{echo 0;}?></h3>
+      <p>Bil. Sekolah kunci masuk sistem</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-stats-bars"></i>
+    </div>
+    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<!-- ./col -->
+<div class="col mx-1">
+  <!-- small box -->
+  <div class="small-box bg-warning">
+    <div class="inner">
+      <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID3['totalBukuRosak'])){echo $RID3['totalBukuRosak'];}else{echo 0;} ?></h3>
+      <p>Bil. Buku Rosak(BOSS)</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-stats-bars"></i>
+    </div>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID3['hargaBOSS'])){echo $RID3['hargaBOSS'];}else{echo 0;} ?><i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<!-- ./col -->
+<div class="col mx-1">
+  <!-- small box -->
+  <div class="small-box bg-warning">
+    <div class="inner">
+      <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID4['totalBukuRosak'])){echo $RID4['totalBukuRosak'];}else{echo 0;} ?></h3>
+      <p>Bil. Buku Rosak(BOSD)</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-stats-bars"></i>
+    </div>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID4['hargaBOSS'])){echo $RID4['hargaBOSD'];}else{echo 0;} ?> <i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<!-- ./col -->
+<div class="col mx-1">
+  <!-- small box -->
+  <div class="small-box bg-warning">
+    <div class="inner">
+      <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['totalBukuRosak'])){echo $RID5['totalBukuRosak'];}else{echo 0;} ?></h3>
+      <p>Bil. Buku Rosak di tangan murid</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-stats-bars"></i>
+    </div>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID5['hargaRosak'])){echo $RID5['hargaRosak'];}else{echo 0;} ?> <i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<!-- ./col -->
+<div class="col mx-1">
+  <!-- small box -->
+  <div class="small-box bg-warning">
+    <div class="inner">
+      <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID6['totalBukuRosak'])){echo $RID6['totalBukuRosak'];}else{echo 0;} ?></h3>
+      <p>Jumlah buku rosak</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-stats-bars"></i>
+    </div>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID6['hargaRosak'])){echo $RID6['hargaTotalRosak'];}else{echo 0;} ?> <i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<!-- ./col -->

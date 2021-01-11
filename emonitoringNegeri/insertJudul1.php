@@ -11,19 +11,26 @@ if (isset($_SESSION['user'])) {
   $colname_Recordset = $_SESSION['user'];
 }
 
-$kodPembekal = $_GET['kodPembekal'];
+$kodSekolah = $_GET['kodSekolah'];
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSH WHERE username = '$colname_Recordset'");
-$dataSH = mysqli_fetch_assoc($Recordset2);
+$Recordset2 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
+  FROM login
+  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
+  WHERE login.remark = '$kodSekolah'");
+$dataJudul2 = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$Recordset3 = $mysqli->query("SELECT dataSH.namaPembekal, dataSH.negeri,login.colorBar,SUM(dataSH.nilaiSH) AS sumnilaiSH FROM dataSH INNER JOIN login ON dataSH.username = login.username WHERE dataSH.kodPembekal = '$kodPembekal'");
-$dataSH2 = mysqli_fetch_assoc($Recordset3);
+$Recordset3 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
+  FROM login
+  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
+  WHERE login.remark = '$kodSekolah'");
+$dataJudul3 = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
+
 
 
 $a = 1;
@@ -157,7 +164,7 @@ $a = 1;
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="epnegeri.php">Halaman utama</a></li>
-              <li class="breadcrumb-item active">mySPBT 2.0 | Pengesanan SH-Negeri</li>
+              <li class="breadcrumb-item active">mySPBT 2.0 | Pendafaran Judul</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -170,7 +177,7 @@ $a = 1;
            <!-- TABLE: list of publisherSPBT -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">REKOD PEMANTAUAN PEMBEKALAN</h3>
+                <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Pendaftaran Judul</h3>
                 <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
                 <div class="card-tools">
@@ -188,7 +195,7 @@ $a = 1;
                             <div class="table-responsive">  
                           <form method="post" id="update_form">
                     <div align="center">
-                      <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi Pembekal <?php echo strtoupper($dataSH2['namaPembekal']);?></h4>
+                      <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi <?php echo strtoupper($dataJudul['namaSekolah']);?></h4>
                     </div>
                     <div align="center">
                         <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="KEMASKINI" />
@@ -199,10 +206,10 @@ $a = 1;
                             <thead align="center">
                                 <th width="5%"></th>
                                 <th width="60%">Nama Judul</th>
-                                <th width="5%">Bil. Pesanan</th>
-                                <th width="5%">Bil. Dibekal</th>
-                                <th width="5%">Peratus Pembekalan (%)</th>
-                                <th width="20%">Status Bekal</th>
+                                <th width="6%">Buku Rosak(Murid)</th>
+                                <th width="6%">Buku Rosak(BOSS)</th>
+                                <th width="6%">Buku Elok</th>
+                                <th width="6%">Lebihan</th>
                             </thead>
                             <tbody></tbody>
                         </table>

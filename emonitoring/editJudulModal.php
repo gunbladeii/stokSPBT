@@ -12,6 +12,7 @@ if (isset($_SESSION['user'])) {
 $id = $_GET['id'];
 $kodSekolah = $_GET['kodSekolah'];
 $bukuRosak = $_POST['bukuRosak'];
+$bukuRosakMurid = $_POST['bukuRosakMurid'];
 $bukuLebihan = $_POST['bukuLebihan'];
 $bukuStok = $_POST['bukuStok'];
 $kodSekolah2 = $_POST['kodSekolah'];
@@ -29,11 +30,11 @@ $year = date('Y');
 
 
 if (isset($_POST['submit'])) {
-  $mysqli->query ("UPDATE `rekodPemantauan` SET bukuStok = '$bukuStok',bukuLebihan = '$bukuLebihan', bukuRosak = '$bukuRosak' WHERE `id` = '$id2'");
+  $mysqli->query ("UPDATE `rekodPemantauan` SET bukuStok = '$bukuStok',bukuLebihan = '$bukuLebihan', bukuRosak = '$bukuRosak', bukuRosakMurid = '$bukuRosakMurid' WHERE `id` = '$id2'");
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 
-$Recordset4 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.namaSekolah,rekodPemantauan.id, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuRosak 
+$Recordset4 = $mysqli->query("SELECT dataSekolah.kategori,dataSekolah.namaSekolah,rekodPemantauan.id, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuRosak, rekodPemantauan.bukuRosakMurid
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah) 
@@ -59,7 +60,18 @@ $a=1;
 </div>
 
 <div class="form-group"> 
-  Jumlah Naskhah (buku rosak):
+  Jumlah Naskhah (buku rosak-Murid):
+  <div class="input-group mb-3">
+    <input type="text" name="bukuRosakMurid" class="form-control"  id="bukuRosakMurid" value="<?php echo $ReID['bukuRosakMurid'];?>" required>
+    <input type="hidden" id="bukuRosakMurid" value="3">
+    <div class="input-group-append input-group-text">
+      <span class="fas fa-book"></span>
+    </div>
+  </div>
+</div>
+
+<div class="form-group"> 
+  Jumlah Naskhah (buku rosak-BOSS):
   <div class="input-group mb-3">
     <input type="text" name="bukuRosak" class="form-control"  id="bukuRosak" value="<?php echo $ReID['bukuRosak'];?>" required>
     <input type="hidden" id="bukuRosak" value="3">

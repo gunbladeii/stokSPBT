@@ -44,7 +44,7 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -461,6 +461,7 @@ $a = 1;
                     <th>Bil</th>
                     <th>Judul</th>
                     <th>Naskhah (rosak-BOSS)</th>
+                    <th>Naskhah (rosak-Murid)</th>
                     <th>Naskhah (elok)</th>
                     <th>Stok (lebihan)</th>
                     <th>Hapus</th>
@@ -473,6 +474,7 @@ $a = 1;
                       <td><?php echo $a++;?></td>
                       <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
                       <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
+                      <td><?php echo $rekodPemantauan['bukuRosakMurid'];?></td>
                       <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
                       <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
                       <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan['id'];?>" data-whatever2="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>

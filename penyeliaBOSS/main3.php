@@ -378,33 +378,35 @@ $a = 1;
                 </td>
               </tr>
 
-              <tr>
-                <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">PAPARAN MAKLUMAT JUDUL</h4></th>
-              </tr>
+              <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" name="submit3" value="Carian judul"/>
+              </div>
+            </form>
 
-              <tr>
-
-                <td>
-                 <p>
-                  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Pendaftaran Mengikut Darjah/Tingkatan
-                  </a>
-                </p>
-                <div class="collapse" id="collapseExample">
-                  <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                  </div>
-                </div>
-              </td>
+            <tr>
+              <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">PAPARAN MAKLUMAT JUDUL</h4></th>
             </tr>
 
-          </tbody>
-        </table>
-        <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" name="submit3" value="Carian judul"/>
-        </div>
-      </form>
+            <tr>
+
+              <td>
+               <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Pendaftaran Mengikut Darjah/Tingkatan
+                </a>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      
     </div>
     <?php ;}else {echo 'Tiada dalam rekod';}?>
 

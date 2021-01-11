@@ -102,7 +102,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
     <div class="icon">
       <i class="ion ion-stats-bars"></i>
     </div>
-    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID3['hargaBOSS'])){echo $RID3['hargaBOSS'];}else{echo 0;} ?><i class="fas fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID3['hargaBOSS'])){echo $RID3['hargaBOSS'];}else{echo 0;} ?></a>
   </div>
 </div>
 <!-- ./col -->

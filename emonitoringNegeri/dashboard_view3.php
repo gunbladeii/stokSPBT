@@ -108,7 +108,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
 <!-- ./col -->
 <div class="col mx-1">
   <!-- small box -->
-  <div class="small-box bg-warning">
+  <div class="small-box bg-secondary">
     <div class="inner">
       <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID4['totalBukuRosak'])){echo $RID4['totalBukuRosak'];}else{echo 0;} ?></h3>
       <p>Bil. Buku Rosak(BOSD)</p>
@@ -122,7 +122,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
 <!-- ./col -->
 <div class="col mx-1">
   <!-- small box -->
-  <div class="small-box bg-warning">
+  <div class="small-box bg-danger">
     <div class="inner">
       <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID5['totalBukuRosak'])){echo $RID5['totalBukuRosak'];}else{echo 0;} ?></h3>
       <p>Bil. Buku Rosak di tangan murid</p>
@@ -136,7 +136,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
 <!-- ./col -->
 <div class="col mx-1">
   <!-- small box -->
-  <div class="small-box bg-warning">
+  <div class="small-box bg-primary">
     <div class="inner">
       <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID6['totalBukuRosak'])){echo $RID6['totalBukuRosak'];}else{echo 0;} ?></h3>
       <p>Jumlah buku rosak</p>

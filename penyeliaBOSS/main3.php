@@ -377,170 +377,64 @@ $a = 1;
                   </div>
                 </td>
               </tr>
-
-              <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
-              <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" name="submit3" value="Carian judul"/>
-              </div>
-            </form>
-
-            <tr>
-              <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">PAPARAN MAKLUMAT JUDUL</h4></th>
-            </tr>
-
-            <tr>
-
-              <td>
-               <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  Pendaftaran Mengikut Darjah/Tingkatan
-                </a>
-              </p>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                </div>
-              </div>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-      
-    </div>
-    <?php ;}else {echo 'Tiada dalam rekod';}?>
-
-    <?php if($dataJudul2 > 0) {?>
-      <div class="table-responsive">
-        <table id="example1" class="table table-sm">
-          <thead>
-            <tr>
-              <th>Bil</th>
-              <th>Judul</th>
-              <th>Jenis Sekolah</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php do {?>
-              <tr>
-                <td><?php echo $a++;?></td>
-                <td><a class="badge badge-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $dataJudul2['kodJudul'];?>" data-whatever4="<?php echo $dataSekolah['kodSekolah'];?>"class="nav-link"><?php echo $dataJudul2['judul']; ?></a></td>
-                <td><?php echo $dataJudul2['jenisAliran']; ?></td>
-              </tr>
-            <?php } while ($dataJudul2 = mysqli_fetch_assoc($Recordset6)); ?>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+          <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
+          <div class="modal-footer">
+            <input type="submit" class="btn btn-primary" name="submit3" value="Carian judul"/>
+          </div>
+        </form>
       </div>
-      <?php ;} else {echo '<div class="container"><div class="input-group mb-3"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila klik carian judul</a></div></div>';}?>
-      <?php if($rekodPemantauan > 0) {?>
-        <div class="table-responsive">
+      <?php ;}else {echo 'Tiada dalam rekod';}?>
 
-          <table class="table table-sm">
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Pendaftaran Mengikut Darjah/Tingkatan
+        </a>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+      </div>
+
+      <?php if($dataJudul2 > 0) {?>
+        <div class="table-responsive">
+          <table id="example1" class="table table-sm">
             <thead>
-              <tr>
-                <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
-              </tr>
               <tr>
                 <th>Bil</th>
                 <th>Judul</th>
-                <th>Naskhah (rosak-BOSS)</th>
-                <th>Naskhah (rosak-murid)</th>
-                <th>Naskhah (elok)</th>
-                <th>Stok (lebihan)</th>
-                <th>Hapus</th>
-                <th>Edit</th>
+                <th>Jenis Sekolah</th>
               </tr>
             </thead>
             <tbody>
               <?php do {?>
                 <tr>
                   <td><?php echo $a++;?></td>
-                  <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
-                  <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
-                  <td><?php echo $rekodPemantauan['bukuRosakMurid'];?></td>
-                  <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
-                  <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
-                  <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan['id'];?>" data-whatever2="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
-                  <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan['id'];?>" data-whatever6="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
+                  <td><a class="badge badge-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $dataJudul2['kodJudul'];?>" data-whatever4="<?php echo $dataSekolah['kodSekolah'];?>"class="nav-link"><?php echo $dataJudul2['judul']; ?></a></td>
+                  <td><?php echo $dataJudul2['jenisAliran']; ?></td>
                 </tr>
-              <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
-              <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
-                <tr>
-                  <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
-                </tr>
-                <tr>
-                  <td colspan="8">
-                    <div class="form-group">
-                      Nama Guru Penyelaras SPBT:
-                      <div class="input-group mb-3">
-                        <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['nama']);?>" style="text-transform: uppercase;" required>
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="8">
-                    <div class="form-group">
-                      No. Telefon Bimbit:
-                      <div class="input-group mb-3">
-                        <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="8">
-                    <div class="form-group">
-                      Enrolmen keseluruhan murid:
-                      <div class="input-group mb-3">
-                        <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
-                        <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
-                        <input type="hidden" name="tarikhPemantauan" class="form-control"  id="validationDefault01" value="<?php echo $datePHP;?>" >
-                        <div class="input-group-append input-group-text">
-                          <span class="fas fa-id-card-alt"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="8">
-                    <div class="form-group">
-                      Cadangan/Ulasan:
-
-                      <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
-
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
-            <div class="modal-footer">
-              <input type="submit" class="btn btn-primary" name="submit2" value="Simpan rekod"/>
-            </div>
-          </form>
+              <?php } while ($dataJudul2 = mysqli_fetch_assoc($Recordset6)); ?>
+            </tbody>
+          </table>
         </div>
-        <?php ;}?>
-
-        <?php if($rekodPemantauan2 > 0) {?>
+        <?php ;} else {echo '<div class="container"><div class="input-group mb-3"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila klik carian judul</a></div></div>';}?>
+        <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">
+
             <table class="table table-sm">
               <thead>
                 <tr>
-                  <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                  <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
                 </tr>
                 <tr>
                   <th>Bil</th>
                   <th>Judul</th>
-                  <th>Bil Naskhah (Rosak)</th>
-                  <th>Bil Naskhah (Elok)</th>
+                  <th>Naskhah (rosak-BOSS)</th>
+                  <th>Naskhah (rosak-murid)</th>
+                  <th>Naskhah (elok)</th>
+                  <th>Stok (lebihan)</th>
                   <th>Hapus</th>
                   <th>Edit</th>
                 </tr>
@@ -549,19 +443,21 @@ $a = 1;
                 <?php do {?>
                   <tr>
                     <td><?php echo $a++;?></td>
-                    <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
-                    <td><?php echo $rekodPemantauan2['bukuRosak'];?></td>
-                    <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
-                    <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
-                    <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan2['id'];?>" data-whatever6="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
+                    <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
+                    <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
+                    <td><?php echo $rekodPemantauan['bukuRosakMurid'];?></td>
+                    <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
+                    <td><?php if($rekodPemantauan['bukuStok'] > 0){echo $rekodPemantauan["bukuStok"];}else echo '<i class="fas fa-check-circle"></i>';?></td>
+                    <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan['id'];?>" data-whatever2="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
+                    <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan['id'];?>" data-whatever6="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
                   </tr>
-                <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
+                <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                 <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
                   <tr>
-                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
+                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
                   </tr>
                   <tr>
-                    <td colspan="6">
+                    <td colspan="8">
                       <div class="form-group">
                         Nama Guru Penyelaras SPBT:
                         <div class="input-group mb-3">
@@ -574,7 +470,7 @@ $a = 1;
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="6">
+                    <td colspan="8">
                       <div class="form-group">
                         No. Telefon Bimbit:
                         <div class="input-group mb-3">
@@ -587,7 +483,7 @@ $a = 1;
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="6">
+                    <td colspan="8">
                       <div class="form-group">
                         Enrolmen keseluruhan murid:
                         <div class="input-group mb-3">
@@ -602,7 +498,7 @@ $a = 1;
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="6">
+                    <td colspan="8">
                       <div class="form-group">
                         Cadangan/Ulasan:
 
@@ -615,82 +511,174 @@ $a = 1;
               </table>
               <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
               <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" name="submit2" value="Simpan Rekod"/>
+                <input type="submit" class="btn btn-primary" name="submit2" value="Simpan rekod"/>
               </div>
             </form>
           </div>
           <?php ;}?>
 
-          <!-- /.table-responsive -->
+          <?php if($rekodPemantauan2 > 0) {?>
+            <div class="table-responsive">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                  </tr>
+                  <tr>
+                    <th>Bil</th>
+                    <th>Judul</th>
+                    <th>Bil Naskhah (Rosak)</th>
+                    <th>Bil Naskhah (Elok)</th>
+                    <th>Hapus</th>
+                    <th>Edit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php do {?>
+                    <tr>
+                      <td><?php echo $a++;?></td>
+                      <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
+                      <td><?php echo $rekodPemantauan2['bukuRosak'];?></td>
+                      <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
+                      <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>
+                      <td><a data-toggle="modal" data-target="#editJudulModal" data-whatever5="<?php echo $rekodPemantauan2['id'];?>" data-whatever6="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-edit"></i></a></td>
+                    </tr>
+                  <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
+                  <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
+                    <tr>
+                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
+                    </tr>
+                    <tr>
+                      <td colspan="6">
+                        <div class="form-group">
+                          Nama Guru Penyelaras SPBT:
+                          <div class="input-group mb-3">
+                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['nama']);?>" style="text-transform: uppercase;" required>
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6">
+                        <div class="form-group">
+                          No. Telefon Bimbit:
+                          <div class="input-group mb-3">
+                            <input type="text" name="noHP" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['noHP'];?>" required>
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6">
+                        <div class="form-group">
+                          Enrolmen keseluruhan murid:
+                          <div class="input-group mb-3">
+                            <input type="text" name="enrolmen" class="form-control"  id="validationDefault01" value="<?php echo $dataSekolah['enrolmen'];?>" required>
+                            <input type="hidden" name="remark" class="form-control"  id="validationDefault01" value="observe" >
+                            <input type="hidden" name="tarikhPemantauan" class="form-control"  id="validationDefault01" value="<?php echo $datePHP;?>" >
+                            <div class="input-group-append input-group-text">
+                              <span class="fas fa-id-card-alt"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6">
+                        <div class="form-group">
+                          Cadangan/Ulasan:
+
+                          <textarea name="comment" class="form-control" id="validationDefault01"  rows="3" placeholder="<?php echo $dataSekolah['comment'];?>"></textarea>
+
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-primary" name="submit2" value="Simpan Rekod"/>
+                </div>
+              </form>
+            </div>
+            <?php ;}?>
+
+            <!-- /.table-responsive -->
+          </div>
         </div>
       </div>
-    </div>
 
 
-  </section>
-</div>
-<!-- ./wrapper -->
-<!-- jQuery -->
-<script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="../adminSPBT/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="../adminSPBT/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="../adminSPBT/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="../adminSPBT/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="../adminSPBT/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="../adminSPBT/plugins/moment/moment.min.js"></script>
-<script src="../adminSPBT/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="../adminSPBT/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="../adminSPBT/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="../adminSPBT/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- FastClick -->
-<script src="../adminSPBT/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../adminSPBT/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../adminSPBT/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../adminSPBT/dist/js/demo.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </section>
+  </div>
+  <!-- ./wrapper -->
+  <!-- jQuery -->
+  <script src="../adminSPBT/plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="../adminSPBT/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="../adminSPBT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="../adminSPBT/plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="../adminSPBT/plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="../adminSPBT/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="../adminSPBT/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="../adminSPBT/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="../adminSPBT/plugins/moment/moment.min.js"></script>
+  <script src="../adminSPBT/plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="../adminSPBT/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="../adminSPBT/plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="../adminSPBT/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- FastClick -->
+  <script src="../adminSPBT/plugins/fastclick/fastclick.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../adminSPBT/dist/js/adminlte.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="../adminSPBT/dist/js/pages/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../adminSPBT/dist/js/demo.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-  $(document).ready(function() {
+  <script type="text/javascript">
+    $(document).ready(function() {
 
-    $('#showJudulList').load('showJudulList.php');
-    $('#showUserList').load('showUserList.php'); 
-    setInterval(function () {
-      $('#showAttChart').load('showAttChart.php')
-      $('#showTotalPenerbit').load('showTotalPenerbit.php')
-      $('#showTotalJudul').load('showTotalJudul.php')
-      $('#showTotalPesanan').load('showTotalPesanan.php')
-      $('#showTotalPembekalan').load('showTotalPembekalan.php')
-      $('#odometer').load('../distiSPBT/liveOdometer.php')
-      $('#attStat').load('../distiSPBT/attStat.php')
-      $('#parcelStat').load('../distiSPBT/parcelStat.php')
-    }, 5000);
+      $('#showJudulList').load('showJudulList.php');
+      $('#showUserList').load('showUserList.php'); 
+      setInterval(function () {
+        $('#showAttChart').load('showAttChart.php')
+        $('#showTotalPenerbit').load('showTotalPenerbit.php')
+        $('#showTotalJudul').load('showTotalJudul.php')
+        $('#showTotalPesanan').load('showTotalPesanan.php')
+        $('#showTotalPembekalan').load('showTotalPembekalan.php')
+        $('#odometer').load('../distiSPBT/liveOdometer.php')
+        $('#attStat').load('../distiSPBT/attStat.php')
+        $('#parcelStat').load('../distiSPBT/parcelStat.php')
+      }, 5000);
 
 
-  });
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script>
-  /*updatePesananJudul*/
-  $('#delJudulModal').on('show.bs.modal', function (event) {
+    });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script>
+    /*updatePesananJudul*/
+    $('#delJudulModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var recipient2 = button.data('whatever2') // Extract info from data-* attributes

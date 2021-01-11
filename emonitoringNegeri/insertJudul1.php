@@ -195,7 +195,7 @@ $a = 1;
                             <div class="table-responsive">  
                           <form method="post" id="update_form">
                     <div align="center">
-                      <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi <?php echo strtoupper($dataJudul['namaSekolah']);?></h4>
+                      <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi <?php echo strtoupper($dataJudul2['namaSekolah']);?></h4>
                     </div>
                     <div align="center">
                         <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="KEMASKINI" />

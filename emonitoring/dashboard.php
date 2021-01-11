@@ -84,7 +84,12 @@ $Recordset2 = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '
   WHEN (dataJudul.harga * rekodPemantauan.bukuStok) > 0 AND dataSekolah.kategori = 'BOSS' THEN (dataJudul.harga * rekodPemantauan.bukuStok) 
   WHEN (dataJudul.harga * rekodPemantauan.bukuLebihan) > 0 AND dataSekolah.kategori = 'BOSD' THEN (dataJudul.harga * rekodPemantauan.bukuLebihan)
   ELSE 0 
-  END),2)) AS harga
+  END),2)) AS harga,
+  CONCAT('RM', FORMAT(SUM(
+  CASE 
+  WHEN rekodPemantauan.bukuRosak > 0 OR rekodPemantauan.bukuRosakMurid > 0 THEN (dataJudul.harga * (rekodPemantauan.bukuRosak + rekodPemantauan.bukuRosakMurid))
+  ELSE 0 
+  END),2)) AS hargaRosak
   FROM 
   ((rekodPemantauan
   INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
@@ -362,7 +367,8 @@ $b = 1;
                                 <th>Nama Sekolah</th>
                                 <th>Kategori</th>
                                 <th>Negeri</th>
-                                <th>Kos(RM)</th>
+                                <th>Jumlah Kos(RM)</th>
+                                <th>Kos Kerosakan(RM)</th>
                                 <th>Tarikh Pantau</th>
                               </tr>
                               </thead>
@@ -376,6 +382,7 @@ $b = 1;
                                 <td><?php echo $dataSekolah['kategori'];?></td>
                                 <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
                                 <td><?php if($dataSekolah['harga'] < 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['harga'];}?></td>
+                                 <td><?php if($dataSekolah['hargaRosak'] < 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['hargaRosak'];}?></td>
                                 <td><?php echo $dataSekolah['tarikhPemantauan'];?></td>
                               </tr>
                               <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>

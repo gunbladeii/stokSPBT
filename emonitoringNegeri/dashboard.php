@@ -229,7 +229,7 @@ $b = 1;
       <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Pemantauan BOSD</h3>
       <div class="row" id="dashboard2">
       </div>
-      <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Buku Rosak BOSS/BOSD</h3>
+      <h3 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Status Buku Teks Rosak BOSS/BOSD</h3>
       <div class="row" id="dashboard3">
       </div>
     </section>

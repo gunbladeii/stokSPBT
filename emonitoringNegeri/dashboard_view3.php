@@ -74,7 +74,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
     <div class="icon">
       <i class="ion ion-stats-bars"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">More info</a>
   </div>
 </div>
 <!-- ./col -->
@@ -88,7 +88,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
     <div class="icon">
       <i class="ion ion-stats-bars"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">More info</a>
   </div>
 </div>
 <!-- ./col -->
@@ -116,7 +116,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
     <div class="icon">
       <i class="ion ion-stats-bars"></i>
     </div>
-    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID4['hargaBOSS'])){echo $RID4['hargaBOSD'];}else{echo 0;} ?> <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID4['hargaBOSS'])){echo $RID4['hargaBOSD'];}else{echo 0;} ?></a>
   </div>
 </div>
 <!-- ./col -->
@@ -130,7 +130,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
     <div class="icon">
       <i class="ion ion-stats-bars"></i>
     </div>
-    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID5['hargaRosak'])){echo $RID5['hargaRosak'];}else{echo 0;} ?> <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID5['hargaRosak'])){echo $RID5['hargaRosak'];}else{echo 0;} ?></a>
   </div>
 </div>
 <!-- ./col -->
@@ -144,7 +144,7 @@ $RID6 = mysqli_fetch_assoc($refID6);
     <div class="icon">
       <i class="ion ion-stats-bars"></i>
     </div>
-    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID6['hargaRosak'])){echo $RID6['hargaTotalRosak'];}else{echo 0;} ?> <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">Kos: <?php if (!empty($RID6['hargaRosak'])){echo $RID6['hargaTotalRosak'];}else{echo 0;} ?></a>
   </div>
 </div>
 <!-- ./col -->

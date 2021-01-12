@@ -12,11 +12,11 @@ $connect = new PDO("mysql:host=localhost;dbname=myspbt", "adminspbt", "Sh@ti5620
 $kodSekolah = $_GET['kodSekolah'];
 $jenisAliran = $_GET['jenisAliran'];
 
-$query = "SELECT dataJudul.kodJudul, dataJudul.judul, dataJudul.jenisAliran, rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid, rekodPemantauan.bukuStok, rekodPemantauan.bukuLebihan, rekodPemantauan.kodSekolah FROM 
+$query = "SELECT dataJudul.kodJudul AS kodjudul, dataJudul.judul AS namajudul, dataJudul.jenisAliran, rekodPemantauan.bukuRosak AS bukurosak,rekodPemantauan.bukuRosakMurid AS bukurosakmurid, rekodPemantauan.bukuStok AS bukustok, rekodPemantauan.bukuLebihan AS bukulebihan, rekodPemantauan.kodSekolah FROM 
 ((rekodPemantauan 
 	INNER JOIN dataJudul ON rekodPemantauan.jenisAliran = dataJudul.jenisAliran)
 	INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-	WHERE dataSekolah. = '$kodPembekal'
+	WHERE dataSekolah. = '$kodSekolah' AND jenisAliran = '$jenisAliran'
 	  ORDER BY dataJudulPenerbit.id DESC";
 
 $statement = $connect->prepare($query);

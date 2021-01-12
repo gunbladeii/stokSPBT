@@ -291,7 +291,7 @@ $(document).ready(function(){
                 for(var count = 0; count < data.length; count++)
                 {
                     html += '<tr align="center">';
-                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-darjahtingkatan="'+data[count].darjahtingkatan+'" data-bukurosakmurid="'+data[count].bukurosakmurid+'" data-bukurosak="'+data[count].bukurosak+'" data-bukulebihan="'+data[count].bukulebihan+'" data-bukustok="'+data[count].bukustok+'" class="check_box"  /></td>';
+                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-darjahtingkatan="'+data[count].darjahtingkatan+'" class="check_box"  /></td>';
                     html += '<td align="left">'+data[count].kodjudul+'</td>';
                     html += '<td align="left">'+data[count].namajudul+'</td>';
                     html += '<td align="left">'+data[count].darjahtingkatan+'</td>';
@@ -311,7 +311,7 @@ $(document).ready(function(){
         var html = '';
         if(this.checked)
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" data-bukustok="'+$(this).data('bukustok')+'" class="check_box" checked /></td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" class="check_box" checked /></td>';
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
@@ -322,7 +322,7 @@ $(document).ready(function(){
         }
         else
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukustok="'+$(this).data('bukustok')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" class="check_box" /></td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" class="check_box" /></td>';
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';

@@ -200,8 +200,8 @@ $a = 1;
                                 <th width="60%">Kod Judul</th>
                                 <th width="60%">Nama Judul</th>
                                 <th width="6%">Darjah / Tingkatan</th>
-                                <th width="6%">Buku Rosak(Murid)</th>
-                                <th width="6%">Buku Rosak(BOSS)</th>
+                                <th width="6%">Buku Rosak (Murid)</th>
+                                <th width="6%">Buku Rosak (BOSS)</th>
                                 <th width="6%">Buku Elok</th>
                                 <th width="6%">Lebihan</th>
                             </thead>

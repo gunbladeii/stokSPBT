@@ -32,7 +32,7 @@ $a = 1;
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>mySPBT 2.0 | Dashboard SH-Negeri</title>
+  <title>mySPBT 2.0 | Pendaftaran Judul</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -148,7 +148,7 @@ $a = 1;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 Pengesanan Sebut Harga-Negeri</h1>
+            <h1 class="m-0 text-dark" style="font-family: 'Fugaz One', cursive;">mySPBT 2.0 Pendaftaran Judul Stok BOSS/BOSD</h1>
             <span class="badge badge-warning"><?php echo strtoupper($row_Recordset['nama']);?></span>
             <span class="badge badge-info"><?php echo strtoupper($row_Recordset['negeri']);?></span>
             <p>(*Data berikut dikemaskini sehingga <?php echo $date;?>)</p>

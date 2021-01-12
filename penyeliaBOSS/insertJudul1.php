@@ -323,7 +323,7 @@ $(document).ready(function(){
         {
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukustok="'+$(this).data('bukustok')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" class="check_box" /></td>';
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
-            html += '<td>'+$(this).data('namajudul')+'</td>';
+            html += '<td align="left">'+$(this).data('namajudul')+'</td>';
             html += '<td>'+$(this).data('bukurosakmurid')+'</td>';
             html += '<td>'+$(this).data('bukurosak')+'</td>';
             html += '<td>'+$(this).data('bukulebihan')+'</td>';

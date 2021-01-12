@@ -12,7 +12,7 @@ $connect = new PDO("mysql:host=localhost;dbname=myspbt", "adminspbt", "Sh@ti5620
 $kodSekolah = $_GET['kodSekolah'];
 $jenisAliran = $_GET['jenisAliran'];
 
-$query = "SELECT id,darjahTingkatan AS darjahtingkatan, kodJudul AS kodjudul, judul AS namajudul, jenisAliran
+$query = "SELECT id,darjahTingkatan AS darjahtingkatan, kodJudul AS kodjudul, judul AS namajudul, jenisAliran, CONCAT('RM', harga)
 	FROM dataJudul
 	WHERE jenisAliran = '$jenisAliran'
 	ORDER BY darjahTingkatan ASC";

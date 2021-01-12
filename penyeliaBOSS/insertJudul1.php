@@ -295,10 +295,10 @@ $(document).ready(function(){
                     html += '<td align="left">'+data[count].kodjudul+'</td>';
                     html += '<td align="left">'+data[count].namajudul+'</td>';
                     html += '<td align="left">'+data[count].darjahtingkatan+'</td>';
-                    html += '<td>'+data[count].bukurosakmurid+'</td>';
-                    html += '<td>'+data[count].bukurosak+'</td>';
-                    html += '<td>'+data[count].bukulebihan+'</td>';
-                    html += '<td>'+data[count].bukustok+'</td></tr>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td></tr>';
                 }
                 $('tbody').html(html);
             }
@@ -315,9 +315,9 @@ $(document).ready(function(){
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
-            html += '<td><input type="text" name="bukurosakmurid[]" class="form-control" value="'+$(this).data("bukurosakmurid")+'" /></td>';
-            html += '<td><input type="text" name="bukurosak[]" class="form-control" value="'+$(this).data("bukurosak")+'" /></td>';
-            html += '<td><input type="text" name="bukulebihan[]" class="form-control" value="'+$(this).data("bukulebihan")+'" /></td>';
+            html += '<td><input type="text" name="bukurosakmurid[]" class="form-control" value="" /></td>';
+            html += '<td><input type="text" name="bukurosak[]" class="form-control" value="" /></td>';
+            html += '<td><input type="text" name="bukulebihan[]" class="form-control" value="" /></td>';
             html += '<td align="left">'+$(this).data('bukustok')+'<input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
         }
         else
@@ -326,10 +326,10 @@ $(document).ready(function(){
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
-            html += '<td>'+$(this).data('bukurosakmurid')+'</td>';
-            html += '<td>'+$(this).data('bukurosak')+'</td>';
-            html += '<td>'+$(this).data('bukulebihan')+'</td>';
-            html += '<td>'+$(this).data('bukustok')+'</td>';
+            html += '<td></td>';
+            html += '<td></td>';
+            html += '<td></td>';
+            html += '<td></td>';
         }
         $(this).closest('tr').html(html);
     });

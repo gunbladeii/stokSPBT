@@ -199,6 +199,7 @@ $a = 1;
                                 <th width="5%"></th>
                                 <th width="60%">Kod Judul</th>
                                 <th width="60%">Nama Judul</th>
+                                <th width="10%">Darjah/Tingkatan</th>
                                 <th width="6%">Buku Rosak(Murid)</th>
                                 <th width="6%">Buku Rosak(BOSS)</th>
                                 <th width="6%">Buku Elok</th>
@@ -293,6 +294,7 @@ $(document).ready(function(){
                     html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-bukurosakmurid="'+data[count].bukurosakmurid+'" data-bukurosak="'+data[count].bukurosak+'" data-bukulebihan="'+data[count].bukulebihan+'" data-bukustok="'+data[count].bukustok+'" class="check_box"  /></td>';
                     html += '<td align="left">'+data[count].kodjudul+'</td>';
                     html += '<td align="left">'+data[count].namajudul+'</td>';
+                    html += '<td align="left">'+data[count].darjahtingkatan+'</td>';
                     html += '<td>'+data[count].bukurosakmurid+'</td>';
                     html += '<td>'+data[count].bukurosak+'</td>';
                     html += '<td>'+data[count].bukulebihan+'</td>';
@@ -312,6 +314,7 @@ $(document).ready(function(){
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" data-bukustok="'+$(this).data('bukustok')+'" class="check_box" checked /></td>';
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
+            html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
             html += '<td><input type="text" name="bukurosakmurid[]" class="form-control" value="'+$(this).data("bukurosakmurid")+'" /></td>';
             html += '<td><input type="text" name="bukurosak[]" class="form-control" value="'+$(this).data("bukurosak")+'" /></td>';
             html += '<td><input type="text" name="bukulebihan[]" class="form-control" value="'+$(this).data("bukulebihan")+'" /></td>';
@@ -322,6 +325,7 @@ $(document).ready(function(){
             html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukustok="'+$(this).data('bukustok')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" class="check_box" /></td>';
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
+            html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
             html += '<td>'+$(this).data('bukurosakmurid')+'</td>';
             html += '<td>'+$(this).data('bukurosak')+'</td>';
             html += '<td>'+$(this).data('bukulebihan')+'</td>';

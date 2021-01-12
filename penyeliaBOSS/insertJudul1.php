@@ -17,21 +17,12 @@ $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Reco
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
-$Recordset2 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
+$Recordset2 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment, dataSekolah.jenisAliran
   FROM login
   INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
   WHERE login.remark = '$kodSekolah'");
-$dataJudul2 = mysqli_fetch_assoc($Recordset2);
+$dataJudul = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
-
-$Recordset3 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
-  FROM login
-  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
-  WHERE login.remark = '$kodSekolah'");
-$dataJudul3 = mysqli_fetch_assoc($Recordset3);
-$totalRows_Recordset3 = mysqli_num_rows($Recordset3);
-
-
 
 $a = 1;
 ?>
@@ -205,6 +196,7 @@ $a = 1;
                         <table class="table table-bordered table-striped">
                             <thead align="center">
                                 <th width="5%"></th>
+                                <th width="60%">Kod Judul</th>
                                 <th width="60%">Nama Judul</th>
                                 <th width="6%">Buku Rosak(Murid)</th>
                                 <th width="6%">Buku Rosak(BOSS)</th>
@@ -288,7 +280,7 @@ $(document).ready(function(){
     function fetch_data()
     {
         $.ajax({
-            url:"insertJudul2.php?kodPembekal=<?php echo $kodPembekal;?>&negeri=<?php echo $negeri;?>",
+            url:"insertJudul2.php?kodSekolah=<?php echo $kodSekolah;?>&jenisAliran=<?php echo $dataJudul('jenisAliran');?>",
             method:"POST",
             dataType:"json",
             success:function(data)
@@ -297,12 +289,12 @@ $(document).ready(function(){
                 for(var count = 0; count < data.length; count++)
                 {
                     html += '<tr align="center">';
-                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodpembekal="'+data[count].kodpembekal+'" data-judul="'+data[count].judul+'" data-bilnaskhahpesan="'+data[count].bilnaskhahpesan+'" data-bilnaskhahbekal="'+data[count].bilnaskhahbekal+'" data-statusbekal="'+data[count].statusbekal+'" data-peratusbekal="'+data[count].peratusbekal+'" class="check_box"  /></td>';
-                    html += '<td align="left">'+data[count].judul+'</td>';
-                    html += '<td>'+data[count].bilnaskhahpesan+'</td>';
-                    html += '<td>'+data[count].bilnaskhahbekal+'</td>';
-                    html += '<td>'+data[count].peratusbekal+'</td>';
-                    html += '<td style="color:red">'+data[count].statusbekal+'</td></tr>';
+                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-bukurosakmurid="'+data[count].bukurosakmurid+'" data-bukurosak="'+data[count].bukurosak+'" data-bukulebihan="'+data[count].bukulebihan+'" data-bukustok="'+data[count].bukustok+'" class="check_box"  /></td>';
+                    html += '<td align="left">'+data[count].namajudul+'</td>';
+                    html += '<td>'+data[count].bukurosakmurid+'</td>';
+                    html += '<td>'+data[count].bukurosak+'</td>';
+                    html += '<td>'+data[count].bukulebihan+'</td>';
+                    html += '<td>'+data[count].bukustok+'</td></tr>';
                 }
                 $('tbody').html(html);
             }
@@ -315,21 +307,25 @@ $(document).ready(function(){
         var html = '';
         if(this.checked)
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" data-peratusbekal="'+$(this).data('peratusbekal')+'" class="check_box" checked /></td>';
-            html += '<td align="left">'+$(this).data('judul')+'</td>';
-            html += '<td><input type="text" name="bilnaskhahpesan[]" class="form-control" value="'+$(this).data("bilnaskhahpesan")+'" /></td>';
-            html += '<td><input type="text" name="bilnaskhahbekal[]" class="form-control" value="'+$(this).data("bilnaskhahbekal")+'" /></td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" data-bukustok="'+$(this).data('bukustok')+'" class="check_box" checked /></td>';
+            html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
+            html += '<td align="left">'+$(this).data('namajudul')+'</td>';
+            html += '<td><input type="text" name="bukurosakmurid[]" class="form-control" value="'+$(this).data("bukurosakmurid")+'" /></td>';
+            html += '<td><input type="text" name="bukurosak[]" class="form-control" value="'+$(this).data("bukurosak")+'" /></td>';
+            html += '<td><input type="text" name="bukulebihan[]" class="form-control" value="'+$(this).data("bukulebihan")+'" /></td>';
+            html += '<td align="left">'+$(this).data('bukustok')+'</td>';
             html += '<td><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
             html += '<td></td>';
         }
         else
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodpembekal="'+$(this).data('kodpembekal')+'" data-judul="'+$(this).data('judul')+'" data-bilnaskhahpesan="'+$(this).data('bilnaskhahpesan')+'" data-bilnaskhahbekal="'+$(this).data('bilnaskhahbekal')+'" data-statusbekal="'+$(this).data('statusbekal')+'" data-peratusbekal="'+$(this).data('peratusbekal')+'" class="check_box" /></td>';
-            html += '<td align="left">'+$(this).data('judul')+'</td>';
-            html += '<td>'+$(this).data('bilnaskhahpesan')+'</td>';
-            html += '<td>'+$(this).data('bilnaskhahbekal')+'</td>';
-            html += '<td>'+$(this).data('peratusbekal')+'</td>';
-            html += '<td style="color:red">'+$(this).data('statusbekal')+'</td>';            
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukustok="'+$(this).data('bukustok')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" class="check_box" /></td>';
+            html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
+            html += '<td>'+$(this).data('namajudul')+'</td>';
+            html += '<td>'+$(this).data('bukurosakmurid')+'</td>';
+            html += '<td>'+$(this).data('bukurosak')+'</td>';
+            html += '<td>'+$(this).data('bukulebihan')+'</td>';
+            html += '<td>'+$(this).data('bukustok')+'</td>';            
         }
         $(this).closest('tr').html(html);
     });
@@ -344,7 +340,7 @@ $(document).ready(function(){
                 data:$(this).serialize(),
                 success:function()
                 {
-                    alert('Data telah dikemaskini');
+                    alert('Rekod judul telah dikunci masuk');
                     fetch_data();
                 }
             })

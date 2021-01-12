@@ -15,8 +15,8 @@ $jenisAliran = $_GET['jenisAliran'];
 $query = "SELECT dataJudul.kodJudul, dataJudul.judul, dataJudul.jenisAliran, rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid, rekodPemantauan.bukuStok, rekodPemantauan.bukuLebihan, rekodPemantauan.kodSekolah FROM 
 ((rekodPemantauan 
 	INNER JOIN dataJudul ON rekodPemantauan.jenisAliran = dataJudul.jenisAliran)
-	INNER JOIN dataSekolah ON rekodPemantauan.kodpembekal = dataSekolah.kodPembekal)
-	WHERE dataJudulPenerbit.kodPembekal = '$kodPembekal'
+	INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
+	WHERE dataSekolah. = '$kodPembekal'
 	  ORDER BY dataJudulPenerbit.id DESC";
 
 $statement = $connect->prepare($query);

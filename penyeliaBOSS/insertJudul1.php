@@ -291,7 +291,7 @@ $(document).ready(function(){
                 for(var count = 0; count < data.length; count++)
                 {
                     html += '<tr align="center">';
-                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-bukurosakmurid="'+data[count].bukurosakmurid+'" data-bukurosak="'+data[count].bukurosak+'" data-bukulebihan="'+data[count].bukulebihan+'" data-bukustok="'+data[count].bukustok+'" class="check_box"  /></td>';
+                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-darjahtingkatan="'+data[count].darjahtingkatan+'" data-bukurosakmurid="'+data[count].bukurosakmurid+'" data-bukurosak="'+data[count].bukurosak+'" data-bukulebihan="'+data[count].bukulebihan+'" data-bukustok="'+data[count].bukustok+'" class="check_box"  /></td>';
                     html += '<td align="left">'+data[count].kodjudul+'</td>';
                     html += '<td align="left">'+data[count].namajudul+'</td>';
                     html += '<td align="left">'+data[count].darjahtingkatan+'</td>';

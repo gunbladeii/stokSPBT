@@ -317,7 +317,6 @@ $(document).ready(function(){
             html += '<td><input type="text" name="bukulebihan[]" class="form-control" value="'+$(this).data("bukulebihan")+'" /></td>';
             html += '<td align="left">'+$(this).data('bukustok')+'</td>';
             html += '<td><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
-            html += '<td></td>';
         }
         else
         {

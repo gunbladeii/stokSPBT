@@ -203,8 +203,6 @@ $a = 1;
                                 <th width="6%">Darjah / Ting.</th>
                                 <th width="6%">Buku Rosak ditangan murid</th>
                                 <th width="6%">Buku Rosak di BOSS/BOSD</th>
-                                <th width="6%">Jumlah</th>
-                                <th width="6%">Kos(RM)</th>
                             </thead>
                             <tbody></tbody>
                         </table>
@@ -299,7 +297,6 @@ $(document).ready(function(){
                     html += '<td align="left">'+data[count].darjahtingkatan+'</td>';
                     html += '<td></td>';
                     html += '<td></td>';
-                    html += '<td></td>';
                     html += '<td></td></tr>';
                 }
                 $('tbody').html(html);
@@ -319,9 +316,8 @@ $(document).ready(function(){
             html += '<td align="left">'+$(this).data('harga')+'</td>';
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
             html += '<td width="6%"><input type="text" name="bukurosakmurid[]" class="form-control" value="" /></td>';
-            html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /></td>';
-            html += '<td width="6%"></td>';
-            html += '<td align="left"><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'+$(this).attr('kodsekolah')+'" /><input type="hidden" name="namasekolah[]" value="'+$(this).attr('namasekolah')+'" /></td>';
+            html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'+$(this).attr('kodsekolah')+'" /><input type="hidden" name="namasekolah[]" value="'+$(this).attr('namasekolah')+'" /></td>';
+            
         }
         else
         {
@@ -332,8 +328,7 @@ $(document).ready(function(){
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
             html += '<td></td>';
             html += '<td></td>';
-            html += '<td></td>';
-            html += '<td></td>';
+            
         }
         $(this).closest('tr').html(html);
     });

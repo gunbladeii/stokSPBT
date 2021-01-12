@@ -315,8 +315,7 @@ $(document).ready(function(){
             html += '<td><input type="text" name="bukurosakmurid[]" class="form-control" value="'+$(this).data("bukurosakmurid")+'" /></td>';
             html += '<td><input type="text" name="bukurosak[]" class="form-control" value="'+$(this).data("bukurosak")+'" /></td>';
             html += '<td><input type="text" name="bukulebihan[]" class="form-control" value="'+$(this).data("bukulebihan")+'" /></td>';
-            html += '<td align="left">'+$(this).data('bukustok')+'</td>';
-            html += '<td><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
+            html += '<td align="left">'+$(this).data('bukustok')+'<input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
         }
         else
         {
@@ -326,7 +325,7 @@ $(document).ready(function(){
             html += '<td>'+$(this).data('bukurosakmurid')+'</td>';
             html += '<td>'+$(this).data('bukurosak')+'</td>';
             html += '<td>'+$(this).data('bukulebihan')+'</td>';
-            html += '<td>'+$(this).data('bukustok')+'</td>';            
+            html += '<td>'+$(this).data('bukustok')+'</td>';
         }
         $(this).closest('tr').html(html);
     });

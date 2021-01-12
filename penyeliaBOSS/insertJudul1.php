@@ -194,7 +194,7 @@ $a = 1;
                     </div>
                     <br />
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead align="center">
                                 <th width="5%"></th>
                                 <th width="10%">Kod Judul</th>

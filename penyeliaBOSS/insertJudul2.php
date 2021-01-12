@@ -16,8 +16,8 @@ $query = "SELECT dataJudul.kodJudul AS kodjudul, dataJudul.judul AS namajudul, d
 ((rekodPemantauan 
 	INNER JOIN dataJudul ON rekodPemantauan.jenisAliran = dataJudul.jenisAliran)
 	INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-	WHERE dataSekolah. = '$kodSekolah' AND jenisAliran = '$jenisAliran'
-	  ORDER BY dataJudulPenerbit.id DESC";
+	WHERE dataSekolah.jenisAliran = '$jenisAliran'
+	  ORDER BY dataJudul.judul ASC";
 
 $statement = $connect->prepare($query);
 

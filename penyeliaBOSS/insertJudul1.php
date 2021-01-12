@@ -296,7 +296,7 @@ $(document).ready(function(){
                     html += '<td align="left">'+data[count].harga+'</td>';
                     html += '<td align="left">'+data[count].darjahtingkatan+'</td>';
                     html += '<td></td>';
-                    html += '<td></td><tr>';
+                    html += '<td></td></tr>';
                 }
                 $('tbody').html(html);
             }

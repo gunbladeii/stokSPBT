@@ -13,8 +13,9 @@ $kodSekolah = $_GET['kodSekolah'];
 $jenisAliran = $_GET['jenisAliran'];
 
 $query = "SELECT kodJudul AS kodjudul, judul AS namajudul, jenisAliran
+	FROM dataJudul
 	WHERE jenisAliran = '$jenisAliran'
-	  ORDER BY judul ASC";
+	ORDER BY judul ASC";
 
 $statement = $connect->prepare($query);
 

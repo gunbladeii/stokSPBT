@@ -281,7 +281,7 @@ $(document).ready(function(){
     function fetch_data()
     {
         $.ajax({
-            url:"insertJudul2.php?kodSekolah=<?php echo $kodSekolah;?>&jenisAliran=<?php echo $dataJudul('jenisAliran');?>",
+            url:"insertJudul2.php?kodSekolah=<?php echo $kodSekolah;?>&jenisAliran=<?php echo $jenisAliran;?>",
             method:"POST",
             dataType:"json",
             success:function(data)

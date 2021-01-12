@@ -288,7 +288,7 @@ $(document).ready(function(){
     function fetch_data()
     {
         $.ajax({
-            url:"selectPantau.php?kodPembekal=<?php echo $kodPembekal;?>&negeri=<?php echo $negeri;?>",
+            url:"insertJudul2.php?kodPembekal=<?php echo $kodPembekal;?>&negeri=<?php echo $negeri;?>",
             method:"POST",
             dataType:"json",
             success:function(data)
@@ -339,7 +339,7 @@ $(document).ready(function(){
         if($('.check_box:checked').length > 0)
         {
             $.ajax({
-                url:"updatePantau.php",
+                url:"insertJudul3.php",
                 method:"POST",
                 data:$(this).serialize(),
                 success:function()

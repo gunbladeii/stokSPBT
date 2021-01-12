@@ -9,18 +9,13 @@ $connect = new PDO("mysql:host=localhost;dbname=myspbt", "adminspbt", "Sh@ti5620
 
 //select.php
 
-$kodPembekal = $_GET['kodPembekal'];
-$negeri = $_GET['negeri'];
+$kodSekolah = $_GET['kodSekolah'];
+$jenisAliran = $_GET['jenisAliran'];
 
-$query = "SELECT dataSH.namaPembekal AS namapembekal, dataJudulPenerbit.bilnaskhahpesan,dataJudulPenerbit.bilnaskhahbekal,
-CASE WHEN dataJudulPenerbit.bilnaskhahpesan > dataJudulPenerbit.bilnaskhahbekal THEN 'BELUM SELESAI'
-WHEN dataJudulPenerbit.bilnaskhahpesan < dataJudulPenerbit.bilnaskhahbekal THEN 'SEMAK SEMULA'
-WHEN dataJudulPenerbit.bilnaskhahpesan = dataJudulPenerbit.bilnaskhahbekal THEN 'SELESAI'
-ELSE '' END AS statusbekal,
-dataJudulPenerbit.id,dataJudulPenerbit.timestamp,dataJudulPenerbit.kodpembekal, dataSH.negeri,dataJudulPenerbit.kodjudul, dataSHJudul.judul,FORMAT((dataJudulPenerbit.bilnaskhahbekal/dataJudulPenerbit.bilnaskhahpesan)*100,2) AS peratusbekal FROM 
-((dataJudulPenerbit 
-	INNER JOIN dataSHJudul ON dataJudulPenerbit.kodjudul = dataSHJudul.kodJudul)
-	INNER JOIN dataSH ON dataJudulPenerbit.kodpembekal = dataSH.kodPembekal)
+$query = "SELECT dataJudul.kodJudul, dataJudul.judul, dataJudul.jenisAliran, rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid, rekodPemantauan.bukuStok, rekodPemantauan.bukuLebihan, rekodPemantauan.kodSekolah FROM 
+((rekodPemantauan 
+	INNER JOIN dataJudul ON rekodPemantauan.jenisAliran = dataJudul.jenisAliran)
+	INNER JOIN dataSekolah ON rekodPemantauan.kodpembekal = dataSekolah.kodPembekal)
 	WHERE dataJudulPenerbit.kodPembekal = '$kodPembekal'
 	  ORDER BY dataJudulPenerbit.id DESC";
 

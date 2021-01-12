@@ -291,6 +291,7 @@ $(document).ready(function(){
                 {
                     html += '<tr align="center">';
                     html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-bukurosakmurid="'+data[count].bukurosakmurid+'" data-bukurosak="'+data[count].bukurosak+'" data-bukulebihan="'+data[count].bukulebihan+'" data-bukustok="'+data[count].bukustok+'" class="check_box"  /></td>';
+                    html += '<td align="left">'+data[count].kodjudul+'</td>';
                     html += '<td align="left">'+data[count].namajudul+'</td>';
                     html += '<td>'+data[count].bukurosakmurid+'</td>';
                     html += '<td>'+data[count].bukurosak+'</td>';

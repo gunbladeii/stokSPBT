@@ -318,7 +318,7 @@ $(document).ready(function(){
             html += '<td><input type="text" name="bukurosakmurid[]" class="form-control" value="" /></td>';
             html += '<td><input type="text" name="bukurosak[]" class="form-control" value="" /></td>';
             html += '<td><input type="text" name="bukulebihan[]" class="form-control" value="" /></td>';
-            html += '<td align="left"><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /></td>';
+            html += '<td align="left"><input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'+$(this).attr('kodsekolah')+'" /><input type="hidden" name="namasekolah[]" value="'+$(this).attr('namasekolah')+'" /></td>';
         }
         else
         {

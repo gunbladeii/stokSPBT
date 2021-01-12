@@ -311,7 +311,7 @@ $(document).ready(function(){
         var html = '';
         if(this.checked)
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" data-bukustok="'+$(this).data('bukustok')+'" class="check_box" checked /></td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" data-bukustok="'+$(this).data('bukustok')+'" class="check_box" checked /></td>';
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
@@ -322,7 +322,7 @@ $(document).ready(function(){
         }
         else
         {
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukustok="'+$(this).data('bukustok')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" class="check_box" /></td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-bukustok="'+$(this).data('bukustok')+'" data-bukulebihan="'+$(this).data('bukulebihan')+'" class="check_box" /></td>';
             html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
             html += '<td align="left">'+$(this).data('namajudul')+'</td>';
             html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';

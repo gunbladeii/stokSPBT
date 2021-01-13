@@ -368,7 +368,7 @@ $a = 1;
                   <td>
                    <div class="form-group">
                     <div align="center">
-                      <a class="btn btn-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $rekodPemantauan['jenisAliran'];?>" data-whatever4="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link">Kemaskini Maklumat Judul</i></a>
+                      <a class="btn btn-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $dataJudul['jenisAliran'];?>" data-whatever4="<?php echo $dataJudul['kodSekolah'];?>"class="nav-link">Kemaskini Maklumat Judul</i></a>
                     </div>
                   </div>
                 </td>

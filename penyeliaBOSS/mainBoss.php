@@ -13,7 +13,6 @@ if (isset($_SESSION['user'])) {
 
 $kodSekolah = $_GET['kodSekolah'];
 $jenisAliran = $_GET['jenisAliran'];
-$namaSekolah = $_GET['namaSekolah'];
 
 $Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
@@ -26,6 +25,7 @@ $Recordset2 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dat
 $dataJudul = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
+$namaSekolah2 = $dataJudul['namaSekolah'];
 $a = 1;
 ?>
 <!DOCTYPE html>
@@ -386,7 +386,7 @@ $a = 1;
         html += '<td align="left">'+$(this).data('harga')+'</td>';
         html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
         html += '<td width="6%"><input type="text" name="bukurosakmurid[]" class="form-control" value="" /></td>';
-        html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'<?php echo $kodSekolah?>'" /><input type="hidden" name="namasekolah[]" value="'<?php echo $namaSekolah?>'" /></td>';
+        html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'<?php echo $kodSekolah?>'" /><input type="hidden" name="namasekolah[]" value="'<?php echo $namaSekolah2?>'" /></td>';
 
       }
       else

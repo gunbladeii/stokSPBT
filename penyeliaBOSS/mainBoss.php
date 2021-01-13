@@ -386,7 +386,7 @@ $a = 1;
         html += '<td align="left">'+$(this).data('harga')+'</td>';
         html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
         html += '<td width="6%"><input type="text" name="bukurosakmurid[]" class="form-control" value="" /></td>';
-        html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'+$(this).attr('kodsekolah')+'" /><input type="hidden" name="namasekolah[]" value="'+$(this).attr('namasekolah')+'" /></td>';
+        html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'<?php echo $kodSekolah?>'" /><input type="hidden" name="namasekolah[]" value="'<?php echo $namaSekolah?>'" /></td>';
 
       }
       else

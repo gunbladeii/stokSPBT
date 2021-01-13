@@ -126,7 +126,7 @@ if (isset($_POST["stok"]))
       }
     $output .='</table>';
     header("Content-Type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=dataStokMySPBT_".$date.".xls");
+    header("Content-Disposition: attachment; filename=dataStokMySPBTJudul_".$date.".xls");
     echo $output;
       
     }

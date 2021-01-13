@@ -383,10 +383,10 @@ $b = 1;
                     <button class="btn btn-outline-success me-2" type="submit" name="delete">Bersih Data</button>
                   </form>
                   <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-                    <button class="btn btn-outline-info me-2" type="submit" name="stok">Ekport Excel(Pemantauan)</button>
+                    <button class="btn btn-outline-info me-2" type="submit" name="stok">Ekport Excel (Pemantauan)</button>
                   </form>
                    <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-                    <button class="btn btn-outline-info me-2" type="submit" name="stok2">Eksport Excel(Ikut judul)</button>
+                    <button class="btn btn-outline-info me-2" type="submit" name="stok2">Eksport Excel (Ikut judul)</button>
                   </form>
                   </div>
                 </nav>

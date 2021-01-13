@@ -31,7 +31,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 $d = 1;
 $downloadExcell = $_SERVER['PHP_SELF'];
 
-/*advanced*/
+/*stok*/
 if (isset($_POST["stok"]))
   {
   $sql = $mysqli->query("SELECT * FROM eksportExcel");          
@@ -67,6 +67,60 @@ if (isset($_POST["stok"]))
           <td>'.$row["tarikhPemantauan"].'</td>
           <td>'.$row["bukuLebihan"].'</td>
           <td>'.$row["bukuStok"].'</td>
+        </tr>     
+        ';    
+      }
+    $output .='</table>';
+    header("Content-Type: application/vnd-ms-excel");
+    header("Content-Disposition: attachment; filename=dataStokMySPBT_".$date.".xls");
+    echo $output;
+      
+    }
+  exit;
+  }
+
+  if (isset($_POST["stok2"]))
+  {
+  $sql = $mysqli->query("SELECT * FROM eksportExcel2");          
+
+  if (mysqli_num_rows($sql) > 0)
+    {
+    $output .='
+      <table class="table" border="1">
+        <tr>
+          <th>No.</th>
+          <th>Kod Sekolah</th>
+          <th>Nama Sekolah</th>
+          <th>Kategori</th>
+          <th>Negeri</th>
+          <th>Daerah</th>
+          <th>Kod Judul</th>
+          <th>Nama Judul</th>
+          <th>Jumlah Naskhah(BOSS)</th>
+          <th>Lebihan Naskhah(BOSS)</th>
+          <th>Jumlah Naskhah(BOSD)</th>
+          <th>Harga (RM-Seunit)</th>
+          <th>Jumlah harga (RM)</th>
+        </tr>   
+      ';
+    while($row = mysqli_fetch_assoc($sql))
+      {
+      $output .='
+        <tr>
+          <td>'.$d++.'</td>
+          <td>'.$row["kodSekolah"].'</td>
+          <td>'.$row["namaSekolah"].'</td>
+          <td>'.$row["kategori"].'</td>
+          <td>'.$row["negeri"].'</td>
+          <td>'.$row["daerah"].'</td>
+          <td>'.$row["kodJudul"].'</td>
+          <td>'.$row["judul"].'</td>
+          <td>'.$row["negeri"].'</td>
+          <td>'.$row["bukuBOSS"].'</td>
+          <td>'.$row["bukuLebihBOSS"].'</td>
+          <td>'.$row["bukuBOSD"].'</td>
+          <td>'.$row["hargaUnit"].'</td>
+          <td>'.$row["hargaTotal"].'</td>
         </tr>     
         ';    
       }
@@ -330,7 +384,10 @@ $b = 1;
                     <button class="btn btn-outline-success me-2" type="submit" name="delete">Bersih Data</button>
                   </form>
                   <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
-                    <button class="btn btn-outline-info me-2" type="submit" name="stok">Export Excel</button>
+                    <button class="btn btn-outline-info me-2" type="submit" name="stok">Ekport Excel(Pemantauan)</button>
+                  </form>
+                   <form action="<?php echo $downloadExcell; ?>" role="form" method="POST" class="well form-horizontal" class="download" enctype="multipart/form-data">
+                    <button class="btn btn-outline-info me-2" type="submit" name="stok2">Eksport Excel(Ikut judul)</button>
                   </form>
                   </div>
                 </nav>

@@ -363,7 +363,7 @@ $a = 1;
                   <td>
                    <div class="form-group">
                     <div align="center">
-                    <a class="badge badge-info" href="mainBOSS.php?kodSekolah=<?php echo $kodSekolah?>&jenisAliran=<?php echo $jenisAliran2?>">Kemaskini Maklumat Judul</a></td>
+                    <a class="btn btn-info" href="mainBOSS.php?kodSekolah=<?php echo $kodSekolah?>&jenisAliran=<?php echo $jenisAliran2?>">Kemaskini Maklumat Judul</a></td>
                     <td><?php echo $dataJudul2['jenisAliran']; ?>
                     </div>
                   </div>

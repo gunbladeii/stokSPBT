@@ -19,7 +19,7 @@ if (isset($_SESSION['user'])) {
 }
 
 
-$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri
+$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri,dataSekolah.jenisAliran
 	FROM login
 	INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
 	WHERE login.username = '$colname_Recordset'");
@@ -90,7 +90,7 @@ $a = 1;
 						</span>
 
 						<div>
-							<a href="../main3.php?kodSekolah=<?php echo strtoupper($row_Recordset['kodSekolah']);?>" class="btn-login-with bg2 m-b-10">
+							<a href="../main3.php?kodSekolah=<?php echo strtoupper($row_Recordset['kodSekolah']);?>&jenisAliran=<?php echo strtoupper($row_Recordset['jenisAliran']);?>" class="btn-login-with bg2 m-b-10">
 								<i class="fa fa-project-diagram"></i>
 								Rekod Stok Bilik Operasi Buku Teks Sekolah
 							</a>

@@ -246,7 +246,7 @@ $a = 1;
        <div class="card">
         <div class="card-header border-transparent">
           <h2 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG PENGURUSAN MAKLUMAT STOK</h2>
-          <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Sila lengkapkan semua maklumat berikut</h4>
+          <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Sila lengkapkan semua maklumat judul berikut(Jika berkaitan)</h4>
           <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
           <div class="card-tools">
@@ -262,9 +262,6 @@ $a = 1;
         <div class="card-body p-0">
          <div class="table-responsive">  
           <form method="post" id="update_form">
-            <div align="center">
-              <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi <?php echo strtoupper($dataJudul['namaSekolah']);?></h4>
-            </div>
             <div align="center">
               <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="KEMASKINI" />
             </div>

@@ -44,12 +44,18 @@ $Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,data
 $dataSekolah = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
+$Recordset2 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment, dataSekolah.jenisAliran
+  FROM login
+  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
+  WHERE login.remark = '$kodSekolah'");
+$dataJudul = mysqli_fetch_assoc($Recordset2);
+$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, rekodPemantauan.bukuRosak,dataSekolah.kategori,rekodPemantauan.bukuRosakMurid
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, rekodPemantauan.bukuRosak,dataSekolah.kategori,rekodPemantauan.bukuRosakMurid,dataJudul.jenisAliran
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -355,60 +361,23 @@ $a = 1;
                 </tr>
 
                 <tr>
-                  <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">Kemaskini Maklumat Stok</h4></th>
+                  <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">KEMASKINI MAKLUMAT STOK</h4></th>
                 </tr>
 
                 <tr>
-
                   <td>
                    <div class="form-group">
-                    1. Taip Judul: 
-                    <input type="text" name="judul" placeholder="Taip kata kunci sahaja..Contoh:'melayu' untuk Bahasa Melayu" class="form-control" >
-                    2. Pilih Jenis Sekolah:
-                    <div class="input-group mb-3">
-                     <select name="jenisAliran" class="custom-select browser-default">
-                      <option value="" selected>Pilih jenis sekolah..</option>
-                      <option value="SR">SEKOLAH RENDAH</option>
-                      <option value="SM">SEKOLAH MENENGAH</option>
-                      <option value="PERALIHAN">PERALIHAN</option>
-                      <option value="SJKC">SJKC</option>
-                      <option value="SJKT">SJKT</option>
-                    </select>
+                    <div align="center">
+                      <a class="btn btn-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $rekodPemantauan['jenisAliran'];?>" data-whatever4="<?php echo $rekodPemantauan['kodSekolah'];?>"class="nav-link">Kemaskini Maklumat Judul</i></a>
+                    </div>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
-          <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
-          <div class="modal-footer">
-            <input type="submit" class="btn btn-primary" name="submit3" value="Carian judul"/>
-          </div>
-        </form>
-      </div>
-      <?php ;}else {echo 'Tiada dalam rekod';}?>
 
-      <?php if($dataJudul2 > 0) {?>
-        <div class="table-responsive">
-          <table id="example1" class="table table-sm">
-            <thead>
-              <tr>
-                <th>Bil</th>
-                <th>Judul</th>
-                <th>Jenis Sekolah</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php do {?>
-                <tr>
-                  <td><?php echo $a++;?></td>
-                  <td><a class="badge badge-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $dataJudul2['kodJudul'];?>" data-whatever4="<?php echo $dataSekolah['kodSekolah'];?>"class="nav-link"><?php echo $dataJudul2['judul']; ?></a></td>
-                  <td><?php echo $dataJudul2['jenisAliran']; ?></td>
-                </tr>
-              <?php } while ($dataJudul2 = mysqli_fetch_assoc($Recordset6)); ?>
-            </tbody>
-          </table>
         </div>
-        <?php ;} else {echo '<div class="container"><div class="input-group mb-3"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila klik carian judul</a></div></div>';}?>
+        <?php ;}else {echo 'Tiada dalam rekod';}?>
 
 
         <?php if($rekodPemantauan > 0) {?>
@@ -700,11 +669,11 @@ $a = 1;
           var recipient4 = button.data('whatever4') // Extract info from data-* attributes
           //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
           var modal = $(this);
-          var dataString = 'kodJudul=' + recipient3 + '&' + 'kodSekolah=' + recipient4;
+          var dataString = 'jenisAliran=' + recipient3 + '&' + 'kodSekolah=' + recipient4;
 
           $.ajax({
             type: "GET",
-            url: "judulModal.php",
+            url: "judulModalRosak.php",
             data: dataString,
             cache: false,
             success: function (data) {

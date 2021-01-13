@@ -19,6 +19,7 @@ if (isset($_SESSION['user'])) {
 }
 
 $kodSekolah = $_GET['kodSekolah'];
+$namaSekolah = $_GET['namaSekolah'];
 $kodSekolah2 = $_POST['kodSekolah'];
 $namaSekolah = $_POST['namaSekolah'];
 $bukuLebihan = $_POST['bukuLebihan'];
@@ -363,7 +364,7 @@ $a = 1;
                   <td>
                    <div class="form-group">
                     <div align="center">
-                    <a class="btn btn-info" href="mainBoss.php?kodSekolah=<?php echo $kodSekolah?>&jenisAliran=<?php echo $jenisAliran2?>">Kemaskini Maklumat Judul</a></td>
+                    <a class="btn btn-info" href="mainBoss.php?kodSekolah=<?php echo $kodSekolah?>&namaSekolah=<?php echo $namaSekolah?>&jenisAliran=<?php echo $jenisAliran2?>">Kemaskini Maklumat Judul</a></td>
                     <td>
                     </div>
                   </div>

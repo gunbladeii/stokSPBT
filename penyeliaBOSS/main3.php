@@ -51,10 +51,6 @@ $Recordset2 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dat
 $dataJudul = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
-$dataJudul = mysqli_fetch_assoc($Recordset3);
-$totalRows_Recordset3 = mysqli_num_rows($Recordset3);
-
 $Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, rekodPemantauan.bukuRosak,dataSekolah.kategori,rekodPemantauan.bukuRosakMurid,dataJudul.jenisAliran
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)

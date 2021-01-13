@@ -25,7 +25,6 @@ $Recordset2 = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dat
 $dataJudul = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
-$namaSekolah2 = $dataJudul['namaSekolah'];
 $a = 1;
 ?>
 <!DOCTYPE html>
@@ -247,7 +246,7 @@ $a = 1;
        <div class="card">
         <div class="card-header border-transparent">
           <h2 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">BORANG PENGURUSAN MAKLUMAT STOK</h2>
-          <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Sila lengkapkan semua maklumat judul berikut(Jika berkaitan)</h4>
+          <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Sila lengkapkan semua maklumat judul berikut</h4>
           <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
           <div class="card-tools">
@@ -263,6 +262,9 @@ $a = 1;
         <div class="card-body p-0">
          <div class="table-responsive">  
           <form method="post" id="update_form">
+            <div align="center">
+              <h4 style="font-family: 'Roboto Condensed', sans-serif;">Rekod Judul bagi <?php echo strtoupper($dataJudul['namaSekolah']);?></h4>
+            </div>
             <div align="center">
               <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="KEMASKINI" />
             </div>
@@ -386,7 +388,7 @@ $a = 1;
         html += '<td align="left">'+$(this).data('harga')+'</td>';
         html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
         html += '<td width="6%"><input type="text" name="bukurosakmurid[]" class="form-control" value="" /></td>';
-        html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'<?php echo $kodSekolah?>'" /><input type="hidden" name="namasekolah[]" value="'<?php echo $namaSekolah2?>'" /></td>';
+        html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'+$(this).attr('kodsekolah')+'" /><input type="hidden" name="namasekolah[]" value="'+$(this).attr('namasekolah')+'" /></td>';
 
       }
       else

@@ -250,6 +250,12 @@ $a = 1;
           <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Sila lengkapkan semua maklumat judul berikut</h4>
           <h2 class="card-title" style="font-size:14px;">(Dikemaskini pada <?php echo $date.' '.$time;?>)</h2>
 
+          <ul>
+            <li>Carian boleh dibuat pada setiap <em>row</em> dalam jadual.</li>
+            <li>Tapisan <em>row</em> mengikut urutan menaik/menurun boleh diklik pada tajuk(<em>header</em>) tersebut.</li>
+            <li>Klik <span class="right badge badge-primary">Kemas kini Rekod</span> setelah selesai pengisian data</li>
+          </ul>
+
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-widget="collapse">
               <i class="fas fa-minus"></i>

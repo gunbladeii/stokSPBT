@@ -333,162 +333,6 @@ $a = 1;
 <script src="../adminSPBT/dist/js/demo.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    $('#showJudulList').load('showJudulList.php');
-    $('#showUserList').load('showUserList.php'); 
-    setInterval(function () {
-      $('#showAttChart').load('showAttChart.php')
-      $('#showTotalPenerbit').load('showTotalPenerbit.php')
-      $('#showTotalJudul').load('showTotalJudul.php')
-      $('#showTotalPesanan').load('showTotalPesanan.php')
-      $('#showTotalPembekalan').load('showTotalPembekalan.php')
-      $('#odometer').load('../distiSPBT/liveOdometer.php')
-      $('#attStat').load('../distiSPBT/attStat.php')
-      $('#parcelStat').load('../distiSPBT/parcelStat.php')
-    }, 5000);
-
-
-  });
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script>
-  /*updatePesananJudul*/
-  $('#delJudulModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          var recipient2 = button.data('whatever2') // Extract info from data-* attributes
-          //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'id=' + recipient + '&' + 'kodSekolah=' + recipient2;
-
-          $.ajax({
-            type: "GET",
-            url: "delJudul.php",
-            data: dataString,
-            cache: false,
-            success: function (data) {
-              console.log(data);
-              modal.find('.dash2').html(data);
-            },
-            error: function(err) {
-              console.log(err);
-            }
-          });
-        })
-      </script>
-      <script>
-        /*updatePesananJudul*/
-        $('#judulModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient3 = button.data('whatever3') // Extract info from data-* attributes
-          var recipient4 = button.data('whatever4') // Extract info from data-* attributes
-          //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'jenisAliran=' + recipient3 + '&' + 'kodSekolah=' + recipient4;
-
-          $.ajax({
-            type: "GET",
-            url: "judulModalRosak.php",
-            data: dataString,
-            cache: false,
-            success: function (data) {
-              console.log(data);
-              modal.find('.dash3').html(data);
-            },
-            error: function(err) {
-              console.log(err);
-            }
-          });
-        })
-      </script>
-      <script>
-        /*updatePesananJudul*/
-        $('#editJudulModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient5 = button.data('whatever5') // Extract info from data-* attributes
-          var recipient6 = button.data('whatever6') // Extract info from data-* attributes
-          //var recipient2 = button.data('whatever2') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'id=' + recipient5 + '&' + 'kodSekolah=' + recipient6;
-
-          $.ajax({
-            type: "GET",
-            url: "editJudulModal.php",
-            data: dataString,
-            cache: false,
-            success: function (data) {
-              console.log(data);
-              modal.find('.dash4').html(data);
-            },
-            error: function(err) {
-              console.log(err);
-            }
-          });
-        })
-      </script>
-      <script type="text/javascript">
-            //jQuery extension method:
-            jQuery.fn.filterByText = function(textbox) {
-              return this.each(function() {
-                var select = this;
-                var options = [];
-                $(select).find('option').each(function() {
-                  options.push({
-                    value: $(this).val(),
-                    text: $(this).text()
-                  });
-                });
-                $(select).data('options', options);
-
-                $(textbox).bind('change keyup', function() {
-                  var options = $(select).empty().data('options');
-                  var search = $.trim($(this).val());
-                  var regex = new RegExp(search, "gi");
-
-                  $.each(options, function(i) {
-                    var option = options[i];
-                    if (option.text.match(regex) !== null) {
-                      $(select).append(
-                        $('<option>').text(option.text).val(option.value)
-                        );
-                    }
-                  });
-                });
-              });
-            };
-
-    // You could use it like this:
-
-    $(function() {
-      $('select').filterByText($('#carianJudul'));
-    });
-  </script>
-  <script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = document.getElementById("myInput2");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
-}
-</script>
-<!-- DataTables -->
 <script src="jquery.dataTables.js"></script>
 <script src="dataTables.bootstrap4.js"></script>
 <script>
@@ -503,6 +347,82 @@ function filterFunction() {
       "autoWidth": false,
     });
   });
+</script>
+<script>  
+  $(document).ready(function(){  
+
+    function fetch_data()
+    {
+      $.ajax({
+        url:"insertJudul2.php?kodSekolah=<?php echo $kodSekolah;?>&jenisAliran=<?php echo $jenisAliran;?>",
+        method:"POST",
+        dataType:"json",
+        success:function(data)
+        {
+          var html = '';
+          for(var count = 0; count < data.length; count++)
+          {
+            html += '<tr align="center">';
+            html += '<td><input type="checkbox" id="'+data[count].id+'" data-kodjudul="'+data[count].kodjudul+'" data-namajudul="'+data[count].namajudul+'" data-darjahtingkatan="'+data[count].darjahtingkatan+'" data-bukurosakmurid="'+data[count].bukurosakmurid+'" data-bukurosak="'+data[count].bukurosak+'" data-harga="'+data[count].harga+'" data-jumlahrosak="'+data[count].jumlahrosak+'" data-kosrosak="'+data[count].kosrosak+'" class="check_box"  /></td>';
+            html += '<td align="left">'+data[count].kodjudul+'</td>';
+            html += '<td align="left">'+data[count].namajudul+'</td>';
+            html += '<td align="left">'+data[count].harga+'</td>';
+            html += '<td align="left">'+data[count].darjahtingkatan+'</td>';
+            html += '<td></td>';
+            html += '<td></td></tr>';
+          }
+          $('tbody').html(html);
+        }
+      });
+    }
+
+    fetch_data();
+
+    $(document).on('click', '.check_box', function(){
+      var html = '';
+      if(this.checked)
+      {
+        html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-harga="'+$(this).data('harga')+'" data-jumlahrosak="'+$(this).data('jumlahrosak')+'" data-hargarosak="'+$(this).data('hargarosak')+'" class="check_box" checked /></td>';
+        html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
+        html += '<td align="left">'+$(this).data('namajudul')+'</td>';
+        html += '<td align="left">'+$(this).data('harga')+'</td>';
+        html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
+        html += '<td width="6%"><input type="text" name="bukurosakmurid[]" class="form-control" value="" /></td>';
+        html += '<td width="6%"><input type="text" name="bukurosak[]" class="form-control" value="" /> <input type="hidden" name="hidden_id[]" value="'+$(this).attr('id')+'" /><input type="hidden" name="kodsekolah[]" value="'+$(this).attr('kodsekolah')+'" /><input type="hidden" name="namasekolah[]" value="'+$(this).attr('namasekolah')+'" /></td>';
+
+      }
+      else
+      {
+        html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-kodjudul="'+$(this).data('kodjudul')+'" data-namajudul="'+$(this).data('namajudul')+'" data-darjahtingkatan="'+$(this).data('darjahtingkatan')+'" data-bukurosakmurid="'+$(this).data('bukurosakmurid')+'" data-bukurosak="'+$(this).data('bukurosak')+'" data-jumlahrosak="'+$(this).data('jumlahrosak')+'" data-harga="'+$(this).data('harga')+'" data-harga="'+$(this).data('harga')+'" class="check_box" /></td>';
+        html += '<td align="left">'+$(this).data('kodjudul')+'</td>';
+        html += '<td align="left">'+$(this).data('namajudul')+'</td>';
+        html += '<td align="left">'+$(this).data('harga')+'</td>';
+        html += '<td align="left">'+$(this).data('darjahtingkatan')+'</td>';
+        html += '<td></td>';
+        html += '<td></td>';
+
+      }
+      $(this).closest('tr').html(html);
+    });
+
+    $('#update_form').on('submit', function(event){
+      event.preventDefault();
+      if($('.check_box:checked').length > 0)
+      {
+        $.ajax({
+          url:"insertJudul3.php",
+          method:"POST",
+          data:$(this).serialize(),
+          success:function()
+          {
+            alert('Rekod judul telah dikunci masuk');
+            fetch_data();
+          }
+        })
+      }
+    });
+
+  });  
 </script>
 </body>
 </html>

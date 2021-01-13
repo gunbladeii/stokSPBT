@@ -115,7 +115,6 @@ if (isset($_POST["stok"]))
           <td>'.$row["daerah"].'</td>
           <td>'.$row["kodJudul"].'</td>
           <td>'.$row["judul"].'</td>
-          <td>'.$row["negeri"].'</td>
           <td>'.$row["bukuBOSS"].'</td>
           <td>'.$row["bukuLebihBOSS"].'</td>
           <td>'.$row["bukuBOSD"].'</td>

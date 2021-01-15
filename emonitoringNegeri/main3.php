@@ -64,7 +64,7 @@ $Recordset5 = $mysqli->query("SELECT * FROM dataJudul GROUP BY jenisAliran");
 $dataAliranSekolah = mysqli_fetch_assoc($Recordset5);
 $totalRows_Recordset5 = mysqli_num_rows($Recordset5);
 
-$Recordset6 = $mysqli->query("SELECT * FROM dataJudul WHERE judul LIKE '%$judul2%' AND jenisAliran = '$jenisAliran2' ORDER BY darjahTingkatan ASC");
+$Recordset6 = $mysqli->query("SELECT * FROM dataJudul WHERE judul LIKE '%$judul2%' AND jenisAliran = '$jenisAliran2' ORDER BY judul,darjahTingkatan ASC");
 $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 

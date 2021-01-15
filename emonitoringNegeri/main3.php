@@ -433,6 +433,7 @@ $a = 1;
               <tr>
                 <th>Bil</th>
                 <th>Judul</th>
+                <th>Tahun/Tingkatan</th>
                 <th>Jenis Sekolah</th>
               </tr>
             </thead>
@@ -441,6 +442,7 @@ $a = 1;
                 <tr>
                   <td><?php echo $a++;?></td>
                   <td><a class="badge badge-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $dataJudul2['kodJudul'];?>" data-whatever4="<?php echo $dataSekolah['kodSekolah'];?>"class="nav-link"><?php echo $dataJudul2['judul']; ?></a></td>
+                  <td><?php echo $dataJudul2['darjahTingkatan']; ?></td>
                   <td><?php echo $dataJudul2['jenisAliran']; ?></td>
                 </tr>
               <?php } while ($dataJudul2 = mysqli_fetch_assoc($Recordset6)); ?>

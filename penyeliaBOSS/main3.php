@@ -338,6 +338,11 @@ $a = 1;
                   </tr>
                   <tr>
                     <td>
+                      Kategori: <u><?php echo $dataSekolah['kategori'];?></u>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       Daerah: <u><?php echo $dataSekolah['daerah'];?></u>
                     </td>
                   </tr>

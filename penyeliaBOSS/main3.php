@@ -384,7 +384,7 @@ $a = 1;
           </table>
           <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
           <div class="modal-footer">
-            <input type="submit" class="btn btn-primary" name="submit3" value="Carian judul"/>
+            <input type="submit" class="btn btn-primary btn-lg btn-block" name="submit3" value="Carian judul"/>
           </div>
         </form>
 
@@ -414,7 +414,7 @@ $a = 1;
             </tbody>
           </table>
         </div>
-        <?php ;} else {echo '<div class="btn btn-warning btn-lg btn-block">Tiada padanan yang sesuai,Sila buat carian judul</div>';}?>
+        <?php ;} else {echo '<div class="btn btn-outline-danger btn-lg btn-block">Tiada padanan yang sesuai,Sila buat carian judul</div>';}?>
 
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">

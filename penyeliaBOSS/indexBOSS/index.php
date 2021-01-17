@@ -92,7 +92,7 @@ $a = 1;
 						<div>
 							<a href="../main3.php?kodSekolah=<?php echo strtoupper($row_Recordset['kodSekolah']);?>&jenisAliran=<?php echo strtoupper($row_Recordset['jenisAliran']);?>" class="btn-login-with bg2 m-b-10">
 								<i class="fa fa-project-diagram"></i>
-								Rekod Stok Bilik Operasi Buku Teks Sekolah
+								Rekod Stok Bilik Operasi Buku Teks
 							</a>
 						</div>
 					</form>

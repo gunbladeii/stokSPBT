@@ -25,11 +25,6 @@ $bukuLebihan = $_POST['bukuLebihan'];
 $bukuStok = $_POST['bukuStok'];
 $kodJudul = $_POST['kodJudul'];
 $comment = $_POST['comment'];
-$noHP = $_POST['noHP'];
-$namaPenyelaras = $_POST['namaPenyelaras'];
-$enrolmen = $_POST['enrolmen'];
-$remark = $_POST['remark'];
-$tarikhPemantauan = $_POST['tarikhPemantauan'];
 
 $judul = $_POST['judul'];
 $judul2 = $_GET['judul'];
@@ -37,19 +32,19 @@ $jenisAliran = $_POST['jenisAliran'];
 $jenisAliran2 = $_GET['jenisAliran'];
 
 
-$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri, dataSekolah.namaPenyelaras,dataSekolah.noTelefon, dataSekolah.noHP,dataSekolah.enrolmen, dataSekolah.comment
-  FROM login
-  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
-  WHERE login.username = '$colname_Recordset'");
-$dataSekolah = mysqli_fetch_assoc($Recordset);
+$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+$row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
+$Recordset2 = $mysqli->query("SELECT *,DATE_FORMAT(tarikhPemantauan, '%d/%m/%Y') AS tarikhP FROM dataSekolah WHERE kodSekolah LIKE '$kodSekolah'");
+$dataSekolah = mysqli_fetch_assoc($Recordset2);
+$totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
 $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, rekodPemantauan.bukuRosak,dataSekolah.kategori,rekodPemantauan.bukuRosakMurid
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -57,7 +52,7 @@ $Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSeko
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, rekodPemantauan.bukuRosak,dataSekolah.kategori
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
@@ -69,12 +64,12 @@ $Recordset5 = $mysqli->query("SELECT * FROM dataJudul GROUP BY jenisAliran");
 $dataAliranSekolah = mysqli_fetch_assoc($Recordset5);
 $totalRows_Recordset5 = mysqli_num_rows($Recordset5);
 
-$Recordset6 = $mysqli->query("SELECT * FROM dataJudul WHERE judul LIKE '%$judul2%' AND jenisAliran = '$jenisAliran2'");
+$Recordset6 = $mysqli->query("SELECT * FROM dataJudul WHERE judul LIKE '%$judul2%' AND jenisAliran = '$jenisAliran2' ORDER BY judul,darjahTingkatan ASC");
 $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
 if (isset($_POST['submit2'])) {
-  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment', `tarikhPemantauan` = '$tarikhPemantauan', `noHP` = '$noHP', `namaPenyelaras` = '$namaPenyelaras',`enrolmen` = '$enrolmen',`remark` = '$remark' WHERE `kodSekolah` = '$kodSekolah2'");
+  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment' WHERE `kodSekolah` = '$kodSekolah2'");
   header("location:main4.php?kodSekolah=$kodSekolah2");
 }
 

@@ -322,7 +322,7 @@ $a = 1;
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">Maklumat Sekolah</h4></th>
+                    <th colspan="3" style="text-align: center; background-color: #0d0d0d;"><h4 style="color: white">MAKLUMAT SEKOLAH</h4></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -358,7 +358,7 @@ $a = 1;
                 </tr>
 
                 <tr>
-                  <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">KEMASKINI MAKLUMAT STOK</h4></th>
+                  <th colspan="3" style="text-align: center; background-color: black;"><h4 style="color: white">KEMASKINI MAKLUMAT STOK</h4></th>
                 </tr>
 
                 <tr>
@@ -422,7 +422,7 @@ $a = 1;
             <table class="table table-sm">
               <thead>
                 <tr>
-                  <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                  <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
                 </tr>
                 <tr>
                   <th>Bil</th>
@@ -450,7 +450,7 @@ $a = 1;
                 <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                 <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
                   <tr>
-                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
+                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">REKOD PENGURUSAN</h4></th>
                   </tr>
                   <tr>
                     <td colspan="8">
@@ -518,7 +518,7 @@ $a = 1;
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
                   </tr>
                   <tr>
                     <th>Bil</th>
@@ -542,7 +542,7 @@ $a = 1;
                   <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
                   <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
                     <tr>
-                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Rekod Pengurusan</h4></th>
+                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">REKOD PENGURUSAN</h4></th>
                     </tr>
                     <tr>
                       <td colspan="6">

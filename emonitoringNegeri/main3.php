@@ -394,7 +394,7 @@ $a = 1;
                 </tr>
 
                 <tr>
-                  <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">Kemaskini Maklumat Stok</h4></th>
+                  <th colspan="3" style="text-align: center; background-color: black;"><h4 style="color: white">KEMASKINI MAKLUMAT STOK</h4></th>
                 </tr>
 
                 <tr>
@@ -420,7 +420,7 @@ $a = 1;
           </table>
           <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
           <div class="modal-footer">
-            <input type="submit" class="btn btn-primary" name="submit3" value="Carian judul"/>
+            <input type="submit" class="btn btn-primary btn-lg btn-block" name="submit3" value="Carian judul"/>
           </div>
         </form>
       </div>
@@ -449,14 +449,14 @@ $a = 1;
             </tbody>
           </table>
         </div>
-        <?php ;} else {echo '<div class="container"><div class="input-group mb-3"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila klik carian judul</a></div></div>';}?>
+        <?php ;} else {echo '<div class="btn btn-outline-danger btn-lg btn-block">Tiada padanan yang sesuai,Sila buat carian judul</div>';}?>
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">
             <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
                   </tr>
                   <tr>
                     <th>Bil</th>
@@ -511,7 +511,7 @@ $a = 1;
                 <table class="table table-sm">
                   <thead>
                     <tr>
-                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">Maklumat Pengurusan Stok Buku Teks</h4></th>
+                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
                     </tr>
                     <tr>
                       <th>Bil</th>

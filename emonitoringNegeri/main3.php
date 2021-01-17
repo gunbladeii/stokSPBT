@@ -44,19 +44,21 @@ $Recordset3 = $mysqli->query("SELECT * FROM dataJudul");
 $dataJudul = mysqli_fetch_assoc($Recordset3);
 $totalRows_Recordset3 = mysqli_num_rows($Recordset3);
 
-$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid
+$Recordset4 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul,dataJudul.darjahTingkatan, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak,rekodPemantauan.bukuRosakMurid
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSS'");
+  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSS'
+  ORDER BY dataJudul.judul,dataJudul.darjahTingkatan");
 $rekodPemantauan = mysqli_fetch_assoc($Recordset4);
 $totalRows_Recordset4 = mysqli_num_rows($Recordset4);
 
-$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
+$Recordset7 = $mysqli->query("SELECT rekodPemantauan.id, rekodPemantauan.kodSekolah, rekodPemantauan.kodJudul, dataJudul.darjahTingkatan,dataJudul.judul, rekodPemantauan.bukuLebihan, rekodPemantauan.bukuStok, dataSekolah.kategori,rekodPemantauan.bukuRosak
   FROM ((rekodPemantauan 
   INNER JOIN dataJudul ON rekodPemantauan.kodJudul = dataJudul.kodJudul)
   INNER JOIN dataSekolah ON rekodPemantauan.kodSekolah = dataSekolah.kodSekolah)
-  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSD'");
+  WHERE rekodPemantauan.kodSekolah = '$kodSekolah' AND dataSekolah.kategori = 'BOSD'
+  ORDER BY dataJudul.judul,dataJudul.darjahTingkatan");
 $rekodPemantauan2 = mysqli_fetch_assoc($Recordset7);
 $totalRows_Recordset7 = mysqli_num_rows($Recordset7);
 
@@ -461,6 +463,7 @@ $a = 1;
                   <tr>
                     <th>Bil</th>
                     <th>Judul</th>
+                    <th>Darjah / Tingkatan</th>
                     <th>Naskhah (rosak-BOSS)</th>
                     <th>Naskhah (rosak-murid)</th>
                     <th>Naskhah (elok)</th>
@@ -474,6 +477,7 @@ $a = 1;
                     <tr>
                       <td><?php echo $a++;?></td>
                       <td><?php echo strtoupper($rekodPemantauan['judul']);?></td>
+                      <td><?php echo strtoupper($rekodPemantauan['darjahTingkatan']);?></td>
                       <td><?php echo $rekodPemantauan['bukuRosak'];?></td>
                       <td><?php echo $rekodPemantauan['bukuRosakMurid'];?></td>
                       <td><?php echo $rekodPemantauan['bukuLebihan'];?></td>
@@ -516,6 +520,7 @@ $a = 1;
                     <tr>
                       <th>Bil</th>
                       <th>Judul</th>
+                      <th>Darjah / Tingkatan</th>
                       <th>Bil Naskhah (Rosak)</th>
                       <th>Bil Naskhah (Elok)</th>
                       <th>Hapus</th>
@@ -527,6 +532,7 @@ $a = 1;
                       <tr>
                         <td><?php echo $a++;?></td>
                         <td><?php echo strtoupper($rekodPemantauan2['judul']);?></td>
+                        <td><?php echo strtoupper($rekodPemantauan2['darjahTingkatan']);?></td>
                         <td><?php echo $rekodPemantauan2['bukuRosak'];?></td>
                         <td><?php echo $rekodPemantauan2['bukuLebihan'];?></td>
                         <td><a data-toggle="modal" data-target="#delJudulModal" data-whatever="<?php echo $rekodPemantauan2['id'];?>" data-whatever2="<?php echo $rekodPemantauan2['kodSekolah'];?>"class="nav-link"><i class="fas fa-times"></i></a></td>

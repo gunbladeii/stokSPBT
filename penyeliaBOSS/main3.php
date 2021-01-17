@@ -429,7 +429,7 @@ $a = 1;
             <table class="table table-sm">
               <thead>
                 <tr>
-                  <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
+                  <th colspan="9" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
                 </tr>
                 <tr>
                   <th>Bil</th>
@@ -459,10 +459,10 @@ $a = 1;
                 <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                 <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
                   <tr>
-                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">REKOD PENGURUSAN</h4></th>
+                    <th colspan="9" style="text-align: center; background-color: black"><h4 style="color: white">REKOD PENGURUSAN</h4></th>
                   </tr>
                   <tr>
-                    <td colspan="8">
+                    <td colspan="9">
                       <div class="form-group">
                         Nama Guru Penyelaras SPBT:
                         <div class="input-group mb-3">
@@ -475,7 +475,7 @@ $a = 1;
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="8">
+                    <td colspan="9">
                       <div class="form-group">
                         No. Telefon Bimbit:
                         <div class="input-group mb-3">
@@ -488,7 +488,7 @@ $a = 1;
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="8">
+                    <td colspan="9">
                       <div class="form-group">
                         Enrolmen keseluruhan murid:
                         <div class="input-group mb-3">
@@ -503,7 +503,7 @@ $a = 1;
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="8">
+                    <td colspan="9">
                       <div class="form-group">
                         Cadangan/Ulasan:
 
@@ -527,7 +527,7 @@ $a = 1;
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
+                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
                   </tr>
                   <tr>
                     <th>Bil</th>
@@ -553,10 +553,10 @@ $a = 1;
                   <?php } while ($rekodPemantauan2 = mysqli_fetch_assoc($Recordset7)); ?>
                   <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
                     <tr>
-                      <th colspan="6" style="text-align: center; background-color: black"><h4 style="color: white">REKOD PENGURUSAN</h4></th>
+                      <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">REKOD PENGURUSAN</h4></th>
                     </tr>
                     <tr>
-                      <td colspan="6">
+                      <td colspan="7">
                         <div class="form-group">
                           Nama Guru Penyelaras SPBT:
                           <div class="input-group mb-3">
@@ -569,7 +569,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="6">
+                      <td colspan="7">
                         <div class="form-group">
                           No. Telefon Bimbit:
                           <div class="input-group mb-3">
@@ -582,7 +582,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="6">
+                      <td colspan="7">
                         <div class="form-group">
                           Enrolmen keseluruhan murid:
                           <div class="input-group mb-3">
@@ -597,7 +597,7 @@ $a = 1;
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="6">
+                      <td colspan="7">
                         <div class="form-group">
                           Cadangan/Ulasan:
 

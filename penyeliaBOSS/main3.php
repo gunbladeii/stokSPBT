@@ -409,7 +409,7 @@ $a = 1;
             </tbody>
           </table>
         </div>
-        <?php ;} else {echo '<div class="container"><div class="input-group mb-3"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila klik carian judul</a></div></div>';}?>
+        <?php ;} else {echo '<div align="center"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila buat carian judul</a></div>';}?>
 
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">

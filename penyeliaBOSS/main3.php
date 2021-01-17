@@ -426,7 +426,7 @@ $a = 1;
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">
 
-            <table class="table table-sm">
+            <table id="example2" class="table table-sm">
               <thead>
                 <tr>
                   <th colspan="9" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
@@ -524,7 +524,7 @@ $a = 1;
 
           <?php if($rekodPemantauan2 > 0) {?>
             <div class="table-responsive">
-              <table class="table table-sm">
+              <table id="example2" class="table table-sm">
                 <thead>
                   <tr>
                     <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
@@ -824,7 +824,8 @@ function filterFunction() {
 <script>
   $(function () {
     $("#example1").DataTable();
-    $('#example2').DataTable({
+    $("#example2").DataTable();
+    $('#example3').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,

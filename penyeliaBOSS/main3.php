@@ -32,7 +32,10 @@ $jenisAliran = $_POST['jenisAliran'];
 $jenisAliran2 = $_GET['jenisAliran'];
 
 
-$Recordset = $mysqli->query("SELECT * FROM login WHERE username = '$colname_Recordset'");
+$Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri,dataSekolah.jenisAliran
+  FROM login
+  INNER JOIN dataSekolah ON login.remark = dataSekolah.kodSekolah 
+  WHERE login.username = '$colname_Recordset'");
 $row_Recordset = mysqli_fetch_assoc($Recordset);
 $totalRows_Recordset = mysqli_num_rows($Recordset);
 
@@ -541,7 +544,7 @@ $a = 1;
                         <div class="form-group">
                           Nama Guru Penyelaras SPBT:
                           <div class="input-group mb-3">
-                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($dataSekolah['nama']);?>" style="text-transform: uppercase;" required>
+                            <input type="text" name="namaPenyelaras" class="form-control"  id="validationDefault01" value="<?php echo strtoupper($row_Recordset['nama']);?>" style="text-transform: uppercase;" required>
                             <div class="input-group-append input-group-text">
                               <span class="fas fa-id-card-alt"></span>
                             </div>

@@ -455,7 +455,7 @@ $a = 1;
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">
             <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
-              <table id="example2" class="table table-sm">
+              <table id="example3" class="table table-sm">
                 <thead>
                   <tr>
                     <th colspan="9" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
@@ -512,7 +512,7 @@ $a = 1;
           <?php if($rekodPemantauan2 > 0) {?>
             <div class="table-responsive">
               <form method="post" action="main3.php" role="form" enctype="multipart/form-data">
-                <table id="example2" class="table table-sm">
+                <table id="example4" class="table table-sm">
                   <thead>
                     <tr>
                       <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
@@ -771,14 +771,9 @@ function filterFunction() {
   $(function () {
     $("#example1").DataTable();
     $("#example2").DataTable();
-    $('#example3').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
+    $("#example3").DataTable();
+    $("#example4").DataTable();
+    
   });
 </script>
 </body>

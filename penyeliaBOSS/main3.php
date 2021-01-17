@@ -30,6 +30,11 @@ $judul = $_POST['judul'];
 $judul2 = $_GET['judul'];
 $jenisAliran = $_POST['jenisAliran'];
 $jenisAliran2 = $_GET['jenisAliran'];
+$enrolmen = $_POST['enrolmen'];
+$remark = $_POST['remark'];
+$tarikhPemantauan = $_POST['jenisAliran'];
+$namaPenyelaras = $_POST['namaPenyelaras'];
+$noHP = $_POST['noHP'];
 
 
 $Recordset = $mysqli->query("SELECT login.username,login.nama,login.jawatan,dataSekolah.kodSekolah,dataSekolah.namaSekolah,dataSekolah.daerah,dataSekolah.negeri,dataSekolah.jenisAliran
@@ -72,7 +77,7 @@ $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
 if (isset($_POST['submit2'])) {
-  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment' WHERE `kodSekolah` = '$kodSekolah2'");
+  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment',`noHP` = '$noHP',`tarikhPemantauan` = '$tarikhPemantauan',`remark` = '$remark',`enrolmen` = '$enrolmen', WHERE `kodSekolah` = '$kodSekolah2'");
   header("location:main4.php?kodSekolah=$kodSekolah2");
 }
 
@@ -598,7 +603,6 @@ $a = 1;
                   </tbody>
                 </table>
                 <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
-                <input type="hidden" name="tarikhPemantauan" value="<?php echo $$datePHP;?>">
                 <div class="modal-footer">
                   <input type="submit" class="btn btn-primary" name="submit2" value="Simpan Rekod"/>
                 </div>

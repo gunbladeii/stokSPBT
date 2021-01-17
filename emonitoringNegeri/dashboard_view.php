@@ -22,7 +22,7 @@ $date = date('Y-m-d');
 $time = date('H:i:s');
 $year = date('Y');
 
-    $refID = $mysqli->query("SELECT id,kategori,FORMAT(COUNT(remark),0) AS BOSSPantau FROM dataSekolah WHERE remark = 'observe' AND kategori ='BOSS' AND negeri = '$negeri'");
+    $refID = $mysqli->query("SELECT FORMAT(COUNT(kodSekolah),0) AS BOSSPantau FROM eksportExcel WHERE kategori ='BOSS' AND negeri = '$negeri'");
     $RID = mysqli_fetch_assoc($refID);
 
     $refID2 = $mysqli->query("SELECT rekodPemantauan.id,dataSekolah.kategori,FORMAT(SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN bukuStok ELSE 0 END),0) AS bukuStok 
@@ -46,7 +46,7 @@ $year = date('Y');
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID['id'])){echo $RID['BOSSPantau'];}else{echo 0;}?></h3>
+                <h3 style="font-family: 'Anton', sans-serif;"><?php if (!empty($RID['BOSSPantau'])){echo $RID['BOSSPantau'];}else{echo 0;}?></h3>
                 <p>BOSS dipantau</p>
               </div>
               <div class="icon">

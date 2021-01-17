@@ -598,6 +598,7 @@ $a = 1;
                   </tbody>
                 </table>
                 <input type="hidden" name="kodSekolah" value="<?php echo $dataSekolah['kodSekolah'];?>">
+                <input type="hidden" name="tarikhPemantauan" value="<?php echo $$datePHP;?>">
                 <div class="modal-footer">
                   <input type="submit" class="btn btn-primary" name="submit2" value="Simpan Rekod"/>
                 </div>

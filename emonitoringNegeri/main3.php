@@ -770,11 +770,18 @@ function filterFunction() {
 <script>
   $(function () {
     $("#example1").DataTable();
-    $("#example2").DataTable();
-    $("#example3").DataTable();
-    $("#example4").DataTable();
-    
   });
-</script>
+  $(function () {
+    $("#example2").DataTable();
+  });
+  $(function () {
+    $("#example3").DataTable();
+  });
+  $(function () {
+    $("#example4").DataTable();
+  });
+
+
+  </script>
 </body>
 </html>

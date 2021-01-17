@@ -64,7 +64,7 @@ $Recordset5 = $mysqli->query("SELECT * FROM dataJudul GROUP BY jenisAliran");
 $dataAliranSekolah = mysqli_fetch_assoc($Recordset5);
 $totalRows_Recordset5 = mysqli_num_rows($Recordset5);
 
-$Recordset6 = $mysqli->query("SELECT * FROM dataJudul WHERE judul LIKE '%$judul2%' AND jenisAliran = '$jenisAliran2'");
+$Recordset6 = $mysqli->query("SELECT * FROM dataJudul WHERE judul LIKE '%$judul2%' AND jenisAliran = '$jenisAliran2' ORDER BY judul,darjahTingkatan ASC");
 $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
@@ -433,6 +433,7 @@ $a = 1;
               <tr>
                 <th>Bil</th>
                 <th>Judul</th>
+                <th>Tahun/Tingkatan</th>
                 <th>Jenis Sekolah</th>
               </tr>
             </thead>
@@ -441,6 +442,7 @@ $a = 1;
                 <tr>
                   <td><?php echo $a++;?></td>
                   <td><a class="badge badge-info" data-toggle="modal" data-target="#judulModal" data-whatever3="<?php echo $dataJudul2['kodJudul'];?>" data-whatever4="<?php echo $dataSekolah['kodSekolah'];?>"class="nav-link"><?php echo $dataJudul2['judul']; ?></a></td>
+                  <td><?php echo $dataJudul2['darjahTingkatan']; ?></td>
                   <td><?php echo $dataJudul2['jenisAliran']; ?></td>
                 </tr>
               <?php } while ($dataJudul2 = mysqli_fetch_assoc($Recordset6)); ?>

@@ -19,7 +19,7 @@ $date = date('Y-m-d');
 $time = date('H:i:s');
 $year = date('Y');
 
-    $refID = $mysqli->query("SELECT FORMAT(COUNT(kodSekolah),0) AS BOSSPantau FROM eksportExcel WHERE kategori ='BOSS'");
+    $refID = $mysqli->query("SELECT id,FORMAT(COUNT(kodSekolah),0) AS BOSSPantau FROM eksportExcel WHERE kategori ='BOSS'");
     $RID = mysqli_fetch_assoc($refID);
 
     $refID2 = $mysqli->query("SELECT rekodPemantauan.id,dataSekolah.kategori,FORMAT(SUM(CASE WHEN rekodPemantauan.bukuStok > 0 THEN bukuStok ELSE 0 END),0) AS bukuStok 

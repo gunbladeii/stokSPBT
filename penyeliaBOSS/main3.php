@@ -414,7 +414,7 @@ $a = 1;
             </tbody>
           </table>
         </div>
-        <?php ;} else {echo '<div align="center"><a class="btn btn-warning">Tiada padanan yang sesuai,Sila buat carian judul</a></div>';}?>
+        <?php ;} else {echo '<div class="btn btn-warning btn-lg btn-block">Tiada padanan yang sesuai,Sila buat carian judul</div>';}?>
 
         <?php if($rekodPemantauan > 0) {?>
           <div class="table-responsive">

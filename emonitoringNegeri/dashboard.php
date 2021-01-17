@@ -29,7 +29,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 
 $negeriRole = $row_Recordset['negeri'];
 
-$Recordset2 = $mysqli->query("SELECT * FROM dataSekolah WHERE remark = 'observe' AND negeri = '$negeriRole'");
+$Recordset2 = $mysqli->query("SELECT * FROM eksportExcel WHERE negeri = '$negeriRole'");
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 

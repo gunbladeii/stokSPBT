@@ -77,7 +77,7 @@ $dataJudul2 = mysqli_fetch_assoc($Recordset6);
 $totalRows_Recordset6 = mysqli_num_rows($Recordset6);
 
 if (isset($_POST['submit2'])) {
-  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment',`noHP` = '$noHP',`tarikhPemantauan` = '$tarikhPemantauan',`remark` = '$remark',`enrolmen` = '$enrolmen', WHERE `kodSekolah` = '$kodSekolah2'");
+  $mysqli->query ("UPDATE `dataSekolah` SET `comment` = '$comment',`noHP` = '$noHP',`tarikhPemantauan` = '$tarikhPemantauan',`remark` = '$remark',`enrolmen` = '$enrolmen' WHERE `kodSekolah` = '$kodSekolah2'");
   header("location:main4.php?kodSekolah=$kodSekolah2");
 }
 

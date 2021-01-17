@@ -457,7 +457,7 @@ $a = 1;
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
+                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">MAKLUMAT STOK BOS/BOSD</h4></th>
                   </tr>
                   <tr>
                     <th>Bil</th>
@@ -484,10 +484,10 @@ $a = 1;
                     </tr>
                   <?php } while ($rekodPemantauan = mysqli_fetch_assoc($Recordset4)); ?>
                   <tr>
-                    <th colspan="7" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
+                    <th colspan="8" style="text-align: center; background-color: black"><h4 style="color: white">Ulasan Keseluruhan</h4></th>
                   </tr>
                   <tr>
-                    <td colspan="7">
+                    <td colspan="8">
                       <div class="form-group">
                         Ulasan:
 

@@ -395,7 +395,7 @@ $a = 1;
                 </tr>
 
                 <tr>
-                  <th colspan="3" style="text-align: center; background-color: red;"><h4 style="color: white">KEMASKINI MAKLUMAT STOK</h4></th>
+                  <th colspan="3" style="text-align: center; background-color: black"><h4 style="color: white">KEMASKINI MAKLUMAT STOK</h4></th>
                 </tr>
 
                 <tr>

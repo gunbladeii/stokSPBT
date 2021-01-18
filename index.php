@@ -114,7 +114,14 @@ if(isset($_POST["submit"]))
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg"><div class="alert alert-warning success-block" style="text-align: center;"><strong>SISTEM PENGURUSAN STOK/SEBUT HARGA (NEGERI)</strong></div></p>
+        <p class="login-box-msg">
+          <div class="alert alert-warning success-block" style="text-align: center;"><strong>SISTEM PENGURUSAN MYSPBT</strong>
+            <ul>
+              <li>Pengurusan Sebut Harga</li>
+              <li>Pengurusan Stok</li>
+            </ul>
+          </div>
+        </p>
 
         <form role="form" method="POST" class="login-form" name="prosesLogin">
           <div class="input-group mb-3">

@@ -115,7 +115,7 @@ if(isset($_POST["submit"]))
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">
-          <div class="alert alert-warning success-block"><strong>SISTEM PENGURUSAN MYSPBT</strong>
+          <div class="alert alert-warning success-block">
             <ul>
               <li>Pengurusan Sebut Harga</li>
               <li>Pengurusan Stok</li>

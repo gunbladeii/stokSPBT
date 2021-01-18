@@ -116,12 +116,13 @@ if(isset($_POST["submit"]))
       <div class="card-body login-card-body">
         <p class="login-box-msg">
           <div class="alert alert-warning success-block" style="text-align: center;"><strong>SISTEM PENGURUSAN MYSPBT</strong>
-            <ul>
-              <li>Pengurusan Sebut Harga</li>
-              <li>Pengurusan Stok</li>
-            </ul>
           </div>
         </p>
+        <ul>
+          <li>Pengurusan Sebut Harga</li>
+          <li>Pengurusan Stok</li>
+        </ul>
+        
 
         <form role="form" method="POST" class="login-form" name="prosesLogin">
           <div class="input-group mb-3">

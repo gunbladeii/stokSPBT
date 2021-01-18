@@ -148,7 +148,7 @@ if(isset($_POST["submit"]))
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <input type="submit" name="submit" class="btn btn-primary btn-block btn-flat text-wrap" value="Log masuk">
+              <input type="submit" name="submit" class="btn btn-primary btn-block btn-flat text-wrap" value="Login">
             </div>
             <!-- /.col -->
           </div>

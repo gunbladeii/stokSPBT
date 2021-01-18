@@ -29,7 +29,7 @@ $totalRows_Recordset = mysqli_num_rows($Recordset);
 
 $negeriRole = $row_Recordset['negeri'];
 
-$Recordset2 = $mysqli->query("SELECT * FROM eksportExcel WHERE negeri = '$negeriRole'");
+$Recordset2 = $mysqli->query("SELECT * FROM eksportExcel WHERE negeri = '$negeriRole' ORDER BY kategori,namaSekolah DESC");
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -265,7 +265,8 @@ $b = 1;
                       <th>Nama Sekolah</th>
                       <th>Kategori</th>
                       <th>Negeri</th>
-                      <th>Status</th>
+                      <th>Tarikh dipantau</th>
+                      <th>Tarikh dikemaskini</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -277,7 +278,8 @@ $b = 1;
                         <td><?php echo $dataSekolah['namaSekolah'];?></td>
                         <td><?php echo $dataSekolah['kategori'];?></td>
                         <td><?php echo strtoupper($dataSekolah['negeri']);?></td>
-                        <td><i class="far fa-check-circle"></i></td>
+                        <td><?php echo strtoupper($dataSekolah['tarikhPemantauan']);?></td>
+                        <td><?php echo strtoupper($dataSekolah['tarikhKemaskini']);?></td>
                       </tr>
                     <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
                   </tbody>

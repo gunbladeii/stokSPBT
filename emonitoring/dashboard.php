@@ -132,7 +132,7 @@ if (isset($_POST["stok"]))
   exit;
   }
 
-$Recordset2 = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan, dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
+$Recordset2 = $mysqli->query("SELECT DATE_FORMAT(rekodPemantauan.timestamp, '%d-%m-%y') AS tarikhKemaskini, DATE_FORMAT(dataSekolah.tarikhPemantauan, '%d-%m-%y') as tarikhPemantauan, dataSekolah.negeri,dataSekolah.kodSekolah, dataSekolah.namaSekolah, dataSekolah.kategori,CONCAT('RM', FORMAT(SUM(
   CASE 
   WHEN (dataJudul.harga * rekodPemantauan.bukuStok) > 0 AND dataSekolah.kategori = 'BOSS' THEN (dataJudul.harga * rekodPemantauan.bukuStok) 
   WHEN (dataJudul.harga * rekodPemantauan.bukuLebihan) > 0 AND dataSekolah.kategori = 'BOSD' THEN (dataJudul.harga * rekodPemantauan.bukuLebihan)
@@ -148,7 +148,8 @@ $Recordset2 = $mysqli->query("SELECT DATE_FORMAT(dataSekolah.tarikhPemantauan, '
   INNER JOIN dataSekolah ON dataSekolah.kodSekolah = rekodPemantauan.kodSekolah)
   INNER JOIN dataJudul ON dataJudul.kodJudul = rekodPemantauan.kodJudul)
   WHERE dataSekolah.remark = 'observe'
-  GROUP BY dataSekolah.kodSekolah");
+  GROUP BY dataSekolah.kodSekolah  
+  ORDER BY kategori,negeri,namaSekolah DESC");
 $dataSekolah = mysqli_fetch_assoc($Recordset2);
 $totalRows_Recordset2 = mysqli_num_rows($Recordset2);
 
@@ -426,6 +427,7 @@ $b = 1;
                                 <th>Jumlah Kos(RM)</th>
                                 <th>Kos Kerosakan(RM)</th>
                                 <th>Tarikh Pantau</th>
+                                <th>Tarikh Kemaskini</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -440,6 +442,7 @@ $b = 1;
                                 <td><?php if($dataSekolah['harga'] < 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['harga'];}?></td>
                                  <td><?php if($dataSekolah['hargaRosak'] < 0){echo '<span class="badge badge-warning">Tiada</span>';}else{echo $dataSekolah['hargaRosak'];}?></td>
                                 <td><?php echo $dataSekolah['tarikhPemantauan'];?></td>
+                                <td><?php echo $dataSekolah['tarikhKemaskini'];?></td>
                               </tr>
                               <?php } while ($dataSekolah = mysqli_fetch_assoc($Recordset2)); ?>
                               </tbody>

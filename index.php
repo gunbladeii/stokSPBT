@@ -125,13 +125,13 @@ if(isset($_POST["submit"]))
 
         <form role="form" method="POST" class="login-form" name="prosesLogin">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Username" id="username" name="username" value="<?php if(isset($_COOKIE["user"])) {echo $_COOKIE["user"];} ?>">
+            <input type="text" class="form-control" placeholder="" id="Nama pengguna" name="username" value="<?php if(isset($_COOKIE["user"])) {echo $_COOKIE["user"];} ?>">
             <div class="input-group-append input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password" id="password" name="password" value="<?php if(isset($_COOKIE["pass"])) {echo $_COOKIE["pass"];}?>"/>
+            <input type="password" class="form-control" placeholder="Kata laluan" id="password" name="password" value="<?php if(isset($_COOKIE["pass"])) {echo $_COOKIE["pass"];}?>"/>
             <div class="input-group-append input-group-text">
               <span class="fas fa-lock"></span>
             </div>
@@ -141,7 +141,7 @@ if(isset($_POST["submit"]))
               <div class="icheck-primary">
                 <input type="checkbox" id="remember" name="remember" <?php if(isset($_COOKIE["user"])) { ?> checked <?php }?>/>
                 <label for="remember">
-                  Remember Me
+                  Simpan kunci masuk
                 </label>
               </div>
               <div class="col-8" style="text-align:center"><?php if(isset($msg)) {echo '<span class="badge badge-danger">'.$msg.'</span>';} ?></div>
@@ -153,21 +153,7 @@ if(isset($_POST["submit"]))
             <!-- /.col -->
           </div>
         </form>
-      <!--
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="#">I forgot my password</a>
-      </p>
+      
     </div>
     <!-- /.login-card-body -->
   </div>

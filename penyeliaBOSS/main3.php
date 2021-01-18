@@ -32,7 +32,7 @@ $jenisAliran = $_POST['jenisAliran'];
 $jenisAliran2 = $_GET['jenisAliran'];
 $enrolmen = $_POST['enrolmen'];
 $remark = $_POST['remark'];
-$tarikhPemantauan = $_POST['jenisAliran'];
+$tarikhPemantauan = $_POST['tarikhPemantauan'];
 $namaPenyelaras = $_POST['namaPenyelaras'];
 $noHP = $_POST['noHP'];
 

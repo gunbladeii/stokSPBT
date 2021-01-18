@@ -125,7 +125,7 @@ if(isset($_POST["submit"]))
 
         <form role="form" method="POST" class="login-form" name="prosesLogin">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" id="Nama pengguna" name="username" value="<?php if(isset($_COOKIE["user"])) {echo $_COOKIE["user"];} ?>">
+            <input type="text" class="form-control" placeholder="Nama Pengguna" id="username" name="username" value="<?php if(isset($_COOKIE["user"])) {echo $_COOKIE["user"];} ?>">
             <div class="input-group-append input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
@@ -148,7 +148,7 @@ if(isset($_POST["submit"]))
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <input type="submit" name="submit" class="btn btn-primary btn-block btn-flat" value="Log In">
+              <input type="submit" name="submit" class="btn btn-primary btn-block btn-flat" value="Kunci masuk">
             </div>
             <!-- /.col -->
           </div>

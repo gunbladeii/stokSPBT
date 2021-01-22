@@ -414,7 +414,7 @@ $a = 1;
                       <option value="PERALIHAN">PERALIHAN</option>
                       <option value="SJKC">SJKC</option>
                       <option value="SJKT">SJKT</option>
-                      <option value="SJKT">PPKI</option>
+                      <option value="PPKI">PPKI</option>
                     </select>
                   </div>
                 </td>

@@ -18,7 +18,7 @@ $kodJudul2 = $_POST['kodJudul'];
 
 
 if (isset($_POST['submit'])) {
-  $mysqli->query ("INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`,`bukuStok`,`bukuRosak`,`bukuRosakMurid`) VALUES ('$kodSekolah2','$namaSekolah','$kodJudul2','$bukuLebihan','$bukuStok','$bukuRosak','$bukuRosakMurid')");
+  $mysqli->query ('INSERT INTO `rekodPemantauan` (`kodSekolah`,`namaSekolah`,`kodJudul`,`bukuLebihan`,`bukuStok`,`bukuRosak`,`bukuRosakMurid`) VALUES ("$kodSekolah2","$namaSekolah","$kodJudul2","$bukuLebihan","$bukuStok","$bukuRosak","$bukuRosakMurid")');
   header("location:main3.php?kodSekolah=$kodSekolah2");
 }
 

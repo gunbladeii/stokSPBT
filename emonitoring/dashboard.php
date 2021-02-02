@@ -496,7 +496,7 @@ $b = 1;
                                 <td><?php echo $b++;?></td>
                                 <td><a href="dashboard2.php?kodJudul=<?php echo $rekodPemantauan3['kodJudul'];?>"><span class="badge badge-info"><?php echo strtoupper($rekodPemantauan3['kodJudul']);?></span></a></td>
                                 <td><?php echo $rekodPemantauan3['judul'];?></td>
-                                <td><?php echo $rekodPemantauan3['aliran'];?></td>
+                                <td><?php echo $rekodPemantauan3['jenisAsliran'];?></td>
                                 <td><?php echo $rekodPemantauan3['kategori'];?></td>
                                 <td><?php echo $rekodPemantauan3['bukuLebihan'];?></td>
                                 <td><?php if($rekodPemantauan3['bukuStok'] > 0){echo $rekodPemantauan3["bukuStok"];}else echo '<i class="fas fa-times"></i>';?></td>

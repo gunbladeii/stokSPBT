@@ -180,7 +180,7 @@ $b = 1;
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             <img src="../emonitoring/img/logo MySPBTdashboard.png" style="width:15%;height:60%">
           </div><!-- /.col -->
         </div><!-- /.row -->

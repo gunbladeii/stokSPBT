@@ -181,7 +181,7 @@ $b = 1;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <img src="../emonitoring/img/logo MySPBTdashboard.png" style="width:20%;height:60%">
+            <img src="../emonitoring/img/logo MySPBTdashboard.png" style="width:15%;height:60%">
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->

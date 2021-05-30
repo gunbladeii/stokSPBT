@@ -125,7 +125,7 @@ $a = 1;
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block"><?php echo strtoupper($row_Recordset['nama']);?></a>
+          <a href="#" class="badge badge-warning d-block"><?php echo strtoupper($row_Recordset['nama']);?></a>
         </div>
       </div>
 

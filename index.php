@@ -70,7 +70,14 @@ if(isset($_POST["submit"]))
     $_SESSION['password'] = $res["password"];
     header('Location:penyeliaBOSS/indexBOSS/index.php');
   }
-  else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "bos")
+  else if($res["role"] == "distiSPBT")
+  {
+    $_SESSION['user'] = $res['username'];
+    $_SESSION['role'] = $res["role"];
+    $_SESSION['password'] = $res["password"];
+    header('Location:distiSPBT/epnegeri.php');
+  }
+  else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "bos" || $res["role"] != "distiSPBT")
   {
     header('Location:index.php?message=fail');
   }

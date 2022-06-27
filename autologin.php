@@ -11,6 +11,10 @@
             {
             header('Location:emonitoringNegeri/indexNegeri/index.php');
             }
+            else if($_SESSION['role'] == "distiSPBT")
+            {
+            header('Location:distiSPBT/epnegeri.php');
+            }
             else if($res["role"] == "sar")
             {
             header('Location:emonitoringNegeri/epnegeri2.php');
@@ -19,7 +23,7 @@
             {
             header('Location:penyeliaBOSS/indexBOSS/index.php');
             }
-            else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "bos")
+            else if($res["role"] != "admin" || $res["role"] != "stokNegeri" ||$res["role"] != "distiSPBT" || $res["role"] != "bos")
             {
             header('Location:index.php?message=fail');
             }

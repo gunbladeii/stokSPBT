@@ -155,6 +155,7 @@ $a = 1;
     </div>
     <!-- /.modal -->
     <!-- End salary modal -->
+    
     <!-- Begin salary modal -->
     <div class="modal fade" id="judulModal">
       <div class="modal-dialog">
